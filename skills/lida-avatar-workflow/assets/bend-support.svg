@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1680" viewBox="0 0 2400 1680">
+<rect width="2400" height="1680" fill="#f3f6fa"/>
+<text x="60" y="103" font-family="Meiryo, sans-serif" font-size="58" font-weight="700" fill="#182d45">01  曲げる場所に、連続した支持帯をつくる</text>
+<text x="62" y="156" font-family="Meiryo, sans-serif" font-size="29" font-weight="400" fill="#182d45">模式図｜単純な一方向関節を側面に投影。人体の立体形状や完成した変形を示す図ではありません。</text>
+<rect x="60" y="220" width="1110" height="1170" rx="24" fill="#ffffff" stroke="#d9e1ea" stroke-width="2"/>
+<text x="90" y="289" font-family="Meiryo, sans-serif" font-size="36" font-weight="700" fill="#c44957">再検討する例：中心だけに支持列</text>
+<text x="90" y="347" font-family="Meiryo, sans-serif" font-size="29" font-weight="400" fill="#182d45">中心の1列と、遠い隣列の間が長い</text>
+<text x="95" y="405" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#182d45">曲げる前：輪の断面と、縦方向の辺</text>
+<rect x="1230" y="220" width="1110" height="1170" rx="24" fill="#ffffff" stroke="#d9e1ea" stroke-width="2"/>
+<text x="1260" y="289" font-family="Meiryo, sans-serif" font-size="36" font-weight="700" fill="#258c71">設計例：前後へ支持列を分散</text>
+<text x="1260" y="347" font-family="Meiryo, sans-serif" font-size="29" font-weight="400" fill="#182d45">曲げ帯を複数の短い面でつなぐ</text>
+<text x="1265" y="405" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#182d45">曲げる前：輪の断面と、縦方向の辺</text>
+<polygon points="260.00,484.00 605.00,484.00 605.00,576.00 260.00,576.00" fill="#ccdcdf" stroke="none" stroke-width="2"/>
+<polygon points="605.00,484.00 950.00,484.00 950.00,576.00 605.00,576.00" fill="#e7d8c0" stroke="none" stroke-width="2"/>
+<polyline points="260.00,484.00 260.00,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="260" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="260" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="605.00,484.00 605.00,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="605" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="605" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="950.00,484.00 950.00,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="950" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="950" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="260.00,484.00 605.00,484.00 950.00,484.00" fill="none" stroke="#182d45" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="260.00,576.00 605.00,576.00 950.00,576.00" fill="none" stroke="#182d45" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="260.00,530.00 605.00,530.00" fill="none" stroke="#247bb8" stroke-width="11" stroke-linejoin="round"/>
+<polyline points="605.00,530.00 950.00,530.00" fill="none" stroke="#e99135" stroke-width="11" stroke-linejoin="round"/>
+<circle cx="605" cy="530" r="14" fill="#ffffff" stroke="#182d45" stroke-width="3"/>
+<circle cx="605" cy="530" r="4" fill="#182d45" stroke="none" stroke-width="2"/>
+<polygon points="1430.00,484.00 1648.50,484.00 1648.50,576.00 1430.00,576.00" fill="#bedfee" stroke="none" stroke-width="2"/>
+<polygon points="1648.50,484.00 1694.50,484.00 1694.50,576.00 1648.50,576.00" fill="#c0dfeb" stroke="none" stroke-width="2"/>
+<polygon points="1694.50,484.00 1734.75,484.00 1734.75,576.00 1694.50,576.00" fill="#c8dde3" stroke="none" stroke-width="2"/>
+<polygon points="1734.75,484.00 1775.00,484.00 1775.00,576.00 1734.75,576.00" fill="#d3dbd7" stroke="none" stroke-width="2"/>
+<polygon points="1775.00,484.00 1815.25,484.00 1815.25,576.00 1775.00,576.00" fill="#e0d9c8" stroke="none" stroke-width="2"/>
+<polygon points="1815.25,484.00 1855.50,484.00 1855.50,576.00 1815.25,576.00" fill="#ebd7bc" stroke="none" stroke-width="2"/>
+<polygon points="1855.50,484.00 1901.50,484.00 1901.50,576.00 1855.50,576.00" fill="#f3d5b4" stroke="none" stroke-width="2"/>
+<polygon points="1901.50,484.00 2120.00,484.00 2120.00,576.00 1901.50,576.00" fill="#f5d5b1" stroke="none" stroke-width="2"/>
+<polyline points="1430.00,484.00 1430.00,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1430" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1648.50,484.00 1648.50,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1648.5" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1648.5" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1694.50,484.00 1694.50,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1694.5" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1694.5" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1734.75,484.00 1734.75,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1734.75" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1734.75" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1775.00,484.00 1775.00,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1775" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1775" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1815.25,484.00 1815.25,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1815.25" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1815.25" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1855.50,484.00 1855.50,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1855.5" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1855.5" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1901.50,484.00 1901.50,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1901.5" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1901.5" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="2120.00,484.00 2120.00,576.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="2120" cy="484.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="2120" cy="576.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1430.00,484.00 1648.50,484.00 1694.50,484.00 1734.75,484.00 1775.00,484.00 1815.25,484.00 1855.50,484.00 1901.50,484.00 2120.00,484.00" fill="none" stroke="#182d45" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1430.00,576.00 1648.50,576.00 1694.50,576.00 1734.75,576.00 1775.00,576.00 1815.25,576.00 1855.50,576.00 1901.50,576.00 2120.00,576.00" fill="none" stroke="#182d45" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1430.00,530.00 1775.00,530.00" fill="none" stroke="#247bb8" stroke-width="11" stroke-linejoin="round"/>
+<polyline points="1775.00,530.00 2120.00,530.00" fill="none" stroke="#e99135" stroke-width="11" stroke-linejoin="round"/>
+<circle cx="1775" cy="530" r="14" fill="#ffffff" stroke="#182d45" stroke-width="3"/>
+<circle cx="1775" cy="530" r="4" fill="#182d45" stroke="none" stroke-width="2"/>
+<text x="105" y="661" font-family="Meiryo, sans-serif" font-size="27" font-weight="400" fill="#182d45">面を横断する色＝2骨への影響割合</text>
+<text x="1275" y="661" font-family="Meiryo, sans-serif" font-size="27" font-weight="400" fill="#182d45">列の位置と、影響割合を別々に設計する</text>
+<text x="95" y="738" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#182d45">曲げた状態：同じ骨角度 90° の説明例</text>
+<text x="1265" y="738" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#182d45">曲げた状態：同じ骨角度 90° の説明例</text>
+<polygon points="260.00,1124.00 582.00,1147.00 628.00,1193.00 260.00,1216.00" fill="#ccdcdf" stroke="none" stroke-width="2"/>
+<polygon points="582.00,1147.00 559.00,825.00 651.00,825.00 628.00,1193.00" fill="#e7d8c0" stroke="none" stroke-width="2"/>
+<polyline points="260.00,1124.00 260.00,1216.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="260.0" cy="1124.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="260.0" cy="1216.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="582.00,1147.00 628.00,1193.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="582.0" cy="1147.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="628.0" cy="1193.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="559.00,825.00 651.00,825.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="559.0" cy="825.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="651.0" cy="825.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="260.00,1124.00 582.00,1147.00 559.00,825.00" fill="none" stroke="#182d45" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="260.00,1216.00 628.00,1193.00 651.00,825.00" fill="none" stroke="#182d45" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="260.00,1170.00 605.00,1170.00" fill="none" stroke="#247bb8" stroke-width="11" stroke-linejoin="round"/>
+<polyline points="605.00,1170.00 605.00,825.00" fill="none" stroke="#e99135" stroke-width="11" stroke-linejoin="round"/>
+<circle cx="605" cy="1170" r="14" fill="#ffffff" stroke="#182d45" stroke-width="3"/>
+<circle cx="605" cy="1170" r="4" fill="#182d45" stroke="none" stroke-width="2"/>
+<polygon points="1430.00,1124.00 1648.50,1124.00 1648.50,1216.00 1430.00,1216.00" fill="#bedfee" stroke="none" stroke-width="2"/>
+<polygon points="1648.50,1124.00 1697.51,1135.02 1705.52,1219.01 1648.50,1216.00" fill="#c0dfeb" stroke="none" stroke-width="2"/>
+<polygon points="1697.51,1135.02 1733.20,1147.24 1757.99,1214.45 1705.52,1219.01" fill="#c8dde3" stroke="none" stroke-width="2"/>
+<polygon points="1733.20,1147.24 1752.00,1147.00 1798.00,1193.00 1757.99,1214.45" fill="#d3dbd7" stroke="none" stroke-width="2"/>
+<polygon points="1752.00,1147.00 1752.24,1128.20 1819.45,1152.99 1798.00,1193.00" fill="#e0d9c8" stroke="none" stroke-width="2"/>
+<polygon points="1752.24,1128.20 1740.02,1092.51 1824.01,1100.52 1819.45,1152.99" fill="#ebd7bc" stroke="none" stroke-width="2"/>
+<polygon points="1740.02,1092.51 1729.00,1043.50 1821.00,1043.50 1824.01,1100.52" fill="#f3d5b4" stroke="none" stroke-width="2"/>
+<polygon points="1729.00,1043.50 1729.00,825.00 1821.00,825.00 1821.00,1043.50" fill="#f5d5b1" stroke="none" stroke-width="2"/>
+<polyline points="1430.00,1124.00 1430.00,1216.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430.0" cy="1124.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1430.0" cy="1216.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1648.50,1124.00 1648.50,1216.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1648.5" cy="1124.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1648.5" cy="1216.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1697.51,1135.02 1705.52,1219.01" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1697.5067618332082" cy="1135.0247933884298" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1705.5247933884298" cy="1219.0067618332082" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1733.20,1147.24 1757.99,1214.45" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1733.2008534466565" cy="1147.2371983001503" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1757.9871983001503" cy="1214.4508534466568" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1752.00,1147.00 1798.00,1193.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1752.0" cy="1147.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1798.0" cy="1193.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1752.24,1128.20 1819.45,1152.99" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1752.2371983001503" cy="1128.2008534466568" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1819.4508534466568" cy="1152.9871983001503" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1740.02,1092.51 1824.01,1100.52" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1740.0247933884298" cy="1092.5067618332082" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1824.0067618332082" cy="1100.5247933884298" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1729.00,1043.50 1821.00,1043.50" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1729.0" cy="1043.5" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1821.0" cy="1043.5" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1729.00,825.00 1821.00,825.00" fill="none" stroke="#3a536c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1729.0" cy="825.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1821.0" cy="825.0" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1430.00,1124.00 1648.50,1124.00 1697.51,1135.02 1733.20,1147.24 1752.00,1147.00 1752.24,1128.20 1740.02,1092.51 1729.00,1043.50 1729.00,825.00" fill="none" stroke="#182d45" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1430.00,1216.00 1648.50,1216.00 1705.52,1219.01 1757.99,1214.45 1798.00,1193.00 1819.45,1152.99 1824.01,1100.52 1821.00,1043.50 1821.00,825.00" fill="none" stroke="#182d45" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1430.00,1170.00 1775.00,1170.00" fill="none" stroke="#247bb8" stroke-width="11" stroke-linejoin="round"/>
+<polyline points="1775.00,1170.00 1775.00,825.00" fill="none" stroke="#e99135" stroke-width="11" stroke-linejoin="round"/>
+<circle cx="1775" cy="1170" r="14" fill="#ffffff" stroke="#182d45" stroke-width="3"/>
+<circle cx="1775" cy="1170" r="4" fill="#182d45" stroke="none" stroke-width="2"/>
+<text x="105" y="876" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#c44957">内側：圧縮</text>
+<polyline points="295.00,902.00 535.00,1090.00" fill="none" stroke="#c44957" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="535.00,1090.00 525.15,1073.39 516.51,1084.41" fill="#c44957" stroke="none" stroke-width="2"/>
+<text x="784" y="1150" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#247bb8">外側：伸長</text>
+<polyline points="831.00,1190.00 662.00,1220.00" fill="none" stroke="#247bb8" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="662.00,1220.00 680.95,1223.75 678.50,1209.96" fill="#247bb8" stroke="none" stroke-width="2"/>
+<text x="1275" y="875" font-family="Meiryo, sans-serif" font-size="28" font-weight="700" fill="#c44957">内側：圧縮を確認</text>
+<polyline points="1535.00,902.00 1710.00,1082.00" fill="none" stroke="#c44957" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1710.00,1082.00 1702.47,1064.21 1692.43,1073.97" fill="#c44957" stroke="none" stroke-width="2"/>
+<text x="1957" y="1149" font-family="Meiryo, sans-serif" font-size="28" font-weight="700" fill="#247bb8">外側：伸長を確認</text>
+<polyline points="2115.00,1190.00 1840.00,1220.00" fill="none" stroke="#247bb8" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1840.00,1220.00 1858.65,1225.01 1857.13,1211.09" fill="#247bb8" stroke="none" stroke-width="2"/>
+<text x="105" y="1328" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">長い面・急な重みの切替を、再診断する。</text>
+<text x="1275" y="1328" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">途中の曲げ角度・ねじり・体積も確認する。</text>
+<text x="70" y="1472" font-family="Meiryo, sans-serif" font-size="32" font-weight="700" fill="#182d45">図の読み方</text>
+<polyline points="330.00,1464.00 415.00,1464.00" fill="none" stroke="#182d45" stroke-width="3" stroke-linejoin="round"/>
+<text x="430" y="1468" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">輪の側面断面</text>
+<circle cx="800" cy="1465" r="13" fill="#ffffff" stroke="#182d45" stroke-width="3"/>
+<circle cx="800" cy="1465" r="4" fill="#182d45" stroke="none" stroke-width="2"/>
+<text x="827" y="1468" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">骨の曲げ軸（紙面に垂直）</text>
+<rect x="1440" y="1445" width="85" height="40" rx="0" fill="#dadad0" stroke="none" stroke-width="2"/>
+<text x="1540" y="1468" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">色の推移＝ウェイトの切替</text>
+<text x="70" y="1549" font-family="Meiryo, sans-serif" font-size="29" font-weight="400" fill="#182d45">本数・幅・重みは説明例。支持列を増やすだけで、へこみ・体積減少・貫通が解決するとは限りません。</text>
+<text x="70" y="1599" font-family="Meiryo, sans-serif" font-size="27" font-weight="400" fill="#182d45">輪＝表面を一周する閉じた列の側面投影。肩・股は多方向に動くため、この配置をそのまま当てはめません。</text>
+</svg>

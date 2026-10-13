@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1550" viewBox="0 0 2400 1550">
+<rect width="2400" height="1550" fill="#f3f6fa"/>
+<text x="60" y="102" font-family="Meiryo, sans-serif" font-size="57" font-weight="700" fill="#182d45">02  最大変形帯で、面と辺の流れを途切れさせない</text>
+<text x="62" y="155" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">模式図｜表面パッチを平面に展開した接続例。実メッシュでは立体の曲率・変形方向に合わせて配置します。</text>
+<rect x="60" y="220" width="1110" height="950" rx="24" fill="#ffffff" stroke="#d9e1ea" stroke-width="2"/>
+<text x="90" y="285" font-family="Meiryo, sans-serif" font-size="35" font-weight="700" fill="#c44957">再検討する例：変形帯に接続が集中</text>
+<text x="90" y="343" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">扇状の中心が、圧縮・伸長を受ける帯内にある</text>
+<rect x="1230" y="220" width="1110" height="950" rx="24" fill="#ffffff" stroke="#d9e1ea" stroke-width="2"/>
+<text x="1260" y="285" font-family="Meiryo, sans-serif" font-size="35" font-weight="700" fill="#258c71">設計例：連続した面の帯を確保</text>
+<text x="1260" y="343" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">極や接続の切替を、変形の小さい位置へ置く</text>
+<text x="472" y="409" font-family="Meiryo, sans-serif" font-size="30" font-weight="700" fill="#e99135">最大変形帯</text>
+<text x="1780" y="409" font-family="Meiryo, sans-serif" font-size="30" font-weight="700" fill="#e99135">最大変形帯</text>
+<rect x="521.25" y="435" width="187.5" height="580" rx="0" fill="#f9ecd9" stroke="none" stroke-width="2"/>
+<polygon points="240.00,475.00 365.00,475.00 365.00,600.00 240.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="240.00,600.00 365.00,600.00 365.00,725.00 240.00,725.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="240.00,725.00 365.00,725.00 365.00,850.00 240.00,850.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="240.00,850.00 365.00,850.00 365.00,975.00 240.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="365.00,475.00 490.00,475.00 490.00,600.00 365.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="365.00,600.00 490.00,600.00 490.00,725.00 365.00,725.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="365.00,725.00 490.00,725.00 490.00,850.00 365.00,850.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="365.00,850.00 490.00,850.00 490.00,975.00 365.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="490.00,475.00 615.00,475.00 615.00,600.00 490.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="490.00,850.00 615.00,850.00 615.00,975.00 490.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,475.00 740.00,475.00 740.00,600.00 615.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,850.00 740.00,850.00 740.00,975.00 615.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="740.00,475.00 865.00,475.00 865.00,600.00 740.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="740.00,600.00 865.00,600.00 865.00,725.00 740.00,725.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="740.00,725.00 865.00,725.00 865.00,850.00 740.00,850.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="740.00,850.00 865.00,850.00 865.00,975.00 740.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="865.00,475.00 990.00,475.00 990.00,600.00 865.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="865.00,600.00 990.00,600.00 990.00,725.00 865.00,725.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="865.00,725.00 990.00,725.00 990.00,850.00 865.00,850.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="865.00,850.00 990.00,850.00 990.00,975.00 865.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,725.00 490.00,600.00 615.00,600.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,725.00 615.00,600.00 740.00,600.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,725.00 740.00,600.00 740.00,725.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,725.00 740.00,725.00 740.00,850.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,725.00 740.00,850.00 615.00,850.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,725.00 615.00,850.00 490.00,850.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,725.00 490.00,850.00 490.00,725.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="615.00,725.00 490.00,725.00 490.00,600.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<circle cx="240" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="240" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="240" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="865" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="865" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="865" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="365" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="865" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="365" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="865" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="365" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="365" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="365" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="990" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="990" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="990" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="490" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="990" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="490" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="990" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="490" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="490" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="490" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="615" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="615" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="615" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="615" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="615" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="740" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="740" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="740" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="740" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="740" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="240" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="240" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="615" cy="725" r="11" fill="#c44957" stroke="#ffffff" stroke-width="3"/>
+<polyline points="521.25,435.00 521.25,1015.00" fill="none" stroke="#e99135" stroke-width="3" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<polyline points="708.75,435.00 708.75,1015.00" fill="none" stroke="#e99135" stroke-width="3" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<rect x="1672.5" y="435" width="262.5" height="580" rx="0" fill="#f9ecd9" stroke="none" stroke-width="2"/>
+<polygon points="1410.00,475.00 1510.00,475.00 1510.00,600.00 1410.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1410.00,850.00 1510.00,850.00 1510.00,975.00 1410.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,475.00 1610.00,475.00 1610.00,600.00 1510.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,850.00 1610.00,850.00 1610.00,975.00 1510.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1610.00,475.00 1735.00,475.00 1735.00,600.00 1610.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1610.00,600.00 1735.00,600.00 1735.00,725.00 1610.00,725.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1610.00,725.00 1735.00,725.00 1735.00,850.00 1610.00,850.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1610.00,850.00 1735.00,850.00 1735.00,975.00 1610.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1735.00,475.00 1860.00,475.00 1860.00,600.00 1735.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1735.00,600.00 1860.00,600.00 1860.00,725.00 1735.00,725.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1735.00,725.00 1860.00,725.00 1860.00,850.00 1735.00,850.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1735.00,850.00 1860.00,850.00 1860.00,975.00 1735.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1860.00,475.00 1985.00,475.00 1985.00,600.00 1860.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1860.00,600.00 1985.00,600.00 1985.00,725.00 1860.00,725.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1860.00,725.00 1985.00,725.00 1985.00,850.00 1860.00,850.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1860.00,850.00 1985.00,850.00 1985.00,975.00 1860.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1985.00,475.00 2160.00,475.00 2160.00,600.00 1985.00,600.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1985.00,600.00 2160.00,600.00 2160.00,725.00 1985.00,725.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1985.00,725.00 2160.00,725.00 2160.00,850.00 1985.00,850.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1985.00,850.00 2160.00,850.00 2160.00,975.00 1985.00,975.00" fill="#f4f8fc" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,725.00 1410.00,600.00 1510.00,600.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,725.00 1510.00,600.00 1610.00,600.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,725.00 1610.00,600.00 1610.00,725.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,725.00 1610.00,725.00 1610.00,850.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,725.00 1610.00,850.00 1510.00,850.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,725.00 1510.00,850.00 1410.00,850.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,725.00 1410.00,850.00 1410.00,725.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<polygon points="1510.00,725.00 1410.00,725.00 1410.00,600.00" fill="#f5dce0" stroke="#182d45" stroke-width="3"/>
+<circle cx="1510.0" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1860.0" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1510.0" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1985.0" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1985.0" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1985.0" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1985.0" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1985.0" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1410" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1410" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1410" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1410" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1410" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1610.0" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1610.0" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1610.0" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="2160" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="2160" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1735.0" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="2160" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1610.0" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1610.0" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1735.0" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="2160" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1735.0" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="2160" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1735.0" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1735.0" cy="975" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1860.0" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1510.0" cy="475" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1860.0" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1510.0" cy="600" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1860.0" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1510.0" cy="725" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1860.0" cy="850" r="5" fill="#182d45" stroke="none" stroke-width="2"/>
+<circle cx="1510.0" cy="725" r="11" fill="#c44957" stroke="#ffffff" stroke-width="3"/>
+<polyline points="1672.50,435.00 1672.50,1015.00" fill="none" stroke="#e99135" stroke-width="3" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<polyline points="1935.00,435.00 1935.00,1015.00" fill="none" stroke="#e99135" stroke-width="3" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<text x="97" y="1034" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#c44957">8辺が1頂点へ集まる例。</text>
+<text x="97" y="1079" font-family="Meiryo, sans-serif" font-size="27" font-weight="400" fill="#182d45">この集中箇所がつぶれ・ひだを作らないか確認。</text>
+<text x="1267" y="1034" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#258c71">帯内は、辺の流れと面の大きさを揃える。</text>
+<text x="1267" y="1079" font-family="Meiryo, sans-serif" font-size="27" font-weight="400" fill="#182d45">帯外で密度を移行。極は実際の動作で評価する。</text>
+<text x="70" y="1250" font-family="Meiryo, sans-serif" font-size="30" font-weight="700" fill="#182d45">黄の帯＝想定する最大変形域   赤の面＝扇状接続   ●＝頂点   線＝辺</text>
+<text x="70" y="1313" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">避けたいのは、強く変形する場所の接続集中・極端な細長い面・急な密度変化。三角面そのものを禁止しません。</text>
+<text x="70" y="1365" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">連続した四角格子は流れを設計しやすい一例です。四角面だけでも、曲率・関節位置・ウェイトが不適切なら破綻します。</text>
+<text x="70" y="1417" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">肩・脇・股は多方向に動くため、この一枚の平面格子では足りません。複合姿勢と途中角度で再検査してください。</text>
+<text x="70" y="1466" font-family="Meiryo, sans-serif" font-size="26" font-weight="400" fill="#182d45">接続の確認：各扇状パッチは8三角面。格子の辺と頂点を共有し、重複面・独立した重なり面はありません。</text>
+</svg>
