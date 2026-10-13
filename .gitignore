@@ -1,0 +1,14 @@
+dist/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.blend
+*.blend1
+*.fbx
+*.vrm
+*.glb
+*.npz
+*.log
