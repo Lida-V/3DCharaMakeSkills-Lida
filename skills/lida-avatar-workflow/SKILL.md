@@ -11,12 +11,17 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 
 ## 必要な説明だけ読む
 
+制作の初回と各工程の着手前には[品質目標と工程のゴール](references/quality-goals.md)を読む。初回は用途・見る距離・必須動作・使用先から具体的な品質案と推奨理由を示す。各工程では到達状態、比較/終了条件、変更/固定範囲、提出物と後工程の残件を短く提示して記録する。
+
+既に決まった品質・用途・原画は引き継ぎ、通常の着手ごとに再承認を要求しない。最終品質と局所の引継ぎゴールを分け、未達を隠すために品質や必要な動作を下げない。
+
 工程が広い場合は[工程索引](references/process-index.md)から選ぶ。全資料を一度に読み込まない。
 
 方向・変更範囲・接続を説明するときは[図解索引](references/diagram-index.md)から必要な図だけ使う。実画像と図番号を対応させ、模式図と以前の実メッシュ診断を区別する。PNGは表示・添付用、SVGは拡大用。
 
 | 今の作業 | 読む資料 |
 | --- | --- |
+| 制作初回・工程開始・終了条件の見直し | [品質の提案とゴール設定](references/quality-goals.md) |
 | 原画・素体・服・部品の準備 | [入力素材](references/input-materials.md)、[複数角度から三面図](references/multiangle-threeview.md) |
 | 網目・関節・スキンウェイト | [メッシュと重み](references/mesh-weight.md)、膝の具体例なら[線の配置](references/knee-edge-placement.md) |
 | 形・陰影・追従の原因診断 | [具体的な調整方法](references/adjustment-methods.md) |
