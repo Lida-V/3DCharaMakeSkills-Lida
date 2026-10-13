@@ -46,8 +46,8 @@
     "tests/test_validate.py"
   ],
   "asset_sha256": {
-    "skills/lida-avatar-workflow/assets/actual-knee-bend.svg": "883a1e0fcea404f5fed6333c4087ea818c59809724b9e199d0cb08e4eb8671dd",
-    "skills/lida-avatar-workflow/assets/actual-knee-layout.svg": "461ddb2a88922c51692598a977bbee197aaf4f100c3cf3c9005db674775ac192",
+    "skills/lida-avatar-workflow/assets/actual-knee-bend.svg": "2a26641f8acb35a73bcb1e16d4439d794f5b755d7b5ba834599a5b20b5f08b0c",
+    "skills/lida-avatar-workflow/assets/actual-knee-layout.svg": "306d3e0611d24a6b6c9d6c648130cfa0d7e15851ece66e58b2a20bc7b91e5cca",
     "skills/lida-avatar-workflow/assets/bend-support.svg": "de8692310284df1d3e074cd615569e86e2cba6a83ab2391d8380a4bb17ef35e5",
     "skills/lida-avatar-workflow/assets/flow-continuity.svg": "48aee21d4dd165563157c82ada569aa35434cd075f6c76c8a8e27274bef5edd5"
   }
