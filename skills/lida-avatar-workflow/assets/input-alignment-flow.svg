@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1190" viewBox="0 0 1500 1190">
+<rect width="1500" height="1190" fill="#f3f6fa"/>
+<text x="38" y="66" font-family="Meiryo, sans-serif" font-size="36" font-weight="700" fill="#182d45">素材は、同じ基準から用途ごとに分ける</text>
+<text x="38" y="110" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#82909f">模式図：素材の関係を示す。生成画像や実モデルの比較図ではありません。</text>
+<text x="40" y="174" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#258c71">1  身体と衣装：共通の姿勢・縮尺・目印を保持</text>
+<rect x="40" y="197" width="330" height="313" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="62" y="245" font-family="Meiryo, sans-serif" font-size="26" font-weight="700" fill="#182d45">基準デザイン</text>
+<text x="62" y="287" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">顔・頭身・衣装を決める</text>
+<text x="62" y="323" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">全身の目印を記録する</text>
+<rect x="435" y="197" width="315" height="313" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="457" y="245" font-family="Meiryo, sans-serif" font-size="26" font-weight="700" fill="#182d45">素体の資料</text>
+<text x="457" y="287" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">身体の輪郭・関節が分かる</text>
+<text x="457" y="323" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">簡単な密着服でもよい</text>
+<polyline points="459.00,365.00 720.00,365.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="497" cy="365" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="459.00,395.00 720.00,395.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="497" cy="395" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="459.00,425.00 720.00,425.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="497" cy="425" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="459.00,455.00 720.00,455.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="497" cy="455" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="497.00,365.00 497.00,455.00" fill="none" stroke="#247bb8" stroke-width="3" stroke-linejoin="round"/>
+<text x="528" y="481" font-family="Meiryo, sans-serif" font-size="20" font-weight="400" fill="#247bb8">同じ高さ・比率</text>
+<rect x="785" y="197" width="315" height="313" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="807" y="245" font-family="Meiryo, sans-serif" font-size="26" font-weight="700" fill="#182d45">服の資料</text>
+<text x="807" y="287" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">同じ身体に服を加える</text>
+<text x="807" y="323" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">身頃・裾・重なりを見せる</text>
+<polyline points="809.00,365.00 1070.00,365.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="847" cy="365" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="809.00,395.00 1070.00,395.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="847" cy="395" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="809.00,425.00 1070.00,425.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="847" cy="425" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="809.00,455.00 1070.00,455.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="847" cy="455" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="847.00,365.00 847.00,455.00" fill="none" stroke="#247bb8" stroke-width="3" stroke-linejoin="round"/>
+<text x="878" y="481" font-family="Meiryo, sans-serif" font-size="20" font-weight="400" fill="#247bb8">同じ高さ・比率</text>
+<rect x="1135" y="197" width="315" height="313" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="1157" y="245" font-family="Meiryo, sans-serif" font-size="26" font-weight="700" fill="#182d45">上着の資料</text>
+<text x="1157" y="287" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">同じ服に上着を加える</text>
+<text x="1157" y="323" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">接続・厚みを見せる</text>
+<polyline points="1159.00,365.00 1420.00,365.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="1197" cy="365" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="1159.00,395.00 1420.00,395.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="1197" cy="395" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="1159.00,425.00 1420.00,425.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="1197" cy="425" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="1159.00,455.00 1420.00,455.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="1197" cy="455" r="4" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="1197.00,365.00 1197.00,455.00" fill="none" stroke="#247bb8" stroke-width="3" stroke-linejoin="round"/>
+<text x="1228" y="481" font-family="Meiryo, sans-serif" font-size="20" font-weight="400" fill="#247bb8">同じ高さ・比率</text>
+<polyline points="382.00,310.00 425.00,310.00" fill="none" stroke="#182d45" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="425.00,310.00 407.00,303.00 407.00,317.00" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="762.00,310.00 775.00,310.00" fill="none" stroke="#182d45" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="775.00,310.00 757.00,303.00 757.00,317.00" fill="#182d45" stroke="none" stroke-width="2"/>
+<polyline points="1112.00,310.00 1125.00,310.00" fill="none" stroke="#182d45" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1125.00,310.00 1107.00,303.00 1107.00,317.00" fill="#182d45" stroke="none" stroke-width="2"/>
+<text x="62" y="419" font-family="Meiryo, sans-serif" font-size="23" font-weight="400" fill="#247bb8">頭頂・肩・股・足など</text>
+<text x="62" y="457" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">目印の定義をそろえる</text>
+<text x="40" y="564" font-family="Meiryo, sans-serif" font-size="22" font-weight="700" fill="#c44957">段階別の生成は次回の予防案。独立した全身3体を重ねる手順ではありません。</text>
+<text x="40" y="624" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#258c71">2  顔の立体：角度資料を先に作り、三面図へ整理</text>
+<rect x="40" y="650" width="310" height="184" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="62" y="698" font-family="Meiryo, sans-serif" font-size="26" font-weight="700" fill="#182d45">基準絵</text>
+<text x="62" y="740" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">同じ顔立ち・通常表情</text>
+<text x="62" y="776" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">輪郭と比率を固定</text>
+<polyline points="362.00,744.00 399.00,744.00" fill="none" stroke="#182d45" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="399.00,744.00 381.00,737.00 381.00,751.00" fill="#182d45" stroke="none" stroke-width="2"/>
+<rect x="410" y="650" width="310" height="184" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="432" y="698" font-family="Meiryo, sans-serif" font-size="26" font-weight="700" fill="#182d45">複数角度</text>
+<text x="432" y="740" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">正面・斜め・横・下など</text>
+<text x="432" y="776" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">頬・顎下・頭蓋を見る</text>
+<polyline points="732.00,744.00 769.00,744.00" fill="none" stroke="#182d45" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="769.00,744.00 751.00,737.00 751.00,751.00" fill="#182d45" stroke="none" stroke-width="2"/>
+<rect x="780" y="650" width="310" height="184" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="802" y="698" font-family="Meiryo, sans-serif" font-size="26" font-weight="700" fill="#182d45">三面図</text>
+<text x="802" y="740" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">正面・側面・背面を構成</text>
+<text x="802" y="776" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">高さ・奥行き・縮尺を照合</text>
+<polyline points="1102.00,744.00 1139.00,744.00" fill="none" stroke="#182d45" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1139.00,744.00 1121.00,737.00 1121.00,751.00" fill="#182d45" stroke="none" stroke-width="2"/>
+<rect x="1150" y="650" width="310" height="184" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="1172" y="698" font-family="Meiryo, sans-serif" font-size="26" font-weight="700" fill="#182d45">粗い3D</text>
+<text x="1172" y="740" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">無地で複数方向を確認</text>
+<text x="1172" y="776" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">通常顔を決めて表情へ</text>
+<polyline points="190.00,846.00 190.00,910.00" fill="none" stroke="#247bb8" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="190.00,910.00 197.00,892.00 183.00,892.00" fill="#247bb8" stroke="none" stroke-width="2"/>
+<polyline points="190.00,910.00 935.00,910.00" fill="none" stroke="#247bb8" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="935.00,910.00 935.00,846.00" fill="none" stroke="#247bb8" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="935.00,846.00 928.00,864.00 942.00,864.00" fill="#247bb8" stroke="none" stroke-width="2"/>
+<text x="270" y="948" font-family="Meiryo, sans-serif" font-size="24" font-weight="700" fill="#247bb8">三面図には、基準絵と角度資料の両方を渡す</text>
+<rect x="40" y="980" width="1420" height="168" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="65" y="1032" font-family="Meiryo, sans-serif" font-size="27" font-weight="700" fill="#182d45">最初にそろえる：表情・縮尺・透視・高さの目印・前後の厚み</text>
+<text x="65" y="1077" font-family="Meiryo, sans-serif" font-size="23" font-weight="400" fill="#182d45">顔の丸み改善は今回の制作経験。角度資料だけの効果として断定しません。</text>
+<text x="65" y="1118" font-family="Meiryo, sans-serif" font-size="23" font-weight="400" fill="#182d45">三面図は厳密な投影ではないため、出力後に目印を照合して直します。</text>
+</svg>

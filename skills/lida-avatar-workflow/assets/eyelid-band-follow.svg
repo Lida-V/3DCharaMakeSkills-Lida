@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1080" viewBox="0 0 1200 1080" role="img" aria-labelledby="title desc">
+<title id="title">まぶたは縁と隣接する面を一体で動かす</title><desc id="desc">縁と次の面列で局所的な動きが違うと接続面がねじれ白い内側が露出しうる。縁と第一隣接列に同じ軸位置、回転角、半径変化を与え外側へ減衰する。上、奥行き、周方向を区別する模式図。</desc>
+<rect width="1200" height="1080" fill="#f4f7fb"/>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto-start-reverse"><path d="M0 0 L9 4.5 L0 9Z" fill="#19334a"/></marker><marker id="blue-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#147cac"/></marker><marker id="red-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#c34251"/></marker></defs>
+<g font-family="Yu Gothic, Meiryo, sans-serif" fill="#19334a">
+<text x="38" y="49" font-size="32" font-weight="700">まぶたは「縁と隣の面」を一体で動かす</text>
+<text x="38" y="82" font-size="19" fill="#576879">模式図：動いている途中の局所パッチ。列数や形は、実メッシュで決め直します。</text>
+<rect x="35" y="112" width="540" height="486" rx="14" fill="#ffffff" stroke="#d5e0eb"/>
+<rect x="625" y="112" width="540" height="486" rx="14" fill="#ffffff" stroke="#d5e0eb"/>
+<text x="60" y="149" font-size="22" fill="#c34251" font-weight="700">1  つまずく例：動きのルールが別々</text>
+<text x="650" y="149" font-size="22" fill="#197c68" font-weight="700">2  設計の要点：同じ局所変換を共有</text>
+<text x="60" y="184" font-size="18">縁だけ閉じて、次の列を別方向へ補正する。</text>
+<text x="650" y="184" font-size="18">縁と第1列が連動し、外側へ徐々に戻す。</text>
+<path d="M85 340 L170 322 L170 380 L85 400 Z" fill="#fff0f1" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M170 322 L255 310 L255 303 L170 380 Z" fill="#fff0f1" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M255 310 L340 322 L340 270 L255 303 Z" fill="#fff0f1" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M340 322 L425 340 L425 275 L340 270 Z" fill="#fff0f1" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M85 400 L170 380 L170 416 L85 437 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M170 380 L255 303 L255 413 L170 416 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M255 303 L340 270 L340 423 L255 413 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M340 270 L425 275 L425 433 L340 423 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M85 437 L170 416 L170 477 L85 477 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M170 416 L255 413 L255 477 L170 477 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M255 413 L340 423 L340 477 L255 477 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M340 423 L425 433 L425 477 L340 477 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M85 340 L170 322 L255 310 L340 322 L425 340" fill="none" stroke="#147cac" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="85.0" cy="340.0" r="4" fill="#147cac"/>
+<circle cx="170.0" cy="322.0" r="4" fill="#147cac"/>
+<circle cx="255.0" cy="310.0" r="4" fill="#147cac"/>
+<circle cx="340.0" cy="322.0" r="4" fill="#147cac"/>
+<circle cx="425.0" cy="340.0" r="4" fill="#147cac"/>
+<path d="M85 400 L170 380 L255 303 L340 270 L425 275" fill="none" stroke="#c34251" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="85.0" cy="400.0" r="4" fill="#c34251"/>
+<circle cx="170.0" cy="380.0" r="4" fill="#c34251"/>
+<circle cx="255.0" cy="303.0" r="4" fill="#c34251"/>
+<circle cx="340.0" cy="270.0" r="4" fill="#c34251"/>
+<circle cx="425.0" cy="275.0" r="4" fill="#c34251"/>
+<path d="M85 437 L170 416 L255 413 L340 423 L425 433" fill="none" stroke="#b96506" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="85.0" cy="437.0" r="4" fill="#b96506"/>
+<circle cx="170.0" cy="416.0" r="4" fill="#b96506"/>
+<circle cx="255.0" cy="413.0" r="4" fill="#b96506"/>
+<circle cx="340.0" cy="423.0" r="4" fill="#b96506"/>
+<circle cx="425.0" cy="433.0" r="4" fill="#b96506"/>
+<path d="M85 477 L170 477 L255 477 L340 477 L425 477" fill="none" stroke="#74818d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<circle cx="85.0" cy="477.0" r="4" fill="#74818d"/>
+<circle cx="170.0" cy="477.0" r="4" fill="#74818d"/>
+<circle cx="255.0" cy="477.0" r="4" fill="#74818d"/>
+<circle cx="340.0" cy="477.0" r="4" fill="#74818d"/>
+<circle cx="425.0" cy="477.0" r="4" fill="#74818d"/>
+<path d="M675 340 L760 322 L760 362 L675 380 Z" fill="#e1f2fa" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M760 322 L845 310 L845 350 L760 362 Z" fill="#e1f2fa" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M845 310 L930 322 L930 362 L845 350 Z" fill="#e1f2fa" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M930 322 L1015 340 L1015 380 L930 362 Z" fill="#e1f2fa" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M675 380 L760 362 L760 412 L675 425 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M760 362 L845 350 L845 400 L760 412 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M845 350 L930 362 L930 412 L845 400 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M930 362 L1015 380 L1015 425 L930 412 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M675 425 L760 412 L760 477 L675 477 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M760 412 L845 400 L845 477 L760 477 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M845 400 L930 412 L930 477 L845 477 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M930 412 L1015 425 L1015 477 L930 477 Z" fill="#fff0d8" stroke="#c1d0dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M675 340 L760 322 L845 310 L930 322 L1015 340" fill="none" stroke="#147cac" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="675.0" cy="340.0" r="4" fill="#147cac"/>
+<circle cx="760.0" cy="322.0" r="4" fill="#147cac"/>
+<circle cx="845.0" cy="310.0" r="4" fill="#147cac"/>
+<circle cx="930.0" cy="322.0" r="4" fill="#147cac"/>
+<circle cx="1015.0" cy="340.0" r="4" fill="#147cac"/>
+<path d="M675 380 L760 362 L845 350 L930 362 L1015 380" fill="none" stroke="#147cac" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="675.0" cy="380.0" r="4" fill="#147cac"/>
+<circle cx="760.0" cy="362.0" r="4" fill="#147cac"/>
+<circle cx="845.0" cy="350.0" r="4" fill="#147cac"/>
+<circle cx="930.0" cy="362.0" r="4" fill="#147cac"/>
+<circle cx="1015.0" cy="380.0" r="4" fill="#147cac"/>
+<path d="M675 425 L760 412 L845 400 L930 412 L1015 425" fill="none" stroke="#b96506" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="675.0" cy="425.0" r="4" fill="#b96506"/>
+<circle cx="760.0" cy="412.0" r="4" fill="#b96506"/>
+<circle cx="845.0" cy="400.0" r="4" fill="#b96506"/>
+<circle cx="930.0" cy="412.0" r="4" fill="#b96506"/>
+<circle cx="1015.0" cy="425.0" r="4" fill="#b96506"/>
+<path d="M675 477 L760 477 L845 477 L930 477 L1015 477" fill="none" stroke="#74818d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<circle cx="675.0" cy="477.0" r="4" fill="#74818d"/>
+<circle cx="760.0" cy="477.0" r="4" fill="#74818d"/>
+<circle cx="845.0" cy="477.0" r="4" fill="#74818d"/>
+<circle cx="930.0" cy="477.0" r="4" fill="#74818d"/>
+<circle cx="1015.0" cy="477.0" r="4" fill="#74818d"/>
+<path d="M292 314 L340 312 L340 285 Z" fill="#fff" stroke="#c34251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M459 231 L351 291" fill="none" stroke="#c34251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#red-arrow)"/>
+<text x="306" y="226" font-size="18" fill="#c34251" font-weight="700">白い内側が見える例</text>
+<path d="M159 309 L164 276" fill="none" stroke="#147cac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<path d="M159 386 L171 414" fill="none" stroke="#c34251" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#red-arrow)"/>
+<text x="60" y="526" font-size="19" fill="#c34251" font-weight="700">連結面がねじれ、折れや隙間ができる。</text>
+<text x="60" y="562" font-size="18">白線は材質・法線・内壁も切り分けて調べる。</text>
+<circle cx="1112" cy="323" r="15" fill="#147cac"/>
+<text x="1106" y="330" font-size="19" fill="#fff" font-weight="700">1</text>
+<circle cx="1112" cy="372" r="15" fill="#147cac"/>
+<text x="1106" y="379" font-size="19" fill="#fff" font-weight="700">1</text>
+<circle cx="1112" cy="423" r="15" fill="#b96506"/>
+<text x="1106" y="430" font-size="19" fill="#fff" font-weight="700">2</text>
+<circle cx="1112" cy="478" r="15" fill="#74818d"/>
+<text x="1106" y="485" font-size="19" fill="#fff" font-weight="700">3</text>
+<path d="M1015 340 H1091" fill="none" stroke="#147cac" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1015 380 H1091" fill="none" stroke="#147cac" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1015 425 H1091" fill="none" stroke="#b96506" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1015 477 H1091" fill="none" stroke="#74818d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<text x="650" y="234" font-size="20" fill="#147cac" font-weight="700">1：縁と第1列＝同じ局所変換</text>
+<text x="650" y="264" font-size="18">共有する量：軸位置・回転角・半径の変化</text>
+<text x="650" y="526" font-size="20" fill="#b96506" font-weight="700">2：外側は追従を弱める → 3：変位0</text>
+<text x="650" y="562" font-size="18">同じ変換でも、各頂点の移動ベクトルは異なる。</text>
+<rect x="35" y="623" width="1130" height="273" rx="14" fill="#ffffff" stroke="#d5e0eb"/>
+<text x="60" y="661" font-size="24" font-weight="700">3  指示する方向を分ける</text>
+<text x="60" y="692" font-size="18" fill="#576879">側面断面での局所座標の説明図</text>
+<circle cx="280" cy="787" r="60" fill="#f1f4f7" stroke="#9babb9" stroke-width="2"/>
+<text x="250" y="795" font-size="19" fill="#576879">眼球</text>
+<path d="M239 731 Q279 711 320 742" fill="none" stroke="#147cac" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M177 823 V727" fill="none" stroke="#19334a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="95" y="714" font-size="19" font-weight="700">局所上</text>
+<path d="M183 854 H324" fill="none" stroke="#19334a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="172" y="884" font-size="18" font-weight="700">局所奥行き</text>
+<path d="M353 766 Q371 809 329 835" fill="none" stroke="#147cac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<text x="375" y="803" font-size="19" fill="#147cac" font-weight="700">周方向</text>
+<text x="543" y="720" font-size="22" font-weight="700">下縁の到達位置は「局所上」で合わせる。</text>
+<text x="543" y="760" font-size="20">周方向の回転は、眼球中心と軸を指定する。</text>
+<text x="543" y="800" font-size="20" fill="#c34251">眼球や下縁を一律に奥へ押す操作ではない。</text>
+<text x="543" y="849" font-size="20">画像上の上下と、3Dの局所軸を対応づける。</text>
+<rect x="35" y="919" width="1130" height="99" rx="14" fill="#ffffff" stroke="#d5e0eb"/>
+<text x="60" y="954" font-size="21" font-weight="700">検査：左右別々に、0・途中・1と瞬き＋表情を拡大して確認する。</text>
+<text x="60" y="991" font-size="20">怪しい途中値を細かく見る。縁・隣接列・内壁・眉、材質と無地を比較する。</text>
+<text x="38" y="1056" font-size="19" fill="#576879">青＋1＝連動する帯 ／ 橙＋2＝減衰帯 ／ 灰破線＋3＝固定 ／ 赤＝動きの不一致</text>
+</g>
+</svg>

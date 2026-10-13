@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1330" viewBox="0 0 1600 1330" role="img" aria-labelledby="title desc">
+<title id="title">髪の不具合を、画像・接続・面の順序に分けて調べる</title>
+<desc id="desc">自作の模式図。波模様は基本色だけ一様にして調べ、切れ目は網目表示で接続を追い、板状突出は側面断面で面の順序を調べる。同じカメラと姿勢で表示条件を一つずつ変える。成功済みの実モデルを示していない。</desc>
+<defs>
+  <style>text{font-family:Meiryo,"Yu Gothic",sans-serif;fill:#182d45} text[fill="#258c71"]{fill:#258c71} text[fill="#c44957"]{fill:#c44957} .title{font-size:42px;font-weight:700} .head{font-size:30px;font-weight:700} .body{font-size:26px} .small{font-size:23px} .label{font-size:26px;font-weight:700} .line{fill:none;stroke:#3a536c;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}</style>
+  <path id="hair" d="M0 0 C70 -10 132 10 126 75 C118 140 105 180 92 230 C64 186 18 117 0 75 Z"/>
+  <clipPath id="hair-clip"><use href="#hair"/></clipPath>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#3a536c"/></marker>
+  <marker id="red-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#c44957"/></marker>
+</defs>
+<rect width="1600" height="1330" fill="#f3f6fa"/>
+<text x="40" y="68" class="title">髪の不具合は、同じ「線」に見えても原因が違う</text>
+<text x="42" y="112" class="body">模式図｜表示条件を一つずつ変えて診断する方法。実モデルの修正前後・成功画像ではありません。</text>
+
+<rect x="40" y="150" width="1520" height="316" rx="22" fill="#fff" stroke="#d9e1ea" stroke-width="2"/>
+<text x="70" y="195" class="head">01　波模様が見える</text>
+<text x="567" y="195" class="head">基本色だけを一様色にする</text>
+<text x="1050" y="195" class="head" fill="#258c71">消えるなら、画像を調べる</text>
+<path d="M520 219 L520 438 M1016 219 L1016 438" stroke="#d9e1ea" stroke-width="2"/>
+<text x="72" y="234" class="body">毛束を横切る線がある</text>
+<g transform="translate(258 259) scale(.71)">
+ <use href="#hair" fill="#dbe7ed" stroke="#3a536c" stroke-width="4"/>
+ <g clip-path="url(#hair-clip)" fill="none" stroke="#7c84a1" stroke-width="5">
+  <path d="M-5 28 C35 6 72 48 137 25 M-5 59 C44 37 86 87 137 57 M-5 91 C42 61 79 120 137 91 M-5 123 C47 90 88 151 137 123 M-5 155 C47 125 94 179 137 155 M-5 187 C51 155 92 209 137 187"/>
+ </g>
+</g>
+<path d="M431 332 L479 332" class="line" marker-end="url(#arrow)"/>
+<g transform="translate(751 259) scale(.71)"><use href="#hair" fill="#dbe7ed" stroke="#3a536c" stroke-width="4"/></g>
+<text x="569" y="442" class="small">形・網目・法線・姿勢は保持</text>
+<text x="1052" y="259" class="body">・基本色画像の毛流れを確認</text>
+<text x="1052" y="305" class="body">・形を削って模様を直さない</text>
+<text x="1052" y="362" class="small">法線マップと粗さも、別々に試す。</text>
+<text x="1052" y="400" class="small">同時に切ると原因を特定できない。</text>
+
+<rect x="40" y="485" width="1520" height="316" rx="22" fill="#fff" stroke="#d9e1ea" stroke-width="2"/>
+<text x="70" y="530" class="head">02　輪郭に切れ目がある</text>
+<text x="567" y="530" class="head">網目表示で境界を追う</text>
+<text x="1050" y="530" class="head" fill="#258c71">つなぐべき点を確認する</text>
+<path d="M520 554 L520 773 M1016 554 L1016 773" stroke="#d9e1ea" stroke-width="2"/>
+<text x="72" y="569" class="body">一様色でも欠けが残る</text>
+<g transform="translate(258 594) scale(.71)">
+ <use href="#hair" fill="#dbe7ed" stroke="#3a536c" stroke-width="4"/>
+ <path d="M118 77 L132 65" stroke="#fff" stroke-width="12"/>
+ <circle cx="120" cy="72" r="22" fill="none" stroke="#c44957" stroke-width="4"/>
+</g>
+<path d="M431 667 L479 667" class="line" marker-end="url(#arrow)"/>
+<g transform="translate(751 594) scale(.71)">
+ <use href="#hair" fill="#e9eef3" stroke="#3a536c" stroke-width="4"/>
+ <g clip-path="url(#hair-clip)" fill="none" stroke="#8da1b3" stroke-width="2.5">
+  <path d="M-3 30 L130 30 M0 64 L129 64 M8 100 L121 100 M27 138 L114 138 M52 174 L105 174 M75 208 L98 208 M30 0 C35 90 58 157 92 230 M65 0 C69 97 77 177 92 230 M99 9 C103 100 96 173 92 230"/>
+ </g>
+ <path d="M118 77 L132 65" stroke="#fff" stroke-width="12"/>
+ <circle cx="118" cy="76" r="5" fill="#c44957"/>
+ <circle cx="128" cy="65" r="5" fill="#c44957"/>
+ <circle cx="123" cy="70" r="27" fill="none" stroke="#c44957" stroke-width="4"/>
+</g>
+<text x="570" y="777" class="small">近い点でも、接続済みとは限らない</text>
+<text x="1052" y="594" class="body">・境界辺と対応する点を調べる</text>
+<text x="1052" y="640" class="body">・必要な接続だけを修正する</text>
+<text x="1052" y="697" class="small">平滑化だけでは穴を閉じられない。</text>
+<text x="1052" y="735" class="small">別の毛束まで一括で溶接しない。</text>
+
+<rect x="40" y="820" width="1520" height="316" rx="22" fill="#fff" stroke="#d9e1ea" stroke-width="2"/>
+<text x="70" y="865" class="head">03　板のような突出がある</text>
+<text x="567" y="865" class="head">側面断面で前後を追う</text>
+<text x="1050" y="865" class="head" fill="#258c71">面の順序を整える</text>
+<path d="M520 889 L520 1108 M1016 889 L1016 1108" stroke="#d9e1ea" stroke-width="2"/>
+<text x="72" y="904" class="body">重なる面が外へ飛び出す</text>
+<g transform="translate(258 929) scale(.71)">
+ <use href="#hair" fill="#dbe7ed" stroke="#3a536c" stroke-width="4"/>
+ <path d="M56 69 L112 52 L128 88 L68 111 Z" fill="#f2dadd" stroke="#c44957" stroke-width="4"/>
+</g>
+<path d="M431 1002 L479 1002" class="line" marker-end="url(#arrow)"/>
+<path d="M606 984 C681 1054 789 949 935 1005" fill="none" stroke="#267cab" stroke-width="7"/>
+<path d="M606 1020 C723 991 786 1047 935 994" fill="none" stroke="#d58635" stroke-width="7"/>
+<ellipse cx="789" cy="1002" rx="105" ry="32" fill="none" stroke="#c44957" stroke-width="3" stroke-dasharray="8 7"/>
+<path d="M677 962 L677 933" class="line" marker-end="url(#arrow)"/>
+<path d="M860 980 L860 951" class="line" marker-end="url(#arrow)"/>
+<text x="570" y="911" class="small">矢印＝面の表向き（例）</text>
+<text x="570" y="1080" class="small">同じ向きの面が交差する例</text>
+<text x="570" y="1115" class="small">青＝細い毛束の面　橙＝本体の面</text>
+<text x="1052" y="930" class="body">・必要な点だけを前後へ動かす</text>
+<text x="1052" y="976" class="body">・根元、隣の毛束、輪郭を保持</text>
+<text x="1052" y="1033" class="small">平滑化だけで面の順序は直らない。</text>
+<text x="1052" y="1071" class="small">見え方と交差を、修正後にも確認。</text>
+
+<text x="44" y="1190" class="label">比較条件：同じカメラ・姿勢・照明。追加の断面は向きと位置を明記する。</text>
+<text x="44" y="1233" class="body">毛束の根元から一つの先端まで、つながりを追う。画像、法線、網目の修正を混同しない。</text>
+<text x="44" y="1276" class="small">表示試験で原因を絞り、対象部位だけを修正する。図の形・寸法・点配置は説明用で、共通の設定値ではありません。</text>
+</svg>

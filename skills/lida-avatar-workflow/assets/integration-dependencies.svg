@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1340" viewBox="0 0 1200 1340" role="img" aria-labelledby="title desc">
+<title id="title">部品の採用版と依存関係を確認してから統合する</title>
+<desc id="desc">説明用の版AからFで採用版と未確認版の一覧を作り、採用された差分だけを共通基準へ統合する。手の形から関節位置、重み、爪へ、身体から服、飾りへ、顔から表情へ、髪から影と追従へ矢印を引き対応の確認を示す。保存再読込と使用先試験の合格を分ける模式図。</desc>
+<rect width="1200" height="1340" fill="#f4f7fb"/>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9Z" fill="#19334a"/></marker></defs>
+<g font-family="Yu Gothic, Meiryo, sans-serif" fill="#19334a">
+<text x="38" y="49" font-size="31" fill="#19334a" font-weight="700">部品の採用版と依存関係を決めてから統合する</text>
+<text x="38" y="85" font-size="20" fill="#576879">模式図：版A〜Fは説明用記号。実制作の採用状況や完成結果ではありません。</text>
+<rect x="35" y="112" width="1130" height="261" rx="12" fill="#fff" stroke="#d5e0eb"/>
+<circle cx="65" cy="148" r="16" fill="#19334a"/>
+<text x="59" y="155" font-size="20" fill="#fff" font-weight="700">1</text>
+<text x="95" y="155" font-size="24" fill="#19334a" font-weight="700">まず部品ごとの版を一覧にする</text>
+<text x="620" y="155" font-size="22" fill="#b96506" font-weight="700">最新番号＝全部品の最新、とは限らない。</text>
+<rect x="59" y="179" width="1082" height="43" rx="0" fill="#eaf0f6" stroke="#d5e0eb"/>
+<text x="78" y="208" font-size="20" fill="#19334a" font-weight="700">部品</text>
+<text x="281" y="208" font-size="20" fill="#19334a" font-weight="700">統合に使う版</text>
+<text x="542" y="208" font-size="20" fill="#19334a" font-weight="700">未確認の別候補</text>
+<text x="820" y="208" font-size="20" fill="#19334a" font-weight="700">先に確かめること</text>
+<rect x="59" y="224" width="1082" height="45" rx="0" fill="#fff" stroke="#d5e0eb"/>
+<text x="78" y="254" font-size="21" fill="#19334a">身体</text>
+<text x="281" y="254" font-size="21" fill="#19334a">版A：採用</text>
+<text x="542" y="254" font-size="21" fill="#b96506">版B：未確認</text>
+<text x="820" y="254" font-size="21" fill="#19334a">原画・使う動作</text>
+<rect x="59" y="269" width="1082" height="45" rx="0" fill="#f9fbfd" stroke="#d5e0eb"/>
+<text x="78" y="299" font-size="21" fill="#19334a">手</text>
+<text x="281" y="299" font-size="21" fill="#19334a">版C：採用</text>
+<text x="542" y="299" font-size="21" fill="#b96506">版D：比較中</text>
+<text x="820" y="299" font-size="21" fill="#19334a">関節・重み・爪</text>
+<rect x="59" y="314" width="1082" height="45" rx="0" fill="#fff" stroke="#d5e0eb"/>
+<text x="78" y="344" font-size="21" fill="#19334a">顔</text>
+<text x="281" y="344" font-size="21" fill="#19334a">版E：採用</text>
+<text x="542" y="344" font-size="21" fill="#b96506">版F：未確認</text>
+<text x="820" y="344" font-size="21" fill="#19334a">通常顔・表情</text>
+<path d="M256 179 V359" fill="none" stroke="#d5e0eb" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M517 179 V359" fill="none" stroke="#d5e0eb" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M795 179 V359" fill="none" stroke="#d5e0eb" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M600 382 V405" fill="none" stroke="#19334a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="35" y="421" width="1130" height="109" rx="12" fill="#fff" stroke="#d5e0eb"/>
+<circle cx="65" cy="456" r="16" fill="#19334a"/>
+<text x="59" y="463" font-size="20" fill="#fff" font-weight="700">2</text>
+<text x="95" y="463" font-size="24" fill="#19334a" font-weight="700">採用した差分を、同じ土台へ合流する</text>
+<text x="65" y="502" font-size="22" fill="#19334a">尺度・基準座標・休み姿勢をそろえ、対象外の形・UV・材質・キーを保持する。</text>
+<path d="M600 539 V563" fill="none" stroke="#19334a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="35" y="579" width="1130" height="359" rx="12" fill="#fff" stroke="#d5e0eb"/>
+<circle cx="65" cy="614" r="16" fill="#19334a"/>
+<text x="59" y="621" font-size="20" fill="#fff" font-weight="700">3</text>
+<text x="95" y="621" font-size="24" fill="#19334a" font-weight="700">変更した部位 → 対応を見直す依存物</text>
+<text x="650" y="621" font-size="21" fill="#576879">矢印は「変更の影響が及ぶ向き」</text>
+<rect x="62" y="644" width="290" height="52" rx="9" fill="#e1f2fa" stroke="#9fc2d6"/>
+<text x="80" y="678" font-size="22" fill="#147cac" font-weight="700">手の形</text>
+<path d="M373 670 H490" fill="none" stroke="#19334a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="512" y="644" width="627" height="52" rx="9" fill="#fff0d8" stroke="#dfcaac"/>
+<text x="535" y="678" font-size="22" fill="#975306">関節位置・骨の向き・重み・爪・姿勢の対応</text>
+<rect x="62" y="708" width="290" height="52" rx="9" fill="#e1f2fa" stroke="#9fc2d6"/>
+<text x="80" y="742" font-size="22" fill="#147cac" font-weight="700">身体の形・網目</text>
+<path d="M373 734 H490" fill="none" stroke="#19334a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="512" y="708" width="627" height="52" rx="9" fill="#fff0d8" stroke="#dfcaac"/>
+<text x="535" y="742" font-size="22" fill="#975306">服・飾り・支持面・接続部の対応</text>
+<rect x="62" y="772" width="290" height="52" rx="9" fill="#e1f2fa" stroke="#9fc2d6"/>
+<text x="80" y="806" font-size="22" fill="#147cac" font-weight="700">顔の基準形・網目</text>
+<path d="M373 798 H490" fill="none" stroke="#19334a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="512" y="772" width="627" height="52" rx="9" fill="#fff0d8" stroke="#dfcaac"/>
+<text x="535" y="806" font-size="22" fill="#975306">表情キー・まつ毛・線や影の対応</text>
+<rect x="62" y="836" width="290" height="52" rx="9" fill="#e1f2fa" stroke="#9fc2d6"/>
+<text x="80" y="870" font-size="22" fill="#147cac" font-weight="700">髪の形・配置</text>
+<path d="M373 862 H490" fill="none" stroke="#19334a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="512" y="836" width="627" height="52" rx="9" fill="#fff0d8" stroke="#dfcaac"/>
+<text x="535" y="870" font-size="22" fill="#975306">骨・追従の対応、描き込み影の再確認</text>
+<text x="65" y="921" font-size="21" fill="#19334a">古い頂点番号や骨の位置を、そのまま新しい部品に流用しない。</text>
+<path d="M600 947 V971" fill="none" stroke="#19334a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="35" y="987" width="1130" height="126" rx="12" fill="#fff" stroke="#d5e0eb"/>
+<circle cx="65" cy="1022" r="16" fill="#19334a"/>
+<text x="59" y="1029" font-size="20" fill="#fff" font-weight="700">4</text>
+<text x="95" y="1029" font-size="24" fill="#19334a" font-weight="700">統合候補を保存し、開き直して確認する</text>
+<text x="65" y="1068" font-size="21" fill="#19334a">同じカメラ・光・通常／途中姿勢で比較。元の採用部品との一致と残件を記録する。</text>
+<text x="65" y="1100" font-size="21" fill="#19334a">部品が一致しても、統合後の接触・動作・全体の見え方は別に確認する。</text>
+<path d="M600 1122 V1146" fill="none" stroke="#19334a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="35" y="1162" width="1130" height="103" rx="12" fill="#fff" stroke="#d5e0eb"/>
+<circle cx="65" cy="1196" r="16" fill="#19334a"/>
+<text x="59" y="1203" font-size="20" fill="#fff" font-weight="700">5</text>
+<text x="95" y="1203" font-size="24" fill="#19334a" font-weight="700">使用先で、小さく書き出して試す</text>
+<text x="65" y="1241" font-size="21" fill="#19334a">骨・キー・追従・表示が再現するか確認。制作ソフト内の合格と分けて記録する。</text>
+<text x="38" y="1312" font-size="21" fill="#576879">記録を分ける：形の採用 ／ 部品の一致 ／ 統合後の外観と動作 ／ 使用先の確認</text>
+</g>
+</svg>

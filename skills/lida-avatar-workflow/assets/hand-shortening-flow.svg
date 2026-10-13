@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1080" viewBox="0 0 1480 1080" role="img" aria-labelledby="title desc">
+  <title id="title">手を短くするときの高さと輪郭の調整</title>
+  <desc id="desc">説明用の模式図。短縮した掌に以前の高さを残した急斜面と、親指、水かき、人差し指を異なる方向へ移動して生じる輪郭の段を示す。高さと輪郭を別に評価し、保持する端へ滑らかにつなぐ。実モデルの修正前後ではない。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#53657a"/></marker>
+    <marker id="redarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#bd4e50"/></marker>
+    <marker id="greenarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#188071"/></marker>
+    <style>text{font-family:'Noto Sans JP','Yu Gothic',Meiryo,sans-serif;fill:#21364b} .h{font-size:26px;font-weight:700}.t{font-size:21px}.s{font-size:18px}.small{font-size:17px}.bad{fill:#b8434b}.good{fill:#137c6a}.line{fill:none;stroke:#53657a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.red{fill:none;stroke:#bd4e50;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.green{fill:none;stroke:#188071;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}</style>
+  </defs>
+  <rect width="1480" height="1080" fill="#f3f6fa"/>
+  <text x="44" y="58" font-size="33" font-weight="700">手の短縮：高さと輪郭を、つながりごと調整する</text>
+  <text x="44" y="93" class="s">模式図｜高さ・段差は説明のため強調。実モデルの修正前後や、完成を保証する図ではありません。</text>
+  <rect x="34" y="120" width="688" height="698" rx="16" fill="#fff" stroke="#d6e0ea"/>
+  <rect x="742" y="120" width="704" height="698" rx="16" fill="#fff" stroke="#d6e0ea"/>
+  <text x="58" y="164" class="h">① 掌の高さを見る（側面）</text>
+  <text x="58" y="195" class="s">手首から指の付け根までの、表面の高さの流れ。</text>
+  <text x="68" y="235" class="t">短縮前：長い区間で起伏がつながる</text>
+  <path d="M100 298 C168 280 226 258 302 270 C358 278 414 337 474 317 C510 304 553 292 605 303 L605 347 L100 347Z" fill="#dbe7f1" stroke="#53657a" stroke-width="3"/>
+  <line x1="100" y1="369" x2="605" y2="369" stroke="#53657a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="68" y="405" class="s">手首</text><text x="512" y="405" class="s">指の付け根</text>
+  <text x="68" y="449" class="t bad">再検討例：短い掌に、古い高さが残る</text>
+  <path d="M100 510 C155 492 199 470 253 481 C287 489 302 551 338 536 C365 524 410 505 461 515 L461 559 L100 559Z" fill="#f8e3e4" stroke="#bd4e50" stroke-width="3"/>
+  <path d="M356 482 L313 513" fill="none" stroke="#bd4e50" stroke-width="2" marker-end="url(#redarrow)"/>
+  <text x="365" y="480" class="s bad">同じ高低差が</text><text x="365" y="505" class="s bad">短い距離へ詰まる</text>
+  <line x1="100" y1="581" x2="461" y2="581" stroke="#53657a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="68" y="624" class="t good">調整方針：自然な起伏と厚みを再配分</text>
+  <path d="M100 688 C158 671 199 655 253 666 C300 677 323 708 365 701 C399 695 423 689 461 693 L461 732 L100 732Z" fill="#dcefe9" stroke="#188071" stroke-width="3"/>
+  <text x="68" y="774" class="s">長さ・厚み・谷の深さを同じ断面で確認する。</text>
+  <text x="68" y="801" class="s">表面を一律に平らにせず、必要な丸みを残す。</text>
+  <text x="766" y="164" class="h">② U字と輪郭を見る（平面）</text>
+  <text x="766" y="195" class="s">親指 → 水かきのU字 → 人差し指の内側輪郭。</text>
+  <text x="766" y="235" class="t bad">再検討例：隣の部位の移動方向が違う</text>
+  <path d="M820 325 C851 302 876 305 901 347 C935 402 985 421 1018 363 Q1040 330 1050 322 L1074 322 L1074 281 L1111 281 L1180 264" class="red"/>
+  <circle cx="962" cy="390" r="9" fill="#fff" stroke="#53657a" stroke-width="3"/>
+  <path d="M911 280 L824 280" fill="none" stroke="#53657a" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="790" y="266" class="s">親指側：横へ</text>
+  <path d="M1178 320 L1227 256" fill="none" stroke="#53657a" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="1150" y="358" class="s">人差し指側：</text><text x="1150" y="384" class="s">指の向きへ</text>
+  <path d="M1264 438 L1092 307" fill="none" stroke="#bd4e50" stroke-width="2" marker-end="url(#redarrow)"/>
+  <text x="998" y="467" class="s bad">境目に短い段・急な戻りができる</text>
+  <text x="766" y="518" class="t good">調整方針：U字幅を保ち、輪郭をつなぐ</text>
+  <path d="M820 610 C851 587 876 590 901 632 C935 687 985 706 1018 648 C1045 600 1085 574 1180 549" class="green"/>
+  <circle cx="962" cy="675" r="9" fill="#fff" stroke="#53657a" stroke-width="3"/>
+  <path d="M1060 633 C1089 609 1120 595 1166 583" fill="none" stroke="#188071" stroke-width="2" marker-end="url(#greenarrow)"/>
+  <text x="1150" y="625" class="s good">同じ接線へ</text><text x="1150" y="651" class="s good">滑らかに戻す</text>
+  <text x="790" y="737" class="s">輪郭の内寄せと、掌の高さ補正は別に検査。</text>
+  <text x="790" y="768" class="s">U字を広げて直線化せず、周囲まで遷移を設計。</text>
+  <text x="790" y="799" class="s">○ = 保持するU字の目印（実測位置ではない）</text>
+  <rect x="34" y="836" width="1412" height="163" rx="16" fill="#e7eef6"/>
+  <text x="58" y="876" class="h">AIへ渡す保持条件と、確認する順序</text>
+  <text x="58" y="912" class="t">保持：手首の接続・指先・指定したU字幅・対象外の指・爪・骨の基準位置</text>
+  <text x="58" y="946" class="t">版を揃える：形状 → 指の関節表・爪 → ウェイトの再計算 → 開いた手／握り／チョキと途中</text>
+  <text x="58" y="978" class="s">保持条件は今回の局所補正の例。短縮そのものを行う段階では、更新する関節位置を先に決めます。</text>
+  <line x1="46" y1="1034" x2="98" y2="1034" stroke="#bd4e50" stroke-width="5"/><text x="109" y="1041" class="small">再検討例</text>
+  <line x1="258" y1="1034" x2="310" y2="1034" stroke="#188071" stroke-width="5"/><text x="321" y="1041" class="small">調整の考え方</text>
+  <text x="548" y="1041" class="small">ウェイト規則の保持と、各頂点の値の保持は別。形状変更後の値と差を確認します。</text>
+</svg>

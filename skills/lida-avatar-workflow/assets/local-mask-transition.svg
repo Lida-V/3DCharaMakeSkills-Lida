@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1120" viewBox="0 0 1500 1120">
+<rect width="1500" height="1120" fill="#f3f6fa"/>
+<text x="38" y="62" font-family="Meiryo, sans-serif" font-size="34" font-weight="700" fill="#182d45">移動量と、固定部分へ戻す幅を別々に決める</text>
+<text x="38" y="105" font-family="Meiryo, sans-serif" font-size="21" font-weight="400" fill="#82909f">模式図：局所パッチの側面断面。ここでのマスクは修正量の係数で、スキンウェイトではありません。</text>
+<rect x="40" y="130" width="690" height="622" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="62" y="183" font-family="Meiryo, sans-serif" font-size="27" font-weight="700" fill="#c44957">再検討：境界ですぐ0へ戻す</text>
+<text x="62" y="226" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">中心の移動量は同じ。戻す幅だけを比較。</text>
+<polyline points="88.00,427.00 126.00,427.00 164.00,427.00 202.00,427.00 240.00,427.00 278.00,427.00 316.00,427.00 354.00,427.00 392.00,427.00 430.00,427.00 468.00,427.00 506.00,427.00 544.00,427.00 582.00,427.00 620.00,427.00 658.00,427.00 696.00,427.00" fill="none" stroke="#82909f" stroke-width="3" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<polyline points="88.00,427.00 126.00,427.00 164.00,427.00 202.00,427.00 240.00,427.00 278.00,427.00 316.00,297.00 354.00,297.00 392.00,297.00 430.00,297.00 468.00,297.00 506.00,427.00 544.00,427.00 582.00,427.00 620.00,427.00 658.00,427.00 696.00,427.00" fill="none" stroke="#247bb8" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="88" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="88" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="126" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="126" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="164" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="164" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="202" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="202" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="240" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="240" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="278" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="278" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="316" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="316" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="354" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="354" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="392" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="392" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="430" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="430" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="468" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="468" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="506" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="506" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="544" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="544" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="582" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="582" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="620" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="620" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="658" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="658" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="696" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="696" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<polyline points="392.00,424.00 392.00,304.00" fill="none" stroke="#e99135" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="392.00,304.00 385.00,322.00 399.00,322.00" fill="#e99135" stroke="none" stroke-width="2"/>
+<text x="407" y="375" font-family="Meiryo, sans-serif" font-size="21" font-weight="700" fill="#e99135">同じ移動量 Δ</text>
+<polyline points="105.00,267.00 278.00,405.00" fill="none" stroke="#c44957" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="278.00,405.00 268.29,388.30 259.56,399.25" fill="#c44957" stroke="none" stroke-width="2"/>
+<text x="72" y="264" font-family="Meiryo, sans-serif" font-size="21" font-weight="700" fill="#c44957">急な傾き・折れの原因</text>
+<text x="68" y="546" font-family="Meiryo, sans-serif" font-size="23" font-weight="700" fill="#182d45">修正マスクの値</text>
+<polyline points="88.00,680.00 696.00,680.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="88.00,557.00 88.00,680.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round"/>
+<text x="59" y="575" font-family="Meiryo, sans-serif" font-size="20" font-weight="400" fill="#82909f">1</text>
+<text x="59" y="683" font-family="Meiryo, sans-serif" font-size="20" font-weight="400" fill="#82909f">0</text>
+<polyline points="88.00,680.00 126.00,680.00 164.00,680.00 202.00,680.00 240.00,680.00 278.00,680.00 316.00,567.00 354.00,567.00 392.00,567.00 430.00,567.00 468.00,567.00 506.00,680.00 544.00,680.00 582.00,680.00 620.00,680.00 658.00,680.00 696.00,680.00" fill="none" stroke="#e99135" stroke-width="4" stroke-linejoin="round"/>
+<text x="190" y="728" font-family="Meiryo, sans-serif" font-size="21" font-weight="400" fill="#182d45">横方向：局所パッチ内の位置</text>
+<rect x="770" y="130" width="690" height="622" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="792" y="183" font-family="Meiryo, sans-serif" font-size="27" font-weight="700" fill="#258c71">設計例：境界へ滑らかに0へ戻す</text>
+<text x="792" y="226" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#182d45">中心の移動量は同じ。戻す幅だけを比較。</text>
+<polyline points="818.00,427.00 856.00,427.00 894.00,427.00 932.00,427.00 970.00,427.00 1008.00,427.00 1046.00,427.00 1084.00,427.00 1122.00,427.00 1160.00,427.00 1198.00,427.00 1236.00,427.00 1274.00,427.00 1312.00,427.00 1350.00,427.00 1388.00,427.00 1426.00,427.00" fill="none" stroke="#82909f" stroke-width="3" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<polyline points="818.00,427.00 856.00,427.00 894.00,413.48 932.00,381.24 970.00,342.76 1008.00,310.52 1046.00,297.00 1084.00,297.00 1122.00,297.00 1160.00,297.00 1198.00,297.00 1236.00,310.52 1274.00,342.76 1312.00,381.24 1350.00,413.48 1388.00,427.00 1426.00,427.00" fill="none" stroke="#247bb8" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="818" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="818" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="856" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="856" cy="427.0" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="894" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="894" cy="413.48" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="932" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="932" cy="381.24" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="970" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="970" cy="342.76" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1008" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1008" cy="310.52" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1046" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1046" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1084" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1084" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1122" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1122" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1160" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1160" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1198" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1198" cy="297" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1236" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1236" cy="310.52" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1274" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1274" cy="342.76" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1312" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1312" cy="381.24" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1350" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1350" cy="413.48" r="5" fill="#247bb8" stroke="none" stroke-width="2"/>
+<circle cx="1388" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1388" cy="427.0" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<circle cx="1426" cy="427" r="4" fill="#82909f" stroke="none" stroke-width="2"/>
+<circle cx="1426" cy="427" r="5" fill="#258c71" stroke="none" stroke-width="2"/>
+<polyline points="1122.00,424.00 1122.00,304.00" fill="none" stroke="#e99135" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1122.00,304.00 1115.00,322.00 1129.00,322.00" fill="#e99135" stroke="none" stroke-width="2"/>
+<text x="1137" y="375" font-family="Meiryo, sans-serif" font-size="21" font-weight="700" fill="#e99135">同じ移動量 Δ</text>
+<text x="800" y="494" font-family="Meiryo, sans-serif" font-size="21" font-weight="700" fill="#247bb8">固定 0 → 戻す帯 → 中心 1 → 戻す帯 → 0</text>
+<text x="798" y="546" font-family="Meiryo, sans-serif" font-size="23" font-weight="700" fill="#182d45">修正マスクの値</text>
+<polyline points="818.00,680.00 1426.00,680.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="818.00,557.00 818.00,680.00" fill="none" stroke="#82909f" stroke-width="2" stroke-linejoin="round"/>
+<text x="789" y="575" font-family="Meiryo, sans-serif" font-size="20" font-weight="400" fill="#82909f">1</text>
+<text x="789" y="683" font-family="Meiryo, sans-serif" font-size="20" font-weight="400" fill="#82909f">0</text>
+<polyline points="818.00,680.00 856.00,680.00 894.00,668.25 932.00,640.22 970.00,606.78 1008.00,578.75 1046.00,567.00 1084.00,567.00 1122.00,567.00 1160.00,567.00 1198.00,567.00 1236.00,578.75 1274.00,606.78 1312.00,640.22 1350.00,668.25 1388.00,680.00 1426.00,680.00" fill="none" stroke="#e99135" stroke-width="4" stroke-linejoin="round"/>
+<text x="920" y="728" font-family="Meiryo, sans-serif" font-size="21" font-weight="400" fill="#182d45">横方向：局所パッチ内の位置</text>
+<rect x="40" y="789" width="1420" height="271" rx="14" fill="#ffffff" stroke="#d9e3ed" stroke-width="2"/>
+<text x="65" y="842" font-family="Meiryo, sans-serif" font-size="29" font-weight="700" fill="#182d45">新位置 = 元位置 + マスク値 × 移動量</text>
+<text x="65" y="889" font-family="Meiryo, sans-serif" font-size="24" font-weight="400" fill="#182d45">1  移動軸と単位を決める。中心は1、保持部分は0。必要な輪郭を保つ。</text>
+<text x="65" y="933" font-family="Meiryo, sans-serif" font-size="24" font-weight="400" fill="#182d45">2  境目の折れは、量・戻す幅・面の配置を分けて調整。広げすぎも避ける。</text>
+<text x="65" y="977" font-family="Meiryo, sans-serif" font-size="24" font-weight="400" fill="#182d45">3  細分化・拘束・キー反映後の実変位も測る。指定幅と実際の影響範囲は別。</text>
+<text x="65" y="1021" font-family="Meiryo, sans-serif" font-size="24" font-weight="400" fill="#182d45">4  通常・途中・必要な最大・戻りと、隣の部品を確認してから採否を決める。</text>
+<text x="42" y="1101" font-family="Meiryo, sans-serif" font-size="21" font-weight="400" fill="#82909f">灰の破線 = 修正前  ／  青の実線 = 修正後の例  ／  緑の点 = 固定位置  ／  橙 = マスク・移動量</text>
+</svg>

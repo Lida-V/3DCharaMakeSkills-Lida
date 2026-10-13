@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1210" viewBox="0 0 1600 1210" role="img" aria-labelledby="title desc">
+<title id="title">翼の付着部は、断面・幅方向・位置・重みを一緒に合わせる</title>
+<desc id="desc">自作の模式図。創作翼の支持体と羽の関係を説明する。羽の交差を避けるため離すと根元が浮く。付着部に限って断面と位置を合わせ、羽の幅方向と局所表面の接線をそろえ、根元を同じ支持位置の骨の重みに対応させる。根元中心だけでなく面の幅と表裏を調べ、隣接羽と途中動作を確認する。解剖学の唯一の正解や完成済みモデルを示さない。</desc>
+<defs>
+ <style>text{font-family:Meiryo,"Yu Gothic",sans-serif;fill:#182d45} text[fill="#258c71"]{fill:#258c71} text[fill="#c44957"]{fill:#c44957} .title{font-size:42px;font-weight:700} .head{font-size:30px;font-weight:700} .body{font-size:26px} .small{font-size:23px} .label{font-size:26px;font-weight:700} .line{fill:none;stroke:#3a536c;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}</style>
+ <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#3a536c"/></marker>
+ <marker id="red-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#c44957"/></marker>
+</defs>
+<rect width="1600" height="1210" fill="#f3f6fa"/>
+<text x="40" y="68" class="title">翼は、羽を離す前に「付着部」を合わせる</text>
+<text x="42" y="112" class="body">模式図｜創作翼の設計の考え方。実モデルの成功画像・唯一の解剖学的正解ではありません。</text>
+
+<rect x="40" y="150" width="740" height="372" rx="22" fill="#fff" stroke="#d9e1ea" stroke-width="2"/>
+<rect x="800" y="150" width="760" height="372" rx="22" fill="#fff" stroke="#d9e1ea" stroke-width="2"/>
+<text x="70" y="194" class="head" fill="#c44957">避けたい例：羽を離すと根元が浮く</text>
+<text x="830" y="194" class="head" fill="#258c71">設計例：付着部だけを整える</text>
+<text x="72" y="235" class="body">側面断面｜隙間を作って交差を避ける</text>
+<text x="832" y="235" class="body">側面断面｜断面と羽の付着位置を対応</text>
+<ellipse cx="248" cy="332" rx="135" ry="62" fill="#e3e9ef" stroke="#3a536c" stroke-width="3"/>
+<text x="181" y="340" class="label">支持体</text>
+<path d="M423 312 L455 288 C515 305 579 359 683 415 C633 441 544 419 501 383 L420 348 Z" fill="#c9e2f1" stroke="#267cab" stroke-width="4"/>
+<path d="M390 326 L412 326" fill="none" stroke="#c44957" stroke-width="4" marker-start="url(#red-arrow)" marker-end="url(#red-arrow)"/>
+<text x="401" y="284" class="label" fill="#c44957">隙間</text>
+<text x="522" y="379" class="label">羽</text>
+<text x="72" y="461" class="body">交差が減っても、付着の見え方が悪化。</text>
+<text x="72" y="501" class="small">芯を一律に太くするだけでは、輪郭を変えてしまう。</text>
+
+<path d="M1064 302 L1114 308 C1186 329 1339 382 1475 430 C1431 448 1272 415 1185 369 L1070 345 Z" fill="#c9e2f1" stroke="#267cab" stroke-width="4"/>
+<path d="M869 330 C869 285 934 265 1016 272 C1080 277 1134 303 1140 334 C1132 375 1072 397 1008 393 C936 389 869 371 869 330 Z" fill="#e3e9ef" stroke="#3a536c" stroke-width="3"/>
+<text x="919" y="340" class="label">支持体</text>
+<path d="M1064 302 L1114 308 L1121 342 L1070 345 Z" fill="#d9efe8" stroke="#258c71" stroke-width="3" stroke-dasharray="8 6"/>
+<circle cx="1100" cy="317" r="6" fill="#182d45"/>
+<text x="1172" y="280" class="label">点＝根元中心</text>
+<path d="M1164 288 L1108 312" class="line" marker-end="url(#arrow)"/>
+<text x="1240" y="386" class="label">自由な羽先</text>
+<text x="832" y="461" class="body">中心だけでなく、幅の両端と表裏を見る。</text>
+<text x="832" y="501" class="small">点線＝隠れた付着部。自由端の形と羽列の輪郭は保持。</text>
+
+<text x="43" y="576" class="head">同時に合わせる3項目</text>
+<rect x="40" y="601" width="480" height="359" rx="22" fill="#fff" stroke="#d9e1ea" stroke-width="2"/>
+<rect x="560" y="601" width="480" height="359" rx="22" fill="#fff" stroke="#d9e1ea" stroke-width="2"/>
+<rect x="1080" y="601" width="480" height="359" rx="22" fill="#fff" stroke="#d9e1ea" stroke-width="2"/>
+<text x="70" y="647" class="head">1　断面と付着位置</text>
+<text x="590" y="647" class="head">2　根元の幅方向</text>
+<text x="1110" y="647" class="head">3　同じ位置の重み</text>
+<ellipse cx="221" cy="768" rx="114" ry="57" fill="#e3e9ef" stroke="#3a536c" stroke-width="3"/>
+<path d="M267 723 L320 737 L370 841 L289 792 Z" fill="#d9efe8" stroke="#258c71" stroke-width="4"/>
+<circle cx="300" cy="760" r="6" fill="#182d45"/>
+<path d="M267 708 L267 733 M320 721 L320 746" stroke="#3a536c" stroke-width="3"/>
+<path d="M266 705 L320 719" class="line" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="77" y="691" class="small">点だけでなく、面の幅まで確認</text>
+<text x="70" y="882" class="body">断面厚みと付着幅を合わせる。</text>
+<text x="70" y="925" class="small">正面・側面・斜めから表裏を見る。</text>
+
+<path d="M615 783 C681 775 735 750 792 716 C833 695 879 692 971 708 L971 744 C880 728 842 731 804 754 C741 793 684 816 615 819 Z" fill="#e3e9ef" stroke="#3a536c" stroke-width="3"/>
+<path d="M759 737 L802 711 L914 844 C892 857 879 856 865 844 Z" fill="#c9e2f1" stroke="#267cab" stroke-width="4"/>
+<path d="M727 766 L826 705" fill="none" stroke="#d58635" stroke-width="4" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="590" y="691" class="small">付着部の曲面に沿う方向を確認</text>
+<text x="590" y="882" class="body">根元で合わせ、先へ戻す。</text>
+<text x="590" y="925" class="small">全羽を同じ角度へ回す方法ではない。</text>
+
+<path d="M1121 762 L1498 762" stroke="#aab8c5" stroke-width="12"/>
+<circle cx="1165" cy="762" r="9" fill="#182d45"/><circle cx="1463" cy="762" r="9" fill="#182d45"/>
+<text x="1120" y="723" class="label">支持位置A</text><text x="1347" y="723" class="label">支持位置B</text>
+<path d="M1230 789 L1300 789 L1370 842" fill="none" stroke="#258c71" stroke-width="10"/>
+<circle cx="1265" cy="762" r="7" fill="#267cab"/><circle cx="1265" cy="789" r="7" fill="#267cab"/>
+<path d="M1265 772 L1265 819" class="line" marker-end="url(#arrow)"/>
+<text x="1110" y="691" class="small">支持体と羽の根元の対応をそろえる</text>
+<text x="1110" y="882" class="body">根元の追従を、遠位へ戻す。</text>
+<text x="1110" y="925" class="small">重みの値は体型と動作から決める。</text>
+
+<text x="43" y="1017" class="label">確認：単体 → 隣接する羽列 → 通常・途中・必要な全開 → 戻り</text>
+<text x="43" y="1062" class="body">根元中心が内部にあっても、幅の端や隣の列が突き抜けることがある。動いた面で確認する。</text>
+<text x="43" y="1107" class="body">軽い羽同士の重なりの許容と、見える根元の浮き・突出を区別する。許容はデザインごとに決める。</text>
+<text x="43" y="1154" class="small">色の役割：灰＝支持体、青＝羽、緑＝合わせる付着域、橙＝方向の目印。根元の点・矢印・点線も読み分けてください。</text>
+<text x="43" y="1189" class="small">形・厚み・角度・点配置は説明用です。支持体の設計や限定された検査を、全翼完成・全姿勢安全の保証にしません。</text>
+</svg>

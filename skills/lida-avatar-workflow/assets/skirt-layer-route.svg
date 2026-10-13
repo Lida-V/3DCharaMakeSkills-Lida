@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1240" viewBox="0 0 1560 1240" role="img" aria-labelledby="title desc">
+  <title id="title">スカート四層の順序と自由裾からの脚の通り道</title>
+  <desc id="desc">説明用の局所側面断面。四枚の布を共通の腰座標で扱い、支持域と自由裾を区別する。各層を別々に押して隣接層へ干渉を移す例と、布の途中に脚が突き抜ける例を示す。共通変形と自由端の垂れは別に確認し、裾の開口を塞がない。実モデルの検収図ではない。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#53657a"/></marker>
+    <marker id="redarr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#b8434b"/></marker>
+    <marker id="greenarr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#137c6a"/></marker>
+    <style>text{font-family:'Noto Sans JP','Yu Gothic',Meiryo,sans-serif;fill:#21364b}.h{font-size:25px;font-weight:700}.t{font-size:21px}.s{font-size:18px}.small{font-size:17px}.bad{fill:#b8434b}.good{fill:#137c6a}.cloth{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.a{stroke:#1f75ae}.b{stroke:#d78b25}.c{stroke:#835cb4}.d{stroke:#c85f89}.guide{fill:none;stroke:#53657a;stroke-width:2;stroke-dasharray:7 6}.leg{fill:#dce3e9;stroke:#7e8d9a;stroke-width:3;stroke-linejoin:round}</style>
+  </defs>
+  <rect width="1560" height="1240" fill="#f3f6fa"/>
+  <text x="42" y="55" font-size="33" font-weight="700">スカート：層の順序と自由裾から、脚の通り道を設計する</text>
+  <text x="42" y="89" class="s">模式図｜局所側面断面を単純化。布の厚みや立体形状を省略した説明図で、完成や接触ゼロの保証ではありません。</text>
+  <rect x="32" y="114" width="700" height="448" rx="15" fill="#fff" stroke="#d6e0ea"/>
+  <rect x="752" y="114" width="776" height="448" rx="15" fill="#fff" stroke="#d6e0ea"/>
+  <text x="56" y="157" class="h">① 4層を、同じ腰座標で扱う</text>
+  <text x="56" y="190" class="s">①〜④は独立した布。短い上段に下段が重なる。</text>
+  <rect x="104" y="214" width="260" height="83" rx="5" fill="#e4edf5"/>
+  <line x1="104" y1="296" x2="600" y2="296" class="guide"/>
+  <text x="411" y="260" class="s">支持域：固定／減衰</text><text x="411" y="288" class="s">腰と上段の追従を保持</text>
+  <path d="M224 236 Q237 295 267 322 L345 339" class="cloth a"/>
+  <path d="M203 236 Q221 332 296 370 L373 391" class="cloth b"/>
+  <path d="M182 236 Q199 374 321 421 L407 443" class="cloth c"/>
+  <path d="M161 236 Q177 417 347 472 L444 496" class="cloth d"/>
+  <circle cx="345" cy="339" r="7" fill="#fff" stroke="#1f75ae" stroke-width="3"/>
+  <circle cx="373" cy="391" r="7" fill="#fff" stroke="#d78b25" stroke-width="3"/>
+  <circle cx="407" cy="443" r="7" fill="#fff" stroke="#835cb4" stroke-width="3"/>
+  <circle cx="444" cy="496" r="7" fill="#fff" stroke="#c85f89" stroke-width="3"/>
+  <text x="93" y="240" class="s">腰</text>
+  <text x="365" y="344" class="t">①</text><text x="392" y="396" class="t">②</text><text x="426" y="448" class="t">③</text><text x="463" y="501" class="t">④</text>
+  <path d="M584 382 L454 486" fill="none" stroke="#53657a" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="489" y="362" class="s">○ 自由裾</text>
+  <text x="56" y="540" class="s">裾の端と端を結ぶ大きな面を追加して、開口を塞がない。</text>
+  <text x="776" y="157" class="h">② 各層への独立した押戻しを再検討する</text>
+  <text x="776" y="190" class="s">一層の貫通が減っても、隣の層へ問題が移ることがある。</text>
+  <text x="793" y="234" class="t bad">独立した押戻しの例</text>
+  <path d="M809 275 C841 291 858 326 881 398" class="cloth a"/>
+  <path d="M849 275 C947 291 945 326 921 398" class="cloth b"/>
+  <path d="M889 275 C900 309 919 349 961 398" class="cloth c"/>
+  <path d="M929 275 C952 310 980 349 1001 398" class="cloth d"/>
+  <path d="M878 318 L932 318" fill="none" stroke="#b8434b" stroke-width="2" marker-end="url(#redarr)"/>
+  <path d="M938 338 l15 15 M953 338 l-15 15" stroke="#b8434b" stroke-width="4"/>
+  <text x="793" y="439" class="s bad">層順が逆転・隣の布へ食い込む</text>
+  <text x="1081" y="234" class="t good">共通変形を先に設計</text>
+  <path d="M1106 275 C1123 321 1178 354 1184 398" class="cloth a"/>
+  <path d="M1146 275 C1163 321 1218 354 1224 398" class="cloth b"/>
+  <path d="M1186 275 C1203 321 1258 354 1264 398" class="cloth c"/>
+  <path d="M1226 275 C1243 321 1298 354 1304 398" class="cloth d"/>
+  <path d="M1100 326 C1180 317 1246 322 1330 359" fill="none" stroke="#137c6a" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#greenarr)"/>
+  <text x="1081" y="439" class="s good">同じ基準で動かし、層順を検査</text>
+  <text x="793" y="486" class="s">支持域は固定・減衰。自由端の垂れは対象層を限定。</text>
+  <text x="793" y="518" class="s">共通の規則でも、実面の交差や伸びは別に検査する。</text>
+  <rect x="32" y="581" width="700" height="475" rx="15" fill="#fff" stroke="#d6e0ea"/>
+  <rect x="752" y="581" width="776" height="475" rx="15" fill="#fff" stroke="#d6e0ea"/>
+  <text x="56" y="625" class="h bad">③ 布面の途中を脚が突き抜ける</text>
+  <text x="56" y="657" class="s">見える突出の場所を、裾の位置と比べる。</text>
+  <path d="M139 693 L236 693 L232 758 L470 831 Q506 844 507 886 L507 1010 L453 1010 L450 895 L218 818 Q150 808 146 759Z" class="leg"/>
+  <path d="M235 711 Q270 773 278 837 L317 921" class="cloth a"/>
+  <path d="M255 711 Q292 799 305 866 L349 949" class="cloth b"/>
+  <path d="M275 711 Q314 825 332 895 L381 977" class="cloth c"/>
+  <path d="M295 711 Q336 851 359 924 L413 1005" class="cloth d"/>
+  <circle cx="317" cy="921" r="7" fill="#fff" stroke="#1f75ae" stroke-width="3"/><circle cx="349" cy="949" r="7" fill="#fff" stroke="#d78b25" stroke-width="3"/><circle cx="381" cy="977" r="7" fill="#fff" stroke="#835cb4" stroke-width="3"/><circle cx="413" cy="1005" r="7" fill="#fff" stroke="#c85f89" stroke-width="3"/>
+  <path d="M298 797 l25 25 M323 797 l-25 25" stroke="#b8434b" stroke-width="5"/>
+  <path d="M604 747 L334 804" fill="none" stroke="#b8434b" stroke-width="2" marker-end="url(#redarr)"/>
+  <text x="483" y="722" class="s bad">× 布面の途中</text>
+  <text x="530" y="957" class="s">○ 裾は下に残る</text>
+  <text x="56" y="1030" class="s">脚が布を横切る経路を、色分けと断面で特定する。</text>
+  <text x="776" y="625" class="h good">④ 自由裾を動かし、脚が裾から出る</text>
+  <text x="776" y="657" class="s">共通変形で通り道を作り、自由端の垂れを別調整。</text>
+  <path d="M859 693 L956 693 L952 758 L1190 831 Q1226 844 1227 886 L1227 1010 L1173 1010 L1170 895 L938 818 Q870 808 866 759Z" class="leg"/>
+  <path d="M955 711 Q973 741 1018 760 Q1066 779 1100 788" class="cloth a"/>
+  <path d="M975 711 Q995 742 1048 763 Q1101 783 1155 810" class="cloth b"/>
+  <path d="M995 711 Q1017 743 1078 768 Q1142 790 1202 830" class="cloth c"/>
+  <path d="M1015 711 Q1040 743 1108 772 Q1203 805 1240 868" class="cloth d"/>
+  <circle cx="1100" cy="788" r="7" fill="#fff" stroke="#1f75ae" stroke-width="3"/><circle cx="1155" cy="810" r="7" fill="#fff" stroke="#d78b25" stroke-width="3"/><circle cx="1202" cy="830" r="7" fill="#fff" stroke="#835cb4" stroke-width="3"/><circle cx="1240" cy="868" r="7" fill="#fff" stroke="#c85f89" stroke-width="3"/>
+  <path d="M1388 771 L1251 870" fill="none" stroke="#137c6a" stroke-width="2" marker-end="url(#greenarr)"/>
+  <text x="1279" y="730" class="s good">○ 自由裾の先へ</text>
+  <path d="M1226 823 L1256 863" fill="none" stroke="#137c6a" stroke-width="2" marker-end="url(#greenarr)"/>
+  <text x="1264" y="939" class="s">脚の見え方と</text><text x="1264" y="968" class="s">層の順序を確認</text>
+  <text x="776" y="1030" class="s">この曲線は設計の説明。各層の接触ゼロを示す図ではない。</text>
+  <rect x="32" y="1076" width="1496" height="119" rx="15" fill="#e7eef6"/>
+  <text x="56" y="1113" class="h">別々に判定：外観 ｜ 姿勢×部品ペアの接触 ｜ 布の伸び ｜ 入り・戻りの途中</text>
+  <text x="56" y="1150" class="t">上段の差・自己交差・新しい層間干渉も確認。両脚用の共通変形は一度だけ適用する。</text>
+  <text x="56" y="1178" class="s">薄布の単面には意図した境界がある。腰口・裾の開口と、必要な面が欠けた破れを区別する。</text>
+  <text x="42" y="1226" class="small">凡例：①青・②橙・③紫・④桃 = 布の順序（実際の間隔ではない）　○ = 自由裾　灰色の面 = 脚　破線 = 支持域の境界／変形の説明線</text>
+</svg>

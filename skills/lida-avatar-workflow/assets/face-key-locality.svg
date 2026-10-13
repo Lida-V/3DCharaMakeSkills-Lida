@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1050" viewBox="0 0 1200 1050" role="img" aria-labelledby="title desc">
+<title id="title">同じ基準メッシュで、対象部位だけの表情キーを作る</title><desc id="desc">口の局所パッチを使い、参考形状と頂点転写を区別する。口周辺の変位、外側の減衰、顎輪郭と対象外の固定、途中と組み合わせの検査を示す自作模式図。</desc>
+<rect width="1200" height="1050" fill="#f4f7fb"/>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto-start-reverse"><path d="M0 0 L9 4.5 L0 9Z" fill="#19334a"/></marker><marker id="blue-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#147cac"/></marker><marker id="red-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#c34251"/></marker></defs>
+<g font-family="Yu Gothic, Meiryo, sans-serif" fill="#19334a">
+<text x="38" y="49" font-size="32" font-weight="700">同じ基準メッシュで、対象部位だけ動かす</text>
+<text x="38" y="82" font-size="19" fill="#576879">模式図：口元だけを示す。完成した実メッシュや必要な列数を示す図ではありません。</text>
+<rect x="35" y="112" width="330" height="176" rx="14" fill="#ffffff" stroke="#d5e0eb"/>
+<rect x="435" y="112" width="330" height="176" rx="14" fill="#ffffff" stroke="#d5e0eb"/>
+<rect x="835" y="112" width="330" height="176" rx="14" fill="#ffffff" stroke="#d5e0eb"/>
+<circle cx="62" cy="142" r="15" fill="#19334a"/>
+<text x="56" y="149" font-size="19" fill="#fff" font-weight="700">1</text>
+<text x="88" y="149" font-size="22" font-weight="700">同じ通常顔の資料</text>
+<ellipse cx="197" cy="192" rx="54" ry="4" fill="none" stroke="#19334a" stroke-width="3"/>
+<text x="58" y="253" font-size="18">通常顔・口型・目／表情の画像</text>
+<circle cx="462" cy="142" r="15" fill="#19334a"/>
+<text x="456" y="149" font-size="19" fill="#fff" font-weight="700">2</text>
+<text x="488" y="149" font-size="22" font-weight="700">Tripoの参考モデル</text>
+<ellipse cx="500" cy="198" rx="25" ry="14" fill="none" stroke="#147cac" stroke-width="3"/>
+<ellipse cx="595" cy="198" rx="30" ry="6" fill="none" stroke="#147cac" stroke-width="3"/>
+<ellipse cx="690" cy="198" rx="18" ry="22" fill="none" stroke="#147cac" stroke-width="3"/>
+<text x="460" y="250" font-size="18">幅・開き・突き出しを参考にする</text>
+<circle cx="862" cy="142" r="15" fill="#19334a"/>
+<text x="856" y="149" font-size="19" fill="#fff" font-weight="700">3</text>
+<text x="888" y="149" font-size="22" font-weight="700">一つの基準メッシュ</text>
+<ellipse cx="1000" cy="191" rx="50" ry="18" fill="#e1f2fa" stroke="#147cac" stroke-width="3"/>
+<text x="860" y="248" font-size="18">対象部位だけのキーを作る</text>
+<path d="M378 201 H419" fill="none" stroke="#19334a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M778 201 H819" fill="none" stroke="#19334a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="440" y="317" font-size="20" fill="#c34251" font-weight="700">参考モデルの頂点番号・顔全体の差分は移さない</text>
+<rect x="35" y="345" width="1130" height="420" rx="14" fill="#ffffff" stroke="#d5e0eb"/>
+<text x="60" y="382" font-size="23" font-weight="700">口キーの変更範囲と、保持する境界</text>
+<path d="M550.0 511.0 L534.2 549.3 L503.7 542.4 L517.0 511.0 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M517.0 511.0 L503.7 542.4 L476.0 529.8 L487.0 511.0 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M534.2 549.3 L489.1 581.7 L465.7 569.0 L503.7 542.4 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M503.7 542.4 L465.7 569.0 L444.5 545.6 L476.0 529.8 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M489.1 581.7 L421.6 603.4 L409.0 586.8 L465.7 569.0 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M465.7 569.0 L409.0 586.8 L397.5 556.3 L444.5 545.6 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M421.6 603.4 L342.0 611.0 L342.0 593.0 L409.0 586.8 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.0 586.8 L342.0 593.0 L342.0 560.0 L397.5 556.3 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M342.0 611.0 L262.4 603.4 L275.0 586.8 L342.0 593.0 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M342.0 593.0 L275.0 586.8 L286.5 556.3 L342.0 560.0 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M262.4 603.4 L194.9 581.7 L218.3 569.0 L275.0 586.8 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M275.0 586.8 L218.3 569.0 L239.5 545.6 L286.5 556.3 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M194.9 581.7 L149.8 549.3 L180.3 542.4 L218.3 569.0 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M218.3 569.0 L180.3 542.4 L208.0 529.8 L239.5 545.6 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M149.8 549.3 L134.0 511.0 L167.0 511.0 L180.3 542.4 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M180.3 542.4 L167.0 511.0 L197.0 511.0 L208.0 529.8 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M134.0 511.0 L149.8 472.7 L180.3 479.6 L167.0 511.0 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M167.0 511.0 L180.3 479.6 L208.0 492.2 L197.0 511.0 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M149.8 472.7 L194.9 440.3 L218.3 453.0 L180.3 479.6 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M180.3 479.6 L218.3 453.0 L239.5 476.4 L208.0 492.2 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M194.9 440.3 L262.4 418.6 L275.0 435.2 L218.3 453.0 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M218.3 453.0 L275.0 435.2 L286.5 465.7 L239.5 476.4 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M262.4 418.6 L342.0 411.0 L342.0 429.0 L275.0 435.2 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M275.0 435.2 L342.0 429.0 L342.0 462.0 L286.5 465.7 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M342.0 411.0 L421.6 418.6 L409.0 435.2 L342.0 429.0 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M342.0 429.0 L409.0 435.2 L397.5 465.7 L342.0 462.0 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M421.6 418.6 L489.1 440.3 L465.7 453.0 L409.0 435.2 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.0 435.2 L465.7 453.0 L444.5 476.4 L397.5 465.7 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M489.1 440.3 L534.2 472.7 L503.7 479.6 L465.7 453.0 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M465.7 453.0 L503.7 479.6 L476.0 492.2 L444.5 476.4 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M534.2 472.7 L550.0 511.0 L517.0 511.0 L503.7 479.6 Z" fill="#fff0d8" stroke="#dfcaac" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M503.7 479.6 L517.0 511.0 L487.0 511.0 L476.0 492.2 Z" fill="#e1f2fa" stroke="#9fc2d6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M550.0 511.0 L534.2 549.3 L489.1 581.7 L421.6 603.4 L342.0 611.0 L262.4 603.4 L194.9 581.7 L149.8 549.3 L134.0 511.0 L149.8 472.7 L194.9 440.3 L262.4 418.6 L342.0 411.0 L421.6 418.6 L489.1 440.3 L534.2 472.7 Z" fill="none" stroke="#74818d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="550.0" cy="511.0" r="3.5" fill="#74818d"/>
+<circle cx="534.2" cy="549.3" r="3.5" fill="#74818d"/>
+<circle cx="489.1" cy="581.7" r="3.5" fill="#74818d"/>
+<circle cx="421.6" cy="603.4" r="3.5" fill="#74818d"/>
+<circle cx="342.0" cy="611.0" r="3.5" fill="#74818d"/>
+<circle cx="262.4" cy="603.4" r="3.5" fill="#74818d"/>
+<circle cx="194.9" cy="581.7" r="3.5" fill="#74818d"/>
+<circle cx="149.8" cy="549.3" r="3.5" fill="#74818d"/>
+<circle cx="134.0" cy="511.0" r="3.5" fill="#74818d"/>
+<circle cx="149.8" cy="472.7" r="3.5" fill="#74818d"/>
+<circle cx="194.9" cy="440.3" r="3.5" fill="#74818d"/>
+<circle cx="262.4" cy="418.6" r="3.5" fill="#74818d"/>
+<circle cx="342.0" cy="411.0" r="3.5" fill="#74818d"/>
+<circle cx="421.6" cy="418.6" r="3.5" fill="#74818d"/>
+<circle cx="489.1" cy="440.3" r="3.5" fill="#74818d"/>
+<circle cx="534.2" cy="472.7" r="3.5" fill="#74818d"/>
+<path d="M517.0 511.0 L503.7 542.4 L465.7 569.0 L409.0 586.8 L342.0 593.0 L275.0 586.8 L218.3 569.0 L180.3 542.4 L167.0 511.0 L180.3 479.6 L218.3 453.0 L275.0 435.2 L342.0 429.0 L409.0 435.2 L465.7 453.0 L503.7 479.6 Z" fill="none" stroke="#b96506" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="517.0" cy="511.0" r="3.5" fill="#b96506"/>
+<circle cx="503.7" cy="542.4" r="3.5" fill="#b96506"/>
+<circle cx="465.7" cy="569.0" r="3.5" fill="#b96506"/>
+<circle cx="409.0" cy="586.8" r="3.5" fill="#b96506"/>
+<circle cx="342.0" cy="593.0" r="3.5" fill="#b96506"/>
+<circle cx="275.0" cy="586.8" r="3.5" fill="#b96506"/>
+<circle cx="218.3" cy="569.0" r="3.5" fill="#b96506"/>
+<circle cx="180.3" cy="542.4" r="3.5" fill="#b96506"/>
+<circle cx="167.0" cy="511.0" r="3.5" fill="#b96506"/>
+<circle cx="180.3" cy="479.6" r="3.5" fill="#b96506"/>
+<circle cx="218.3" cy="453.0" r="3.5" fill="#b96506"/>
+<circle cx="275.0" cy="435.2" r="3.5" fill="#b96506"/>
+<circle cx="342.0" cy="429.0" r="3.5" fill="#b96506"/>
+<circle cx="409.0" cy="435.2" r="3.5" fill="#b96506"/>
+<circle cx="465.7" cy="453.0" r="3.5" fill="#b96506"/>
+<circle cx="503.7" cy="479.6" r="3.5" fill="#b96506"/>
+<path d="M487.0 511.0 L476.0 529.8 L444.5 545.6 L397.5 556.3 L342.0 560.0 L286.5 556.3 L239.5 545.6 L208.0 529.8 L197.0 511.0 L208.0 492.2 L239.5 476.4 L286.5 465.7 L342.0 462.0 L397.5 465.7 L444.5 476.4 L476.0 492.2 Z" fill="none" stroke="#147cac" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="487.0" cy="511.0" r="3.5" fill="#147cac"/>
+<circle cx="476.0" cy="529.8" r="3.5" fill="#147cac"/>
+<circle cx="444.5" cy="545.6" r="3.5" fill="#147cac"/>
+<circle cx="397.5" cy="556.3" r="3.5" fill="#147cac"/>
+<circle cx="342.0" cy="560.0" r="3.5" fill="#147cac"/>
+<circle cx="286.5" cy="556.3" r="3.5" fill="#147cac"/>
+<circle cx="239.5" cy="545.6" r="3.5" fill="#147cac"/>
+<circle cx="208.0" cy="529.8" r="3.5" fill="#147cac"/>
+<circle cx="197.0" cy="511.0" r="3.5" fill="#147cac"/>
+<circle cx="208.0" cy="492.2" r="3.5" fill="#147cac"/>
+<circle cx="239.5" cy="476.4" r="3.5" fill="#147cac"/>
+<circle cx="286.5" cy="465.7" r="3.5" fill="#147cac"/>
+<circle cx="342.0" cy="462.0" r="3.5" fill="#147cac"/>
+<circle cx="397.5" cy="465.7" r="3.5" fill="#147cac"/>
+<circle cx="444.5" cy="476.4" r="3.5" fill="#147cac"/>
+<circle cx="476.0" cy="492.2" r="3.5" fill="#147cac"/>
+<ellipse cx="342" cy="511" rx="145" ry="8" fill="none" stroke="#19334a" stroke-width="2" stroke-dasharray="6 5"/>
+<ellipse cx="342" cy="511" rx="145" ry="49" fill="#fff" stroke="#147cac" stroke-width="3"/>
+<path d="M342 495 V466" fill="none" stroke="#147cac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<path d="M342 527 V556" fill="none" stroke="#147cac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<text x="166" y="639" font-size="18" fill="#576879">破線＝キー0の唇の位置</text>
+<path d="M153 681 Q187 708 249 716 Q341 738 435 716 Q493 708 532 681" fill="none" stroke="#74818d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<text x="192" y="745" font-size="19" fill="#74818d" font-weight="700">顎輪郭は位置を変えない</text>
+<circle cx="646" cy="429" r="15" fill="#147cac"/>
+<text x="640" y="436" font-size="19" fill="#fff" font-weight="700">1</text>
+<text x="673" y="436" font-size="23" fill="#147cac" font-weight="700">変える：唇・口角・必要な口内</text>
+<text x="647" y="468" font-size="20">縁と隣接面を連続して動かす。</text>
+<circle cx="646" cy="515" r="15" fill="#b96506"/>
+<text x="640" y="522" font-size="19" fill="#fff" font-weight="700">2</text>
+<text x="673" y="522" font-size="23" fill="#b96506" font-weight="700">戻す帯：動きを滑らかに0へ</text>
+<text x="647" y="554" font-size="20">境界へ近づくほど変位を弱める。</text>
+<circle cx="646" cy="601" r="15" fill="#74818d"/>
+<text x="640" y="608" font-size="19" fill="#fff" font-weight="700">3</text>
+<text x="673" y="608" font-size="23" fill="#74818d" font-weight="700">固定：境界の外・顎・顔の輪郭</text>
+<text x="647" y="640" font-size="20">顎骨の回転・移動も0にする。</text>
+<text x="647" y="680" font-size="20" fill="#19334a" font-weight="700">「顎骨0」だけでは不十分。</text>
+<text x="647" y="711" font-size="20">顎輪郭の頂点と対象外の変位も測る。</text>
+<rect x="35" y="789" width="1130" height="167" rx="14" fill="#ffffff" stroke="#d5e0eb"/>
+<text x="60" y="824" font-size="22" font-weight="700">確認：キー0 → 途中 → 1、単独 → 組み合わせ → 保存して開き直す</text>
+<ellipse cx="157" cy="870" rx="55" ry="3" fill="#e1f2fa" stroke="#147cac" stroke-width="3"/>
+<text x="102" y="929" font-size="19">0：通常</text>
+<ellipse cx="354" cy="870" rx="55" ry="13" fill="#e1f2fa" stroke="#147cac" stroke-width="3"/>
+<text x="299" y="929" font-size="19">途中</text>
+<ellipse cx="551" cy="870" rx="55" ry="28" fill="#e1f2fa" stroke="#147cac" stroke-width="3"/>
+<text x="496" y="929" font-size="19">1：指定口型</text>
+<path d="M230 872 H279" fill="none" stroke="#19334a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M427 872 H476" fill="none" stroke="#19334a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="695" y="864" font-size="20">母音同士・口＋瞬きなどを確認。</text>
+<text x="695" y="899" font-size="20">正面・横・斜め、拡大と無地で見る。</text>
+<text x="695" y="932" font-size="19">合計値の規則は使うキーに合わせる。</text>
+<text x="38" y="997" font-size="19" fill="#576879">読み方：青＋実線＝対象部位 ／ 橙＋面の帯＝減衰 ／ 灰＋破線の顎＝保持</text>
+<text x="38" y="1028" font-size="19" fill="#576879">目や感情のキーも同じ手順。変える部位・固定する部位はキーごとに指定する。</text>
+</g>
+</svg>
