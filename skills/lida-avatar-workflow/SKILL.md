@@ -13,6 +13,8 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 
 工程が広い場合は[工程索引](references/process-index.md)から選ぶ。全資料を一度に読み込まない。
 
+方向・変更範囲・接続を説明するときは[図解索引](references/diagram-index.md)から必要な図だけ使う。実画像と図番号を対応させ、模式図と以前の実メッシュ診断を区別する。PNGは表示・添付用、SVGは拡大用。
+
 | 今の作業 | 読む資料 |
 | --- | --- |
 | 原画・素体・服・部品の準備 | [入力素材](references/input-materials.md)、[複数角度から三面図](references/multiangle-threeview.md) |
