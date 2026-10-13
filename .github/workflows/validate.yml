@@ -1,0 +1,35 @@
+name: Validate distribution pack
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Validate documents and publication scope
+        run: python scripts/validate.py
+      - name: Check validator behavior
+        run: python -m unittest discover -s tests
+      - name: Build development package
+        run: python scripts/build_package.py
+      - uses: actions/upload-artifact@v7
+        with:
+          name: 3DCharaMakeSkills-Lida-development
+          path: dist/*
+          retention-days: 30
+          if-no-files-found: error
