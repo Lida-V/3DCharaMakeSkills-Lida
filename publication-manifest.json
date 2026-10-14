@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "0.1.3-dev",
+  "version": "0.1.4-dev",
   "status": "private-development",
   "scope": "Production methods, AI instructions, original diagrams and a reusable skill. No model files.",
   "visual_review_required": true,
@@ -63,6 +63,7 @@
     "skills/lida-avatar-workflow/references/multiangle-threeview.md",
     "skills/lida-avatar-workflow/references/process-index.md",
     "skills/lida-avatar-workflow/references/quality-goals.md",
+    "skills/lida-avatar-workflow/references/secondary-motion.md",
     "skills/lida-avatar-workflow/references/skirt-hidden-modeling.md",
     "skills/lida-avatar-workflow/references/trial-and-error.md",
     "skills/lida-avatar-workflow/references/visual-handoff.md",
