@@ -61,5 +61,6 @@
 
 表情は [輪郭線・隣接列・途中動作](expression-adjustment.md)、口は [顎固定と局所キー](mouth-shapes.md) を指定する。
 手は [曲率とウェイト再計算](hand-shape.md)、服は [支持域・自由端・層順序](skirt-hidden-modeling.md) を指定する。
+髪・羽の揺れは[二次揺れの依頼例](secondary-motion.md#短いai依頼例)を使い、固定部、必要動作、独自制御、出力用リグと使用先の確認を指定する。
 工程依存は [工程索引](process-index.md)、数値の書き方は [調整方法](adjustment-methods.md)、構造の指定は [メッシュとウェイト](mesh-weight.md) を参照する。
 リダ固有の好みは [デザイン索引](lida-design.md) へ置き、汎用手順の合否と混同しない。
