@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "0.1.4-dev",
+  "version": "0.1.5-dev",
   "status": "private-development",
   "scope": "Production methods, AI instructions, original diagrams and a reusable skill. No model files.",
   "visual_review_required": true,
