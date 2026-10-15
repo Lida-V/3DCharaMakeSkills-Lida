@@ -1,11 +1,12 @@
 # 同梱図版
 
-[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全15枚に表示用PNGと拡大用SVGを同梱しています。
+[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全16枚に表示用PNGと拡大用SVGを同梱しています。
 
 ## 出所と役割
 
 - `input-alignment-flow`（自作模式図）：同じ基準から段階別素材と三面図を用意する。段階別生成は次回の予防案。
 - `local-mask-transition`（自作模式図）：移動量と戻す幅の違い。修正マスクとスキンウェイトは別。
+- `eye-structure-flow`（自作模式図）：球面・虹彩/瞳孔・白目・任意の薄い反射面、眼球と一緒に回さない線の層。
 - `face-key-locality`（自作模式図）：対象部位だけの表情キーと、顎・輪郭・対象外の固定。
 - `eyelid-band-follow`（自作模式図）：まぶたの縁と隣接列の局所変換、外側への減衰。
 - `hand-shortening-flow`（自作模式図）：掌の高さとU字周辺の輪郭を別々に調整。
