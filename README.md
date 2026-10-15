@@ -1,6 +1,6 @@
 # 3DCharaMakeSkills-Lida
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.2.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、16枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
+画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.2.1** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、16枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
 
 ## 実際の制作例
 
@@ -74,8 +74,9 @@ Blenderで実行する制作補助スクリプトを同梱しています。AI�
 
 ## シェーダーは必要な場合だけ取得
 
-トゥーン表現は別リポジトリ [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon) で管理しています。**シェーダーは現在非公開のため、アクセス権のある場合に取得できます。** Skillsでモデルを作るための必須依存ではありません。一般向けの取得方法はシェーダーの公開後に案内します。
-Blender版0.1.0と、Unity／UEへの移植状況を分けて案内します。[取得・導入・対応範囲](skills/lida-avatar-workflow/references/shader-setup.md)とシェーダー側のLICENSEを確認してください。
+トゥーン表現は公開リポジトリ [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon) で別配布しています。**[BlenderアドオンZIP 0.1.0を取得](https://github.com/Lida-V/LidaAngelToon/releases/download/v0.1.0/lida_angel_toon-0.1.0-addon.zip)**できます。Skillsでモデルを作るための必須依存ではありません。
+
+この配布版の確認済み環境は **Blender 5.2.1 LTS／EEVEE** です。Unity／UE実装やVRMへの自動変換は収録していません。[取得・導入・対応範囲](skills/lida-avatar-workflow/references/shader-setup.md)とシェーダー側のLICENSEを確認してください。
 
 ## 同梱範囲
 
