@@ -2,20 +2,22 @@
 
 [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon)はシェーダーの別リポジトリです。モデル制作の方法を使うだけなら取得は不要。使う見た目とソフトに合わせて選びます。
 
-**シェーダーは現在非公開で、取得にはアクセス権が必要です。** このSkillsの一般公開とシェーダーの公開は別に管理しています。以下は取得できる利用者向けの導入手順で、一般向けの取得方法はシェーダーの公開後に案内します。
+公開リポジトリの[Release v0.1.0](https://github.com/Lida-V/LidaAngelToon/releases/tag/v0.1.0)から取得できます。通常の利用は **[lida_angel_toon-0.1.0-addon.zip](https://github.com/Lida-V/LidaAngelToon/releases/download/v0.1.0/lida_angel_toon-0.1.0-addon.zip)** を選びます。ソースZIPは開発者向けで、アドオンの導入には使いません。
 
 | 対象 | 配布するもの・状態 |
 | --- | --- |
-| Blender | 0.1.0。汎用材質に適用するノード・アドオン、自作の手続き素材。導入方法と確認済み条件はシェーダーREADMEを優先 |
+| Blender | 0.1.0。Blender 5.2.1 LTS／EEVEEで検証済み。汎用材質に適用するノード・アドオン、自作の手続き素材。Cyclesや他のBlender版は未対応・未検証 |
 | VRMのMToon | 別の材質仕様。Blenderの全機能が同じまま移るものではない。実出力を読み戻して比較 |
-| Unity／UE | 移植計画の段階。実装・検証がそろうまで対応済みとしない |
+| Unity／UE | この配布版に実装は含まれず、未対応・未検証。VRMへの自動変換も収録しない |
 
 ## 最短の導入
 
-1. シェーダーrepoの配布ZIPを取得し、対応Blender版とLICENSEを読む。
-2. READMEの手順でアドオンを導入し、球や板などの原始図形で色と影を確認する。
-3. モデルのコピーに適用し、元の材質と画像を保持。同じ光・カメラで全身と必要なアップを比べる。
+1. 上記のaddon ZIPを取得し、[対応範囲](https://github.com/Lida-V/LidaAngelToon/blob/main/docs/SUPPORT.md)と[LICENSE](https://github.com/Lida-V/LidaAngelToon/blob/main/LICENSE)を読む。
+2. Blenderの「編集 → プリファレンス → アドオン → ディスクからインストール」で、ZIPを展開せずに選び、有効にする。表示エンジンをEEVEEにする。
+3. 球を追加し、3Dビューの `N` キーからLidaAngelToonを開く。`Cloth` → `Apply to selected meshes` → レンダー表示で色と影を確認してから、モデルのコピーへ適用する。元の材質と画像を保持し、同じ光・カメラで全身と必要なアップを比べる。
 4. 出力する場合は材質・AO・艶・輪郭線の再現範囲を[読み戻し手順](visual-handoff.md#vrmを読み戻し提出動作を確認する)で確認する。
+
+対象は選択メッシュのアクティブ材質です。導入・主光の選択・元材質への復帰方法はシェーダー側の[導入と更新](https://github.com/Lida-V/LidaAngelToon/blob/main/docs/INSTALL.md)を優先します。Blenderで表示できることを、別の使用先で同じ見た目になる保証にしません。
 
 Skills、Blenderの素材生成器、Unity／UE、VRMの追加機能を一度に導入する必要はありません。対応環境だけを選び、必要な依存物を用意します。参考ダンスFBXやアバターモデルはシェーダーパックにも含めません。
 
