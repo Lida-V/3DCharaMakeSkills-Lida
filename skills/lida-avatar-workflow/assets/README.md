@@ -1,6 +1,6 @@
 # 同梱図版
 
-[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全16枚に表示用PNGと拡大用SVGを同梱しています。
+[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全17枚に表示用PNGと拡大用SVGを同梱しています。
 
 ## 出所と役割
 
@@ -13,6 +13,7 @@
 - `skirt-layer-route`（自作模式図）：層順序、支持域、自由裾と脚の通り道。
 - `hair-cause-isolation`（自作模式図）：髪の基本色・接続・面順序の原因切分け。
 - `wing-build-sequence`（自作模式図）：外形・支持体・少数羽・全列・途中動作を確認する順序。
+- `wing-feather-terms`（自作模式図）：鳥の一般的な羽群の名称と全体の区域、上下面、根元を覆う関係。創作の固定仕様ではない。
 - `wing-feather-layout`（自作模式図）：創作翼の羽種別・羽軸・覆う順序・根元面の取付。
 - `wing-root-fit`（自作模式図）：創作翼の断面・付着幅・方向・重みの対応。
 - `integration-dependencies`（自作模式図）：部品の採用版と依存物を合わせて統合。版記号は説明用。
@@ -27,6 +28,6 @@
 
 ## 資料単体で分かる出典表示
 
-全16組のSVGとPNGは、説明の下へ余白を足し、「© 2026 Lida · 3DCharaMakeSkills-Lida」と `github.com/Lida-V/3DCharaMakeSkills-Lida` を表示しています。本文・線・矢印を覆う透かしではなく、画像だけで共有された時の来歴表示です。
+全17組のSVGとPNGは、説明の下へ余白を足し、「© 2026 Lida · 3DCharaMakeSkills-Lida」と `github.com/Lida-V/3DCharaMakeSkills-Lida` を表示しています。本文・線・矢印を覆う透かしではなく、画像だけで共有された時の来歴表示です。
 
 SVGの元の図形・文字は保持し、PNGはそのSVGから描画しています。PNGとSVGの両方で出典帯が読めることを確認して更新してください。表示の追加で利用条件を変更してはいません。
