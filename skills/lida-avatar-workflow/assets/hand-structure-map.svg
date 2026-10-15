@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2410" viewBox="0 0 2000 2410" role="img" aria-labelledby="title desc">
+<title id="title">手の構造：向き・比率・曲がる帯を先に決める</title><desc id="desc">自作模式図。同じ手を裏返した甲側と掌側、指関節周囲の輪、親指と人差し指の間から掌へ続く面の流れを説明する。実モデル、実測比率、最適な固定トポロジーではない。</desc>
+<rect width="2000" height="2410" fill="#f3f6fa"/>
+<text x="48" y="76" font-family="Meiryo,sans-serif" font-size="46" font-weight="700" fill="#20384e">手の構造：向き・比率・曲がる帯を先に決める</text>
+<text x="50" y="126" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">自作模式図｜形と面の流れを読むための例。実メッシュ・固定の比率・推奨の輪の本数ではありません。</text>
+<rect x="40" y="160" width="1920" height="910" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<text x="75" y="216" font-family="Meiryo,sans-serif" font-size="35" font-weight="700" fill="#168370">A　同じ手の甲と掌を、別の方向から確認</text>
+<text x="175" y="274" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#20384e">甲側：爪が見える</text>
+<text x="1150" y="274" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#20384e">掌側：裏返すと親指の左右も反転</text>
+<g transform="translate(210 300) scale(0.83 0.83)">
+<path d="M180 660 L170 550 Q120 510 100 470 L40 375 Q20 340 45 315 Q75 295 100 325 L175 410 Q195 435 213 415 Q226 392 222 350 L215 140 Q214 100 250 100 Q288 100 290 140 L292 330 Q300 350 314 330 L315 90 Q315 50 355 50 Q390 50 390 90 L390 325 Q400 348 413 330 L415 125 Q415 85 450 85 Q490 85 490 125 L485 360 Q495 380 507 360 L520 210 Q524 173 558 178 Q591 185 588 220 L574 420 Q574 540 480 600 L465 660 Z" fill="#e2edf5" stroke="#536d82" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="231" y="122" width="42" height="58" rx="12" fill="#f9f4ef" stroke="#b79e8f" stroke-width="2"/>
+<rect x="333" y="75" width="42" height="58" rx="12" fill="#f9f4ef" stroke="#b79e8f" stroke-width="2"/>
+<rect x="431" y="109" width="42" height="58" rx="12" fill="#f9f4ef" stroke="#b79e8f" stroke-width="2"/>
+<rect x="532" y="201" width="42" height="58" rx="12" fill="#f9f4ef" stroke="#b79e8f" stroke-width="2"/>
+<path d="M48 336 Q72 325 92 351 L107 369 L77 394 Q59 373 48 336 Z" fill="#f9f4ef" stroke="#b79e8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 228 215 L 283 213" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 230 295 L 285 292" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 325 174 L 380 173" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 325 260 L 380 260" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 426 211 L 480 211" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 425 289 L 480 290" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 531 274 L 579 282" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 522 338 L 574 347" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 75 390 L 107 362" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 137 456 L 170 425" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M227 367 Q300 331 355 348 Q443 347 546 410" fill="none" stroke="#d18a2c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 180 622 L 465 622" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(1658.0 300) scale(-0.83 0.83)">
+<path d="M180 660 L170 550 Q120 510 100 470 L40 375 Q20 340 45 315 Q75 295 100 325 L175 410 Q195 435 213 415 Q226 392 222 350 L215 140 Q214 100 250 100 Q288 100 290 140 L292 330 Q300 350 314 330 L315 90 Q315 50 355 50 Q390 50 390 90 L390 325 Q400 348 413 330 L415 125 Q415 85 450 85 Q490 85 490 125 L485 360 Q495 380 507 360 L520 210 Q524 173 558 178 Q591 185 588 220 L574 420 Q574 540 480 600 L465 660 Z" fill="#e2edf5" stroke="#536d82" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M180 535 Q120 455 176 432 Q242 420 275 520 Q260 581 195 587 Z" fill="#d6ece3" stroke="#7eab9b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M290 422 Q350 393 480 425" fill="none" stroke="#8eaaa0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M290 492 Q380 474 495 492" fill="none" stroke="#8eaaa0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 228 215 L 283 213" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 230 295 L 285 292" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 325 174 L 380 173" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 325 260 L 380 260" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 426 211 L 480 211" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 425 289 L 480 290" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 531 274 L 579 282" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 522 338 L 574 347" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 75 390 L 107 362" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 137 456 L 170 425" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M227 367 Q300 331 355 348 Q443 347 546 410" fill="none" stroke="#d18a2c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 180 622 L 465 622" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<circle cx="733" cy="454" r="23" fill="white" stroke="#357da5" stroke-width="3"/>
+<text x="733" y="464" text-anchor="middle" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#357da5">1</text>
+<path d="M 709 463 L 667 470" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 667 470 L 683.9330956924518 474.2743736699393 L 681.6315098701768 460.4648587362893 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="735" cy="620" r="23" fill="white" stroke="#357da5" stroke-width="3"/>
+<text x="735" y="630" text-anchor="middle" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#357da5">2</text>
+<path d="M 711 620 L 588 600" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 588 600 L 602.66913300771 609.4771586882415 L 604.9160461598757 595.6586428024228 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="195" cy="827" r="23" fill="white" stroke="#357da5" stroke-width="3"/>
+<text x="195" y="837" text-anchor="middle" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#357da5">3</text>
+<path d="M 219 827 L 455 816" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 455 816 L 438.6914344461219 809.7525453523166 L 439.34326914513497 823.7373625311417 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1750" cy="745" r="23" fill="white" stroke="#357da5" stroke-width="3"/>
+<text x="1750" y="755" text-anchor="middle" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#357da5">4</text>
+<path d="M 1727 745 L 1510 730" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1510 730 L 1525.4791918739688 738.0866939430683 L 1526.4446300365862 724.1200218572004 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1080" cy="690" r="23" fill="white" stroke="#357da5" stroke-width="3"/>
+<text x="1080" y="700" text-anchor="middle" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#357da5">5</text>
+<path d="M 1104 690 L 1350 690" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1350 690 L 1334.0 683.0 L 1334.0 697.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="78" y="918" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#20384e">1 指先・爪　 2 指の付け根と指間　 3 手首　 4 母指球　 5 掌</text>
+<path d="M 82 960 L 162 960" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<text x="179" y="970" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">青破線：関節付近の位置の目印</text>
+<path d="M 925 960 L 1005 960" fill="none" stroke="#d18a2c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<text x="1022" y="970" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">橙破線：付け根の並びの目印</text>
+<text x="78" y="1022" font-family="Meiryo,sans-serif" font-size="29" font-weight="400" fill="#20384e">掌と各指の長さ・厚み、付け根の弧は原画へ対応。左右反転だけで表裏を判定しない。</text>
+<rect x="40" y="1100" width="950" height="610" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1020" y="1100" width="940" height="610" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<text x="73" y="1156" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#168370">B　曲げ軸の前後を、面の帯でつなぐ</text>
+<text x="73" y="1203" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">指の一部を拡大。甲側と掌側を含む輪の説明。</text>
+<path d="M130 1330 Q100 1400 130 1470 L846 1470 Q880 1400 846 1330 Z" fill="#e2edf5" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="315" cy="1400" rx="18" ry="70" fill="none" stroke="#168370" stroke-width="3"/>
+<ellipse cx="395" cy="1400" rx="18" ry="70" fill="none" stroke="#168370" stroke-width="3"/>
+<ellipse cx="475" cy="1400" rx="18" ry="70" fill="none" stroke="#168370" stroke-width="3"/>
+<ellipse cx="555" cy="1400" rx="18" ry="70" fill="none" stroke="#168370" stroke-width="3"/>
+<ellipse cx="635" cy="1400" rx="18" ry="70" fill="none" stroke="#168370" stroke-width="3"/>
+<path d="M 136 1360 L 845 1360" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 136 1440 L 845 1440" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="475" cy="1400" r="15" fill="white" stroke="#d18a2c" stroke-width="4"/>
+<circle cx="475" cy="1400" r="5" fill="#d18a2c" stroke="none" stroke-width="2"/>
+<text x="75" y="1274" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">手首側</text>
+<path d="M 190 1266 L 365 1266" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 365 1266 L 349.0 1259.0 L 349.0 1273.0 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="756" y="1274" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">指先側</text>
+<path d="M 475 1518 L 475 1423" fill="none" stroke="#d18a2c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 475 1423 L 468.0 1439.0 L 482.0 1439.0 Z" fill="#d18a2c" stroke="#d18a2c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="376" y="1560" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#d18a2c">● 曲げ軸（紙面に垂直）</text>
+<text x="73" y="1620" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">輪を一か所へ詰めず、圧縮・伸長する帯へ配分する。</text>
+<text x="73" y="1663" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">本数・間隔・斜めの流れは、曲げた結果で決める。</text>
+<text x="1054" y="1156" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">C　親指の根元から、掌・隣指へつなぐ</text>
+<text x="1054" y="1203" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">指間付近だけを説明用に展開。厚みは省略。</text>
+<path d="M1100 1410 L1210 1320 L1380 1500 Q1450 1535 1500 1470 L1500 1280 L1640 1280 L1695 1680 L1250 1680 Z" fill="#e2edf5" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1100 1410 L1250 1580 L1295 1680 M1155 1365 L1320 1540 L1390 1680 M1210 1320 L1380 1500 L1480 1680 M1500 1280 L1500 1470 L1570 1680 M1570 1280 L1570 1465 L1650 1680" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1155 1470 L1265 1380 M1210 1530 L1320 1440 M1500 1350 L1650 1350 M1500 1420 L1660 1420 M1250 1580 Q1430 1550 1680 1570 M1272 1630 Q1450 1600 1688 1620" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1060" y="1290" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">親指側</text>
+<text x="1730" y="1340" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">人差し指側</text>
+<path d="M 1730 1360 L 1640 1380" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1640 1380 L 1657.1375061676738 1383.362422096189 L 1654.1004797582125 1369.6958032536138 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1055" y="1558" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">母指球側</text>
+<path d="M 1190 1553 L 1310 1600" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1310 1600 L 1297.6547912752574 1587.6470318731676 L 1292.5491047002222 1600.682827383895 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1750" y="1540" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">指間の谷</text>
+<path d="M 1750 1550 L 1455 1512" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1455 1512 L 1469.974580110516 1520.9867652975774 L 1471.7631918345382 1507.1014900716161 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1740" y="1650" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">掌側へ</text>
+<path d="M 1730 1645 L 1645 1645" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1645 1645 L 1661.0 1652.0 L 1661.0 1638.0 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40" y="1740" width="1920" height="450" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<text x="75" y="1798" font-family="Meiryo,sans-serif" font-size="34" font-weight="700" fill="#20384e">読み違えを防ぐ確認</text>
+<text x="75" y="1856" font-family="Meiryo,sans-serif" font-size="30" font-weight="400" fill="#20384e">① 指は4本＋親指。親指の根元・爪の面・掌のふくらみで表裏をそろえる。</text>
+<text x="75" y="1914" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">② 関節位置と厚みを先に決め、曲がる帯へ連続する面を置く。辺を増やすだけで合格にしない。</text>
+<text x="75" y="1972" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">③ 指間や母指球の形を、一点への集中や急な密度差でつぶさない。面の流れを掌側まで追う。</text>
+<text x="75" y="2030" font-family="Meiryo,sans-serif" font-size="29" font-weight="400" fill="#20384e">④ 甲・掌・側面・斜めを同じ基準で比較し、開いた手と曲げた手の両方で決める。</text>
+<text x="75" y="2088" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">図の線は設計意図の説明です。万能な最適トポロジーや、この本数なら成功するという指定ではありません。</text>
+<text x="75" y="2141" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">色の役割：青＝位置の目印　緑＝連続させる面／基準境界　橙＝付け根の並び／曲げ軸</text>
+<rect x="0" y="2240" width="2000" height="170" rx="0" fill="#eaf1f7" stroke="#eaf1f7" stroke-width="2"/>
+<path d="M 32 2248 L 1968 2248" fill="none" stroke="#bacad8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="32" y="2305" font-family="Meiryo,sans-serif" font-size="41" font-weight="700" fill="#20384e">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="2361" font-family="Meiryo,sans-serif" font-size="39" font-weight="400" fill="#355770">https://github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</svg>
