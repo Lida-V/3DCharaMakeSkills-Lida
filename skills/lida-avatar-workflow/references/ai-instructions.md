@@ -75,6 +75,7 @@
 
 表情は [輪郭線・隣接列・途中動作](expression-adjustment.md)、口は [顎固定と局所キー](mouth-shapes.md) を指定する。
 手は [曲率とウェイト再計算](hand-shape.md)、服は [支持域・自由端・層順序](skirt-hidden-modeling.md) を指定する。
+翼は[支持体・羽列・根元・動作の工程別依頼](wing-workflow.md)を使い、全体の輪郭、羽種別、取付面、共通追従、表裏と途中動作を初回から指定する。
 髪・羽の揺れは[二次揺れの依頼例](secondary-motion.md#短いai依頼例)を使い、固定部、必要動作、独自制御、出力用リグと使用先の確認を指定する。
 
 まだらな陰影は[AOの切り分けと局所調整](adjustment-methods.md#髪のまだらをaoから診断する)、追加部品は[UVと焼き込み先](adjustment-methods.md#追加した髪のuvと焼き込み)を指定する。最終確認は[実VRMと提出動作](visual-handoff.md#vrmを読み戻し提出動作を確認する)の依頼例を使い、指定区間、自然な組合せ、問題時刻、未検証範囲を渡す。

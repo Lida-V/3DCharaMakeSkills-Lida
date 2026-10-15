@@ -61,6 +61,6 @@
 担当AIの評価も工程に限った観察として残し、ユーザーの指定を優先する。誤解の原因をユーザーの文章だけへ帰さない。
 制作で後から出た条件を初回指示へまとめても、次回の初回成功はまだ保証されない。
 
-詳しい手法は [表情](expression-adjustment.md)、[口型](mouth-shapes.md)、[手](hand-shape.md)、[スカートと補完](skirt-hidden-modeling.md) を参照する。
+詳しい手法は [表情](expression-adjustment.md)、[口型](mouth-shapes.md)、[手](hand-shape.md)、[スカートと補完](skirt-hidden-modeling.md)、[翼の制作と繰り返した修正](wing-workflow.md) を参照する。
 共通の依頼構成は [AIへの指示](ai-instructions.md)、見た目の好みは [リダのデザイン](lida-design.md) に分ける。
 提出画像・動画の版、基準姿勢、揺れの確認範囲は[統合と保存版の照合](visual-handoff.md#統合と保存版を照合する)で確かめる。

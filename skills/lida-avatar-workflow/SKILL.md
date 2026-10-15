@@ -38,6 +38,7 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 | 目・口・表情 | [表情の調整](references/expression-adjustment.md)、[口型](references/mouth-shapes.md) |
 | 手の短縮と境界の段 | [手の形状補正](references/hand-shape.md) |
 | 多層衣装・隠れた身体・貫通 | [スカートと補完](references/skirt-hidden-modeling.md) |
+| 翼の設計・支持体・羽列・根元・ウェイト・開閉 | [翼を作る工程](references/wing-workflow.md) |
 | 髪・羽の揺れ、出力用リグと使用先の確認 | [二次揺れと出力](references/secondary-motion.md) |
 | 画像付きの依頼・採否・失敗を残す | [画像の引き渡し](references/visual-handoff.md)、[試行錯誤](references/trial-and-error.md)、[AIへの指示](references/ai-instructions.md) |
 
