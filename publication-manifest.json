@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "status": "distribution-ready-private",
   "scope": "Reusable production methods, original diagrams, skill and attribution helper. No models or reference dance FBX.",
   "visual_review_required": true,
