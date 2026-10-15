@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "version": "0.1.5-dev",
-  "status": "private-development",
-  "scope": "Production methods, AI instructions, original diagrams and a reusable skill. No model files.",
+  "version": "1.0.0",
+  "status": "distribution-ready-private",
+  "scope": "Reusable production methods, original diagrams, skill and attribution helper. No models or reference dance FBX.",
   "visual_review_required": true,
   "files": [
     ".gitattributes",
@@ -12,7 +12,9 @@
     "AGENTS.md",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
+    "LICENSE",
     "LICENSE-POLICY.md",
+    "NOTICE.md",
     "README.md",
     "UPDATING.md",
     "VERSION",
@@ -20,6 +22,8 @@
     "scripts/README.md",
     "scripts/build_package.py",
     "scripts/validate.py",
+    "skills/lida-avatar-workflow/LICENSE",
+    "skills/lida-avatar-workflow/NOTICE.md",
     "skills/lida-avatar-workflow/SKILL.md",
     "skills/lida-avatar-workflow/agents/openai.yaml",
     "skills/lida-avatar-workflow/assets/README.md",
@@ -64,9 +68,12 @@
     "skills/lida-avatar-workflow/references/process-index.md",
     "skills/lida-avatar-workflow/references/quality-goals.md",
     "skills/lida-avatar-workflow/references/secondary-motion.md",
+    "skills/lida-avatar-workflow/references/shader-setup.md",
     "skills/lida-avatar-workflow/references/skirt-hidden-modeling.md",
     "skills/lida-avatar-workflow/references/trial-and-error.md",
+    "skills/lida-avatar-workflow/references/usage-and-attribution.md",
     "skills/lida-avatar-workflow/references/visual-handoff.md",
+    "skills/lida-avatar-workflow/scripts/ensure_attribution.py",
     "tests/README.md",
     "tests/test_validate.py"
   ],
@@ -97,5 +104,6 @@
     "skills/lida-avatar-workflow/assets/skirt-layer-route.svg": "0e49d023c5949b7646212b4407b8b2e9de8cc4238d6bca596195381e1713f0ca",
     "skills/lida-avatar-workflow/assets/wing-root-fit.png": "0f315446238384479bc09b0210aebbb0a73d6fb4d7c6c06bb54d23c149ed82e8",
     "skills/lida-avatar-workflow/assets/wing-root-fit.svg": "f0e37ae82800477a0991eefb418fc671396962b88550ac79a0f88e3c62e7395b"
-  }
+  },
+  "shader_repository": "https://github.com/Lida-V/LidaAngelToon"
 }
