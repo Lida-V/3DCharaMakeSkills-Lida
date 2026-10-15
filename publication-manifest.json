@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "1.0.3",
+  "version": "1.1.0",
   "status": "distribution-ready-public",
   "scope": "Reusable production methods, original diagrams, actual model render previews, skill and attribution helper. No models or reference dance FBX.",
   "visual_review_required": true,
@@ -78,7 +78,12 @@
     "tests/test_validate.py",
     "media/README.md",
     "media/lida-finished-body.png",
-    "media/lida-finished-face.png"
+    "media/lida-finished-face.png",
+    "skills/lida-avatar-workflow/references/wing-workflow.md",
+    "skills/lida-avatar-workflow/assets/wing-build-sequence.png",
+    "skills/lida-avatar-workflow/assets/wing-build-sequence.svg",
+    "skills/lida-avatar-workflow/assets/wing-feather-layout.png",
+    "skills/lida-avatar-workflow/assets/wing-feather-layout.svg"
   ],
   "asset_sha256": {
     "skills/lida-avatar-workflow/assets/actual-knee-bend.png": "8204bb8afdb93ca073a8b70cbe3e4e8ad87a47bed009b53d950eaff65f5acf7d",
@@ -108,7 +113,11 @@
     "skills/lida-avatar-workflow/assets/wing-root-fit.png": "0f315446238384479bc09b0210aebbb0a73d6fb4d7c6c06bb54d23c149ed82e8",
     "skills/lida-avatar-workflow/assets/wing-root-fit.svg": "f0e37ae82800477a0991eefb418fc671396962b88550ac79a0f88e3c62e7395b",
     "media/lida-finished-body.png": "93dc0e15ccc07dc3bd1e0ca3e96c3bf92ec3dd56bfac2e7013df7ede4e6c1b44",
-    "media/lida-finished-face.png": "3881c1a509e4c9a3f5ef9b6a068186a62b6dedca8e2be6010092cbdfdf795bb4"
+    "media/lida-finished-face.png": "3881c1a509e4c9a3f5ef9b6a068186a62b6dedca8e2be6010092cbdfdf795bb4",
+    "skills/lida-avatar-workflow/assets/wing-build-sequence.png": "64a29e2dd3a54a35aafeae209188e9f0424642fcc1e3c3d82f93c1dfbf24729b",
+    "skills/lida-avatar-workflow/assets/wing-build-sequence.svg": "f4265647f241a403cad8b2fe15cb3c2468a45a3ce8adb9df307cbe06c972f2a6",
+    "skills/lida-avatar-workflow/assets/wing-feather-layout.png": "e2841136ca1f71a7497412af34d0aad989737e94017eb5e4ba9feb6be8c22c84",
+    "skills/lida-avatar-workflow/assets/wing-feather-layout.svg": "d3185137943ba468126938d690d7023eb66e31c724829decacb59dba7b467e51"
   },
   "shader_repository": "https://github.com/Lida-V/LidaAngelToon"
 }

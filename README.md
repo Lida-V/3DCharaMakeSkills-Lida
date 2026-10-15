@@ -1,6 +1,6 @@
 # 3DCharaMakeSkills-Lida
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.0.3** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、13枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
+画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.1.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、15枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
 
 ## 実際の制作例
 
@@ -36,6 +36,7 @@
 
 - [品質と工程ゴール](skills/lida-avatar-workflow/references/quality-goals.md)：初回の完成像と各工程の終了条件。
 - [工程索引](skills/lida-avatar-workflow/references/process-index.md)：今扱う部位の資料だけ選ぶ。
+- [翼を作る工程](skills/lida-avatar-workflow/references/wing-workflow.md)：資料・支持体・羽列・根元・ウェイト・開閉としなり・保存まで。工程ごとのゴールとAI依頼文付き。
 - [図解索引](skills/lida-avatar-workflow/references/diagram-index.md)：素材、網目、表情、手、髪、衣装、翼、統合を画像で確認。
 - [画像付きの依頼](skills/lida-avatar-workflow/references/visual-handoff.md)：変更部と固定部、比較・採否をAIへ渡す。
 
