@@ -11,6 +11,8 @@
 | 眼球の構成と視線 | 球面・虹彩/瞳孔・白目・任意の反射面と固定する線の層を分ける | [眼球の制作](eye-modeling.md) | [PNG](../assets/eye-structure-flow.png) / [SVG](../assets/eye-structure-flow.svg) |
 | 口・表情キー | 共通の顔で対象部位だけ動かす。顎・輪郭・対象外を固定する | [口型](mouth-shapes.md) | [PNG](../assets/face-key-locality.png) / [SVG](../assets/face-key-locality.svg) |
 | まぶたの白い帯・折れ | 縁と隣接列で同じ局所変換を共有し、外側へ減衰する | [表情の調整](expression-adjustment.md) | [PNG](../assets/eyelid-band-follow.png) / [SVG](../assets/eyelid-band-follow.svg) |
+| 手の形・関節・網目 | 甲/掌の向き、目印、指の輪と母指球・指間のつながりを対応させる | [手](hand-shape.md) | [PNG](../assets/hand-structure-map.png) / [SVG](../assets/hand-structure-map.svg) |
+| 手の変形の診断と検収 | 空間距離と表面経路を区別し、形・骨・重み・爪を単指/握り/途中で確認する | [手](hand-shape.md) | [PNG](../assets/hand-deformation-check.png) / [SVG](../assets/hand-deformation-check.svg) |
 | 手を短くしたときの段 | 掌の高さとU字周辺の輪郭を分け、保持端へ滑らかにつなぐ | [手](hand-shape.md) | [PNG](../assets/hand-shortening-flow.png) / [SVG](../assets/hand-shortening-flow.svg) |
 | スカートの干渉・見えない面 | 層順序と自由裾を保持し、脚が布を横切る経路を診断する | [スカートと補完](skirt-hidden-modeling.md) | [PNG](../assets/skirt-layer-route.png) / [SVG](../assets/skirt-layer-route.svg) |
 | 髪の模様・穴・突出 | 基本色、接続、面の順序を一つずつ切り分ける | [調整方法](adjustment-methods.md) | [PNG](../assets/hair-cause-isolation.png) / [SVG](../assets/hair-cause-isolation.svg) |
