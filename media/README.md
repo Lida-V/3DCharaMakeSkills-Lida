@@ -4,14 +4,18 @@
 
 | 掲載物 | 確認できるもの |
 | --- | --- |
-| `lida-finished-body.png`（820×1000） | 斜めからの全身。多段衣装・髪・翼・装飾・靴 |
-| `lida-finished-face.png`（820×1000） | 正面のバストアップ。顔・髪・冠・襟・胸元の装飾 |
-| [lida-model-turntable.mp4](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.0.2/lida-model-turntable.mp4)（Release添付） | 10秒・1448×900・24fps・音声なし。全身の回転と笑顔・驚き・口型「あ」・瞬き |
+| `lida-finished-body.png`（820×1098） | 斜めからの全身。多段衣装・髪・翼・装飾・靴。元画像820×1000と下部の出典帯 |
+| `lida-finished-face.png`（820×1098） | 正面のバストアップ。顔・髪・冠・襟・胸元の装飾。元画像820×1000と下部の出典帯 |
+| [lida-model-turntable-attributed.mp4](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.2.2/lida-model-turntable-attributed.mp4)（Release添付） | 10秒・1448×984・24fps・240フレーム・音声なし。全身の回転と笑顔・驚き・口型「あ」・瞬き。元画角1448×900と下部の出典帯 |
 
 基準画像とTripo等の生成モデルから、形状・表情キー・骨とスキンウェイト・衣装や髪や翼の追従・トゥーン材質を調整した制作例です。各工程の試行錯誤を含む仕上がりで、初回生成だけの結果や同じ品質を自動保証する見本ではありません。
 
 表示条件はBlender 5.2.1 LTS／EEVEE、制作モデル内のLidaSoftToon、灰色背景、Standard変換・露出0です。全身は斜めの正投影、顔は正面のバストアップ。別配布の汎用アドオンやUnity／UEへ適用しただけで、同じ外観になることを示す画像ではありません。
 
-PNGは表示に不要な撮影情報とローカルパスを除き、画素と色の表示情報を保持しました。顔や体型、明るさを画像加工で補正していません。動画はカメラ周回と既存の表情キーによるもので、参考ダンスFBXを使っていません。
+PNGは表示に不要な撮影情報とローカルパスを除いた元画像を台紙に配置し、下98pxの余白へ「© 2026 Lida · 3DCharaMakeSkills-Lida」と配布元URLを追加しました。元画像820×1000の画素領域と色の表示情報は完全一致を確認しています。顔や体型、明るさを画像加工で補正していません。
+
+動画は元の1448×900の全画角を残し、下84pxへ「© 2026 Lida」と配布元URLを常時表示する版です。再エンコードを含むため、元動画との画素完全一致は示しません。カメラ周回と既存の表情キーによるもので、参考ダンスFBXは使っていません。
+
+出典帯は資料単体でも出所をたどるための表示です。配布元は [3DCharaMakeSkills-Lida](https://github.com/Lida-V/3DCharaMakeSkills-Lida)。商用利用を含む従来の利用条件は変更していません。
 
 配布するのは紹介画像・動画と制作ノウハウです。モデルデータやキャラクターデザインの利用許可とは別です。[配布条件](../LICENSE-POLICY.md)を参照してください。
