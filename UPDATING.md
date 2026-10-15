@@ -1,36 +1,29 @@
-# 制作で得た学びを更新する
+# 導入後の更新と、配布原稿の保守
 
-## 普段の更新
+## 利用者の更新
 
-1. 制作の正本に結果を残す。[初回の品質案と工程開始時のゴール](skills/lida-avatar-workflow/references/quality-goals.md)、入力版、依頼文、失敗理由、変更範囲、画像、採否、未検証を分け、終了時に達成・未達を追記する。
-2. このリポジトリへ、再利用できる方法だけ抜き出す。初心者向けには「素材→順番→調整→つまずき」を短く、詳細は専用文書にまとめ、工程索引からリンクする。
-3. 図版を足すときは画像内の文字、モデルの出所、比較の左右、姿勢、採否を目視で確認する。外部モデルや名称を含む比較資料は載せない。
-4. `CHANGELOG.md` を更新し、配布版を変えるときは `VERSION` も更新する。新しいファイル/図版は `publication-manifest.json` の一覧と画像ハッシュへ追加する。
-5. READMEに記載した3コマンドを実行する。図の修正は同じ姿勢・距離の見え方も確認する。
-6. GitHubの作業ブランチへ更新し、PRで差分と検査結果を確認してmainへまとめる。個人の小さな訂正はmainへの通常コミットでもよい。既存履歴は書き換えない。
+1. 配布元のVERSIONと変更履歴を確認し、自分が入れた版を控える。
+2. 自分で加えた指示・画像・設定があれば退避する。
+3. 新しいZIPを展開し、`skills/lida-avatar-workflow`を中身ごと差し替える。参照文書・画像・LICENSE・NOTICE・scriptsを残す。
+4. スキルを読み込ませ、工程索引から必要な章と画像へ進めることを確認する。旧版の自分の変更は必要な部分だけ戻す。
 
-## GitHubの画面で更新する
+読むだけのモデル制作では、Python・Git・シェーダーは必須ではありません。初回は[READMEの導入確認](README.md#入手して使う)を使ってください。
 
-対象ファイルの編集、または対象フォルダの **Add file → Upload files** を使う。フォルダ名を保ち、ローカルの制作プロジェクト全体を選ばない。コミット後は **Actions → Validate distribution pack** の成功を確認する。失敗した場合はログに表示されたファイルと理由を直す。
+## 作者とコントリビューターの更新
 
-## Gitから更新する
+1. 制作側で素材の版、実際の依頼、原因、変更・固定範囲、比較、採否・残件を記録する。
+2. 再利用できる方法を既存の専用章へ集約し、工程索引から参照する。私的なログやモデルを丸ごとコピーしない。
+3. 自作図のみ追加し、出所・文字・比較条件・採否を目視で確認する。参考ダンスFBX・改名／変換した参考モーションは収録しない。
+4. VERSION・CHANGELOG・manifest.versionを合わせ、新しい収録物と画像ハッシュをmanifestへ明示する。LICENSE・NOTICEはrootとスキル内の同文を保つ。
+5. READMEの検査・単体テスト・ZIP作成を実行する。出力ZIPは収録一覧、重複・欠落・余分なファイル、元ファイルとの内容一致も検査する。
+6. 自分の権限で作業ブランチへ更新し、PRの差分・CIを確認してmainへまとめる。認証情報を文書やコマンド本文へ書かない。
 
-LidaのアカウントでGitHubの通常の認証を済ませてから、この非公開リポジトリをcloneする。認証情報をファイル・コマンド本文・リポジトリURLに埋め込まない。
+作者本人のアカウントへのログインを第三者に求める手順ではありません。Gitを使う場合は自分のcloneまたはforkで作業します。GitHub画面なら対象フォルダのUpload filesを使い、制作フォルダ全体を選ばないでください。
 
-```sh
-git clone https://github.com/Lida-V/3DCharaMakeSkills-Lida.git
-cd 3DCharaMakeSkills-Lida
-git switch -c docs/improve-workflow
-# 制作メモから確認済みの学びを編集し、READMEの検査コマンドを実行
-git add README.md CHANGELOG.md VERSION skills scripts tests publication-manifest.json
-git commit -m "docs: improve avatar workflow"
-git push -u origin docs/improve-workflow
-```
+## アプリや派生Skillsを公開する前に
 
-この作業には、モデル本体の再生成・公開範囲の変更・新しい認証権限の発行は含まれない。
+[出典の保持](skills/lida-avatar-workflow/references/usage-and-attribution.md)に従い、README・About・NOTICE等へ参照元名、Lida、元URL、利用・改変内容を記載します。転載・組込みした資料とともに適用LICENSEも保持します。スキル単体コピーでもこの条件へ到達できることを確認します。
 
-## 配布前
+シェーダーは[LidaAngelToon](https://github.com/Lida-V/LidaAngelToon)の版と対応環境・ライセンスを別に確認します。モデルだけを作った成果物へクレジットを要求する工程ではありません。
 
-通常形、表情、変形、保存、使用先の確認を別々に記す。新しいモデルの検査を古い成功例で代用しない。[配布条件](LICENSE-POLICY.md)を決定し、Lida固有の好みはあとがきへ短く残す。最終ZIPを展開して、スキルと参照図のリンクも確認する。
-
-公開リリースは明示的に決めてから作成する。タグは `v0.1.0` のようにVERSIONと対応させ、変更履歴と未検証範囲を添える。GitHub ActionsはZIPを作るだけで、公開操作は行わない。
+リポジトリの公開範囲変更と公開リリースは、管理者が別途決めてから行います。今回の梱包・ZIP生成だけで公開操作を行いません。

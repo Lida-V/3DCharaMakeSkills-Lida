@@ -7,6 +7,8 @@
 - [ ] 文書/図版/スキルとCHANGELOGを更新
 - [ ] 候補・採用・確認範囲・未検証を区別
 - [ ] 掲載対象と画像内文字を目視確認
-- [ ] validate・unit tests・package buildが成功
+- [ ] LICENSE・NOTICE・公開するアプリ／派生Skillsの出典を保持
+- [ ] 参考ダンスFBX・改名コピー・変換参考モーションを収録しない
+- [ ] validate・unit tests・package buildとZIP内容監査が成功
 
 途中動作・関連部品・使用先に残る制限：

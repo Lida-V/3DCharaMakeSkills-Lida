@@ -1,4 +1,4 @@
 interface:
   display_name: "Lida Avatar Workflow"
   short_description: "画像から作る3Dキャラクターの素材・網目・変形・AI指示を整理する"
-  default_prompt: "$lida-avatar-workflowで、参照画像と現在のモデルから必要工程を選び、保持部分と検査条件を含む具体的な指示を作ってください。"
+  default_prompt: "$lida-avatar-workflowで、参照画像と現在のモデルから必要工程を選び、保持部分と検査条件を含む具体的な指示を作ってください。アプリや派生Skillsを公開する場合は出典も保持してください。"
