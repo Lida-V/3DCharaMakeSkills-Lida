@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1550" viewBox="0 0 2400 1550">
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1746" viewBox="0 0 2400 1746">
 <rect width="2400" height="1550" fill="#f3f6fa"/>
 <text x="60" y="102" font-family="Meiryo, sans-serif" font-size="57" font-weight="700" fill="#182d45">02  最大変形帯で、面と辺の流れを途切れさせない</text>
 <text x="62" y="155" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">模式図｜表面パッチを平面に展開した接続例。実メッシュでは立体の曲率・変形方向に合わせて配置します。</text>
@@ -153,4 +153,11 @@
 <text x="70" y="1365" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">連続した四角格子は流れを設計しやすい一例です。四角面だけでも、曲率・関節位置・ウェイトが不適切なら破綻します。</text>
 <text x="70" y="1417" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">肩・脇・股は多方向に動くため、この一枚の平面格子では足りません。複合姿勢と途中角度で再検査してください。</text>
 <text x="70" y="1466" font-family="Meiryo, sans-serif" font-size="26" font-weight="400" fill="#182d45">接続の確認：各扇状パッチは8三角面。格子の辺と頂点を共有し、重複面・独立した重なり面はありません。</text>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1550" width="2400" height="196" fill="#eef3f8"/>
+<path d="M 32 1558 H 2368" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1628" font-family="Meiryo, sans-serif" font-size="50" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1691" font-family="Meiryo, sans-serif" font-size="50" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
 </svg>

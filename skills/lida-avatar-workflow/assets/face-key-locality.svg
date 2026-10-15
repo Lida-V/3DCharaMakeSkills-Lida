@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1050" viewBox="0 0 1200 1050" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1148" viewBox="0 0 1200 1148" role="img" aria-labelledby="title desc">
 <title id="title">同じ基準メッシュで、対象部位だけの表情キーを作る</title><desc id="desc">口の局所パッチを使い、参考形状と頂点転写を区別する。口周辺の変位、外側の減衰、顎輪郭と対象外の固定、途中と組み合わせの検査を示す自作模式図。</desc>
 <rect width="1200" height="1050" fill="#f4f7fb"/>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto-start-reverse"><path d="M0 0 L9 4.5 L0 9Z" fill="#19334a"/></marker><marker id="blue-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#147cac"/></marker><marker id="red-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#c34251"/></marker></defs>
@@ -149,5 +149,12 @@
 <text x="695" y="932" font-size="19">合計値の規則は使うキーに合わせる。</text>
 <text x="38" y="997" font-size="19" fill="#576879">読み方：青＋実線＝対象部位 ／ 橙＋面の帯＝減衰 ／ 灰＋破線の顎＝保持</text>
 <text x="38" y="1028" font-size="19" fill="#576879">目や感情のキーも同じ手順。変える部位・固定する部位はキーごとに指定する。</text>
+</g>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1050" width="1200" height="98" fill="#eef3f8"/>
+<path d="M 32 1058 H 1168" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1089" font-family="Meiryo, sans-serif" font-size="25" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1121" font-family="Meiryo, sans-serif" font-size="25" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
 </g>
 </svg>

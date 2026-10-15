@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1660" viewBox="0 0 1800 1660" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1807" viewBox="0 0 1800 1807" role="img" aria-labelledby="title desc">
 <title id="title">羽は、役割・向き・付着面をそろえて配置する</title><desc id="desc">創作翼の自作模式図。片翼の表面側、背中側、翼端、前縁と後縁を明示する。長羽は外形と面を作り、短い覆い羽が根元を段階的に覆う。各羽の軸、幅と長さの変化、根元を面として付けることを説明する。表裏は別々に、動作途中の隙間も検品する。実モデルや唯一の鳥解剖を示す図ではない。</desc>
 <rect width="1800" height="1660" fill="#f3f6fa"/>
 <text x="42" y="72" font-family="Meiryo, sans-serif" font-size="42" font-weight="700" fill="#182d45">羽は、役割・向き・付着面をそろえて配置する</text>
@@ -151,4 +151,11 @@
 <text x="44" y="1556" font-family="Meiryo, sans-serif" font-size="25" font-weight="400" fill="#182d45">色に加えて、羽軸・前後の表示・根元の点線を読みます。羽数・寸法・厚み・角度は説明用です。</text>
 <text x="44" y="1604" font-family="Meiryo, sans-serif" font-size="24" font-weight="400" fill="#182d45">この図は配置と検品の考え方です。描いた重なりを、そのまま実メッシュへ固定する指示ではありません。</text>
 <text x="44" y="1646" font-family="Meiryo, sans-serif" font-size="24" font-weight="400" fill="#182d45">通常・途中・必要な展開・戻りを確認し、保存後と使用先でも見た目を確かめます。</text>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1660" width="1800" height="147" fill="#eef3f8"/>
+<path d="M 32 1668 H 1768" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1719" font-family="Meiryo, sans-serif" font-size="38" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1766" font-family="Meiryo, sans-serif" font-size="38" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
 </svg>

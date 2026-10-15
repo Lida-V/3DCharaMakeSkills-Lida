@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1340" viewBox="0 0 1200 1340" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1438" viewBox="0 0 1200 1438" role="img" aria-labelledby="title desc">
 <title id="title">部品の採用版と依存関係を確認してから統合する</title>
 <desc id="desc">説明用の版AからFで採用版と未確認版の一覧を作り、採用された差分だけを共通基準へ統合する。手の形から関節位置、重み、爪へ、身体から服、飾りへ、顔から表情へ、髪から影と追従へ矢印を引き対応の確認を示す。保存再読込と使用先試験の合格を分ける模式図。</desc>
 <rect width="1200" height="1340" fill="#f4f7fb"/>
@@ -81,5 +81,12 @@
 <text x="95" y="1203" font-size="24" fill="#19334a" font-weight="700">使用先で、小さく書き出して試す</text>
 <text x="65" y="1241" font-size="21" fill="#19334a">骨・キー・追従・表示が再現するか確認。制作ソフト内の合格と分けて記録する。</text>
 <text x="38" y="1312" font-size="21" fill="#576879">記録を分ける：形の採用 ／ 部品の一致 ／ 統合後の外観と動作 ／ 使用先の確認</text>
+</g>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1340" width="1200" height="98" fill="#eef3f8"/>
+<path d="M 32 1348 H 1168" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1379" font-family="Meiryo, sans-serif" font-size="25" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1411" font-family="Meiryo, sans-serif" font-size="25" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
 </g>
 </svg>

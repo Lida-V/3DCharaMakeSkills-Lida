@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1190" viewBox="0 0 1500 1190">
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1312" viewBox="0 0 1500 1312">
 <rect width="1500" height="1190" fill="#f3f6fa"/>
 <text x="38" y="66" font-family="Meiryo, sans-serif" font-size="36" font-weight="700" fill="#182d45">素材は、同じ基準から用途ごとに分ける</text>
 <text x="38" y="110" font-family="Meiryo, sans-serif" font-size="22" font-weight="400" fill="#82909f">模式図：素材の関係を示す。生成画像や実モデルの比較図ではありません。</text>
@@ -91,4 +91,11 @@
 <text x="65" y="1032" font-family="Meiryo, sans-serif" font-size="27" font-weight="700" fill="#182d45">最初にそろえる：表情・縮尺・透視・高さの目印・前後の厚み</text>
 <text x="65" y="1077" font-family="Meiryo, sans-serif" font-size="23" font-weight="400" fill="#182d45">顔の丸み改善は今回の制作経験。角度資料だけの効果として断定しません。</text>
 <text x="65" y="1118" font-family="Meiryo, sans-serif" font-size="23" font-weight="400" fill="#182d45">三面図は厳密な投影ではないため、出力後に目印を照合して直します。</text>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1190" width="1500" height="122" fill="#eef3f8"/>
+<path d="M 32 1198 H 1468" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1239" font-family="Meiryo, sans-serif" font-size="31" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1278" font-family="Meiryo, sans-serif" font-size="31" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
 </svg>
