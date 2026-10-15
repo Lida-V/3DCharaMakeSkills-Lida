@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "status": "distribution-ready-private",
-  "scope": "Reusable production methods, original diagrams, skill and attribution helper. No models or reference dance FBX.",
+  "scope": "Reusable production methods, original diagrams, actual model render previews, skill and attribution helper. No models or reference dance FBX.",
   "visual_review_required": true,
   "files": [
     ".gitattributes",
@@ -75,7 +75,10 @@
     "skills/lida-avatar-workflow/references/visual-handoff.md",
     "skills/lida-avatar-workflow/scripts/ensure_attribution.py",
     "tests/README.md",
-    "tests/test_validate.py"
+    "tests/test_validate.py",
+    "media/README.md",
+    "media/lida-finished-body.png",
+    "media/lida-finished-face.png"
   ],
   "asset_sha256": {
     "skills/lida-avatar-workflow/assets/actual-knee-bend.png": "8204bb8afdb93ca073a8b70cbe3e4e8ad87a47bed009b53d950eaff65f5acf7d",
@@ -103,7 +106,9 @@
     "skills/lida-avatar-workflow/assets/skirt-layer-route.png": "de7d5d351bef91a78290a4564e64f5fa812294b7d830f070c293f5b0da3a1740",
     "skills/lida-avatar-workflow/assets/skirt-layer-route.svg": "0e49d023c5949b7646212b4407b8b2e9de8cc4238d6bca596195381e1713f0ca",
     "skills/lida-avatar-workflow/assets/wing-root-fit.png": "0f315446238384479bc09b0210aebbb0a73d6fb4d7c6c06bb54d23c149ed82e8",
-    "skills/lida-avatar-workflow/assets/wing-root-fit.svg": "f0e37ae82800477a0991eefb418fc671396962b88550ac79a0f88e3c62e7395b"
+    "skills/lida-avatar-workflow/assets/wing-root-fit.svg": "f0e37ae82800477a0991eefb418fc671396962b88550ac79a0f88e3c62e7395b",
+    "media/lida-finished-body.png": "93dc0e15ccc07dc3bd1e0ca3e96c3bf92ec3dd56bfac2e7013df7ede4e6c1b44",
+    "media/lida-finished-face.png": "3881c1a509e4c9a3f5ef9b6a068186a62b6dedca8e2be6010092cbdfdf795bb4"
   },
   "shader_repository": "https://github.com/Lida-V/LidaAngelToon"
 }
