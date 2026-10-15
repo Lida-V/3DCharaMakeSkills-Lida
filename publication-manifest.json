@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "distribution-ready-public",
   "scope": "Reusable production methods, original diagrams, actual model render previews, Blender model helper, skill and attribution helper. No models or reference dance FBX.",
   "visual_review_required": true,
@@ -97,7 +97,10 @@
     "skills/lida-avatar-workflow/assets/hand-structure-map.png",
     "skills/lida-avatar-workflow/assets/hand-structure-map.svg",
     "skills/lida-avatar-workflow/assets/hand-deformation-check.png",
-    "skills/lida-avatar-workflow/assets/hand-deformation-check.svg"
+    "skills/lida-avatar-workflow/assets/hand-deformation-check.svg",
+    "skills/lida-avatar-workflow/references/hair-workflow.md",
+    "skills/lida-avatar-workflow/assets/hair-strand-structure.png",
+    "skills/lida-avatar-workflow/assets/hair-strand-structure.svg"
   ],
   "asset_sha256": {
     "skills/lida-avatar-workflow/assets/actual-knee-bend.png": "bab57a7ad833fadea8c9154e9cd6ed4692d911e8c70a9c66d24feac4538ef5e4",
@@ -139,7 +142,9 @@
     "skills/lida-avatar-workflow/assets/hand-structure-map.png": "62aa4c8374c68b0c69dc717f2ef16d85331b6c68015295bc26410a190945a938",
     "skills/lida-avatar-workflow/assets/hand-structure-map.svg": "e505bdf46eea08f2dfa334969bb45cf270a070e83be1a2082c0990e565f5b5d0",
     "skills/lida-avatar-workflow/assets/hand-deformation-check.png": "6d96c6155ce8d8a97a6a6882021ab31af4d730a416a9e81720c81c85c6108688",
-    "skills/lida-avatar-workflow/assets/hand-deformation-check.svg": "f2a1fda7c45f01c244cd14177aa59db3dcc06569969bc3077acb853af68dd335"
+    "skills/lida-avatar-workflow/assets/hand-deformation-check.svg": "f2a1fda7c45f01c244cd14177aa59db3dcc06569969bc3077acb853af68dd335",
+    "skills/lida-avatar-workflow/assets/hair-strand-structure.png": "54f99b8c8879317d7f352ba36037a6a4e17558375758e38f70d2feb3b7704fcf",
+    "skills/lida-avatar-workflow/assets/hair-strand-structure.svg": "3fac39edb5e32e87231024fcbd99bdba2771b67ca93b04314f0abcba09804c53"
   },
   "shader_repository": "https://github.com/Lida-V/LidaAngelToon",
   "code_licenses": {
