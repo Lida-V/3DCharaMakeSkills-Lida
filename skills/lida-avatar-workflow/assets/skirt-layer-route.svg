@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1240" viewBox="0 0 1560 1240" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1367" viewBox="0 0 1560 1367" role="img" aria-labelledby="title desc">
   <title id="title">スカート四層の順序と自由裾からの脚の通り道</title>
   <desc id="desc">説明用の局所側面断面。四枚の布を共通の腰座標で扱い、支持域と自由裾を区別する。各層を別々に押して隣接層へ干渉を移す例と、布の途中に脚が突き抜ける例を示す。共通変形と自由端の垂れは別に確認し、裾の開口を塞がない。実モデルの検収図ではない。</desc>
   <defs>
@@ -82,4 +82,11 @@
   <text x="56" y="1150" class="t">上段の差・自己交差・新しい層間干渉も確認。両脚用の共通変形は一度だけ適用する。</text>
   <text x="56" y="1178" class="s">薄布の単面には意図した境界がある。腰口・裾の開口と、必要な面が欠けた破れを区別する。</text>
   <text x="42" y="1226" class="small">凡例：①青・②橙・③紫・④桃 = 布の順序（実際の間隔ではない）　○ = 自由裾　灰色の面 = 脚　破線 = 支持域の境界／変形の説明線</text>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1240" width="1560" height="127" fill="#eef3f8"/>
+<path d="M 32 1248 H 1528" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1291" font-family="Meiryo, sans-serif" font-size="32" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1331" font-family="Meiryo, sans-serif" font-size="32" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
 </svg>

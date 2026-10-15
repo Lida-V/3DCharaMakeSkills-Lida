@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1330" viewBox="0 0 1600 1330" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1461" viewBox="0 0 1600 1461" role="img" aria-labelledby="title desc">
 <title id="title">髪の不具合を、画像・接続・面の順序に分けて調べる</title>
 <desc id="desc">自作の模式図。波模様は基本色だけ一様にして調べ、切れ目は網目表示で接続を追い、板状突出は側面断面で面の順序を調べる。同じカメラと姿勢で表示条件を一つずつ変える。成功済みの実モデルを示していない。</desc>
 <defs>
@@ -87,4 +87,11 @@
 <text x="44" y="1190" class="label">比較条件：同じカメラ・姿勢・照明。追加の断面は向きと位置を明記する。</text>
 <text x="44" y="1233" class="body">毛束の根元から一つの先端まで、つながりを追う。画像、法線、網目の修正を混同しない。</text>
 <text x="44" y="1276" class="small">表示試験で原因を絞り、対象部位だけを修正する。図の形・寸法・点配置は説明用で、共通の設定値ではありません。</text>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1330" width="1600" height="131" fill="#eef3f8"/>
+<path d="M 32 1338 H 1568" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1382" font-family="Meiryo, sans-serif" font-size="33" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1424" font-family="Meiryo, sans-serif" font-size="33" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
 </svg>

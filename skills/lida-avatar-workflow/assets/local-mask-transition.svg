@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1120" viewBox="0 0 1500 1120">
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1242" viewBox="0 0 1500 1242">
 <rect width="1500" height="1120" fill="#f3f6fa"/>
 <text x="38" y="62" font-family="Meiryo, sans-serif" font-size="34" font-weight="700" fill="#182d45">移動量と、固定部分へ戻す幅を別々に決める</text>
 <text x="38" y="105" font-family="Meiryo, sans-serif" font-size="21" font-weight="400" fill="#82909f">模式図：局所パッチの側面断面。ここでのマスクは修正量の係数で、スキンウェイトではありません。</text>
@@ -111,4 +111,11 @@
 <text x="65" y="977" font-family="Meiryo, sans-serif" font-size="24" font-weight="400" fill="#182d45">3  細分化・拘束・キー反映後の実変位も測る。指定幅と実際の影響範囲は別。</text>
 <text x="65" y="1021" font-family="Meiryo, sans-serif" font-size="24" font-weight="400" fill="#182d45">4  通常・途中・必要な最大・戻りと、隣の部品を確認してから採否を決める。</text>
 <text x="42" y="1101" font-family="Meiryo, sans-serif" font-size="21" font-weight="400" fill="#82909f">灰の破線 = 修正前  ／  青の実線 = 修正後の例  ／  緑の点 = 固定位置  ／  橙 = マスク・移動量</text>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1120" width="1500" height="122" fill="#eef3f8"/>
+<path d="M 32 1128 H 1468" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1169" font-family="Meiryo, sans-serif" font-size="31" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1208" font-family="Meiryo, sans-serif" font-size="31" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
 </svg>

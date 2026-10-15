@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1430" viewBox="0 0 1800 1430" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1577" viewBox="0 0 1800 1577" role="img" aria-labelledby="title desc">
 <title id="title">眼球の模様と、まぶた側の線を分けて作る</title><desc id="desc">自作模式図。正面と断面を対応させ、白目、虹彩、画像としての瞳孔を示す。球面の虹彩部分をなだらかに凹ませる一例と、任意の薄い反射面を描く。頭やまぶた側に固定する線を眼球の回転から分け、回転中心と目の骨を合わせ、表情と視線の途中を検品する。実メッシュや完成モデルではない。</desc>
 <rect width="1800" height="1430" fill="#f3f6fa"/>
 <text x="42" y="72" font-family="Meiryo, sans-serif" font-size="42" font-weight="700" fill="#182d45">眼球の模様と、まぶた側の線を分けて作る</text>
@@ -257,4 +257,11 @@
 <text x="1246" y="1213" font-family="Meiryo, sans-serif" font-size="23" font-weight="400" fill="#182d45">透明感は対応する材質で再確認。</text>
 <text x="44" y="1336" font-family="Meiryo, sans-serif" font-size="26" font-weight="700" fill="#182d45">使い方：正面のデザイン位置と、横からの球面・凹み・層の関係を一緒に確認してください。</text>
 <text x="44" y="1384" font-family="Meiryo, sans-serif" font-size="24" font-weight="400" fill="#182d45">角膜は任意です。今回のVRM出力では除外しました。図の寸法・深さ・間隔・角度を、そのまま設定値にしません。</text>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1430" width="1800" height="147" fill="#eef3f8"/>
+<path d="M 32 1438 H 1768" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1489" font-family="Meiryo, sans-serif" font-size="38" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1536" font-family="Meiryo, sans-serif" font-size="38" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
 </svg>

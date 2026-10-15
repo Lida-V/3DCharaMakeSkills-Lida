@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1680" viewBox="0 0 2400 1680">
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1876" viewBox="0 0 2400 1876">
 <rect width="2400" height="1680" fill="#f3f6fa"/>
 <text x="60" y="103" font-family="Meiryo, sans-serif" font-size="58" font-weight="700" fill="#182d45">01  曲げる場所に、連続した支持帯をつくる</text>
 <text x="62" y="156" font-family="Meiryo, sans-serif" font-size="29" font-weight="400" fill="#182d45">模式図｜単純な一方向関節を側面に投影。人体の立体形状や完成した変形を示す図ではありません。</text>
@@ -154,4 +154,11 @@
 <text x="1540" y="1468" font-family="Meiryo, sans-serif" font-size="28" font-weight="400" fill="#182d45">色の推移＝ウェイトの切替</text>
 <text x="70" y="1549" font-family="Meiryo, sans-serif" font-size="29" font-weight="400" fill="#182d45">本数・幅・重みは説明例。支持列を増やすだけで、へこみ・体積減少・貫通が解決するとは限りません。</text>
 <text x="70" y="1599" font-family="Meiryo, sans-serif" font-size="27" font-weight="400" fill="#182d45">輪＝表面を一周する閉じた列の側面投影。肩・股は多方向に動くため、この配置をそのまま当てはめません。</text>
+
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+<rect x="0" y="1680" width="2400" height="196" fill="#eef3f8"/>
+<path d="M 32 1688 H 2368" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+<text x="32" y="1758" font-family="Meiryo, sans-serif" font-size="50" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="1821" font-family="Meiryo, sans-serif" font-size="50" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
 </svg>
