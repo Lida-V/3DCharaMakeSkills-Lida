@@ -1,6 +1,6 @@
 # 3DCharaMakeSkills-Lida
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.1.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、15枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
+画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.2.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、16枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
 
 ## 実際の制作例
 
@@ -36,11 +36,19 @@
 
 - [品質と工程ゴール](skills/lida-avatar-workflow/references/quality-goals.md)：初回の完成像と各工程の終了条件。
 - [工程索引](skills/lida-avatar-workflow/references/process-index.md)：今扱う部位の資料だけ選ぶ。
+- [自作の制作補助ツール](skills/lida-avatar-workflow/references/model-tools.md)：網目・UV・ウェイト・キーの検査、修正前後の比較、コピー限定のウェイト正規化。
+- [眼球を作る工程](skills/lida-avatar-workflow/references/eye-modeling.md)：球面・虹彩・白目・線の層・視線・瞬き・出力まで。
 - [翼を作る工程](skills/lida-avatar-workflow/references/wing-workflow.md)：資料・支持体・羽列・根元・ウェイト・開閉としなり・保存まで。工程ごとのゴールとAI依頼文付き。
 - [図解索引](skills/lida-avatar-workflow/references/diagram-index.md)：素材、網目、表情、手、髪、衣装、翼、統合を画像で確認。
 - [画像付きの依頼](skills/lida-avatar-workflow/references/visual-handoff.md)：変更部と固定部、比較・採否をAIへ渡す。
 
 作例の寸法・本数は他モデルの既定値にしません。確認範囲と既知制限も読み、外観の好みは[短いあとがき](skills/lida-avatar-workflow/references/lida-design.md)へ分けます。
+
+## 自作ツールとSkillsを組にして使う
+
+Blenderで実行する制作補助スクリプトを同梱しています。AIは各工程で必要な検査を実行し、JSONと同条件画像から修正・保持結果を判断します。ウェイト正規化は新規の候補コピーへ限定します。
+
+[できること・実行方法・確認済みの範囲](skills/lida-avatar-workflow/references/model-tools.md)を参照してください。制作時の常駐アドオン全機能や操作パネル、眼球・翼の自動造形まで一式で導入するものではありません。
 
 ## 参考図解
 
