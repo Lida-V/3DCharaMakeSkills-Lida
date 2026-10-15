@@ -8,6 +8,7 @@
 |---|---|---|---|
 | 入力素材・三面図 | 同じ基準から素材を分け、複数角度と基準絵を両方渡す | [入力素材](input-materials.md)、[三面図](multiangle-threeview.md) | [PNG](../assets/input-alignment-flow.png) / [SVG](../assets/input-alignment-flow.svg) |
 | 局所補正の境目 | 移動量と戻す幅を別々に決める。修正マスクとスキンウェイトは別 | [調整方法](adjustment-methods.md) | [PNG](../assets/local-mask-transition.png) / [SVG](../assets/local-mask-transition.svg) |
+| 眼球の構成と視線 | 球面・虹彩/瞳孔・白目・任意の反射面と固定する線の層を分ける | [眼球の制作](eye-modeling.md) | [PNG](../assets/eye-structure-flow.png) / [SVG](../assets/eye-structure-flow.svg) |
 | 口・表情キー | 共通の顔で対象部位だけ動かす。顎・輪郭・対象外を固定する | [口型](mouth-shapes.md) | [PNG](../assets/face-key-locality.png) / [SVG](../assets/face-key-locality.svg) |
 | まぶたの白い帯・折れ | 縁と隣接列で同じ局所変換を共有し、外側へ減衰する | [表情の調整](expression-adjustment.md) | [PNG](../assets/eyelid-band-follow.png) / [SVG](../assets/eyelid-band-follow.svg) |
 | 手を短くしたときの段 | 掌の高さとU字周辺の輪郭を分け、保持端へ滑らかにつなぐ | [手](hand-shape.md) | [PNG](../assets/hand-shortening-flow.png) / [SVG](../assets/hand-shortening-flow.svg) |
@@ -28,6 +29,6 @@
 2. 「図のどの番号・線が、実モデルのどこに対応するか」を指定する。画面の左右とモデルの左右、移動軸と単位もそろえる。
 3. 変える部位、固定する部位、途中姿勢、終了条件を添える。[依頼の型](ai-instructions.md)を使う。
 
-膝の2枚は以前の実メッシュの診断で、現在の完成や合格を示す図ではありません。他の13枚は自作模式図です。模式図の形・列数・寸法をそのまま実モデルへ移す指示にはせず、実際の形と必要な動作で決め直してください。
+膝の2枚は以前の実メッシュの診断で、現在の完成や合格を示す図ではありません。他の14枚は自作模式図です。模式図の形・列数・寸法をそのまま実モデルへ移す指示にはせず、実際の形と必要な動作で決め直してください。
 
 身体と服を段階別に生成する方法は次回の予防案です。複数角度を先に用意した顔の改善は今回の制作経験です。図の出所と確認範囲は[同梱図版](../assets/README.md)にも記載しています。

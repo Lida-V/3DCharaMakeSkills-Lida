@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "status": "distribution-ready-public",
-  "scope": "Reusable production methods, original diagrams, actual model render previews, skill and attribution helper. No models or reference dance FBX.",
+  "scope": "Reusable production methods, original diagrams, actual model render previews, Blender model helper, skill and attribution helper. No models or reference dance FBX.",
   "visual_review_required": true,
   "files": [
     ".gitattributes",
@@ -83,7 +83,14 @@
     "skills/lida-avatar-workflow/assets/wing-build-sequence.png",
     "skills/lida-avatar-workflow/assets/wing-build-sequence.svg",
     "skills/lida-avatar-workflow/assets/wing-feather-layout.png",
-    "skills/lida-avatar-workflow/assets/wing-feather-layout.svg"
+    "skills/lida-avatar-workflow/assets/wing-feather-layout.svg",
+    "skills/lida-avatar-workflow/scripts/lida_model_tools.py",
+    "skills/lida-avatar-workflow/scripts/LICENSE-GPL-3.0-or-later.txt",
+    "skills/lida-avatar-workflow/references/model-tools.md",
+    "skills/lida-avatar-workflow/references/eye-modeling.md",
+    "skills/lida-avatar-workflow/assets/eye-structure-flow.png",
+    "skills/lida-avatar-workflow/assets/eye-structure-flow.svg",
+    "tests/test_model_tools.py"
   ],
   "asset_sha256": {
     "skills/lida-avatar-workflow/assets/actual-knee-bend.png": "8204bb8afdb93ca073a8b70cbe3e4e8ad87a47bed009b53d950eaff65f5acf7d",
@@ -117,7 +124,12 @@
     "skills/lida-avatar-workflow/assets/wing-build-sequence.png": "64a29e2dd3a54a35aafeae209188e9f0424642fcc1e3c3d82f93c1dfbf24729b",
     "skills/lida-avatar-workflow/assets/wing-build-sequence.svg": "f4265647f241a403cad8b2fe15cb3c2468a45a3ce8adb9df307cbe06c972f2a6",
     "skills/lida-avatar-workflow/assets/wing-feather-layout.png": "e2841136ca1f71a7497412af34d0aad989737e94017eb5e4ba9feb6be8c22c84",
-    "skills/lida-avatar-workflow/assets/wing-feather-layout.svg": "d3185137943ba468126938d690d7023eb66e31c724829decacb59dba7b467e51"
+    "skills/lida-avatar-workflow/assets/wing-feather-layout.svg": "d3185137943ba468126938d690d7023eb66e31c724829decacb59dba7b467e51",
+    "skills/lida-avatar-workflow/assets/eye-structure-flow.png": "34e7aa7ed12c807003941a894d4385ea678b2e12a1fffc3e31bf0a57a12c4db7",
+    "skills/lida-avatar-workflow/assets/eye-structure-flow.svg": "22330e01dabc74d49ac14a2677c724fc1fad30c5e98fc646a69ff91d86057133"
   },
-  "shader_repository": "https://github.com/Lida-V/LidaAngelToon"
+  "shader_repository": "https://github.com/Lida-V/LidaAngelToon",
+  "code_licenses": {
+    "skills/lida-avatar-workflow/scripts/lida_model_tools.py": "GPL-3.0-or-later"
+  }
 }

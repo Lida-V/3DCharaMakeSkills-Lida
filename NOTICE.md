@@ -5,6 +5,8 @@
 - 配布元：https://github.com/Lida-V/3DCharaMakeSkills-Lida
 - 利用条件：同梱LICENSE（Lida Attribution License 1.0）
 
+例外：スキル内 `scripts/lida_model_tools.py` はGPL-3.0-or-later。著作者はLida、制作側Lida Avatar Toolkitの汎用処理を配布向けに再構成しています。適用本文は同じscripts内の `LICENSE-GPL-3.0-or-later.txt`。このGPLコードへ独自条件を上乗せせず、ファイル別の条件を優先します。
+
 モデル・画像・動画を制作するだけの場合、その成果物のクレジットは不要です。
 アプリ・派生Skills等を公開する場合の表記例：
 

@@ -1,6 +1,10 @@
 # 配布条件と対象範囲
 
-このパックの文書・自作図解・指示・補助コードには[LICENSE](LICENSE)（Lida Attribution License 1.0）を適用します。商用・非商用の利用、改変、再配布を、その出典保持条件付きで許諾します。独自条件でありMITやOSI認定ライセンスとは表示しません。
+このパックの文書・自作図解・指示・別条件を明記していない補助コードには[LICENSE](LICENSE)（Lida Attribution License 1.0）を適用します。商用・非商用の利用、改変、再配布を、その出典保持条件付きで許諾します。独自条件でありMITやOSI認定ライセンスとは表示しません。
+
+## Blender用の制作補助スクリプト
+
+`skills/lida-avatar-workflow/scripts/lida_model_tools.py` は **GPL-3.0-or-later** で提供します。[適用するGPL本文](skills/lida-avatar-workflow/scripts/LICENSE-GPL-3.0-or-later.txt)とファイル冒頭の表示を保持してください。このコードへLida Attribution Licenseの追加条件を課すものではありません。制作するモデル・画像・動画の利用と、コード自体の再配布は分けて扱います。[Blender公式のPythonスクリプトに関する説明](https://www.blender.org/about/license/)も参照しています。
 
 **商用利用を制限しません。** モデルの販売・受託制作、商用の画像・動画、商用アプリやSkillsへの組込みも可能です。以下の条件は商用・非商用で同じです。Tripoなど外部の生成サービスや第三者素材の利用条件は、本パックの許諾とは別に確認してください。
 
