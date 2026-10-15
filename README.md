@@ -1,6 +1,6 @@
 # 3DCharaMakeSkills-Lida
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.2.3** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、17枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
+画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.3.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、19枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
 
 ## 実際の制作例
 
@@ -40,6 +40,7 @@
 - [工程索引](skills/lida-avatar-workflow/references/process-index.md)：今扱う部位の資料だけ選ぶ。
 - [自作の制作補助ツール](skills/lida-avatar-workflow/references/model-tools.md)：網目・UV・ウェイト・キーの検査、修正前後の比較、コピー限定のウェイト正規化。
 - [眼球を作る工程](skills/lida-avatar-workflow/references/eye-modeling.md)：球面・虹彩・白目・線の層・視線・瞬き・出力まで。
+- [手を作り、動かして確認する工程](skills/lida-avatar-workflow/references/hand-shape.md)：掌と指の形、関節と網目、親指・指間のウェイト、爪、短縮で繰り返した修正を図で確認。
 - [翼を作る工程](skills/lida-avatar-workflow/references/wing-workflow.md)：資料・支持体・羽列・根元・ウェイト・開閉としなり・保存まで。工程ごとのゴールとAI依頼文付き。
 - [翼全体の羽の配置と用語](skills/lida-avatar-workflow/references/wing-feather-terms.md)：初列・次列・三列風切、雨覆、小翼羽、肩羽を上下面の図と番号で対応。
 - [図解索引](skills/lida-avatar-workflow/references/diagram-index.md)：素材、網目、表情、手、髪、衣装、翼、統合を画像で確認。
@@ -77,9 +78,9 @@ Blenderで実行する制作補助スクリプトを同梱しています。AI�
 
 ## シェーダーは必要な場合だけ取得
 
-トゥーン表現は公開リポジトリ [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon) で別配布しています。**[Release 0.2.0からBlender・Unity・UEの導入用ZIPを選ぶ](https://github.com/Lida-V/LidaAngelToon/releases/tag/v0.2.0)**ことができます。Skillsでモデルを作るための必須依存ではありません。
+トゥーン表現は公開リポジトリ [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon) で別配布しています。[Release 0.2.0からBlender・Unity・UEの導入用ZIPを選ぶ](https://github.com/Lida-V/LidaAngelToon/releases/tag/v0.2.0)ことができます。Skillsでモデルを作るための必須依存ではありません。
 
-確認済み環境は **Blender 5.2.1 LTS／EEVEE、Unity 6000.6.0f1／URP 17.6、UE 5.8（Windows）**です。シェーダーREADMEではリダ実モデルの3環境の表示例を確認できます。Blenderの制作基準材質と配布アドオンの違い、UEの落ち影などの制限、VRM自動変換が含まれないことは[取得・導入・対応範囲](skills/lida-avatar-workflow/references/shader-setup.md)を参照し、各ファイルのLICENSEも確認してください。
+確認済み環境はBlender 5.2.1 LTS／EEVEE、Unity 6000.6.0f1／URP 17.6、UE 5.8（Windows）です。シェーダーREADMEではリダ実モデルの3環境の表示例を確認できます。Blenderの制作基準材質と配布アドオンの違い、UEの落ち影などの制限、VRM自動変換が含まれないことは[取得・導入・対応範囲](skills/lida-avatar-workflow/references/shader-setup.md)を参照し、各ファイルのLICENSEも確認してください。
 
 ## 同梱範囲
 

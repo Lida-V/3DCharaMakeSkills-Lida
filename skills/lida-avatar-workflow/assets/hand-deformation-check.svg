@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2550" viewBox="0 0 2000 2550" role="img" aria-labelledby="title desc">
+<title id="title">手の修正：表面のつながりと、動作の原因を分ける</title><desc id="desc">自作模式図。指間をまたぐ空間距離と手の表面に沿う経路を区別し、形・骨・ウェイトを別々に診断する。単指、親指対向、握りの途中、元へ戻した状態を爪と袖を含めて比較する。実モデルの実測結果ではない。</desc>
+<rect width="2000" height="2550" fill="#f3f6fa"/>
+<text x="48" y="76" font-family="Meiryo,sans-serif" font-size="46" font-weight="700" fill="#20384e">手の修正：表面のつながりと、動作の原因を分ける</text>
+<text x="50" y="126" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">自作模式図｜近い頂点を一括で動かさない。形・骨・ウェイトを分け、同じ姿勢で比較します。</text>
+<rect x="40" y="160" width="950" height="905" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1020" y="160" width="940" height="905" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<text x="73" y="216" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#168370">A　空間で近い ≠ 表面でつながりが近い</text>
+<text x="73" y="264" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">指間の拡大：同じメッシュでも、谷を挟んでいる。</text>
+<path d="M150 350 L340 350 L340 675 Q340 750 450 750 Q560 750 560 675 L560 350 L750 350 L750 890 L150 890 Z" fill="#e2edf5" stroke="#536d82" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 405 L 340 405" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 560 405 L 750 405" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 485 L 340 485" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 560 485 L 750 485" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 565 L 340 565" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 560 565 L 750 565" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 645 L 340 645" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 560 645 L 750 645" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 210 350 L 210 890" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 275 350 L 275 890" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 625 350 L 625 890" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 690 350 L 690 890" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 800 L 750 800" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 845 L 750 845" fill="none" stroke="#9cb6ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="340" cy="565" r="13" fill="#bd4c5b" stroke="white" stroke-width="3"/>
+<circle cx="560" cy="565" r="13" fill="#bd4c5b" stroke="white" stroke-width="3"/>
+<path d="M 357 565 L 545 565" fill="none" stroke="#bd4c5b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 545 565 L 529.0 558.0 L 529.0 572.0 Z" fill="#bd4c5b" stroke="#bd4c5b" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="357" y="518" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#bd4c5b">空間の直線</text>
+<path d="M340 565 L320 565 L320 675 Q320 775 450 775 Q580 775 580 675 L580 565 L560 565" fill="none" stroke="#168370" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 580 625 L 580 582" fill="none" stroke="#168370" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 580 582 L 573.0 598.0 L 587.0 598.0 Z" fill="#168370" stroke="#168370" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="273" y="935" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#168370">表面に沿う経路</text>
+<text x="75" y="998" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#bd4c5b">指間をまたぐ直線だけで、近傍や影響を決めない。</text>
+<text x="75" y="1035" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">緑は経路の説明で、厳密な最短距離の計測ではありません。</text>
+<text x="1054" y="216" font-family="Meiryo,sans-serif" font-size="33" font-weight="700" fill="#168370">B　原因を分けてから、調整する</text>
+<rect x="1050" y="258" width="880" height="195" rx="12" fill="#f7fafc" stroke="#d8e3ec" stroke-width="2"/>
+<circle cx="1090" cy="300" r="23" fill="white" stroke="#357da5" stroke-width="3"/>
+<text x="1090" y="310" text-anchor="middle" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#357da5">1</text>
+<text x="1130" y="311" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#357da5">形を見る（基準姿勢）</text>
+<text x="1077" y="365" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">長さ・厚み・付け根・指間の谷を確認。</text>
+<text x="1077" y="412" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">骨やウェイトの変更で、静止形の段差を隠さない。</text>
+<rect x="1050" y="475" width="880" height="195" rx="12" fill="#f7fafc" stroke="#d8e3ec" stroke-width="2"/>
+<circle cx="1090" cy="517" r="23" fill="white" stroke="#d18a2c" stroke-width="3"/>
+<text x="1090" y="527" text-anchor="middle" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#d18a2c">2</text>
+<text x="1130" y="528" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#d18a2c">骨を見る（回転の中心）</text>
+<text x="1077" y="582" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">関節と曲げ軸、親指の根元の向きを確認。</text>
+<text x="1077" y="629" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">形を縮めたら、骨・爪の位置も対応を見直す。</text>
+<rect x="1050" y="692" width="880" height="195" rx="12" fill="#f7fafc" stroke="#d8e3ec" stroke-width="2"/>
+<circle cx="1090" cy="734" r="23" fill="white" stroke="#168370" stroke-width="3"/>
+<text x="1090" y="744" text-anchor="middle" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#168370">3</text>
+<text x="1130" y="745" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#168370">ウェイトを見る（動かした状態）</text>
+<text x="1077" y="799" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">一指だけ動かし、隣指・掌・袖への漏れを確認。</text>
+<text x="1077" y="846" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">形と骨を固定し、変更前後を同じ姿勢で比べる。</text>
+<text x="1055" y="952" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">頂点の範囲は接続・表面距離・部位マスクで指定。</text>
+<text x="1055" y="998" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">周囲へ滑らかに減衰させ、固定部の変位も調べる。</text>
+<text x="1055" y="1035" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">修正マスクとボーンのスキンウェイトは別の設定です。</text>
+<rect x="40" y="1100" width="1920" height="700" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<text x="75" y="1158" font-family="Meiryo,sans-serif" font-size="34" font-weight="700" fill="#168370">C　単独 → 組み合わせ → 途中 → 戻りを、同じ条件で確認</text>
+<text x="75" y="1204" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">検品の図記号。青は確認する動き、薄い線は比較用。実測図や曲げ角度の固定指定ではありません。</text>
+<rect x="65" y="1240" width="430" height="505" rx="12" fill="#f8fafc" stroke="#dce5ed" stroke-width="2"/>
+<rect x="545" y="1240" width="430" height="505" rx="12" fill="#f8fafc" stroke="#dce5ed" stroke-width="2"/>
+<rect x="1025" y="1240" width="430" height="505" rx="12" fill="#f8fafc" stroke="#dce5ed" stroke-width="2"/>
+<rect x="1505" y="1240" width="430" height="505" rx="12" fill="#f8fafc" stroke="#dce5ed" stroke-width="2"/>
+<text x="88" y="1290" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">① 一指ずつ曲げる</text>
+<path d="M 145 1500 L 145 1420" fill="none" stroke="#aebfce" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 145 1420 L 145 1350" fill="none" stroke="#aebfce" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 145 1350 L 145 1320" fill="none" stroke="#aebfce" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="145" cy="1500" r="9" fill="white" stroke="#aebfce" stroke-width="3"/>
+<circle cx="145" cy="1420" r="9" fill="white" stroke="#aebfce" stroke-width="3"/>
+<circle cx="145" cy="1350" r="9" fill="white" stroke="#aebfce" stroke-width="3"/>
+<circle cx="145" cy="1320" r="9" fill="white" stroke="#aebfce" stroke-width="3"/>
+<path d="M 242 1500 L 242 1420" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 242 1420 L 302 1390" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 302 1390 L 342 1420" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="242" cy="1500" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="242" cy="1420" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="302" cy="1390" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="342" cy="1420" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<path d="M 105 1540 L 385 1540" fill="none" stroke="#168370" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="88" y="1600" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">隣指・掌は保つ。</text>
+<text x="88" y="1645" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">内側のつぶれと、</text>
+<text x="88" y="1687" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">外側の伸びを確認。</text>
+<text x="568" y="1290" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">② 親指を対向させる</text>
+<path d="M650 1530 Q625 1460 670 1400 L820 1400 Q865 1460 840 1530 Z" fill="#e2edf5" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 680 1490 L 675 1435" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 675 1435 L 720 1380" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="680" cy="1490" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="675" cy="1435" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="720" cy="1380" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<path d="M 810 1410 L 810 1345" fill="none" stroke="#7e9db5" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 810 1345 L 770 1330" fill="none" stroke="#7e9db5" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 770 1330 L 735 1370" fill="none" stroke="#7e9db5" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="810" cy="1410" r="9" fill="white" stroke="#7e9db5" stroke-width="3"/>
+<circle cx="810" cy="1345" r="9" fill="white" stroke="#7e9db5" stroke-width="3"/>
+<circle cx="770" cy="1330" r="9" fill="white" stroke="#7e9db5" stroke-width="3"/>
+<circle cx="735" cy="1370" r="9" fill="white" stroke="#7e9db5" stroke-width="3"/>
+<circle cx="728" cy="1374" r="17" fill="none" stroke="#d18a2c" stroke-width="4"/>
+<text x="568" y="1600" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">指先だけを寄せず、</text>
+<text x="568" y="1645" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">母指球・指間の厚みと</text>
+<text x="568" y="1687" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">根元の向きを確認。</text>
+<text x="1048" y="1290" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">③ 握る途中も見る</text>
+<path d="M 1110 1500 L 1110 1410" fill="none" stroke="#bbc9d5" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1110 1410 L 1110 1350" fill="none" stroke="#bbc9d5" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1110 1350 L 1110 1325" fill="none" stroke="#bbc9d5" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1110" cy="1500" r="9" fill="white" stroke="#bbc9d5" stroke-width="3"/>
+<circle cx="1110" cy="1410" r="9" fill="white" stroke="#bbc9d5" stroke-width="3"/>
+<circle cx="1110" cy="1350" r="9" fill="white" stroke="#bbc9d5" stroke-width="3"/>
+<circle cx="1110" cy="1325" r="9" fill="white" stroke="#bbc9d5" stroke-width="3"/>
+<path d="M 1193 1500 L 1200 1420" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1200 1420 L 1250 1385" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1250 1385 L 1290 1410" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1193" cy="1500" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="1200" cy="1420" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="1250" cy="1385" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="1290" cy="1410" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<path d="M 1325 1500 L 1325 1440" fill="none" stroke="#829eb4" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1325 1440 L 1360 1430" fill="none" stroke="#829eb4" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1360 1430 L 1370 1465" fill="none" stroke="#829eb4" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1325" cy="1500" r="9" fill="white" stroke="#829eb4" stroke-width="3"/>
+<circle cx="1325" cy="1440" r="9" fill="white" stroke="#829eb4" stroke-width="3"/>
+<circle cx="1360" cy="1430" r="9" fill="white" stroke="#829eb4" stroke-width="3"/>
+<circle cx="1370" cy="1465" r="9" fill="white" stroke="#829eb4" stroke-width="3"/>
+<text x="1048" y="1600" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#20384e">途中で急に折れないか。</text>
+<text x="1048" y="1645" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">爪と指先、指同士の</text>
+<text x="1048" y="1687" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">接触も確認する。</text>
+<text x="1528" y="1290" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">④ 元へ戻す</text>
+<path d="M 1610 1500 L 1610 1420" fill="none" stroke="#c7d4df" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1610 1420 L 1660 1385" fill="none" stroke="#c7d4df" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1660 1385 L 1700 1410" fill="none" stroke="#c7d4df" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1610" cy="1500" r="9" fill="white" stroke="#c7d4df" stroke-width="3"/>
+<circle cx="1610" cy="1420" r="9" fill="white" stroke="#c7d4df" stroke-width="3"/>
+<circle cx="1660" cy="1385" r="9" fill="white" stroke="#c7d4df" stroke-width="3"/>
+<circle cx="1700" cy="1410" r="9" fill="white" stroke="#c7d4df" stroke-width="3"/>
+<path d="M 1740 1500 L 1740 1420" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1740 1420 L 1740 1355" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1740 1355 L 1740 1325" fill="none" stroke="#357da5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1740" cy="1500" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="1740" cy="1420" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="1740" cy="1355" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<circle cx="1740" cy="1325" r="9" fill="white" stroke="#357da5" stroke-width="3"/>
+<path d="M 1660 1515 L 1735 1440" fill="none" stroke="#168370" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1735 1440 L 1718.7365440327094 1446.363961030679 L 1728.636038969321 1456.2634559672906 Z" fill="#168370" stroke="#168370" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1528" y="1600" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#20384e">基準姿勢との差を調べる。</text>
+<text x="1528" y="1645" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">手首を回した時の</text>
+<text x="1528" y="1687" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">袖・装飾の追従も確認。</text>
+<rect x="40" y="1830" width="1920" height="500" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<text x="75" y="1888" font-family="Meiryo,sans-serif" font-size="34" font-weight="700" fill="#20384e">AIへ渡すときは、保持部と確認画像をセットにする</text>
+<path d="M 80 1940 L 150 1940" fill="none" stroke="#168370" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="170" y="1950" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">緑：保持する境界／表面を追う経路</text>
+<path d="M 1010 1940 L 1080 1940" fill="none" stroke="#bd4c5b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1100" y="1950" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">赤：指間を飛び越える選択</text>
+<text x="75" y="2014" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">依頼例：「人差し指の関節帯のみ調整。隣指・爪形状・手首境界は保持。表面の接続で範囲を指定。</text>
+<text x="75" y="2060" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">開いた手、単指の途中曲げ、親指対向、握り、基準へ戻した手を、甲・掌・側面から比較してください。」</text>
+<text x="75" y="2126" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">保持の意味を明記：形状を固定する部位と、骨へ追従させる爪・装飾は区別します。</text>
+<text x="75" y="2184" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">爪は指先の姿勢に追従し、板のような形を保つ。袖の硬い縁を手首へ一緒につぶさない。</text>
+<text x="75" y="2242" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">保存後・書き出し先でも同じ姿勢を確認。平滑化や交差数だけで、見た目・動作の合格にしない。</text>
+<text x="75" y="2294" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">推奨の影響本数・減衰距離は固定しません。関節の構造と使用先の制約に合わせます。</text>
+<rect x="0" y="2380" width="2000" height="170" rx="0" fill="#eaf1f7" stroke="#eaf1f7" stroke-width="2"/>
+<path d="M 32 2388 L 1968 2388" fill="none" stroke="#bacad8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="32" y="2445" font-family="Meiryo,sans-serif" font-size="41" font-weight="700" fill="#20384e">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="2501" font-family="Meiryo,sans-serif" font-size="39" font-weight="400" fill="#355770">https://github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</svg>
