@@ -1,6 +1,6 @@
 # 3DCharaMakeSkills-Lida
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.3.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、19枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
+画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.4.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、20枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
 
 ## 実際の制作例
 
@@ -41,6 +41,7 @@
 - [自作の制作補助ツール](skills/lida-avatar-workflow/references/model-tools.md)：網目・UV・ウェイト・キーの検査、修正前後の比較、コピー限定のウェイト正規化。
 - [眼球を作る工程](skills/lida-avatar-workflow/references/eye-modeling.md)：球面・虹彩・白目・線の層・視線・瞬き・出力まで。
 - [手を作り、動かして確認する工程](skills/lida-avatar-workflow/references/hand-shape.md)：掌と指の形、関節と網目、親指・指間のウェイト、爪、短縮で繰り返した修正を図で確認。
+- [髪を作る工程](skills/lida-avatar-workflow/references/hair-workflow.md)：髪だけの資料、毛束の形と断面、根元・毛先・生え際、質感と艶、揺れ・干渉・出力まで。
 - [翼を作る工程](skills/lida-avatar-workflow/references/wing-workflow.md)：資料・支持体・羽列・根元・ウェイト・開閉としなり・保存まで。工程ごとのゴールとAI依頼文付き。
 - [翼全体の羽の配置と用語](skills/lida-avatar-workflow/references/wing-feather-terms.md)：初列・次列・三列風切、雨覆、小翼羽、肩羽を上下面の図と番号で対応。
 - [図解索引](skills/lida-avatar-workflow/references/diagram-index.md)：素材、網目、表情、手、髪、衣装、翼、統合を画像で確認。

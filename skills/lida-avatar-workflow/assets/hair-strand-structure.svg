@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2480" viewBox="0 0 2000 2480" role="img" aria-labelledby="title desc">
+<title id="title">髪の構造：房の役割・面の向き・先端・下地を分ける</title><desc id="desc">顔やマネキンを描かない髪の自作模式図。髪だけの正面と横、毛束の中心線と幅厚み、面の重なり、一本の先端に終える指定、内側の髪の下地層の範囲と固定根元から自由端への区分を説明する。実モデル、固定の線数、万能な最適メッシュではない。</desc>
+<rect width="2000" height="2480" fill="#f3f6fa"/>
+<text x="48" y="76" font-family="Meiryo,sans-serif" font-size="46" font-weight="700" fill="#20384e">髪の構造：房の役割・面の向き・先端・下地を分ける</text>
+<text x="50" y="126" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">自作模式図｜原画と用途へ対応させる設計例。実モデル・最適メッシュ・固定の線数ではありません。</text>
+<rect x="40" y="160" width="950" height="985" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1020" y="160" width="940" height="985" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<text x="73" y="217" font-family="Meiryo,sans-serif" font-size="32" font-weight="700" fill="#168370">A　正面と横で、各房の役割を分ける</text>
+<path d="M245 350 Q140 340 120 445 Q105 610 95 805 Q165 717 180 590 L215 470 Q225 390 245 350 Z" fill="#c9e2de" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M282 350 Q395 350 420 455 Q440 625 445 805 Q375 720 368 595 L330 465 Q312 385 282 350 Z" fill="#c9e2de" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M208 405 Q170 445 170 515 L152 735 Q215 650 225 570 Q244 485 245 423 Z" fill="#bfd9ec" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M310 400 Q359 440 366 515 L385 735 Q322 650 312 570 Q294 485 288 423 Z" fill="#bfd9ec" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M263 341 Q195 330 165 395 Q186 420 223 507 Q232 445 263 341 Z" fill="#e3cedd" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M263 341 Q230 360 234 418 Q237 465 255 493 Q279 445 277 392 Z" fill="#e3cedd" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M263 341 Q322 335 357 395 Q326 422 305 500 Q283 440 263 341 Z" fill="#e3cedd" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M689 350 Q785 315 838 420 Q855 492 794 556 Q754 500 746 428 Q725 370 689 350 Z" fill="#c9e2de" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M810 501 Q906 522 920 628 Q935 745 863 841 Q873 725 835 662 Q797 594 810 501 Z" fill="#c9e2de" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M689 350 Q637 356 615 431 Q644 429 670 498 Q692 433 689 350 Z" fill="#e3cedd" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M717 363 Q690 391 690 470 Q692 560 725 656 Q744 568 740 489 Q746 407 717 363 Z" fill="#bfd9ec" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M799 490 L838 503 L832 536 L796 522 Z" fill="#efca98" stroke="#d18a2c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="78" y="293" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">正面</text>
+<text x="550" y="293" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">横（束ねた例）</text>
+<text x="73" y="556" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">前髪</text>
+<path d="M 145 549 L 220 472" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 220 472 L 203.8216807792213 478.57738452506646 L 213.85056411447113 488.345777384076 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="658" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">側面</text>
+<path d="M 143 650 L 188 608" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 188 608 L 171.52688795559402 613.7997051280602 L 181.07934346063416 624.0344788834602 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="305" y="851" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">後ろ髪</text>
+<path d="M 372 824 L 405 698" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 405 698 L 394.17464416693537 711.7044398312202 L 407.71785529425875 715.2514713169477 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="795" y="375" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">後ろ髪</text>
+<path d="M 834 390 L 833 436" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 833 436 L 840.3460904483148 420.15591734668186 L 826.34939740478 419.8516414109528 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="789" y="890" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#d18a2c">束ね位置</text>
+<path d="M 803 856 L 814 538" fill="none" stroke="#d18a2c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 814 538 L 806.4510558777498 553.7484425464597 L 820.4426875314792 554.232429804922 Z" fill="#d18a2c" stroke="#d18a2c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="73" y="927" width="882" height="165" rx="12" fill="#f8fafc" stroke="#d9e4ed" stroke-width="2"/>
+<text x="97" y="974" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">前髪／側面／後ろ髪／束ね位置を原画へ対応。</text>
+<text x="97" y="1020" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">同色の部分も、複数の毛束部品を表します。</text>
+<text x="97" y="1064" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">顔・頭部の輪郭は描いていません。髪だけの配置例です。</text>
+<text x="1053" y="217" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">B　中心線から、幅・厚み・向きを決める</text>
+<text x="1053" y="265" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">中心線は形状の設計ガイド。網目や骨ではありません。</text>
+<path d="M1225 325 Q1325 295 1380 345 C1485 450 1395 604 1630 746 C1475 713 1350 619 1317 533 Q1250 426 1225 325 Z" fill="#bfd9ec" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1305 327 C1438 449 1353 610 1630 746" fill="none" stroke="#d18a2c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 1232 359 L 1387 359" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1248 359 L 1232 359" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1232 359 L 1248.0 366.0 L 1248.0 352.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1371 359 L 1387 359" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1387 359 L 1371.0 352.0 L 1371.0 366.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1055" y="371" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#357da5">幅</text>
+<path d="M 1104 363 L 1228 359" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1228 359 L 1211.782629112488 352.51949990379745 L 1212.2340072286415 366.5122215045532 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1680" y="584" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#168370">滑らかな接線</text>
+<path d="M 1680 600 L 1494 647" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1494 647 L 1511.2273331660829 649.8668784391363 L 1507.797504051625 636.293512156389 Z" fill="#168370" stroke="#168370" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1462 620 Q1535 700 1657 747" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<text x="1540" y="337" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">根元 → 先端</text>
+<path d="M 1600 360 L 1660 451" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1660 451 L 1657.0366972477063 433.7889908256881 L 1645.348623853211 441.49541284403665 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1055" y="795" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">局所断面の例（間隔と厚みを強調）</text>
+<path d="M1140 891 Q1300 817 1470 878 Q1300 908 1140 891 Z" fill="#bfd9ec" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1215 948 Q1380 885 1555 936 Q1390 970 1215 948 Z" fill="#c9e2de" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1330 863 L 1326 823" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1326 823 L 1320.6267991728662 839.6171210765068 L 1334.5573198358059 838.2240690102129 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1350" y="836" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#357da5">表向き</text>
+<path d="M 1190 863 L 1190 898" fill="none" stroke="#d18a2c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1064" y="890" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#d18a2c">厚み</text>
+<text x="1630" y="889" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#20384e">手前の房</text>
+<path d="M 1620 883 L 1458 873" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1458 873 L 1473.538325803711 880.9724796153854 L 1474.40088155808 866.9990763946017 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1630" y="965" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#20384e">奥の房</text>
+<path d="M 1620 958 L 1547 940" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1547 940 L 1560.858882931983 950.6269169507241 L 1564.2105513569925 937.0340394492973 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1053" y="1010" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">別部品の重なりと、1部品内の意図しない裂けを分ける。</text>
+<text x="1053" y="1054" font-family="Meiryo,sans-serif" font-size="23" font-weight="400" fill="#20384e">厚み房の断面例です。単面髪カードを閉じる指定ではありません。</text>
+<text x="1053" y="1098" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">房の形・厚み・表裏は、原画と表示する用途に合わせます。</text>
+<rect x="40" y="1175" width="950" height="1075" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1020" y="1175" width="940" height="1075" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<text x="73" y="1232" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">C　「1房1先端」の仕様なら、途中で分けない</text>
+<text x="73" y="1280" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">複数の毛束部品を並べることとは、別の条件です。</text>
+<text x="88" y="1347" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#bd4c5b">分岐が残る</text>
+<text x="365" y="1347" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#bd4c5b">枝だけを切る</text>
+<text x="713" y="1347" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#168370">1本に整える</text>
+<path d="M120 1400 L220 1400 L220 1530 L300 1760 L178 1640 L100 1760 L120 1530 Z" fill="#f2dce2" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M170 1400 L170 1570 L100 1760 M170 1570 L300 1760" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M420 1400 L520 1400 L520 1530 L544 1600 L505 1620 L400 1760 L420 1530 Z" fill="#f2dce2" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M544 1600 L505 1620" fill="none" stroke="#bd4c5b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="523" cy="1610" r="41" fill="none" stroke="#bd4c5b" stroke-width="3"/>
+<text x="346" y="1840" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#bd4c5b">切断境界が未処理</text>
+<path d="M 485 1810 L 520 1654" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 520 1654 L 509.6671262563961 1668.0794786905888 L 523.3275356123471 1671.1443141230136 Z" fill="#bd4c5b" stroke="#bd4c5b" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M720 1400 Q770 1384 820 1400 C822 1500 799 1590 848 1760 C773 1660 730 1540 720 1400 Z" fill="#bfd9ec" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M770 1400 C775 1510 769 1620 848 1760" fill="none" stroke="#d18a2c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 120 1400 L 220 1400" fill="none" stroke="#168370" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 420 1400 L 520 1400" fill="none" stroke="#168370" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 720 1400 L 820 1400" fill="none" stroke="#168370" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="73" y="1925" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">緑の根元は保持。幅と厚みを、流れに沿って絞ります。</text>
+<text x="73" y="1976" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">枝を切っただけで終わらず、切断境界・段差・接続を確認。</text>
+<text x="73" y="2027" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">形状で1本でも、画像の模様や透明度で二股に見える場合も。</text>
+<text x="73" y="2078" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">一様色・透明度なしでも見て、形と画像の原因を切り分けます。</text>
+<text x="73" y="2133" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">閉じる必要のある厚み房は、必要な境界だけを補修。</text>
+<text x="73" y="2184" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">単面カードまで、全面の穴埋めや一括溶接をしません。</text>
+<text x="1053" y="1232" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">D　下地の範囲と、固定／揺れを別に設計</text>
+<text x="1053" y="1280" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">生え際付近の局所断面。層の間隔は説明用に拡大。</text>
+<path d="M1105 1445 Q1380 1360 1830 1405 L1830 1465 Q1380 1420 1105 1505 Z" fill="#eadfd6" stroke="#9c8a7f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1105 1395 Q1290 1340 1460 1353 L1460 1393 Q1285 1383 1105 1437 Z" fill="#c9e2de" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1115 1349 Q1280 1295 1460 1310 Q1550 1310 1625 1354 Q1370 1319 1115 1386 Z" fill="#bfd9ec" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1055" y="1560" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">主房（外）</text>
+<path d="M 1178 1547 L 1270 1350" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1270 1350 L 1256.8873449869957 1361.5350890117907 L 1269.5722634457352 1367.459010322471 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1300" y="1607" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">髪の下地層（内）</text>
+<path d="M 1420 1578 L 1410 1385" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1410 1385 L 1403.837282325772 1401.3407744880026 L 1417.8185276286802 1400.6163576329297 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1665" y="1560" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">肌を残す</text>
+<path d="M 1770 1534 L 1760 1435" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1760 1435 L 1754.6434189722324 1451.6224859660929 L 1768.5725396185474 1450.215504082627 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1053" y="1663" font-family="Meiryo,sans-serif" font-size="23" font-weight="400" fill="#20384e">下地は髪で隠れる必要範囲へ。生え際や首肌を塗りつぶさない。</text>
+<path d="M1160 1720 L1320 1720 Q1320 1845 1390 1975 Q1260 1900 1203 1822 Z" fill="#bfd9ec" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1160 1720 L1320 1720 L1326 1762 L1177 1762 Z" fill="#c9e8dc" stroke="#168370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1177 1762 L1326 1762 L1340 1827 L1206 1827 Z" fill="#e4edd9" stroke="#9aaf6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1160 1720 L 1320 1720" fill="none" stroke="#168370" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1450" y="1746" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#168370">固定根元（頭へ追従）</text>
+<path d="M 1435 1739 L 1300 1738" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1300 1738 L 1315.9477106312243 1745.1183232311225 L 1316.0514114899502 1731.1187073031085 Z" fill="#168370" stroke="#168370" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1450" y="1830" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">切り替えを滑らかに</text>
+<path d="M 1435 1818 L 1323 1797" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1323 1797 L 1337.4359352455976 1806.8287218693433 L 1340.0159747363004 1793.0685112522626 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1450" y="1934" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#357da5">揺れる自由端</text>
+<path d="M 1435 1920 L 1362 1924" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1362 1924 L 1378.3590215639404 1930.1141159189644 L 1377.5930473101105 1916.135085786567 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1053" y="2043" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">耳裏・うなじの隙間は、横・後ろ・下から確認。</text>
+<text x="1053" y="2094" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">髪だけでなく、頭・首との重なりを別の確認画像で見る。</text>
+<text x="1053" y="2145" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">腕・翼・衣装との通り道と、揺れの設定は専用章で確認。</text>
+<text x="1053" y="2196" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">緑＝保持する根元　橙破線＝形状ガイド　赤＝再検討箇所</text>
+<text x="50" y="2292" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">確認は正面・横・後ろ・斜めと実使用姿勢で。線の滑らかさだけで、房同士の接触や出力先の合格にしません。</text>
+<rect x="0" y="2310" width="2000" height="170" rx="0" fill="#eaf1f7" stroke="#eaf1f7" stroke-width="2"/>
+<path d="M 32 2318 L 1968 2318" fill="none" stroke="#bacad8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="32" y="2375" font-family="Meiryo,sans-serif" font-size="41" font-weight="700" fill="#20384e">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="2431" font-family="Meiryo,sans-serif" font-size="39" font-weight="400" fill="#355770">https://github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</svg>

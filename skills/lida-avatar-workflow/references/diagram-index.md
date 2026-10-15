@@ -15,7 +15,8 @@
 | 手の変形の診断と検収 | 空間距離と表面経路を区別し、形・骨・重み・爪を単指/握り/途中で確認する | [手](hand-shape.md) | [PNG](../assets/hand-deformation-check.png) / [SVG](../assets/hand-deformation-check.svg) |
 | 手を短くしたときの段 | 掌の高さとU字周辺の輪郭を分け、保持端へ滑らかにつなぐ | [手](hand-shape.md) | [PNG](../assets/hand-shortening-flow.png) / [SVG](../assets/hand-shortening-flow.svg) |
 | スカートの干渉・見えない面 | 層順序と自由裾を保持し、脚が布を横切る経路を診断する | [スカートと補完](skirt-hidden-modeling.md) | [PNG](../assets/skirt-layer-route.png) / [SVG](../assets/skirt-layer-route.svg) |
-| 髪の模様・穴・突出 | 基本色、接続、面の順序を一つずつ切り分ける | [調整方法](adjustment-methods.md) | [PNG](../assets/hair-cause-isolation.png) / [SVG](../assets/hair-cause-isolation.svg) |
+| 毛束の形・根元・毛先 | 配置、中心線と断面、幅/厚み、重なり、頭皮下地と固定/自由端を対応させる | [髪の制作](hair-workflow.md) | [PNG](../assets/hair-strand-structure.png) / [SVG](../assets/hair-strand-structure.svg) |
+| 髪の模様・穴・突出 | 基本色、接続、面の順序を一つずつ切り分ける | [髪の制作](hair-workflow.md)、[調整方法](adjustment-methods.md) | [PNG](../assets/hair-cause-isolation.png) / [SVG](../assets/hair-cause-isolation.svg) |
 | 翼を最初から作る順序 | 外形→支持体→少数羽→全列→途中動作の順で確認する | [翼の制作](wing-workflow.md) | [PNG](../assets/wing-build-sequence.png) / [SVG](../assets/wing-build-sequence.svg) |
 | 翼全体の羽の配置と名前 | 初列/次列/三列、雨覆、小翼羽、肩羽を上下面と対応させる | [翼の配置と用語](wing-feather-terms.md) | [PNG](../assets/wing-feather-terms.png) / [SVG](../assets/wing-feather-terms.svg) |
 | 翼の羽の配置と向き | 羽種別、羽軸、覆う順序、根元を面で付ける意味を確認する | [翼の制作](wing-workflow.md) | [PNG](../assets/wing-feather-layout.png) / [SVG](../assets/wing-feather-layout.svg) |

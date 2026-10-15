@@ -39,6 +39,7 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 | 眼球・虹彩・白目・視線 | [眼球の制作](references/eye-modeling.md) |
 | 目・口・表情 | [表情の調整](references/expression-adjustment.md)、[口型](references/mouth-shapes.md) |
 | 手の初期形状・指の網目/骨/重み・爪・短縮後の段 | [手の制作と調整](references/hand-shape.md) |
+| 髪の素材・毛束の構造・生え際・質感・揺れ | [髪を作る工程](references/hair-workflow.md) |
 | 多層衣装・隠れた身体・貫通 | [スカートと補完](references/skirt-hidden-modeling.md) |
 | 翼の設計・支持体・羽列・根元・ウェイト・開閉 | [翼を作る工程](references/wing-workflow.md) |
 | 翼全体の羽の場所・用語・上下面・重なり | [羽の配置と用語](references/wing-feather-terms.md) |
