@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "1.4.0",
+  "version": "1.4.1",
   "status": "distribution-ready-public",
   "scope": "Reusable production methods, original diagrams, actual model render previews, Blender model helper, skill and attribution helper. No models or reference dance FBX.",
   "visual_review_required": true,
@@ -55,6 +55,7 @@
     "skills/lida-avatar-workflow/assets/wing-root-fit.svg",
     "skills/lida-avatar-workflow/references/README.md",
     "skills/lida-avatar-workflow/references/adjustment-methods.md",
+    "skills/lida-avatar-workflow/references/cross-engine-look.md",
     "skills/lida-avatar-workflow/references/ai-instructions.md",
     "skills/lida-avatar-workflow/references/diagram-index.md",
     "skills/lida-avatar-workflow/references/expression-adjustment.md",
@@ -153,7 +154,7 @@
   "visible_provenance": {
     "name": "Lida",
     "repository": "https://github.com/Lida-V/3DCharaMakeSkills-Lida",
-    "diagram_pairs": 17,
+    "diagram_pairs": 20,
     "preview_pngs": 2,
     "placement": "Added footer margin; explanatory content and original model-preview pixel area retained."
   }

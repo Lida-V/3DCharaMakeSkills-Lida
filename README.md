@@ -1,6 +1,6 @@
 # 3DCharaMakeSkills-Lida
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.4.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、20枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
+画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.4.1** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、20枚の自作図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
 
 ## 実際の制作例
 
@@ -38,6 +38,7 @@
 
 - [品質と工程ゴール](skills/lida-avatar-workflow/references/quality-goals.md)：初回の完成像と各工程の終了条件。
 - [工程索引](skills/lida-avatar-workflow/references/process-index.md)：今扱う部位の資料だけ選ぶ。
+- [使用先とショット間の見た目を揃える](skills/lida-avatar-workflow/references/cross-engine-look.md)：色管理から陰影・艶・輪郭・透過を分けて調整。口内の暗さと羽の暗い縁の診断例も収録。
 - [自作の制作補助ツール](skills/lida-avatar-workflow/references/model-tools.md)：網目・UV・ウェイト・キーの検査、修正前後の比較、コピー限定のウェイト正規化。
 - [眼球を作る工程](skills/lida-avatar-workflow/references/eye-modeling.md)：球面・虹彩・白目・線の層・視線・瞬き・出力まで。
 - [手を作り、動かして確認する工程](skills/lida-avatar-workflow/references/hand-shape.md)：掌と指の形、関節と網目、親指・指間のウェイト、爪、短縮で繰り返した修正を図で確認。
@@ -79,7 +80,7 @@ Blenderで実行する制作補助スクリプトを同梱しています。AI�
 
 ## シェーダーは必要な場合だけ取得
 
-トゥーン表現は公開リポジトリ [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon) で別配布しています。[Release 0.2.0からBlender・Unity・UEの導入用ZIPを選ぶ](https://github.com/Lida-V/LidaAngelToon/releases/tag/v0.2.0)ことができます。Skillsでモデルを作るための必須依存ではありません。
+トゥーン表現は公開リポジトリ [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon) で別配布しています。[Release 0.2.1からBlender・Unity・UEの導入用ZIPを選ぶ](https://github.com/Lida-V/LidaAngelToon/releases/tag/v0.2.1)ことができます。Skillsでモデルを作るための必須依存ではありません。
 
 確認済み環境はBlender 5.2.1 LTS／EEVEE、Unity 6000.6.0f1／URP 17.6、UE 5.8（Windows）です。シェーダーREADMEではリダ実モデルの3環境の表示例を確認できます。Blenderの制作基準材質と配布アドオンの違い、UEの落ち影などの制限、VRM自動変換が含まれないことは[取得・導入・対応範囲](skills/lida-avatar-workflow/references/shader-setup.md)を参照し、各ファイルのLICENSEも確認してください。
 
