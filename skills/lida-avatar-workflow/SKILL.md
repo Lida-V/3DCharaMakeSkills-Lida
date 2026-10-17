@@ -35,6 +35,7 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 | 原画・素体・服・部品の準備 | [入力素材](references/input-materials.md)、[複数角度から三面図](references/multiangle-threeview.md) |
 | 網目・関節・スキンウェイト | [メッシュと重み](references/mesh-weight.md)、膝の具体例なら[線の配置](references/knee-edge-placement.md) |
 | 形・陰影・追従の原因診断 | [具体的な調整方法](references/adjustment-methods.md) |
+| エンジン間・ショット間の外観差、口内の暗さ、羽の暗い縁 | [使用先ごとの外観調整](references/cross-engine-look.md) |
 | 網目・UV・ウェイト・キーの実行検査、保存版の差分比較 | [自作制作補助ツール](references/model-tools.md) |
 | 眼球・虹彩・白目・視線 | [眼球の制作](references/eye-modeling.md) |
 | 目・口・表情 | [表情の調整](references/expression-adjustment.md)、[口型](references/mouth-shapes.md) |
