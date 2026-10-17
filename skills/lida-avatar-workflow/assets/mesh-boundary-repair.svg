@@ -1,0 +1,380 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="3020" viewBox="0 0 2000 3020" role="img" aria-labelledby="title desc">
+<title id="title">面を補う具体例：境界・対応点・曲率を保つ</title><desc id="desc">P1で健全な八点境界を保持した小穴の面張り、P2で二つの境界の順序と向きを合わせた接続、P3で大きい欠損の局所再構築と推定体積の断面を示す自作模式図。固定本数、四角面だけ、全面閉鎖、一括溶接を推奨しない。</desc>
+<rect width="2000" height="3020" fill="#f3f6fa"/>
+<text x="48" y="76" font-family="Meiryo,sans-serif" font-size="44" font-weight="700" fill="#20384e">面を補う具体例：境界・対応点・曲率を保つ</text>
+<text x="50" y="126" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">自作模式図｜実モデルの成功画像ではありません。色・面数・厚み・本数は説明例です。</text>
+<rect x="40" y="160" width="1920" height="706" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="185" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="75" y="217" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">P1</text>
+<text x="160" y="217" font-family="Meiryo,sans-serif" font-size="32" font-weight="700" fill="#168370">局所面張り：健全な境界を保持して、曲面をつなぐ</text>
+<text x="70" y="268" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">緑の 1〜8 は同じ位置の既存頂点。青の点と面だけを追加する例。</text>
+<text x="110" y="332" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">修正前：小さな面の欠け</text>
+<text x="750" y="332" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">修正後：内部へ点と面を追加</text>
+<rect x="133" y="374" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="214" y="374" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="295" y="374" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="376" y="374" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="133" y="455" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="376" y="455" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="133" y="536" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="376" y="536" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="133" y="617" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="214" y="617" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="295" y="617" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="376" y="617" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<path d="M 133 374 L 214 374" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 374 L 295 374" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 295 374 L 376 374" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 374 L 457 374" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 133 455 L 214 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 455 L 295 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 295 455 L 376 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 455 L 457 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 133 536 L 214 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 536 L 457 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 133 617 L 214 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 617 L 295 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 295 617 L 376 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 617 L 457 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 133 698 L 214 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 698 L 295 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 295 698 L 376 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 698 L 457 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 133 374 L 133 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 133 455 L 133 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 133 536 L 133 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 133 617 L 133 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 374 L 214 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 455 L 214 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 536 L 214 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 617 L 214 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 295 374 L 295 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 295 617 L 295 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 374 L 376 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 455 L 376 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 536 L 376 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 617 L 376 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 457 374 L 457 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 457 455 L 457 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 457 536 L 457 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 457 617 L 457 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="133" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="214" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="295" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="376" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="457" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="133" cy="455" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="214" cy="455" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="295" cy="455" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="376" cy="455" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="457" cy="455" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="133" cy="536" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="214" cy="536" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="376" cy="536" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="457" cy="536" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="133" cy="617" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="214" cy="617" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="295" cy="617" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="376" cy="617" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="457" cy="617" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="133" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="214" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="295" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="376" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="457" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<path d="M 214 455 L 295 455" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 295 455 L 376 455" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 455 L 376 536" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 536 L 376 617" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 376 617 L 295 617" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 295 617 L 214 617" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 617 L 214 536" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 536 L 214 455" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="190" y="445" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">1</text>
+<text x="287" y="441" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">2</text>
+<text x="386" y="445" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">3</text>
+<text x="388" y="545" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">4</text>
+<text x="386" y="644" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">5</text>
+<text x="287" y="648" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">6</text>
+<text x="189" y="644" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">7</text>
+<text x="184" y="544" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">8</text>
+<rect x="802" y="374" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="883" y="374" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="964" y="374" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1045" y="374" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="802" y="455" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="883" y="455" width="81" height="81" rx="0" fill="#cce5f5" stroke="none" stroke-width="2"/>
+<rect x="964" y="455" width="81" height="81" rx="0" fill="#cce5f5" stroke="none" stroke-width="2"/>
+<rect x="1045" y="455" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="802" y="536" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="883" y="536" width="81" height="81" rx="0" fill="#cce5f5" stroke="none" stroke-width="2"/>
+<rect x="964" y="536" width="81" height="81" rx="0" fill="#cce5f5" stroke="none" stroke-width="2"/>
+<rect x="1045" y="536" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="802" y="617" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="883" y="617" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="964" y="617" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1045" y="617" width="81" height="81" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<path d="M 802 374 L 883 374" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 374 L 964 374" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 374 L 1045 374" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 374 L 1126 374" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 802 455 L 883 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 455 L 964 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 455 L 1045 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 455 L 1126 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 802 536 L 883 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 536 L 964 536" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 536 L 1045 536" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 536 L 1126 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 802 617 L 883 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 617 L 964 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 617 L 1045 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 617 L 1126 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 802 698 L 883 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 698 L 964 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 698 L 1045 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 698 L 1126 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 802 374 L 802 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 802 455 L 802 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 802 536 L 802 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 802 617 L 802 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 374 L 883 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 455 L 883 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 536 L 883 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 617 L 883 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 374 L 964 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 455 L 964 536" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 536 L 964 617" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 617 L 964 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 374 L 1045 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 455 L 1045 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 536 L 1045 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 617 L 1045 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1126 374 L 1126 455" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1126 455 L 1126 536" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1126 536 L 1126 617" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1126 617 L 1126 698" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="802" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="883" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="964" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1045" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1126" cy="374" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="802" cy="455" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="883" cy="455" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="964" cy="455" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1045" cy="455" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1126" cy="455" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="802" cy="536" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="883" cy="536" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="964" cy="536" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1045" cy="536" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1126" cy="536" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="802" cy="617" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="883" cy="617" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="964" cy="617" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1045" cy="617" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1126" cy="617" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="802" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="883" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="964" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1045" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1126" cy="698" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<path d="M 883 455 L 964 455" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 455 L 1045 455" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 455 L 1045 536" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 536 L 1045 617" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1045 617 L 964 617" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 964 617 L 883 617" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 617 L 883 536" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 883 536 L 883 455" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="859" y="445" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">1</text>
+<text x="956" y="441" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">2</text>
+<text x="1055" y="445" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">3</text>
+<text x="1057" y="545" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">4</text>
+<text x="1055" y="644" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">5</text>
+<text x="956" y="648" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">6</text>
+<text x="858" y="644" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">7</text>
+<text x="853" y="544" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">8</text>
+<path d="M 532 538 L 694 538" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 694 538 L 678.0 531.0 L 678.0 545.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="977" y="565" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#357da5">N1</text>
+<text x="1320" y="332" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">横の断面でも確認</text>
+<path d="M1325 530 Q1435 465 1513 468" fill="none" stroke="#20384e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1513 468 Q1640 455 1773 530" fill="none" stroke="#357da5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1513" cy="468" r="8" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1773" cy="530" r="8" fill="#168370" stroke="none" stroke-width="2"/>
+<path d="M1513 468 L1773 530" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<text x="1315" y="614" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#357da5">面の中央と接線も合わせる</text>
+<text x="1315" y="663" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#bd4c5b">平らな蓋による段差を避ける</text>
+<text x="70" y="765" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">周囲が変形する場所なら、面の流れと間隔もそろえる。足す点の数は用途・曲率・動きに応じて決める。</text>
+<text x="70" y="812" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">ここは四角面の一例です。大きい一枚面、三角面、四角面のどれも、無条件の正解ではありません。</text>
+<rect x="40" y="897" width="1920" height="656" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="922" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="75" y="954" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">P2</text>
+<text x="160" y="954" font-family="Meiryo,sans-serif" font-size="32" font-weight="700" fill="#168370">境界接続：起点・並び順・表裏を合わせる</text>
+<text x="70" y="1005" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">二つの境界が、設計上つながる部分であることを先に確認。</text>
+<text x="108" y="1070" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">① 対応点を決める</text>
+<path d="M 129.0 1135 L 260.25 1115.0 L 391.5 1135 L 522.75 1115.0" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 129.0 1343.75 L 260.25 1336.25 L 391.5 1343.75 L 522.75 1336.25" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="129.0" cy="1135" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="129.0" cy="1343.75" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="113.0" y="1110" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A0</text>
+<text x="113.0" y="1382.75" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B0</text>
+<circle cx="260.25" cy="1115.0" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="260.25" cy="1336.25" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="244.25" y="1090.0" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A1</text>
+<text x="244.25" y="1375.25" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B1</text>
+<circle cx="391.5" cy="1135" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="391.5" cy="1343.75" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="375.5" y="1110" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A2</text>
+<text x="375.5" y="1382.75" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B2</text>
+<circle cx="522.75" cy="1115.0" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="522.75" cy="1336.25" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="506.75" y="1090.0" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A3</text>
+<text x="506.75" y="1375.25" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B3</text>
+<text x="750" y="1070" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#bd4c5b">② 逆順ならねじれる</text>
+<path d="M 774.0 1135 L 905.25 1115.0 L 1036.5 1135 L 1167.75 1115.0" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 774.0 1343.75 L 905.25 1336.25 L 1036.5 1343.75 L 1167.75 1336.25" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 774.0 1135 L 1167.75 1336.25" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 905.25 1115.0 L 1036.5 1343.75" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 1036.5 1135 L 905.25 1336.25" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M 1167.75 1115.0 L 774.0 1343.75" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="774.0" cy="1135" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="774.0" cy="1343.75" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="758.0" y="1110" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A0</text>
+<text x="758.0" y="1382.75" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B0</text>
+<circle cx="905.25" cy="1115.0" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="905.25" cy="1336.25" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="889.25" y="1090.0" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A1</text>
+<text x="889.25" y="1375.25" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B1</text>
+<circle cx="1036.5" cy="1135" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1036.5" cy="1343.75" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="1020.5" y="1110" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A2</text>
+<text x="1020.5" y="1382.75" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B2</text>
+<circle cx="1167.75" cy="1115.0" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1167.75" cy="1336.25" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="1151.75" y="1090.0" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A3</text>
+<text x="1151.75" y="1375.25" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B3</text>
+<text x="1380" y="1070" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#168370">③ 同じ順序で面を張る</text>
+<path d="M 1390.0 1135 L 1521.25 1115.0 L 1521.25 1336.25 L 1390.0 1343.75 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1521.25 1115.0 L 1652.5 1135 L 1652.5 1343.75 L 1521.25 1336.25 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1652.5 1135 L 1783.75 1115.0 L 1783.75 1336.25 L 1652.5 1343.75 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1390.0 1135 L 1521.25 1115.0 L 1652.5 1135 L 1783.75 1115.0" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1390.0 1343.75 L 1521.25 1336.25 L 1652.5 1343.75 L 1783.75 1336.25" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1390.0" cy="1135" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1390.0" cy="1343.75" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="1374.0" y="1110" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A0</text>
+<text x="1374.0" y="1382.75" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B0</text>
+<circle cx="1521.25" cy="1115.0" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1521.25" cy="1336.25" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="1505.25" y="1090.0" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A1</text>
+<text x="1505.25" y="1375.25" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B1</text>
+<circle cx="1652.5" cy="1135" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1652.5" cy="1343.75" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="1636.5" y="1110" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A2</text>
+<text x="1636.5" y="1382.75" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B2</text>
+<circle cx="1783.75" cy="1115.0" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1783.75" cy="1336.25" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="1767.75" y="1090.0" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A3</text>
+<text x="1767.75" y="1375.25" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B3</text>
+<text x="70" y="1462" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">A0→B0、A1→B1…の対応と、表面の向きを検品。接続後の段差・交差・陰影も確認する。</text>
+<text x="70" y="1509" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">頂点数が違えば境界を分割／再構成。離す設計のパーツを無条件に溶接しない。</text>
+<rect x="40" y="1584" width="1920" height="765" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="1609" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="75" y="1641" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">P3</text>
+<text x="160" y="1641" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">局所再構築：壊れた接続を戻し、不足する体積を設計</text>
+<text x="70" y="1692" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">原画と健全な周囲で確定できる部分を基準にし、見えない範囲の推定を分ける。</text>
+<text x="108" y="1757" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#bd4c5b">修正前：つぶれ・誤接続・大きな欠け</text>
+<text x="1060" y="1757" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#168370">修正後：健全な境界から面を組み直す</text>
+<path d="M 150 1860 L 320 1819 L 500 1811 L 670 1840 L 840 1900 L 840 1990 L 840 2070 L 840 2140 L 680 2097 L 515 2071 L 335 2070 L 170 2095 L 150 2020 L 140 1942 Z" fill="#e5edf4" stroke="#168370" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 315 1854 L 665 2081 L 280 2052 L 680 1902 Z" fill="#f0d7de" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 315 1854 L 280 2052" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 448 1938 L 500 1990" fill="none" stroke="#bd4c5b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 448 1990 L 500 1938" fill="none" stroke="#bd4c5b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="150" cy="1860" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="320" cy="1819" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="500" cy="1811" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="670" cy="1840" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="840" cy="1900" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="840" cy="1990" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="840" cy="2070" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="840" cy="2140" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="680" cy="2097" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="515" cy="2071" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="335" cy="2070" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="170" cy="2095" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="150" cy="2020" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="140" cy="1942" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<path d="M 901 1960 L 1004 1960" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1004 1960 L 988.0 1953.0 L 988.0 1967.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1080 1860 L 1250 1819 L 1240 1904 L 1070 1942 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1250 1819 L 1430 1811 L 1420 1902 L 1240 1904 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1430 1811 L 1600 1840 L 1595 1932 L 1420 1902 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1600 1840 L 1770 1900 L 1770 1990 L 1595 1932 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1070 1942 L 1240 1904 L 1250 1991 L 1080 2020 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1240 1904 L 1420 1902 L 1430 1990 L 1250 1991 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1420 1902 L 1595 1932 L 1600 2019 L 1430 1990 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1595 1932 L 1770 1990 L 1770 2070 L 1600 2019 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1080 2020 L 1250 1991 L 1265 2070 L 1100 2095 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1250 1991 L 1430 1990 L 1445 2071 L 1265 2070 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1430 1990 L 1600 2019 L 1610 2097 L 1445 2071 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1600 2019 L 1770 2070 L 1770 2140 L 1610 2097 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1080" cy="1860" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="1819" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1430" cy="1811" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1600" cy="1840" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1770" cy="1900" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1070" cy="1942" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1240" cy="1904" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1420" cy="1902" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1595" cy="1932" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1770" cy="1990" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1080" cy="2020" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="1991" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1430" cy="1990" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1600" cy="2019" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1770" cy="2070" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1100" cy="2095" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1265" cy="2070" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1445" cy="2071" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1610" cy="2097" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1770" cy="2140" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<path d="M 1080 1860 L 1250 1819 L 1430 1811 L 1600 1840 L 1770 1900" fill="none" stroke="#168370" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1080" cy="1860" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="1819" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1430" cy="1811" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1600" cy="1840" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1770" cy="1900" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<path d="M 1100 2095 L 1265 2070 L 1445 2071 L 1610 2097 L 1770 2140" fill="none" stroke="#168370" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1100" cy="2095" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1265" cy="2070" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1445" cy="2071" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1610" cy="2097" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1770" cy="2140" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<path d="M 1080 1860 L 1070 1942 L 1080 2020 L 1100 2095" fill="none" stroke="#168370" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1080" cy="1860" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1070" cy="1942" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1080" cy="2020" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1100" cy="2095" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<path d="M 1770 1900 L 1770 1990 L 1770 2070 L 1770 2140" fill="none" stroke="#168370" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1770" cy="1900" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1770" cy="1990" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1770" cy="2070" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1770" cy="2140" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="72" y="2220" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">断面：資料で確定できる外側</text>
+<path d="M720 2250 Q840 2170 968 2250" fill="none" stroke="#20384e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M720 2250 Q840 2310 968 2250" fill="none" stroke="#c58428" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<text x="1050" y="2217" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">実線＝確定した輪郭</text>
+<text x="1050" y="2272" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#c58428">橙破線＝推定する内側・裏側</text>
+<text x="1050" y="2320" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">必要な厚み・通り道は複数の角度と動作で確認。</text>
+<rect x="40" y="2380" width="1920" height="365" rx="18" fill="#edf6f2" stroke="#c9e3d7" stroke-width="2"/>
+<text x="70" y="2437" font-family="Meiryo,sans-serif" font-size="32" font-weight="700" fill="#168370">新しい面ができたら、属性と動作も対応させる</text>
+<text x="70" y="2500" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">① 法線・UV・材質　② ウェイトと骨　③ 表情キー・補正・モディファイア等の依存を確認。</text>
+<text x="70" y="2557" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">④ 静止／途中動作／最大変形　⑤ 保存再読込／出力先で、境界・交差・陰影を再確認。</text>
+<text x="70" y="2614" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">点の追加・削除・並び替え後は、既存キーや点番号の対応を無検証で流用しない。</text>
+<text x="50" y="2810" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">凡例：●＝頂点　線＝辺　緑＝保持する健全境界　青＝新規面／点　赤＝誤接続　橙破線＝推定</text>
+<rect x="0" y="2850" width="2000" height="170" rx="0" fill="#eaf1f7" stroke="#eaf1f7" stroke-width="2"/>
+<path d="M 32 2858 L 1968 2858" fill="none" stroke="#bacad8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="32" y="2915" font-family="Meiryo,sans-serif" font-size="41" font-weight="700" fill="#20384e">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="2971" font-family="Meiryo,sans-serif" font-size="39" font-weight="400" fill="#355770">https://github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</svg>

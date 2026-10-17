@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2630" viewBox="0 0 2000 2630" role="img" aria-labelledby="title desc">
+<title id="title">装飾の見た目：画像を描き直す前に、原因を分ける</title><desc id="desc">M1で割当、画像接続、sRGB、UVと必要な画像修正を確認し、M2で材質と共有先を確認、M3で形と法線を判断する自作図。一般的なPBRのパラメーターをAngelToonに無条件で当てはめない。</desc>
+<rect width="2000" height="2630" fill="#f3f6fa"/>
+<text x="48" y="76" font-family="Meiryo,sans-serif" font-size="44" font-weight="700" fill="#20384e">装飾の見た目：画像を描き直す前に、原因を分ける</text>
+<text x="50" y="126" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">自作模式図｜実モデルの成功画像ではありません。色・面数・厚み・本数は説明例です。</text>
+<rect x="40" y="160" width="1920" height="176" rx="18" fill="#eaf2f7" stroke="#d6e0eb" stroke-width="2"/>
+<text x="70" y="210" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#20384e">先に固定するもの：カメラ・光・露出・色管理・表示方式・入力版</text>
+<text x="70" y="259" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">同じ部分を、元の表示／一様色／輪郭線なしで比較。元画像と元材質はコピーを残す。</text>
+<text x="70" y="305" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">画面全体が違うなら、局所の色を直す前に撮影・色管理をそろえる。</text>
+<rect x="40" y="366" width="620" height="796" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="690" y="366" width="620" height="796" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1340" y="366" width="620" height="796" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="388" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="75" y="420" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">M1</text>
+<text x="160" y="420" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">割当・接続・色空間</text>
+<text x="68" y="474" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">別の画像・別の面へつながっていないか。</text>
+<text x="68" y="516" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">基本色とマスクは、用途を区別する。</text>
+<rect x="86" y="559" width="160" height="145" rx="8" fill="#f2ecdd" stroke="#c58428" stroke-width="2"/>
+<rect x="94" y="567" width="33" height="38" rx="0" fill="#f5ecd9" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="94" y="607" width="33" height="38" rx="0" fill="#e7d1aa" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="94" y="647" width="33" height="38" rx="0" fill="#f5ecd9" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="129" y="567" width="33" height="38" rx="0" fill="#e7d1aa" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="129" y="607" width="33" height="38" rx="0" fill="#f5ecd9" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="129" y="647" width="33" height="38" rx="0" fill="#e7d1aa" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="164" y="567" width="33" height="38" rx="0" fill="#f5ecd9" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="164" y="607" width="33" height="38" rx="0" fill="#e7d1aa" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="164" y="647" width="33" height="38" rx="0" fill="#f5ecd9" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="199" y="567" width="33" height="38" rx="0" fill="#e7d1aa" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="199" y="607" width="33" height="38" rx="0" fill="#f5ecd9" stroke="#f5ecd9" stroke-width="2"/>
+<rect x="199" y="647" width="33" height="38" rx="0" fill="#e7d1aa" stroke="#f5ecd9" stroke-width="2"/>
+<text x="85" y="747" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">元の画像は保持</text>
+<path d="M 265 632 L 332 632" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 332 632 L 316.0 625.0 L 316.0 639.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="350" y="562" width="232" height="142" rx="10" fill="#edf6f2" stroke="#168370" stroke-width="2"/>
+<text x="372" y="612" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">基本色へ接続</text>
+<text x="372" y="657" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">sRGB等を確認</text>
+<path d="M 462 718 L 462 790" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 462 790 L 469.0 774.0 L 455.0 774.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 400.25 847.0 L 431.6 809.0 L 492.4 809.0 L 523.75 847.0 L 462 930.6 Z" fill="#b4dbe7" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 400.25 847.0 L 523.75 847.0" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 431.6 809.0 L 462 930.6" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 492.4 809.0 L 462 930.6" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="83" y="846" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">面への割当</text>
+<path d="M 267 839 L 389 839" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 389 839 L 373.0 832.0 L 373.0 846.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="68" y="990" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">例：宝石だけ暗い → 基本色画像の</text>
+<text x="68" y="1034" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">読み込みと割当を先に確認。</text>
+<text x="68" y="1078" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">マスク画像へ同じ色設定を一括適用しない。</text>
+<rect x="715" y="388" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="725" y="420" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">M2</text>
+<text x="810" y="420" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">材質と共有先を調整</text>
+<text x="718" y="474" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">模様は合うが、艶・影・縁が合わない。</text>
+<text x="718" y="516" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">有効な材質項目を、一つずつ比較する。</text>
+<rect x="867" y="568" width="271" height="89" rx="10" fill="#edf6f2" stroke="#168370" stroke-width="2"/>
+<text x="901" y="624" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#168370">共通の材質 A</text>
+<path d="M 937 673 L 821 767" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 821 767 L 837.8380097305148 762.3651938211949 L 829.0238407546367 751.4881342339411 Z" fill="#168370" stroke="#168370" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1072 673 L 1182 767" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1182 767 L 1174.3838631383455 751.2839426284914 L 1165.2887305521954 761.9271828888799 Z" fill="#168370" stroke="#168370" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 769.3 817.4 L 795.04 786.2 L 844.96 786.2 L 870.7 817.4 L 820 886.04 Z" fill="#c9dce4" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 769.3 817.4 L 870.7 817.4" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 795.04 786.2 L 820 886.04" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 844.96 786.2 L 820 886.04" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1133.3 817.4 L 1159.04 786.2 L 1208.96 786.2 L 1234.7 817.4 L 1184 886.04 Z" fill="#c9dce4" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1133.3 817.4 L 1234.7 817.4" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1159.04 786.2 L 1184 886.04" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1208.96 786.2 L 1184 886.04" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="735" y="949" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">冠の飾り</text>
+<text x="1090" y="949" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">襟の飾り</text>
+<text x="718" y="1000" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">片方だけ変えるなら、材質を分ける。</text>
+<text x="718" y="1044" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">両方変えるなら、両方を検品する。</text>
+<text x="718" y="1088" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">画像が共通でも、材質は分けられる。</text>
+<rect x="1365" y="388" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="1375" y="420" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">M3</text>
+<text x="1460" y="420" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#168370">形・法線を再判定</text>
+<text x="1368" y="474" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">一様色でも段差や輪郭の崩れが残る？</text>
+<text x="1368" y="516" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">表面の向き・重複・形を先に確認。</text>
+<path d="M 1410 716 L 1560 619 L 1713 672 L 1879 604 L 1879 832 L 1410 832 Z" fill="#e5edf4" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1560 619 L 1580 831" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1713 672 L 1690 831" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1508 696 L 1480 642" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1480 642 L 1481.1507929111376 659.4262926543678 L 1493.5793563514226 652.9818523519979 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1640 700 L 1667 641" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1667 641 L 1653.9768614471311 652.6360587070012 L 1666.7071720325391 658.4617940596456 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1803 698 L 1784 642" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1784 642 L 1782.5118906137905 659.4007336182897 L 1795.7695924182017 654.9025847917931 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1390" y="895" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#357da5">↑ 表面の向き（法線）</text>
+<text x="1368" y="990" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">輪郭・段差 → 形と法線へ。</text>
+<text x="1368" y="1034" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">模様だけずれる → M1のUVと接続へ。</text>
+<text x="1368" y="1078" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">模様自体が違う → M1で必要範囲を修正。</text>
+<text x="50" y="1220" font-family="Meiryo,sans-serif" font-size="32" font-weight="700" fill="#20384e">装飾別の検証例：数値の正解ではなく、直す層を選ぶための比較</text>
+<rect x="40" y="1250" width="620" height="590" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="690" y="1250" width="620" height="590" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1340" y="1250" width="620" height="590" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<text x="68" y="1304" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">銀飾り：光りすぎる／白く潰れる</text>
+<circle cx="207" cy="1445" r="78" fill="#acbac7" stroke="#536d82" stroke-width="3"/>
+<circle cx="207" cy="1445" r="69" fill="#f5f9fd" stroke="none" stroke-width="2"/>
+<circle cx="485" cy="1445" r="78" fill="#acbac7" stroke="#536d82" stroke-width="3"/>
+<path d="M446 1403 Q476 1370 518 1405" fill="none" stroke="#f5f9fd" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 305 1445 L 383 1445" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 383 1445 L 367.0 1438.0 L 367.0 1452.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="68" y="1601" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">反射・艶・MatCap等を弱めて比較。</text>
+<text x="68" y="1646" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">形や模様を消すほど、色を暗くしない。</text>
+<text x="68" y="1691" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">PBRなら金属度・粗さも確認。</text>
+<text x="68" y="1736" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">使うシェーダーにある項目だけを使う。</text>
+<text x="718" y="1304" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">宝石：曇る／向こうが見えすぎる</text>
+<path d="M 775.25 1422.0 L 813.2 1376.0 L 886.8 1376.0 L 924.75 1422.0 L 850 1523.2 Z" fill="#d9e3e5" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 775.25 1422.0 L 924.75 1422.0" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 813.2 1376.0 L 850 1523.2" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 886.8 1376.0 L 850 1523.2" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1093.25 1422.0 L 1131.2 1376.0 L 1204.8 1376.0 L 1242.75 1422.0 L 1168 1523.2 Z" fill="#8dc2d2" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1093.25 1422.0 L 1242.75 1422.0" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1131.2 1376.0 L 1168 1523.2" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1204.8 1376.0 L 1168 1523.2" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 958 1445 L 1055 1445" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1055 1445 L 1039.0 1438.0 L 1039.0 1452.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="718" y="1601" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">割当を確かめてから透過方式を比較。</text>
+<text x="718" y="1646" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">PBRの透過・コートは対応時のみ。</text>
+<text x="718" y="1691" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">AngelToonの不透明な擬似表現とは別。</text>
+<text x="718" y="1736" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">透明化だけで宝石の質感を決めない。</text>
+<text x="1368" y="1304" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">細い装飾：黒い塊に見える</text>
+<path d="M 1453.7 1428.6 L 1480.76 1395.8 L 1533.24 1395.8 L 1560.3 1428.6 L 1507 1500.76 Z" fill="#c8d8e0" stroke="#20384e" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1453.7 1428.6 L 1560.3 1428.6" fill="none" stroke="#20384e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1480.76 1395.8 L 1507 1500.76" fill="none" stroke="#20384e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1533.24 1395.8 L 1507 1500.76" fill="none" stroke="#20384e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1761.7 1428.6 L 1788.76 1395.8 L 1841.24 1395.8 L 1868.3 1428.6 L 1815 1500.76 Z" fill="#c8d8e0" stroke="#20384e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1761.7 1428.6 L 1868.3 1428.6" fill="none" stroke="#20384e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1788.76 1395.8 L 1815 1500.76" fill="none" stroke="#20384e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1841.24 1395.8 L 1815 1500.76" fill="none" stroke="#20384e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1600 1445 L 1720 1445" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1720 1445 L 1704.0 1438.0 L 1704.0 1452.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1368" y="1601" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">輪郭線なし → 幅・色・対象を比較。</text>
+<text x="1368" y="1646" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">形が薄すぎる／面が重なる場合は</text>
+<text x="1368" y="1691" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">法線や厚みの問題も別に確認。</text>
+<text x="1368" y="1736" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">全身の輪郭線を一括で細くしない。</text>
+<rect x="40" y="1870" width="1920" height="480" rx="18" fill="#edf6f2" stroke="#c9e3d7" stroke-width="2"/>
+<text x="70" y="1928" font-family="Meiryo,sans-serif" font-size="32" font-weight="700" fill="#168370">変更する順番と終了条件</text>
+<text x="70" y="1992" font-family="Meiryo,sans-serif" font-size="29" font-weight="400" fill="#20384e">① 共通条件 → ② 割当と画像設定 → ③ 材質を一項目ずつ → ④ 必要なら形・UV・画像へ戻る。</text>
+<text x="70" y="2050" font-family="Meiryo,sans-serif" font-size="29" font-weight="400" fill="#20384e">⑤ 寄りと全身、光の違う向きで比較し、同じ材質を使う他の部品へ悪化がないか確認。</text>
+<text x="70" y="2108" font-family="Meiryo,sans-serif" font-size="29" font-weight="400" fill="#20384e">⑥ 保存・再読込・書き出し先で再確認。使用先にない機能は、対応表現または焼き込みを検討。</text>
+<text x="70" y="2213" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">記録するもの：入力版／対象面・材質／変更前後の値／比較画像／共有先／未確認項目</text>
+<text x="70" y="2285" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">色だけで隠さず、原因と確認できた範囲を記録する。図の右側の絵は品質保証ではありません。</text>
+<text x="50" y="2428" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">M1＝割当・画像設定・UV　M2＝材質と共有先　M3＝形・法線</text>
+<rect x="0" y="2460" width="2000" height="170" rx="0" fill="#eaf1f7" stroke="#eaf1f7" stroke-width="2"/>
+<path d="M 32 2468 L 1968 2468" fill="none" stroke="#bacad8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="32" y="2525" font-family="Meiryo,sans-serif" font-size="41" font-weight="700" fill="#20384e">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="2581" font-family="Meiryo,sans-serif" font-size="39" font-weight="400" fill="#355770">https://github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</svg>
