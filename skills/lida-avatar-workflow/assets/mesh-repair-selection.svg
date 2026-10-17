@@ -1,0 +1,296 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2490" viewBox="0 0 2000 2490" role="img" aria-labelledby="title desc">
+<title id="title">メッシュの破綻：閉じる前に、直す方法を選ぶ</title><desc id="desc">K1は幾何が健全な法線と表示問題、K2は局所欠けへの面張り、K3は二つの対応境界の接続、K4は不正接続や大きな欠損への局所再構築と体積補完。スカート裾、衣服の開口、単面の端を一律に閉じないことを示す自作模式図。</desc>
+<rect width="2000" height="2490" fill="#f3f6fa"/>
+<text x="48" y="76" font-family="Meiryo,sans-serif" font-size="44" font-weight="700" fill="#20384e">メッシュの破綻：閉じる前に、直す方法を選ぶ</text>
+<text x="50" y="126" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">自作模式図｜実モデルの成功画像ではありません。色・面数・厚み・本数は説明例です。</text>
+<rect x="40" y="160" width="1920" height="173" rx="18" fill="#eaf2f7" stroke="#d6e0eb" stroke-width="2"/>
+<text x="70" y="213" font-family="Meiryo,sans-serif" font-size="32" font-weight="700" fill="#20384e">最初の判断：その境界は「必要な開口」か、「本当に欠けた面」か？</text>
+<text x="70" y="267" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">元資料と正面・横・裏側を照合。一様色／ワイヤー／面の表裏で、形と表示の問題を分ける。</text>
+<text x="70" y="309" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">退避コピーを作り、固定する外周・変更域・必要な動作を先に決める。</text>
+<rect x="40" y="365" width="940" height="610" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1020" y="365" width="940" height="610" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="40" y="1005" width="940" height="610" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1020" y="1005" width="940" height="610" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="388" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="75" y="420" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">K1</text>
+<text x="160" y="420" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">面はある：法線と表示を確認</text>
+<text x="70" y="469" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">裏向き・片面表示なら、穴埋めの前に原因を確認。</text>
+<path d="M 134 555 L 318 543 L 323 734 L 139 749 Z" fill="#e5edf4" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 548 555 L 732 543 L 737 734 L 553 749 Z" fill="#e5edf4" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 180 590 L 196 632" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 196 632 L 196.84548890303097 614.5562289479926 L 183.76266061402544 619.5401635342805 Z" fill="#bd4c5b" stroke="#bd4c5b" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 271 634 L 287 676" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 287 676 L 287.84548890303097 658.5562289479926 L 274.76266061402544 663.5401635342805 Z" fill="#bd4c5b" stroke="#bd4c5b" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200 692 L 216 734" fill="none" stroke="#bd4c5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 216 734 L 216.84548890303097 716.5562289479926 L 203.76266061402544 721.5401635342805 Z" fill="#bd4c5b" stroke="#bd4c5b" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 594 590 L 578 548" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 578 548 L 577.154511096969 565.4437710520074 L 590.2373393859747 560.4598364657195 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 685 634 L 669 592" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 669 592 L 668.154511096969 609.4437710520074 L 681.2373393859747 604.4598364657195 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 614 692 L 598 650" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 598 650 L 597.154511096969 667.4437710520074 L 610.2373393859747 662.4598364657195 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 378 650 L 476 650" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 476 650 L 460.0 643.0 L 460.0 657.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="108" y="799" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#bd4c5b">向き・片面表示を診断</text>
+<text x="529" y="799" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#168370">正しい表裏で再確認</text>
+<text x="70" y="869" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">面が重複していないかも確認。</text>
+<text x="70" y="912" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">法線修正で形状そのものの凹凸は直りません。</text>
+<rect x="1045" y="388" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="1055" y="420" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">K2</text>
+<text x="1140" y="420" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">小さな欠け：局所へ面を張る</text>
+<text x="1050" y="469" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">健全な周囲の境界と曲率が読み取れる場合。</text>
+<rect x="1100" y="543" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1155" y="543" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1210" y="543" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1265" y="543" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1100" y="598" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1265" y="598" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1100" y="653" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1265" y="653" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1100" y="708" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1155" y="708" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1210" y="708" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1265" y="708" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<path d="M 1100 543 L 1155 543" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 543 L 1210 543" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1210 543 L 1265 543" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 543 L 1320 543" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1100 598 L 1155 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 598 L 1210 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1210 598 L 1265 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 598 L 1320 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1100 653 L 1155 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 653 L 1320 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1100 708 L 1155 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 708 L 1210 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1210 708 L 1265 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 708 L 1320 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1100 763 L 1155 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 763 L 1210 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1210 763 L 1265 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 763 L 1320 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1100 543 L 1100 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1100 598 L 1100 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1100 653 L 1100 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1100 708 L 1100 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 543 L 1155 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 598 L 1155 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 653 L 1155 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 708 L 1155 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1210 543 L 1210 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1210 708 L 1210 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 543 L 1265 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 598 L 1265 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 653 L 1265 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 708 L 1265 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1320 543 L 1320 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1320 598 L 1320 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1320 653 L 1320 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1320 708 L 1320 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1100" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1155" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1210" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1265" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1320" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1100" cy="598" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1155" cy="598" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1210" cy="598" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1265" cy="598" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1320" cy="598" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1100" cy="653" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1155" cy="653" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1265" cy="653" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1320" cy="653" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1100" cy="708" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1155" cy="708" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1210" cy="708" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1265" cy="708" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1320" cy="708" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1100" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1155" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1210" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1265" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1320" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<path d="M 1155 598 L 1210 598" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1210 598 L 1265 598" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 598 L 1265 653" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 653 L 1265 708" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1265 708 L 1210 708" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1210 708 L 1155 708" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 708 L 1155 653" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1155 653 L 1155 598" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1580" y="543" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1635" y="543" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1690" y="543" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1745" y="543" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1580" y="598" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1635" y="598" width="55" height="55" rx="0" fill="#cce5f5" stroke="none" stroke-width="2"/>
+<rect x="1690" y="598" width="55" height="55" rx="0" fill="#cce5f5" stroke="none" stroke-width="2"/>
+<rect x="1745" y="598" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1580" y="653" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1635" y="653" width="55" height="55" rx="0" fill="#cce5f5" stroke="none" stroke-width="2"/>
+<rect x="1690" y="653" width="55" height="55" rx="0" fill="#cce5f5" stroke="none" stroke-width="2"/>
+<rect x="1745" y="653" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1580" y="708" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1635" y="708" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1690" y="708" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<rect x="1745" y="708" width="55" height="55" rx="0" fill="#e5edf4" stroke="none" stroke-width="2"/>
+<path d="M 1580 543 L 1635 543" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 543 L 1690 543" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 543 L 1745 543" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 543 L 1800 543" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1580 598 L 1635 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 598 L 1690 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 598 L 1745 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 598 L 1800 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1580 653 L 1635 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 653 L 1690 653" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 653 L 1745 653" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 653 L 1800 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1580 708 L 1635 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 708 L 1690 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 708 L 1745 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 708 L 1800 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1580 763 L 1635 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 763 L 1690 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 763 L 1745 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 763 L 1800 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1580 543 L 1580 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1580 598 L 1580 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1580 653 L 1580 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1580 708 L 1580 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 543 L 1635 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 598 L 1635 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 653 L 1635 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 708 L 1635 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 543 L 1690 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 598 L 1690 653" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 653 L 1690 708" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 708 L 1690 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 543 L 1745 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 598 L 1745 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 653 L 1745 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 708 L 1745 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1800 543 L 1800 598" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1800 598 L 1800 653" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1800 653 L 1800 708" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1800 708 L 1800 763" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1580" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1635" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1690" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1745" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1800" cy="543" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1580" cy="598" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1635" cy="598" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1690" cy="598" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1745" cy="598" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1800" cy="598" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1580" cy="653" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1635" cy="653" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1690" cy="653" r="6" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="1745" cy="653" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1800" cy="653" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1580" cy="708" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1635" cy="708" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1690" cy="708" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1745" cy="708" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="1800" cy="708" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1580" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1635" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1690" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1745" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<circle cx="1800" cy="763" r="6" fill="#20384e" stroke="none" stroke-width="2"/>
+<path d="M 1635 598 L 1690 598" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 598 L 1745 598" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 598 L 1745 653" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 653 L 1745 708" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1745 708 L 1690 708" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1690 708 L 1635 708" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 708 L 1635 653" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1635 653 L 1635 598" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1385 650 L 1509 650" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1509 650 L 1493.0 643.0 L 1493.0 657.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1081" y="819" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#bd4c5b">欠けた範囲を特定</text>
+<text x="1554" y="819" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#168370">周囲へつながる面を追加</text>
+<text x="1050" y="878" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">大きな一枚面でふさぐだけにしない。</text>
+<text x="1050" y="921" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">曲率・陰影・変形を確認する。</text>
+<rect x="65" y="1028" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="75" y="1060" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">K3</text>
+<text x="160" y="1060" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#168370">二つの境界：対応を決めて接続</text>
+<text x="70" y="1109" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">同じ面の両岸か、つなぐべき別パーツかを確認。</text>
+<path d="M 140 1195 L 245 1195 L 350 1195 L 455 1195" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 140 1355 L 245 1355 L 350 1355 L 455 1355" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="140" cy="1195" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="140" cy="1355" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="123" y="1170" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A0</text>
+<text x="123" y="1395" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B0</text>
+<circle cx="245" cy="1195" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="245" cy="1355" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="228" y="1170" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A1</text>
+<text x="228" y="1395" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B1</text>
+<circle cx="350" cy="1195" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="350" cy="1355" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="333" y="1170" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A2</text>
+<text x="333" y="1395" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B2</text>
+<circle cx="455" cy="1195" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="455" cy="1355" r="7" fill="#168370" stroke="none" stroke-width="2"/>
+<text x="438" y="1170" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">A3</text>
+<text x="438" y="1395" font-family="Meiryo,sans-serif" font-size="22" font-weight="700" fill="#168370">B3</text>
+<path d="M 541 1270 L 635 1270" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 635 1270 L 619.0 1263.0 L 619.0 1277.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 650 1195 L 728 1195 L 728 1355 L 650 1355 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 728 1195 L 806 1195 L 806 1355 L 728 1355 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 806 1195 L 884 1195 L 884 1355 L 806 1355 Z" fill="#cce5f5" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="650" cy="1195" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="650" cy="1355" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="728" cy="1195" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="728" cy="1355" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="806" cy="1195" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="806" cy="1355" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="884" cy="1195" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<circle cx="884" cy="1355" r="6" fill="#168370" stroke="none" stroke-width="2"/>
+<path d="M 650 1195 L 884 1195" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 650 1355 L 884 1355" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="648" y="1435" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#168370">順序を合わせて接続</text>
+<text x="70" y="1490" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">起点・並び順・表裏を合わせる。本数が合わないなら</text>
+<text x="70" y="1533" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">境界の分割や局所再構築を検討する。</text>
+<rect x="1045" y="1028" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="1055" y="1060" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">K4</text>
+<text x="1140" y="1060" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#168370">誤接続・大欠損：局所を作り直す</text>
+<text x="1050" y="1109" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">境界が壊れた、体積がない、曲率を保てない場合。</text>
+<path d="M 1120 1210 L 1305 1165 L 1420 1235 L 1395 1380 L 1150 1395 Z" fill="#e5edf4" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1305 1165 L 1150 1395" fill="none" stroke="#bd4c5b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1120 1210 L 1395 1380" fill="none" stroke="#bd4c5b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1238 1255 L 1288 1305" fill="none" stroke="#bd4c5b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1238 1305 L 1288 1255" fill="none" stroke="#bd4c5b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1452 1280 L 1530 1280" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1530 1280 L 1514.0 1273.0 L 1514.0 1287.0 Z" fill="#357da5" stroke="#357da5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1585 1385 Q1530 1275 1635 1200 Q1780 1120 1877 1240 L1870 1395 Z" fill="#e5edf4" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1591 1306 Q1708 1222 1877 1240 M1610 1361 Q1725 1285 1873 1301 M1642 1197 Q1695 1275 1680 1395 M1770 1173 Q1816 1278 1810 1395" fill="none" stroke="#357da5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1585 1385 Q1655 1460 1870 1395" fill="none" stroke="#c58428" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<text x="1555" y="1456" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#c58428">推定の裏側は資料で確かめる</text>
+<text x="1050" y="1504" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">健全な境界まで戻り、体積と面の流れを再設計。</text>
+<text x="1050" y="1547" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">見えない面を、資料なしで唯一の正解にしない。</text>
+<rect x="40" y="1645" width="1920" height="395" rx="18" fill="#fff9ef" stroke="#e7d5b6" stroke-width="2"/>
+<text x="70" y="1703" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#c58428">閉じてはいけない例：衣服の裾・袖口・単面の端</text>
+<path d="M130 1760 Q255 1725 380 1760 L437 1920 Q255 1964 73 1920 Z" fill="#e5edf4" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M73 1920 Q255 1878 437 1920 M73 1920 Q255 1964 437 1920" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="490" y="1810" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#168370">裾の開口を保持</text>
+<path d="M 491 1828 L 420 1916" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 420 1916 L 435.49472010695274 1907.9430993051176 L 424.59888952946085 1899.1521450891867 Z" fill="#168370" stroke="#168370" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="490" y="1889" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">必要なら縁の厚みを作る。</text>
+<text x="490" y="1934" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">脚の通り道をふさぐ面を張らない。</text>
+<path d="M 963 1740 L 963 1997" fill="none" stroke="#e7d5b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1082 1795 Q1320 1740 1517 1812 L1498 1933 Q1315 1874 1082 1930 Z" fill="#cce5f5" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1082 1795 L 1082 1930" fill="none" stroke="#168370" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1580" y="1810" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#168370">単面の端</text>
+<text x="1580" y="1865" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">開いていてよい設計を</text>
+<text x="1580" y="1909" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">一括で閉じない。</text>
+<text x="50" y="2104" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#20384e">修正後：法線・UV・材質・ウェイト・キー・制御依存を、新しい面へ対応させる。</text>
+<text x="50" y="2164" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">静止だけでなく途中動作、保存後、書き出し先を確認。頂点数変更で既存キーを無検証で流用しない。</text>
+<text x="50" y="2242" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">凡例：緑＝保持する健全境界　青＝新規面／辺　橙破線＝推定形状　赤＝再検討箇所</text>
+<rect x="0" y="2320" width="2000" height="170" rx="0" fill="#eaf1f7" stroke="#eaf1f7" stroke-width="2"/>
+<path d="M 32 2328 L 1968 2328" fill="none" stroke="#bacad8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="32" y="2385" font-family="Meiryo,sans-serif" font-size="41" font-weight="700" fill="#20384e">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="2441" font-family="Meiryo,sans-serif" font-size="39" font-weight="400" fill="#355770">https://github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</svg>

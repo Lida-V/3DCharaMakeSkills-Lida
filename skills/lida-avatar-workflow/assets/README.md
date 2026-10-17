@@ -1,6 +1,10 @@
 # 同梱図版
 
-[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全20枚に表示用PNGと拡大用SVGを同梱しています。
+[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全23枚に表示用PNGと拡大用SVGを同梱しています。
+
+- `material-repair-selection`：割当/画像設定/UV・材質値/共有先・形/法線、共有材質と元画像保持を分ける自作模式図。
+- `mesh-repair-selection`：意図した開口を残し、向き・局所パッチ・境界接続・局所再構築を選ぶ自作模式図。
+- `mesh-boundary-repair`：固定境界、新規面、対応点、確認済み/推定を分ける施工の自作模式図。実モデルの修復成功を示すものではない。
 
 ## 出所と役割
 
@@ -31,6 +35,6 @@
 
 ## 資料単体で分かる出典表示
 
-全20組のSVGとPNGは、説明の下へ余白を足し、「© 2026 Lida · 3DCharaMakeSkills-Lida」と `github.com/Lida-V/3DCharaMakeSkills-Lida` を表示しています。本文・線・矢印を覆う透かしではなく、画像だけで共有された時の来歴表示です。
+全23組のSVGとPNGは、説明の下へ余白を足し、「© 2026 Lida · 3DCharaMakeSkills-Lida」と `github.com/Lida-V/3DCharaMakeSkills-Lida` を表示しています。本文・線・矢印を覆う透かしではなく、画像だけで共有された時の来歴表示です。
 
 SVGの元の図形・文字は保持し、PNGはそのSVGから描画しています。PNGとSVGの両方で出典帯が読めることを確認して更新してください。表示の追加で利用条件を変更してはいません。
