@@ -92,6 +92,29 @@ class ModelToolChecks(unittest.TestCase):
             with self.subTest(case=index), self.assertRaises(ValueError):
                 TOOLS.compare_snapshots(snapshot(), item)
 
+    def test_humanoid_mapping_is_explicit_versioned_and_not_inferred(self):
+        mapping = {'schema': TOOLS.HUMANOID_MAP_SCHEMA, 'spec_version': '1.0',
+                   'human_bones': {'hips': 'Custom pelvis', 'leftThumbMetacarpal': 'Thumb root.L'}}
+        original = deepcopy(mapping)
+        self.assertEqual(TOOLS._validate_humanoid_map(mapping), mapping['human_bones'])
+        self.assertEqual(mapping, original)
+        invalid = [None, {'hips': 'Hips'}]
+        item = deepcopy(mapping); item['spec_version'] = '0.0'; invalid.append(item)
+        item = deepcopy(mapping); item['human_bones'] = {'leftThumbIntermediate': 'Thumb.L'}; invalid.append(item)
+        item = deepcopy(mapping); item['human_bones'] = {'hips': {'node': 1}}; invalid.append(item)
+        item = deepcopy(mapping); item['human_bones'] = {'hips': '   '}; invalid.append(item)
+        for index, item in enumerate(invalid):
+            with self.subTest(case=index), self.assertRaises(ValueError):
+                TOOLS._validate_humanoid_map(item)
+
+    def test_duplicate_mapping_keys_cannot_silently_replace_an_assignment(self):
+        raw = '{"human_bones":{"hips":"First","hips":"Second"}}'
+        with self.assertRaises(ValueError):
+            json.loads(raw, object_pairs_hook=TOOLS._unique_json_pairs)
+        raw = '{"human_bones":{"hips":"First","spine":"Second"}}'
+        self.assertEqual(json.loads(raw, object_pairs_hook=TOOLS._unique_json_pairs),
+                         {'human_bones': {'hips': 'First', 'spine': 'Second'}})
+
     def test_compare_cli_can_run_without_blender(self):
         with tempfile.TemporaryDirectory(prefix='lida-model-compare-', dir=TEST_TEMP) as work:
             directory = Path(work)

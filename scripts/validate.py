@@ -101,6 +101,54 @@ def check_file_bytes(relative, data):
     return problems
 
 
+def check_translations(manifest, contents):
+    """Check coverage and reviewed source versions, not translation meaning."""
+    support = manifest.get("language_support")
+    if support is None:
+        return ["Language support declaration is required"]
+    errors = []
+    if (not isinstance(support, dict) or support.get("primary") != "ja"
+            or support.get("available") != ["ja", "en"] or not isinstance(support.get("pairs"), list)):
+        return ["Language support must declare ja/en and translation pairs"]
+    sources = set()
+    translations = set()
+    translated = {}
+    for pair in support["pairs"]:
+        if not isinstance(pair, dict) or set(pair) != {"source", "translation", "source_sha256"}:
+            errors.append("Translation pair fields are invalid")
+            continue
+        source, target = pair["source"], pair["translation"]
+        if not safe_relative(source) or not safe_relative(target) or source == target:
+            errors.append("Translation paths must be distinct canonical files")
+            continue
+        if source.casefold() in sources or target.casefold() in translations:
+            errors.append("Translation pair is duplicated")
+        sources.add(source.casefold())
+        translations.add(target.casefold())
+        translated[source] = target
+        if source not in contents or target not in contents:
+            errors.append(f"{source}: source or English translation is missing from package")
+        else:
+            try:
+                translation_text = contents[target].decode("utf-8-sig")
+            except UnicodeError:
+                errors.append(f"{target}: English translation must be UTF-8")
+            else:
+                if not translation_text.strip():
+                    errors.append(f"{target}: English translation is empty")
+            if hashlib.sha256(contents[source]).hexdigest() != pair["source_sha256"]:
+                errors.append(f"{source}: English translation source version is stale; review before updating its hash")
+    required = {"README.md": "README.en.md", SKILL: SKILL_DIR + "/SKILL.en.md"}
+    prefix = SKILL_DIR + "/references/"
+    for source in contents:
+        if source.startswith(prefix) and source.endswith(".md") and "/" not in source[len(prefix):]:
+            required[source] = prefix + "en/" + source[len(prefix):]
+    for source, target in required.items():
+        if translated.get(source) != target:
+            errors.append(f"{source}: corresponding English document is not registered")
+    return errors
+
+
 def validate(root=ROOT):
     root = Path(root).resolve()
     errors = []
@@ -163,6 +211,7 @@ def validate(root=ROOT):
                             errors.append(f"{relative}: missing section anchor")
                     except UnicodeError:
                         errors.append(f"{relative}: linked document is not UTF-8")
+    errors.extend(check_translations(manifest, contents))
     assets = manifest.get("asset_sha256", {})
     if not isinstance(assets, dict):
         errors.append("asset_sha256 must be a mapping")
@@ -174,7 +223,7 @@ def validate(root=ROOT):
         if (relative not in image_files or relative not in contents
                 or hashlib.sha256(contents[relative]).hexdigest() != expected_hash):
             errors.append(f"{relative}: image hash mismatch/unlisted")
-    for relative in ("LICENSE", "NOTICE.md"):
+    for relative in ("LICENSE", "NOTICE.md", "LICENSE.en.md", "NOTICE.en.md"):
         portable = SKILL_DIR + "/" + relative
         if relative in contents and portable in contents:
             try:

@@ -14,6 +14,7 @@ SOURCES = {
     "shader": ("LidaAngelToon", "https://github.com/Lida-V/LidaAngelToon"),
 }
 DEFAULT_CHANGES = "制作手順・実装の参考として利用。具体的な利用・改変箇所は配布者が記載。"
+DEFAULT_CHANGES_EN = "Used as a reference for production procedures and implementation. The distributor should describe the actual use and modifications."
 NOTICE_NAME = "THIRD_PARTY_NOTICES.md"
 
 
@@ -43,9 +44,15 @@ def has_attribution(text, component):
     return any(valid_section(section, component) for section in sections)
 
 
-def attribution_block(component, changes):
+def attribution_block(component, changes, language="ja"):
     name, url = SOURCES[component]
     start, end = markers(component)
+    if language == "en":
+        return (f"{start}\n## Reference: {name}\n\n"
+                f"- Source: {name}\n- Author: Lida\n- URL: {url}\n"
+                f"- Changes: {changes}\n"
+                "- Terms: See the original LICENSE and NOTICE.md. Retain both when redistributing the materials themselves.\n"
+                f"{end}\n")
     return (f"{start}\n## 参照元: {name}\n\n"
             f"- 出典: {name}\n- 作者: Lida\n- URL: {url}\n"
             f"- 変更注記: {changes}\n"
@@ -53,10 +60,13 @@ def attribution_block(component, changes):
             f"{end}\n")
 
 
-def ensure_attribution(project_dir=None, target=None, component=None, changes=None, check=False):
+def ensure_attribution(project_dir=None, target=None, component=None, changes=None, check=False, language="ja"):
+    if language not in {"ja", "en"}:
+        raise ValueError("Language must be ja or en")
     if target == "model":
         return dict(passed=True, required=False, changed=False,
-                    reason="モデル制作の成果物へのクレジットは不要です。")
+                    reason=("Credits are not required for model-production outputs." if language == "en"
+                            else "モデル制作の成果物へのクレジットは不要です。"))
     if target not in {"app", "skill"}:
         raise ValueError("Explicit target app, skill, or model is required")
     if component not in {"skills", "shader", "both"}:
@@ -81,10 +91,10 @@ def ensure_attribution(project_dir=None, target=None, component=None, changes=No
     if check or not missing:
         return dict(passed=not missing, required=True, changed=False, missing=missing,
                     file=NOTICE_NAME, target=target, components=components)
-    note = DEFAULT_CHANGES if changes is None else changes.strip()
+    note = (DEFAULT_CHANGES_EN if language == "en" else DEFAULT_CHANGES) if changes is None else changes.strip()
     if not note or "<!-- lida-attribution:" in note:
         raise ValueError("Changes must be nonempty plain attribution notes without helper markers")
-    additions = "\n\n".join(attribution_block(item, note).rstrip() for item in missing) + "\n"
+    additions = "\n\n".join(attribution_block(item, note, language).rstrip() for item in missing) + "\n"
     if not before:
         addition_bytes = ("# Third-party notices\n\n" + additions).encode("utf-8")
         with output.open("xb") as handle:
@@ -105,9 +115,10 @@ def main(argv=None):
     parser.add_argument("--project-dir", type=Path, help="Explicit existing publishing project directory")
     parser.add_argument("--changes", help="Actual usage/modifications; existing entries are preserved")
     parser.add_argument("--check", action="store_true", help="Check required source entries without writing")
+    parser.add_argument("--language", choices=("ja", "en"), default="ja", help="Language of new notice blocks; existing entries are preserved")
     args = parser.parse_args(argv)
     try:
-        result = ensure_attribution(args.project_dir, args.target, args.component, args.changes, args.check)
+        result = ensure_attribution(args.project_dir, args.target, args.component, args.changes, args.check, args.language)
     except (OSError, UnicodeError, ValueError) as exc:
         print(json.dumps(dict(passed=False, error=str(exc)), ensure_ascii=False))
         return 2

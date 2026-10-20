@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "version": "1.5.0",
-  "status": "distribution-ready-public",
+  "version": "1.7.0",
+  "status": "distribution-ready",
   "scope": "Reusable production methods, original diagrams, actual model render previews, Blender model helper, skill and attribution helper. No models or reference dance FBX.",
   "visual_review_required": true,
   "files": [
@@ -11,24 +11,36 @@
     ".gitignore",
     "AGENTS.md",
     "CHANGELOG.md",
+    "CONTRIBUTING.en.md",
     "CONTRIBUTING.md",
     "LICENSE",
+    "LICENSE-POLICY.en.md",
     "LICENSE-POLICY.md",
+    "LICENSE.en.md",
+    "NOTICE.en.md",
     "NOTICE.md",
+    "README.en.md",
     "README.md",
+    "UPDATING.en.md",
     "UPDATING.md",
     "VERSION",
+    "media/README.en.md",
     "media/README.md",
     "media/lida-finished-body.png",
     "media/lida-finished-face.png",
     "publication-manifest.json",
+    "scripts/README.en.md",
     "scripts/README.md",
     "scripts/build_package.py",
     "scripts/validate.py",
     "skills/lida-avatar-workflow/LICENSE",
+    "skills/lida-avatar-workflow/LICENSE.en.md",
+    "skills/lida-avatar-workflow/NOTICE.en.md",
     "skills/lida-avatar-workflow/NOTICE.md",
+    "skills/lida-avatar-workflow/SKILL.en.md",
     "skills/lida-avatar-workflow/SKILL.md",
     "skills/lida-avatar-workflow/agents/openai.yaml",
+    "skills/lida-avatar-workflow/assets/README.en.md",
     "skills/lida-avatar-workflow/assets/README.md",
     "skills/lida-avatar-workflow/assets/actual-knee-bend.png",
     "skills/lida-avatar-workflow/assets/actual-knee-bend.svg",
@@ -76,38 +88,83 @@
     "skills/lida-avatar-workflow/assets/wing-feather-terms.svg",
     "skills/lida-avatar-workflow/assets/wing-root-fit.png",
     "skills/lida-avatar-workflow/assets/wing-root-fit.svg",
+    "skills/lida-avatar-workflow/assets/wink-eye-isolation.png",
+    "skills/lida-avatar-workflow/assets/wink-eye-isolation.svg",
     "skills/lida-avatar-workflow/references/README.md",
     "skills/lida-avatar-workflow/references/accessory-materials.md",
     "skills/lida-avatar-workflow/references/adjustment-methods.md",
     "skills/lida-avatar-workflow/references/ai-instructions.md",
     "skills/lida-avatar-workflow/references/cross-engine-look.md",
     "skills/lida-avatar-workflow/references/diagram-index.md",
+    "skills/lida-avatar-workflow/references/en/README.md",
+    "skills/lida-avatar-workflow/references/en/accessory-materials.md",
+    "skills/lida-avatar-workflow/references/en/adjustment-methods.md",
+    "skills/lida-avatar-workflow/references/en/ai-instructions.md",
+    "skills/lida-avatar-workflow/references/en/cross-engine-look.md",
+    "skills/lida-avatar-workflow/references/en/diagram-index.md",
+    "skills/lida-avatar-workflow/references/en/expression-adjustment.md",
+    "skills/lida-avatar-workflow/references/en/expression-sheets.md",
+    "skills/lida-avatar-workflow/references/en/eye-modeling.md",
+    "skills/lida-avatar-workflow/references/en/generation-feedback.md",
+    "skills/lida-avatar-workflow/references/en/hair-workflow.md",
+    "skills/lida-avatar-workflow/references/en/hand-shape.md",
+    "skills/lida-avatar-workflow/references/en/input-materials.md",
+    "skills/lida-avatar-workflow/references/en/knee-edge-placement.md",
+    "skills/lida-avatar-workflow/references/en/lida-design.md",
+    "skills/lida-avatar-workflow/references/en/mechanical-visual-review.md",
+    "skills/lida-avatar-workflow/references/en/mesh-repair-completion.md",
+    "skills/lida-avatar-workflow/references/en/mesh-weight.md",
+    "skills/lida-avatar-workflow/references/en/model-tools.md",
+    "skills/lida-avatar-workflow/references/en/mouth-shapes.md",
+    "skills/lida-avatar-workflow/references/en/multiangle-threeview.md",
+    "skills/lida-avatar-workflow/references/en/process-index.md",
+    "skills/lida-avatar-workflow/references/en/production-plan.md",
+    "skills/lida-avatar-workflow/references/en/quality-goals.md",
+    "skills/lida-avatar-workflow/references/en/secondary-motion.md",
+    "skills/lida-avatar-workflow/references/en/shader-setup.md",
+    "skills/lida-avatar-workflow/references/en/skirt-hidden-modeling.md",
+    "skills/lida-avatar-workflow/references/en/trial-and-error.md",
+    "skills/lida-avatar-workflow/references/en/tripo-autorig.md",
+    "skills/lida-avatar-workflow/references/en/usage-and-attribution.md",
+    "skills/lida-avatar-workflow/references/en/visual-handoff.md",
+    "skills/lida-avatar-workflow/references/en/wing-feather-terms.md",
+    "skills/lida-avatar-workflow/references/en/wing-workflow.md",
+    "skills/lida-avatar-workflow/references/en/wink-closure.md",
     "skills/lida-avatar-workflow/references/expression-adjustment.md",
+    "skills/lida-avatar-workflow/references/expression-sheets.md",
     "skills/lida-avatar-workflow/references/eye-modeling.md",
+    "skills/lida-avatar-workflow/references/generation-feedback.md",
     "skills/lida-avatar-workflow/references/hair-workflow.md",
     "skills/lida-avatar-workflow/references/hand-shape.md",
     "skills/lida-avatar-workflow/references/input-materials.md",
     "skills/lida-avatar-workflow/references/knee-edge-placement.md",
     "skills/lida-avatar-workflow/references/lida-design.md",
+    "skills/lida-avatar-workflow/references/mechanical-visual-review.md",
     "skills/lida-avatar-workflow/references/mesh-repair-completion.md",
     "skills/lida-avatar-workflow/references/mesh-weight.md",
     "skills/lida-avatar-workflow/references/model-tools.md",
     "skills/lida-avatar-workflow/references/mouth-shapes.md",
     "skills/lida-avatar-workflow/references/multiangle-threeview.md",
     "skills/lida-avatar-workflow/references/process-index.md",
+    "skills/lida-avatar-workflow/references/production-plan.md",
     "skills/lida-avatar-workflow/references/quality-goals.md",
     "skills/lida-avatar-workflow/references/secondary-motion.md",
     "skills/lida-avatar-workflow/references/shader-setup.md",
     "skills/lida-avatar-workflow/references/skirt-hidden-modeling.md",
     "skills/lida-avatar-workflow/references/trial-and-error.md",
+    "skills/lida-avatar-workflow/references/tripo-autorig.md",
     "skills/lida-avatar-workflow/references/usage-and-attribution.md",
     "skills/lida-avatar-workflow/references/visual-handoff.md",
     "skills/lida-avatar-workflow/references/wing-feather-terms.md",
     "skills/lida-avatar-workflow/references/wing-workflow.md",
+    "skills/lida-avatar-workflow/references/wink-closure.md",
     "skills/lida-avatar-workflow/scripts/LICENSE-GPL-3.0-or-later.txt",
     "skills/lida-avatar-workflow/scripts/ensure_attribution.py",
+    "skills/lida-avatar-workflow/scripts/lida_file_check.py",
     "skills/lida-avatar-workflow/scripts/lida_model_tools.py",
+    "tests/README.en.md",
     "tests/README.md",
+    "tests/test_file_check.py",
     "tests/test_model_tools.py",
     "tests/test_validate.py"
   ],
@@ -159,7 +216,9 @@
     "skills/lida-avatar-workflow/assets/mesh-repair-selection.png": "da311331458f791049abe6e7b9b82e3dc5d431810717cf90fc9991ff42612da6",
     "skills/lida-avatar-workflow/assets/mesh-repair-selection.svg": "481bab775cec8c7613190a606bbaf5e0843ebc3c4041bb30d03d076cfadcaddf",
     "skills/lida-avatar-workflow/assets/mesh-boundary-repair.png": "bb6fa3b224a25633c0fdff2c45b97b4865c9b714e597b0c7504959c75e6d577b",
-    "skills/lida-avatar-workflow/assets/mesh-boundary-repair.svg": "b91f82f2c0976e57a7e55a387b5f65cc02feba095b4d8aa590dc8a30d131341a"
+    "skills/lida-avatar-workflow/assets/mesh-boundary-repair.svg": "b91f82f2c0976e57a7e55a387b5f65cc02feba095b4d8aa590dc8a30d131341a",
+    "skills/lida-avatar-workflow/assets/wink-eye-isolation.png": "54371de3e750ac4fd16364f0beef8f9a5057d1878557155d6632772a8ac9886d",
+    "skills/lida-avatar-workflow/assets/wink-eye-isolation.svg": "8979776cae841c67c85ac862ddc83d05963982209cbcaf99e27f7ade04dfa986"
   },
   "shader_repository": "https://github.com/Lida-V/LidaAngelToon",
   "code_licenses": {
@@ -168,8 +227,252 @@
   "visible_provenance": {
     "name": "Lida",
     "repository": "https://github.com/Lida-V/3DCharaMakeSkills-Lida",
-    "diagram_pairs": 23,
+    "diagram_pairs": 24,
     "preview_pngs": 2,
     "placement": "Added footer margin; explanatory content and original model-preview pixel area retained."
+  },
+  "language_support": {
+    "primary": "ja",
+    "available": [
+      "ja",
+      "en"
+    ],
+    "pairs": [
+      {
+        "source": "CONTRIBUTING.md",
+        "translation": "CONTRIBUTING.en.md",
+        "source_sha256": "a153bc575b99fba407c421286247c5bf4b355e2337b141854489f1609d33e48e"
+      },
+      {
+        "source": "LICENSE",
+        "translation": "LICENSE.en.md",
+        "source_sha256": "2aa11c97ece6a15d4d7248471418ebe592a83acfacab61df5efe4ac647b0335e"
+      },
+      {
+        "source": "LICENSE-POLICY.md",
+        "translation": "LICENSE-POLICY.en.md",
+        "source_sha256": "d2b488174e214e38b267c8ecb93c226f6c0ee1728e107d794ace0dc0b551f565"
+      },
+      {
+        "source": "NOTICE.md",
+        "translation": "NOTICE.en.md",
+        "source_sha256": "3cd9f1ed27151a5e1c49b94cc4a7e660d95c356fc7d0c830f2af5d6c989d30d6"
+      },
+      {
+        "source": "README.md",
+        "translation": "README.en.md",
+        "source_sha256": "ae7b5b6583a84b00aeccce1d0914d9b6784153a02f8b094cbf0b9ffa4f021c68"
+      },
+      {
+        "source": "UPDATING.md",
+        "translation": "UPDATING.en.md",
+        "source_sha256": "31f3393227466c31046841cc519f112a0b5de98ee6960dffd865049b6bb429fd"
+      },
+      {
+        "source": "media/README.md",
+        "translation": "media/README.en.md",
+        "source_sha256": "47f754bc988cd5c556722d176498854ad38699a8f8969615a1e5de8ed178a094"
+      },
+      {
+        "source": "scripts/README.md",
+        "translation": "scripts/README.en.md",
+        "source_sha256": "bda5dac845acfed9311f447f8f5ed6379ab550071ee5cc1df9da77f42f058aa5"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/LICENSE",
+        "translation": "skills/lida-avatar-workflow/LICENSE.en.md",
+        "source_sha256": "2aa11c97ece6a15d4d7248471418ebe592a83acfacab61df5efe4ac647b0335e"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/NOTICE.md",
+        "translation": "skills/lida-avatar-workflow/NOTICE.en.md",
+        "source_sha256": "3cd9f1ed27151a5e1c49b94cc4a7e660d95c356fc7d0c830f2af5d6c989d30d6"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/SKILL.md",
+        "translation": "skills/lida-avatar-workflow/SKILL.en.md",
+        "source_sha256": "61a30c0e55a747c82857ccc5472132a8814e2c76dad19e27f4b9fe8aab7a0e1d"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/assets/README.md",
+        "translation": "skills/lida-avatar-workflow/assets/README.en.md",
+        "source_sha256": "b96543beb19798b019f8fb833b1211da7a28e63edae3f5e710a4c133cd004bc5"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/README.md",
+        "translation": "skills/lida-avatar-workflow/references/en/README.md",
+        "source_sha256": "f4548b25efbadf72ee83ef073a7f542f551188a8b6f6a883ada1e878ae7a3324"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/accessory-materials.md",
+        "translation": "skills/lida-avatar-workflow/references/en/accessory-materials.md",
+        "source_sha256": "ec348e227436bf164f79e21e718370e71639fb2122fa947add753b36310c2c7a"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/adjustment-methods.md",
+        "translation": "skills/lida-avatar-workflow/references/en/adjustment-methods.md",
+        "source_sha256": "8331948eef1a6c7fea6c57daee2a98185350942055d6142029341dabe0c3e9ec"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/ai-instructions.md",
+        "translation": "skills/lida-avatar-workflow/references/en/ai-instructions.md",
+        "source_sha256": "f8764cc3d624da09a1bc12b9b41d539ed4b6e1589ddeea7e3329a25ec1521399"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/cross-engine-look.md",
+        "translation": "skills/lida-avatar-workflow/references/en/cross-engine-look.md",
+        "source_sha256": "2305466893f2fb93cd820d179db2e3c4d97ff9b06b516eb75666113b43172b0f"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/diagram-index.md",
+        "translation": "skills/lida-avatar-workflow/references/en/diagram-index.md",
+        "source_sha256": "cc598381916f92dad7cdb949620ddacc9008944604c8a09c547e15ff405fe68f"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/expression-adjustment.md",
+        "translation": "skills/lida-avatar-workflow/references/en/expression-adjustment.md",
+        "source_sha256": "89b9aa00671054c04fe0b5b98759e68621dfb1d6b3c0e789b3d72212b609a199"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/expression-sheets.md",
+        "translation": "skills/lida-avatar-workflow/references/en/expression-sheets.md",
+        "source_sha256": "cb31608c314f316312c50e39f4a3e6fff271cf11f4912c2251faf9325c400256"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/eye-modeling.md",
+        "translation": "skills/lida-avatar-workflow/references/en/eye-modeling.md",
+        "source_sha256": "5cb44d329096937ea5ed95f96e1d77310d7fe82a13da127edcedce1e08ab999e"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/generation-feedback.md",
+        "translation": "skills/lida-avatar-workflow/references/en/generation-feedback.md",
+        "source_sha256": "0e6eb940fd540d8d8e14bd4ef19ee02b1ee1563ce4bb6db6809a13e02b195d1f"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/hair-workflow.md",
+        "translation": "skills/lida-avatar-workflow/references/en/hair-workflow.md",
+        "source_sha256": "da2d85a2d354c23be35647405693654925809ba6ac11a418a6555fed8dbd141a"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/hand-shape.md",
+        "translation": "skills/lida-avatar-workflow/references/en/hand-shape.md",
+        "source_sha256": "987da40dbbb0572df23f64cec50d06ae3b94659d5375538dc40b100e057bc070"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/input-materials.md",
+        "translation": "skills/lida-avatar-workflow/references/en/input-materials.md",
+        "source_sha256": "826a0d5e3966655bfd0a5a78f0506c7fe9e784cd8de805d7926cde7b14ef34d1"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/knee-edge-placement.md",
+        "translation": "skills/lida-avatar-workflow/references/en/knee-edge-placement.md",
+        "source_sha256": "b33a5c49dcfa6a8100b91962d44263c7c1c9e2bfb01a0c84668e4a2a9c720159"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/lida-design.md",
+        "translation": "skills/lida-avatar-workflow/references/en/lida-design.md",
+        "source_sha256": "31e840325336521f2d1a4cb925cbfc71372bda33796bae8b9f9d0bad1cfd8061"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/mechanical-visual-review.md",
+        "translation": "skills/lida-avatar-workflow/references/en/mechanical-visual-review.md",
+        "source_sha256": "b9ec25ea75bf0c492f4239f3e62949a3cbfe3f27e279c2833da761bc7688db53"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/mesh-repair-completion.md",
+        "translation": "skills/lida-avatar-workflow/references/en/mesh-repair-completion.md",
+        "source_sha256": "fc64bf892a584b6e8420786b124f2bd94d73a161f2f7220cdc05503b9872a674"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/mesh-weight.md",
+        "translation": "skills/lida-avatar-workflow/references/en/mesh-weight.md",
+        "source_sha256": "1a6fda41e9e07c6e015b5d248c3fbd91ba9051e5257373fbd60fa9c033b703c5"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/model-tools.md",
+        "translation": "skills/lida-avatar-workflow/references/en/model-tools.md",
+        "source_sha256": "82be6e5972d0befd5debd8627812b9852a47d4acfc6e57392ddefcf26a779e12"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/mouth-shapes.md",
+        "translation": "skills/lida-avatar-workflow/references/en/mouth-shapes.md",
+        "source_sha256": "63ef7e4fe385ab79f0294f16a286403dd7d0637145a7a2171fc6545916836781"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/multiangle-threeview.md",
+        "translation": "skills/lida-avatar-workflow/references/en/multiangle-threeview.md",
+        "source_sha256": "05ce0de1e898f502b8848bd497c19c0940f2fa2983011a390a42f3093dbffc66"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/process-index.md",
+        "translation": "skills/lida-avatar-workflow/references/en/process-index.md",
+        "source_sha256": "e5a7b09d856bc2a543f1d977f4b266614c147f821a69a1b49cceabe58562f899"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/production-plan.md",
+        "translation": "skills/lida-avatar-workflow/references/en/production-plan.md",
+        "source_sha256": "c361907a0ef8e3031f75e935a82c2cae6ad9765da764cdb58e978cdddbc9c7ca"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/quality-goals.md",
+        "translation": "skills/lida-avatar-workflow/references/en/quality-goals.md",
+        "source_sha256": "ffe7c383a9998ac3bb8c389c414bfa78ea340d86d09ba9160357add2eb27cb8f"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/secondary-motion.md",
+        "translation": "skills/lida-avatar-workflow/references/en/secondary-motion.md",
+        "source_sha256": "c6e6e779e1c1ee5a7d4b3a9f6b516c8bd71af901dbcbcd5043e5cffeb05871c2"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/shader-setup.md",
+        "translation": "skills/lida-avatar-workflow/references/en/shader-setup.md",
+        "source_sha256": "002a0585602159dfc084ff3162ec9fc2bb31ee6e527b71a1822b68dddbf621f2"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/skirt-hidden-modeling.md",
+        "translation": "skills/lida-avatar-workflow/references/en/skirt-hidden-modeling.md",
+        "source_sha256": "0faa12cacb754a2328c5b1841020a94c1cf0b3d198fc7e7625686f878858aed6"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/trial-and-error.md",
+        "translation": "skills/lida-avatar-workflow/references/en/trial-and-error.md",
+        "source_sha256": "004f4a75cafd1cceee13cb963521f81f744a9f7ed5d6ac5132219e57ecea1bf1"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/tripo-autorig.md",
+        "translation": "skills/lida-avatar-workflow/references/en/tripo-autorig.md",
+        "source_sha256": "cbd56d46ec3c332198c143d76b6460dd130db70289b48acaa01d74f8cff1e6b9"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/usage-and-attribution.md",
+        "translation": "skills/lida-avatar-workflow/references/en/usage-and-attribution.md",
+        "source_sha256": "6a20f12393f75f43056adfabbc95802dcf34cd55b6c40a28f24fb54d18db8e5e"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/visual-handoff.md",
+        "translation": "skills/lida-avatar-workflow/references/en/visual-handoff.md",
+        "source_sha256": "8ecccff353233d4b30bb96c475801a09a8e580609640e84eeddcaecabbbe1d1c"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/wing-feather-terms.md",
+        "translation": "skills/lida-avatar-workflow/references/en/wing-feather-terms.md",
+        "source_sha256": "901cecbbef3164d42ec24359e578aa0597d1914fd04b26da1b6a06257e6cc56c"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/wing-workflow.md",
+        "translation": "skills/lida-avatar-workflow/references/en/wing-workflow.md",
+        "source_sha256": "39221477108e40f6439fdea06ace46c48fb08fd28040cbd82d090c431a633e67"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/wink-closure.md",
+        "translation": "skills/lida-avatar-workflow/references/en/wink-closure.md",
+        "source_sha256": "190f1e33f0fd788811016ce3d3ab78162e724a2f91c0b71de5fec75783136fb1"
+      },
+      {
+        "source": "tests/README.md",
+        "translation": "tests/README.en.md",
+        "source_sha256": "c63dd501c9478704e9bf4a1a183f15a0297a365bfbd4e0a8eb14028d9f2694ec"
+      }
+    ]
   }
 }

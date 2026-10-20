@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="3390" viewBox="0 0 2000 3390" role="img" aria-labelledby="title desc">
+<title id="title">にっこりウインク：目だけの差分と左右の範囲を分ける</title>
+<desc id="desc">自作模式図。W1で通常の瞬きと笑った閉眼を区別し、同じ網目の喜び差分から目領域Eだけを使う。W2は正面で本人左が画面右になる向きと、左右の重みWLとWRの和が1になる遷移。W3は途中形と隣接頂点列、眼球に沿う奥行き、別層の追従の検品。形、密度、数値は例で、自動造形や実モデルの成功を示さない。</desc>
+<rect width="2000" height="3390" fill="#f3f6fa"/>
+<text x="48" y="76" font-family="Meiryo,sans-serif" font-size="43" font-weight="700" fill="#20384e">にっこりウインク：目だけの差分と左右の範囲を分ける</text>
+<text x="50" y="126" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">自作模式図｜形・割合・網目は説明例。自動造形・実モデルの成功画像ではありません。</text>
+<rect x="40" y="166" width="1920" height="780" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="188" width="85" height="49" rx="9" fill="white" stroke="#168370" stroke-width="2"/>
+<text x="75" y="222" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#168370">W1</text>
+<text x="166" y="222" font-family="Meiryo,sans-serif" font-size="33" font-weight="700" fill="#168370">通常の瞬きと、笑った閉じ目の目標を分ける</text>
+<rect x="75" y="266" width="570" height="334" rx="12" fill="#f8fafc" stroke="#dce5ee" stroke-width="2"/>
+<rect x="715" y="266" width="570" height="334" rx="12" fill="#f8fafc" stroke="#dce5ee" stroke-width="2"/>
+<rect x="1355" y="266" width="570" height="334" rx="12" fill="#f8fafc" stroke="#dce5ee" stroke-width="2"/>
+<text x="102" y="314" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">基準の開眼：Basis</text>
+<defs><clipPath id="eye-open-region-1"><path d="M180 454 Q360 284 540 454 Q360 550 180 454 Z"/></clipPath></defs>
+<path d="M180 454 Q360 284 540 454 Q360 550 180 454 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="360" cy="441" rx="33.5" ry="50" fill="#e8eff4" stroke="#536d82" stroke-width="3" clip-path="url(#eye-open-region-1)"/>
+<path d="M180 454 Q360 284 540 454" fill="none" stroke="#536d82" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M180 454 Q360 550 540 454" fill="none" stroke="#536d82" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="742" y="314" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">通常の瞬き：blink</text>
+<defs><clipPath id="eye-open-region-2"><path d="M820 454 Q1000 454 1180 454 Q1000 454 820 454 Z"/></clipPath></defs>
+<path d="M820 454 Q1000 454 1180 454 Q1000 454 820 454 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 454 Q1000 454 1180 454" fill="none" stroke="#536d82" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 454 Q1000 454 1180 454" fill="none" stroke="#536d82" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="742" y="562" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#536d82">通常の閉じ方も別に保持する</text>
+<text x="1382" y="314" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">笑った閉眼：目標の例</text>
+<defs><clipPath id="eye-open-region-3"><path d="M1460 454 Q1640 344 1820 454 Q1640 344 1460 454 Z"/></clipPath></defs>
+<path d="M1460 454 Q1640 344 1820 454 Q1640 344 1460 454 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1460 454 Q1640 344 1820 454" fill="none" stroke="#357da5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1460 454 Q1640 344 1820 454" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1382" y="562" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#536d82">曲線の形は採用デザインへ合わせる</text>
+<text x="75" y="660" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#20384e">同じ網目の happy − Basis から、目領域 E の差分だけを使う。</text>
+<rect x="75" y="701" width="570" height="82" rx="12" fill="#d9eee6" stroke="#168370" stroke-width="2"/>
+<text x="106" y="754" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#168370">目周辺：採用</text>
+<rect x="715" y="701" width="570" height="82" rx="12" fill="#e5edf4" stroke="#536d82" stroke-width="2"/>
+<text x="746" y="754" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#536d82">口・眉：除外</text>
+<rect x="1355" y="701" width="570" height="82" rx="12" fill="#e5edf4" stroke="#536d82" stroke-width="2"/>
+<text x="1386" y="754" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#536d82">対象外：変位 0</text>
+<text x="75" y="840" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">目の領域は頂点のつながり・既存の瞬き・拡大表示で同定する。口や眉まで動かさない。</text>
+<text x="75" y="889" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">既存キーで分離できない場合は、領域を設計し直す。別メッシュの点番号をそのまま使わない。</text>
+<rect x="40" y="978" width="1920" height="925" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="1000" width="85" height="49" rx="9" fill="white" stroke="#168370" stroke-width="2"/>
+<text x="75" y="1034" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#168370">W2</text>
+<text x="166" y="1034" font-family="Meiryo,sans-serif" font-size="33" font-weight="700" fill="#168370">左右は本人基準。目領域の中で、左右の重みを分ける</text>
+<text x="75" y="1092" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">正面・鏡映なしの図：本人右 ＝ 画面左　／　本人左 ＝ 画面右</text>
+<rect x="75" y="1127" width="1850" height="388" rx="12" fill="#f8fafc" stroke="#dce5ee" stroke-width="2"/>
+<rect x="863" y="1175" width="274" height="288" rx="10" fill="#d9eee6" stroke="#a6cfbe" stroke-width="2"/>
+<text x="881" y="1227" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#168370">中央の遷移</text>
+<defs><clipPath id="eye-open-region-4"><path d="M265 1355 Q490 1185 715 1355 Q490 1451 265 1355 Z"/></clipPath></defs>
+<path d="M265 1355 Q490 1185 715 1355 Q490 1451 265 1355 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="490" cy="1342" rx="33.5" ry="50" fill="#e8eff4" stroke="#536d82" stroke-width="3" clip-path="url(#eye-open-region-4)"/>
+<path d="M265 1355 Q490 1185 715 1355" fill="none" stroke="#536d82" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M265 1355 Q490 1451 715 1355" fill="none" stroke="#536d82" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><clipPath id="eye-open-region-5"><path d="M1285 1355 Q1510 1245 1735 1355 Q1510 1245 1285 1355 Z"/></clipPath></defs>
+<path d="M1285 1355 Q1510 1245 1735 1355 Q1510 1245 1285 1355 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1285 1355 Q1510 1245 1735 1355" fill="none" stroke="#357da5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1285 1355 Q1510 1245 1735 1355" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="229" y="1192" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#536d82">本人右 / model-right</text>
+<text x="1253" y="1192" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#357da5">本人左 / model-left</text>
+<text x="290" y="1465" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#536d82">左ウインクで反対眼は開く</text>
+<text x="1348" y="1465" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">左ウインク：変更眼</text>
+<path d="M1000 1248 L1000 1465" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<text x="891" y="1500" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#168370">口・眉は固定</text>
+<text x="75" y="1575" font-family="Meiryo,sans-serif" font-size="30" font-weight="400" fill="#20384e">dL = E · WL · (happy − Basis)　　dR = E · WR · (happy − Basis)</text>
+<text x="75" y="1630" font-family="Meiryo,sans-serif" font-size="30" font-weight="400" fill="#20384e">左右のキー座標 = Basis + dL または Basis + dR</text>
+<text x="75" y="1685" font-family="Meiryo,sans-serif" font-size="30" font-weight="400" fill="#20384e">E＝目の選択範囲　WL / WR＝左右への重み　中央を滑らかにつなぎ、WL + WR = 1。</text>
+<text x="75" y="1762" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#168370">WL + WR = 1 は、左右を足した差分の復元条件。途中形や接触の合格は別に検査。</text>
+<text x="75" y="1824" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">中央の幅・軸の正負はモデルごとに確認。片目側の鼻根がわずかに動く場合も記録する。</text>
+<text x="75" y="1871" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">反対眼の開口・口・眉・顎など、固定した領域の変位を確認する。</text>
+<rect x="40" y="1935" width="1920" height="1162" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="1957" width="85" height="49" rx="9" fill="white" stroke="#168370" stroke-width="2"/>
+<text x="75" y="1991" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#168370">W3</text>
+<text x="166" y="1991" font-family="Meiryo,sans-serif" font-size="33" font-weight="700" fill="#168370">閉鎖線だけでなく、途中形・奥行き・別層の追従を確認</text>
+<text x="153" y="2062" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">0 %</text>
+<defs><clipPath id="eye-open-region-6"><path d="M93 2169 Q205 1999 317 2169 Q205 2265 93 2169 Z"/></clipPath></defs>
+<path d="M93 2169 Q205 1999 317 2169 Q205 2265 93 2169 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="205" cy="2156" rx="33.5" ry="50" fill="#e8eff4" stroke="#536d82" stroke-width="3" clip-path="url(#eye-open-region-6)"/>
+<path d="M93 2169 Q205 1999 317 2169" fill="none" stroke="#357da5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M93 2169 Q205 2265 317 2169" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M331 2136 L392 2136" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M392 2136 L376.0 2129.0 L376.0 2143.0 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="471" y="2062" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">25 %</text>
+<defs><clipPath id="eye-open-region-7"><path d="M411 2169 Q523 2014.0 635 2169 Q523 2213.5 411 2169 Z"/></clipPath></defs>
+<path d="M411 2169 Q523 2014.0 635 2169 Q523 2213.5 411 2169 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="523" cy="2156" rx="33.5" ry="50" fill="#e8eff4" stroke="#536d82" stroke-width="3" clip-path="url(#eye-open-region-7)"/>
+<path d="M411 2169 Q523 2014.0 635 2169" fill="none" stroke="#357da5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M411 2169 Q523 2213.5 635 2169" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M649 2136 L710 2136" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M710 2136 L694.0 2129.0 L694.0 2143.0 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="789" y="2062" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">50 %</text>
+<defs><clipPath id="eye-open-region-8"><path d="M729 2169 Q841 2029.0 953 2169 Q841 2162.0 729 2169 Z"/></clipPath></defs>
+<path d="M729 2169 Q841 2029.0 953 2169 Q841 2162.0 729 2169 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="841" cy="2156" rx="33.5" ry="50" fill="#e8eff4" stroke="#536d82" stroke-width="3" clip-path="url(#eye-open-region-8)"/>
+<path d="M729 2169 Q841 2029.0 953 2169" fill="none" stroke="#357da5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M729 2169 Q841 2162.0 953 2169" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M967 2136 L1028 2136" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1028 2136 L1012.0 2129.0 L1012.0 2143.0 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1107" y="2062" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">75 %</text>
+<defs><clipPath id="eye-open-region-9"><path d="M1047 2169 Q1159 2044.0 1271 2169 Q1159 2110.5 1047 2169 Z"/></clipPath></defs>
+<path d="M1047 2169 Q1159 2044.0 1271 2169 Q1159 2110.5 1047 2169 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="1159" cy="2156" rx="33.5" ry="50" fill="#e8eff4" stroke="#536d82" stroke-width="3" clip-path="url(#eye-open-region-9)"/>
+<path d="M1047 2169 Q1159 2044.0 1271 2169" fill="none" stroke="#357da5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1047 2169 Q1159 2110.5 1271 2169" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1285 2136 L1346 2136" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1346 2136 L1330.0 2129.0 L1330.0 2143.0 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1425" y="2062" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">100 %</text>
+<defs><clipPath id="eye-open-region-10"><path d="M1365 2169 Q1477 2059 1589 2169 Q1477 2059 1365 2169 Z"/></clipPath></defs>
+<path d="M1365 2169 Q1477 2059 1589 2169 Q1477 2059 1365 2169 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1365 2169 Q1477 2059 1589 2169" fill="none" stroke="#357da5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1365 2169 Q1477 2059 1589 2169" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1603 2136 L1664 2136" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1664 2136 L1648.0 2129.0 L1648.0 2143.0 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1743" y="2062" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">0 %</text>
+<defs><clipPath id="eye-open-region-11"><path d="M1683 2169 Q1795 1999 1907 2169 Q1795 2265 1683 2169 Z"/></clipPath></defs>
+<path d="M1683 2169 Q1795 1999 1907 2169 Q1795 2265 1683 2169 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="1795" cy="2156" rx="33.5" ry="50" fill="#e8eff4" stroke="#536d82" stroke-width="3" clip-path="url(#eye-open-region-11)"/>
+<path d="M1683 2169 Q1795 1999 1907 2169" fill="none" stroke="#357da5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1683 2169 Q1795 2265 1907 2169" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="2280" font-family="Meiryo,sans-serif" font-size="28" font-weight="700" fill="#20384e">正面・斜め・横で 0 → 25 → 50 → 75 → 100 → 0。左右単独と必要な組み合わせを確認。</text>
+<rect x="75" y="2320" width="895" height="408" rx="12" fill="#f8fafc" stroke="#dce5ee" stroke-width="2"/>
+<text x="102" y="2376" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">表面：上下まぶたと隣接する頂点列</text>
+<defs><clipPath id="eye-open-region-12"><path d="M292 2536 Q520 2412.8 748 2536 Q520 2471.32 292 2536 Z"/></clipPath></defs>
+<path d="M292 2536 Q520 2412.8 748 2536 Q520 2471.32 292 2536 Z" fill="#f7fafc" stroke="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="520" cy="2523" rx="33.5" ry="50" fill="#e8eff4" stroke="#536d82" stroke-width="3" clip-path="url(#eye-open-region-12)"/>
+<path d="M292 2536 Q520 2412.8 748 2536" fill="none" stroke="#357da5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M292 2536 Q520 2471.32 748 2536" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M268 2498 Q520 2374.8 772 2498" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M268 2574 Q520 2509.32 772 2574" fill="none" stroke="#536d82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="292" cy="2536.0" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="292" cy="2536.0" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="406.0" cy="2489.8" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="406.0" cy="2511.745" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="520.0" cy="2474.4" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="520.0" cy="2503.66" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="634.0" cy="2489.8" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="634.0" cy="2511.745" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="748" cy="2536.0" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<circle cx="748" cy="2536.0" r="5" fill="#357da5" stroke="none" stroke-width="2"/>
+<text x="102" y="2679" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">線の移動だけでなく、列の間隔・面の折れも見る。</text>
+<rect x="1000" y="2320" width="925" height="408" rx="12" fill="#f8fafc" stroke="#dce5ee" stroke-width="2"/>
+<text x="1027" y="2376" font-family="Meiryo,sans-serif" font-size="29" font-weight="700" fill="#20384e">横断面：眼球沿いの奥行きと別層</text>
+<circle cx="1685" cy="2535" r="108" fill="#e5edf4" stroke="#536d82" stroke-width="3"/>
+<path d="M1432 2437 Q1564 2498 1509 2545 Q1564 2581 1453 2643" fill="none" stroke="#357da5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1407 2428 Q1533 2486 1484 2536" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<path d="M1124 2479 L1406 2482" fill="none" stroke="#168370" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1406 2482 L1390.0753691817724 2474.8301929382196 L1389.9264414386496 2488.829400791785 Z" fill="#168370" stroke="#168370" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1027" y="2454" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#168370">影・まつ毛等</text>
+<path d="M1775 2511 L1631 2511" fill="none" stroke="#536d82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1631 2511 L1647.0 2518.0 L1647.0 2504.0 Z" fill="#536d82" stroke="#536d82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1746" y="2469" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#536d82">眼球</text>
+<text x="1027" y="2679" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">上の断面・距離・厚みは模式。実面の交差を確認。</text>
+<rect x="75" y="2765" width="1850" height="284" rx="12" fill="#edf6f2" stroke="#c9e3d7" stroke-width="2"/>
+<text x="102" y="2820" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#168370">終了条件：形が合う + 固定部を保つ + 途中も自然 + 使用先で再現</text>
+<text x="102" y="2875" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">通常の blink、左右ウインク、笑顔などの必要な組み合わせを、同じ版で検品する。</text>
+<text x="102" y="2926" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">影・まつ毛の層は存在と駆動を確認して対応。閉鎖線を合わせるためだけに眼球を動かさない。</text>
+<text x="102" y="2977" font-family="Meiryo,sans-serif" font-size="28" font-weight="400" fill="#20384e">保存・再読込・出力先で確認。顔トラッキングが通常の瞬きに使うキーも調べる。</text>
+<text x="50" y="3158" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">凡例：灰＝基準・固定　青＝変更対象　緑＝領域・中央の遷移　破線＝マスク／別層の説明</text>
+<text x="50" y="3201" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">曲率・数値・密度は例。採用原画の変更や、全ての表情組み合わせの自動合格を意味しません。</text>
+<rect x="0" y="3220" width="2000" height="170" rx="0" fill="#eaf1f7" stroke="#eaf1f7" stroke-width="2"/>
+<path d="M32 3228 L1968 3228" fill="none" stroke="#bacad8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="32" y="3285" font-family="Meiryo,sans-serif" font-size="41" font-weight="700" fill="#20384e">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="3341" font-family="Meiryo,sans-serif" font-size="39" font-weight="400" fill="#355770">https://github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</svg>

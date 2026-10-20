@@ -1,5 +1,7 @@
 # 利用区分と、公開物に残す出典
 
+[日本語](usage-and-attribution.md) · [English](en/usage-and-attribution.md)
+
 ## 商用利用について
 
 本パックは商用・非商用を問わず利用できます。モデル販売・受託制作、商用の画像・動画、商用アプリや新Skillsへの組込みも制限しません。以下の出典保持条件は商用・非商用で共通です。生成サービス、入力素材、第三者モデル等の利用条件は別途確認してください。
@@ -32,6 +34,8 @@ python scripts/ensure_attribution.py --target app --component skills --project-d
 ```
 
 派生スキルは`--target skill`、シェーダーも含める場合は`--component both`を使います。指定先のTHIRD_PARTY_NOTICES.mdへ追記し、既存本文・変更注記を保持、同じ出典を重複追加しません。`--check`は確認のみです。本資料を転載・同梱する場合は、出典に加えて[LICENSE](../LICENSE)も保持してください。
+
+英語の新規表記は`--language en`を付けます。既存の日本語/英語の出典は書き換えず、言語を切り替えても重複追加しません。変更注記は実際の利用内容をその言語で指定してください。
 
 ## 利用条件とAIの運用を区別する
 

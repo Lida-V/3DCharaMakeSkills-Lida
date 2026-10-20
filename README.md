@@ -1,6 +1,8 @@
 # 3DCharaMakeSkills-Lida
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **配布版1.5.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、23枚の図解と実モデルの表示例を収録しています。公開リポジトリから取得できます。
+日本語 · [English](README.en.md)
+
+画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **日本語・英語対応の配布用1.7.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、24枚の図解と実モデルの表示例を収録しています。英語版はREADME・スキル入口・参照全章と依頼文に対応し、図内の日本語ラベルは英語の凡例と説明を併用します。
 
 ## 実際の制作例
 
@@ -20,7 +22,7 @@
 
 ## 制作の前提
 
-基準となるイラストを用意し、Tripoなどのサービスでベースモデルや口型・表情の参考モデルを生成してから、Blenderなどで形状・メッシュ・骨・スキンウェイト・表情を調整します。流れは **画像の準備 → 3D生成 → モデリングと動きの修正 → 材質と出力の確認** です。
+基準となるイラストを用意し、Tripoなどのサービスでベースモデルや口型・表情の参考モデルを生成してから、Blenderなどで形状・メッシュ・骨・スキンウェイト・表情を調整します。新規の動く人型では、通常形と関節の網目を整え、**150MB以内のFBX → TripoのVRM 1.0オートリグ → 骨・ウェイトの調整**を挟みます。骨格の導入と完成VRMの出力は別工程です。既存の良いリグは再利用します。
 
 実制作には、利用する3D生成サービス、モデリングソフト、必要な画像素材を別途用意してください。本パックにサービスやソフト本体は同梱しません。別の生成サービスを使う場合も、必要な角度・同一性・出力形式がそろうかを確認します。既存モデルの修正だけなら、改めて生成する必要はありません。
 
@@ -30,19 +32,25 @@
 2. `skills/lida-avatar-workflow` を、参照文書・画像・LICENSE・NOTICE・補助スクリプトを含め、エージェントのスキル保存先へ丸ごとコピーします。`SKILL.md`だけにしないでください。
 3. スキルを読み込ませ、次の導入確認を依頼します。読むだけの利用者にPythonやシェーダーの導入は必要ありません。
 
-> lida-avatar-workflowを読み、モデル制作を始める前に、必要な素材・推奨する品質・最初の工程のゴールを短く提案してください。実サービスの実行はまだ不要です。
+> lida-avatar-workflowを読み、モデル制作を始める前に、必要な素材・推奨品質・工程順・各終了条件を短い制作計画にしてください。メッシュ、貫通、材質、手指の動き、眼球の5項目の診断予定と、材質の変更可能範囲も示してください。今回は導入確認だけで、実サービスやモデル処理の実行はまだ不要です。
 
 名前付き指定が使える環境では `$lida-avatar-workflow` と指定できます。読み込めない時は、保存先・同名スキルの重複・参照文書や画像の欠落を確認してください。[利用者向け更新手順](UPDATING.md#利用者の更新)も用意しています。
 
 ## 最初に読む
 
+- [新規制作からの追加フィードバック](skills/lida-avatar-workflow/references/generation-feedback.md)：自動生成の手・親指の軸・口内・顎の調整、FBX表示と埋込画像、リグ/揺れもの往復の失敗を次の初回指示へ反映する。
+- [最初の制作計画](skills/lida-avatar-workflow/references/production-plan.md)：必要な5項目の診断・補正を計画し、材質の変更範囲、工程順と保留理由を整理する。
 - [品質と工程ゴール](skills/lida-avatar-workflow/references/quality-goals.md)：初回の完成像と各工程の終了条件。
 - [工程索引](skills/lida-avatar-workflow/references/process-index.md)：今扱う部位の資料だけ選ぶ。
 - [アクセサリー・装飾の材質補正](skills/lida-avatar-workflow/references/accessory-materials.md)：画像・材質・形のどこを直すか判断し、銀の艶・宝石・細い輪郭を比較する。
 - [メッシュの破綻修正と補完](skills/lida-avatar-workflow/references/mesh-repair-completion.md)：必要な開口を残し、面張り・境界接続・局所再構築・欠落部位の補完を図で選ぶ。
 - [使用先とショット間の見た目を揃える](skills/lida-avatar-workflow/references/cross-engine-look.md)：色管理から陰影・艶・輪郭・透過を分けて調整。口内の暗さと羽の暗い縁の診断例も収録。
-- [自作の制作補助ツール](skills/lida-avatar-workflow/references/model-tools.md)：網目・UV・ウェイト・キーの検査、修正前後の比較、コピー限定のウェイト正規化。
+- [機械検査と見た目・動きの判定](skills/lida-avatar-workflow/references/mechanical-visual-review.md)：CLIで確認漏れを減らし、原画との画像比較・途中動作・保存/使用先を分けて検収する。
+- [自作の制作補助ツール](skills/lida-avatar-workflow/references/model-tools.md)：骨構成・人型への割当、網目・UV・ウェイト・キー、修正前後の比較、コピー限定のウェイト正規化と送信FBXの条件確認。
+- [Tripoで初期骨格を導入する](skills/lida-avatar-workflow/references/tripo-autorig.md)：150MB以内のFBXを用意し、VRM 1.0オートリグから保持照合・リグとウェイトの調整へ進む。
 - [眼球を作る工程](skills/lida-avatar-workflow/references/eye-modeling.md)：球面・虹彩・白目・線の層・視線・瞬き・出力まで。
+- [ウインクの閉じ方](skills/lida-avatar-workflow/references/wink-closure.md)：通常の瞬きと笑った閉じ目を分け、目だけの差分・左右・影の層・途中動作を確認する。
+- [表情シートを生成する](skills/lida-avatar-workflow/references/expression-sheets.md)：同じ通常顔から必要な口型・目・感情の一覧と単体画像を作り、個別3D参考と局所キーへつなぐ。
 - [手を作り、動かして確認する工程](skills/lida-avatar-workflow/references/hand-shape.md)：掌と指の形、関節と網目、親指・指間のウェイト、爪、短縮で繰り返した修正を図で確認。
 - [髪を作る工程](skills/lida-avatar-workflow/references/hair-workflow.md)：髪だけの資料、毛束の形と断面、根元・毛先・生え際、質感と艶、揺れ・干渉・出力まで。
 - [翼を作る工程](skills/lida-avatar-workflow/references/wing-workflow.md)：資料・支持体・羽列・根元・ウェイト・開閉としなり・保存まで。工程ごとのゴールとAI依頼文付き。
@@ -54,7 +62,7 @@
 
 ## 自作ツールとSkillsを組にして使う
 
-Blenderで実行する制作補助スクリプトを同梱しています。AIは各工程で必要な検査を実行し、JSONと同条件画像から修正・保持結果を判断します。ウェイト正規化は新規の候補コピーへ限定します。
+Blenderで実行する制作補助スクリプトを同梱しています。AIは各工程で必要な検査を実行し、JSONと同条件画像から修正・保持結果を判断します。骨と人型対応の`rig-audit`、FBXの形式・容量確認も収録します。機械検査が通っても、画像・動作で不自然なら未達として扱います。ウェイト正規化は新規の候補コピーへ限定します。
 
 [できること・実行方法・確認済みの範囲](skills/lida-avatar-workflow/references/model-tools.md)を参照してください。制作時の常駐アドオン全機能や操作パネル、眼球・翼の自動造形まで一式で導入するものではありません。
 

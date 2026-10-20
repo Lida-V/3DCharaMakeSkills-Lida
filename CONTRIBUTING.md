@@ -1,5 +1,7 @@
 # 変更の書き方
 
+[日本語](CONTRIBUTING.md) · [English](CONTRIBUTING.en.md)
+
 新しい知見は、次の4点を短く書く。
 
 - **困ったこと**：場所・姿勢・見え方。通常形にもあるか。
