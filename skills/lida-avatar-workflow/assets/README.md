@@ -1,6 +1,8 @@
 # 同梱図版
 
-[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全23枚に表示用PNGと拡大用SVGを同梱しています。
+[日本語](README.md) · [English](README.en.md)
+
+[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全24枚に表示用PNGと拡大用SVGを同梱しています。
 
 - `material-repair-selection`：割当/画像設定/UV・材質値/共有先・形/法線、共有材質と元画像保持を分ける自作模式図。
 - `mesh-repair-selection`：意図した開口を残し、向き・局所パッチ・境界接続・局所再構築を選ぶ自作模式図。
@@ -8,6 +10,7 @@
 
 ## 出所と役割
 
+- `wink-eye-isolation`（自作模式図）：通常の瞬きと笑った閉眼を分け、同一基準の目差分、本人左右のマスク、途中・隣接列・別層の追従を対応。自動造形や実モデルの成功図ではない。
 - `input-alignment-flow`（自作模式図）：同じ基準から段階別素材と三面図を用意する。段階別生成は次回の予防案。
 - `local-mask-transition`（自作模式図）：移動量と戻す幅の違い。修正マスクとスキンウェイトは別。
 - `eye-structure-flow`（自作模式図）：球面・虹彩/瞳孔・白目・任意の薄い反射面、眼球と一緒に回さない線の層。
@@ -35,6 +38,6 @@
 
 ## 資料単体で分かる出典表示
 
-全23組のSVGとPNGは、説明の下へ余白を足し、「© 2026 Lida · 3DCharaMakeSkills-Lida」と `github.com/Lida-V/3DCharaMakeSkills-Lida` を表示しています。本文・線・矢印を覆う透かしではなく、画像だけで共有された時の来歴表示です。
+全24組のSVGとPNGは、説明の下へ余白を足し、「© 2026 Lida · 3DCharaMakeSkills-Lida」と `github.com/Lida-V/3DCharaMakeSkills-Lida` を表示しています。本文・線・矢印を覆う透かしではなく、画像だけで共有された時の来歴表示です。
 
 SVGの元の図形・文字は保持し、PNGはそのSVGから描画しています。PNGとSVGの両方で出典帯が読めることを確認して更新してください。表示の追加で利用条件を変更してはいません。
