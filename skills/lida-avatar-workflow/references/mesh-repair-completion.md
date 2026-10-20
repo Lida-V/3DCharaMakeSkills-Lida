@@ -1,5 +1,7 @@
 # メッシュの破綻を直す・足りない面と体積を補う
 
+[日本語](mesh-repair-completion.md) · [English](en/mesh-repair-completion.md)
+
 **先に原因と残す開口を決め、健全な境界から必要な範囲だけ直します。** 穴を全部閉じる、全部溶接する、細分化する、といった一括処理では欠落・誤接続・動作時の潰れを区別できません。
 
 [工程索引](process-index.md) · [調整量と固定範囲](adjustment-methods.md) · [スカートと隠れた身体](skirt-hidden-modeling.md) · [曲がる網目と重み](mesh-weight.md)

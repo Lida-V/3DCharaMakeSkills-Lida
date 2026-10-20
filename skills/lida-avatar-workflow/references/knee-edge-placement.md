@@ -1,5 +1,7 @@
 # 膝の線をどこへ配置するか
 
+[日本語](knee-edge-placement.md) · [English](en/knee-edge-placement.md)
+
 [工程索引](process-index.md) · [メッシュと重み](mesh-weight.md)
 
 膝を一周する横の列と、太腿からすねへ続く縦の辺を、実際に曲がる場所へ合わせます。全体を細かくすることや、線を一点へ集めることを目標にしません。
