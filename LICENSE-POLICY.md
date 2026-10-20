@@ -1,5 +1,7 @@
 # 配布条件と対象範囲
 
+[日本語](LICENSE-POLICY.md) · [English](LICENSE-POLICY.en.md)
+
 このパックの文書・自作図解・指示・別条件を明記していない補助コードには[LICENSE](LICENSE)（Lida Attribution License 1.0）を適用します。商用・非商用の利用、改変、再配布を、その出典保持条件付きで許諾します。独自条件でありMITやOSI認定ライセンスとは表示しません。
 
 ## Blender用の制作補助スクリプト
