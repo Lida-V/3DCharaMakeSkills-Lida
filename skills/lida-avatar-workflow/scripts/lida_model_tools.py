@@ -4,13 +4,15 @@
 
 Run in Blender with ``--background --factory-startup --python THIS.py -- COMMAND``.
 audit/snapshot: --input MODEL.blend --objects MeshA MeshB [--rig Rig] --report NEW.json
+rig-audit: --input MODEL.blend --rig Rig [--objects MeshA MeshB]
+           [--human-bones MAP.json] --report NEW.json
 normalize-copy: same, with --rig Rig and --output-blend NEW.blend (both required).
 compare: --left OLD.json --right NEW.json --report DIFF.json; ordinary Python works.
 
 Python API functions return reports without writing files. Only normalization
 creates in-memory candidate objects. main() alone opens an explicitly named blend
 and writes reports/candidate files. It never saves the input or user preferences.
-Exit codes: 0 completed; 2 snapshot differences or unresolved normalization;
+Exit codes: 0 completed; 2 snapshot differences, unresolved normalization or rig findings;
 1 invalid input, I/O or execution error. Audit findings are observations, not an
 appearance grade. Boundary edges, UV repeats and empty keys can be intentional.
 """
@@ -28,6 +30,33 @@ import tempfile
 
 SNAPSHOT_SCHEMA = "lida.model-tools.snapshot.v1"
 REPORT_SCHEMA = "lida.model-tools.report.v1"
+HUMANOID_MAP_SCHEMA = "lida.model-tools.humanoid-map.v1"
+# VRMC_vrm 1.0 humanoid vocabulary and relationships, not a bone-name heuristic.
+# https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.md
+HUMANOID_SPEC_VERSION = "1.0"
+HUMANOID_PARENTS = {
+    "hips": None, "spine": "hips", "chest": "spine", "upperChest": "chest",
+    "neck": "upperChest", "head": "neck", "leftEye": "head", "rightEye": "head", "jaw": "head",
+}
+HUMANOID_REQUIRED = {"hips", "spine", "head"}
+HUMANOID_NEEDS_PARENT = {"upperChest"}
+for _side in ("left", "right"):
+    HUMANOID_PARENTS.update({
+        _side + "UpperLeg": "hips", _side + "LowerLeg": _side + "UpperLeg",
+        _side + "Foot": _side + "LowerLeg", _side + "Toes": _side + "Foot",
+        _side + "Shoulder": "upperChest", _side + "UpperArm": _side + "Shoulder",
+        _side + "LowerArm": _side + "UpperArm", _side + "Hand": _side + "LowerArm",
+    })
+    HUMANOID_REQUIRED.update(_side + _part for _part in ("UpperLeg", "LowerLeg", "Foot", "UpperArm", "LowerArm", "Hand"))
+    for _finger in ("Thumb", "Index", "Middle", "Ring", "Little"):
+        _segments = ("Metacarpal", "Proximal", "Distal") if _finger == "Thumb" else ("Proximal", "Intermediate", "Distal")
+        _parent = _side + "Hand"
+        for _index, _segment in enumerate(_segments):
+            _name = _side + _finger + _segment
+            HUMANOID_PARENTS[_name] = _parent
+            if _index:
+                HUMANOID_NEEDS_PARENT.add(_name)
+            _parent = _name
 UNVERIFIED = [
     "armature rest/pose matrices and parent transforms",
     "drivers, constraints, Geometry Nodes and modifier configuration",
@@ -241,6 +270,181 @@ def audit_meshes(objects, armature=None, *, area_epsilon=1e-12, uv_epsilon=1e-12
                       "Degenerate areas use local object coordinates; object scale is not applied.",
                       "Duplicate faces mean the same vertex IDs, not spatially coincident separate vertices."],
             "unverified": list(UNVERIFIED)}
+
+
+def _matrix_rows(matrix):
+    return [[float(value) for value in row] for row in matrix]
+
+
+def _validate_humanoid_map(mapping):
+    if (not isinstance(mapping, dict) or set(mapping) != {"schema", "spec_version", "human_bones"}
+            or mapping.get("schema") != HUMANOID_MAP_SCHEMA
+            or mapping.get("spec_version") != HUMANOID_SPEC_VERSION):
+        raise ValueError("Expected explicit " + HUMANOID_MAP_SCHEMA + " with spec_version 1.0")
+    names = mapping["human_bones"]
+    if (not isinstance(names, dict) or any(not isinstance(key, str) or key not in HUMANOID_PARENTS
+                                           or not isinstance(value, str) or not value.strip()
+                                           for key, value in names.items())):
+        raise ValueError("human_bones must map VRM 1.0 canonical identifiers to nonempty exact Blender bone names")
+    return dict(names)
+
+
+def audit_rig(armature, objects=(), human_bones=None, *, length_epsilon=1e-8,
+              weight_tolerance=1e-4, max_influences=4):
+    """Read explicit rest/pose data and references; never modify or grade appearance.
+
+    An optional versioned mapping is authored/reviewed against the actual model.
+    Names, bone counts and apparent left/right coordinates are never inferred.
+    Unmapped mask groups, unused deform bones and posed frames are observations.
+    """
+    if armature is None:
+        raise ValueError("Rig audit requires an explicit armature")
+    deform_names = _deform_names(armature)
+    if armature.mode != "OBJECT":
+        raise ValueError("Rig must be in Object Mode")
+    _finite_positive(length_epsilon, "length_epsilon", allow_zero=True)
+    _finite_positive(weight_tolerance, "weight_tolerance", allow_zero=True)
+    if not isinstance(max_influences, int) or isinstance(max_influences, bool) or max_influences < 1:
+        raise ValueError("max_influences must be a positive integer")
+    objects = _meshes(objects) if objects else []
+    bones = {bone.name: bone for bone in armature.data.bones}
+    findings = []
+
+    def finding(code, **details):
+        findings.append({"code": code, **details})
+
+    transforms = {}
+    for obj in [armature] + objects:
+        matrix = _matrix_rows(obj.matrix_world)
+        scale = [float(value) for value in obj.scale]
+        transforms[obj.name] = {"matrix_world": matrix, "local_scale": scale,
+                                "parent": obj.parent.name if obj.parent else None}
+        if not _is_finite([value for row in matrix for value in row] + scale):
+            finding("nonfinite_object_transform", object=obj.name)
+        elif any(value <= 0 for value in scale):
+            finding("nonpositive_object_scale", object=obj.name,
+                    note="Inspect reflection/collapse and export baking; this is not full VRM node validation")
+    if not bones:
+        finding("empty_armature")
+    rest_bones = {}
+    ancestor_names = {}
+    for name in sorted(bones):
+        bone = bones[name]
+        head = [float(value) for value in bone.head_local]
+        tail = [float(value) for value in bone.tail_local]
+        matrix = _matrix_rows(bone.matrix_local)
+        finite = _is_finite(head + tail + [value for row in matrix for value in row])
+        length = math.dist(head, tail) if finite else None
+        rest_bones[name] = {"parent": bone.parent.name if bone.parent else None,
+                            "use_deform": bool(bone.use_deform), "head_local": head,
+                            "tail_local": tail, "matrix_local": matrix, "length_local": length}
+        if not finite:
+            finding("nonfinite_rest_bone", bone=name)
+        elif length <= length_epsilon:
+            finding("short_or_zero_rest_bone", bone=name, length_local=length)
+        ancestors = []
+        visited = {name}
+        parent = bone.parent
+        while parent is not None:
+            if parent.name in visited or parent.name not in bones:
+                finding("invalid_bone_parent_chain", bone=name, parent=parent.name)
+                break
+            visited.add(parent.name)
+            ancestors.append(parent.name)
+            parent = parent.parent
+        ancestor_names[name] = ancestors
+    mapping_report = {"status": "not_verified", "reason": "No explicit humanoid mapping supplied"}
+    if human_bones is not None:
+        mapped = _validate_humanoid_map(human_bones)
+        missing_required = sorted(HUMANOID_REQUIRED - mapped.keys())
+        for name in missing_required:
+            finding("missing_required_humanoid_mapping", human_bone=name)
+        reverse = {}
+        for canonical, name in sorted(mapped.items()):
+            reverse.setdefault(name, []).append(canonical)
+            if name not in bones:
+                finding("mapped_bone_not_found", human_bone=canonical, bone=name)
+            if canonical in HUMANOID_NEEDS_PARENT and HUMANOID_PARENTS[canonical] not in mapped:
+                finding("missing_optional_bone_dependency", human_bone=canonical,
+                        required_parent=HUMANOID_PARENTS[canonical])
+        for name, canonical_names in sorted(reverse.items()):
+            if len(canonical_names) > 1:
+                finding("duplicate_humanoid_assignment", bone=name, human_bones=canonical_names)
+        hierarchy = []
+        for canonical, name in sorted(mapped.items()):
+            if name not in bones:
+                continue
+            expected = HUMANOID_PARENTS[canonical]
+            while expected is not None and expected not in mapped:
+                expected = HUMANOID_PARENTS[expected]
+            nearest = next((reverse[ancestor][0] for ancestor in ancestor_names[name] if ancestor in reverse), None)
+            hierarchy.append({"human_bone": canonical, "expected_mapped_parent": expected,
+                              "nearest_mapped_ancestor": nearest})
+            if nearest != expected:
+                finding("humanoid_hierarchy_mismatch", human_bone=canonical,
+                        expected_mapped_parent=expected, nearest_mapped_ancestor=nearest)
+        mapping_report = {"status": "inspected", "schema": HUMANOID_MAP_SCHEMA,
+                          "spec_version": HUMANOID_SPEC_VERSION, "human_bones": dict(sorted(mapped.items())),
+                          "required": sorted(HUMANOID_REQUIRED), "missing_required": missing_required,
+                          "optional_not_mapped": sorted(set(HUMANOID_PARENTS) - HUMANOID_REQUIRED - mapped.keys()),
+                          "hierarchy": hierarchy,
+                          "scope": "Blender rest-bone mapping only; not exported VRM/glTF validation"}
+    pose = {"pose_position": armature.data.pose_position, "nonidentity_basis_bones": [],
+            "active_action": bool(armature.animation_data and armature.animation_data.action),
+            "constraints_per_bone": {}}
+    for bone in sorted(armature.pose.bones, key=lambda item: item.name):
+        basis = _matrix_rows(bone.matrix_basis)
+        evaluated = _matrix_rows(bone.matrix)
+        if not _is_finite([value for matrix in (basis, evaluated) for row in matrix for value in row]):
+            finding("nonfinite_pose_bone", bone=bone.name)
+        if any(abs(value - (1.0 if row == col else 0.0)) > 1e-7
+               for row, values in enumerate(basis) for col, value in enumerate(values)):
+            pose["nonidentity_basis_bones"].append(bone.name)
+        if bone.constraints:
+            pose["constraints_per_bone"][bone.name] = len(bone.constraints)
+    mesh_reports = {}
+    for obj in objects:
+        modifiers = [modifier for modifier in obj.modifiers if modifier.type == "ARMATURE"]
+        references = [{"modifier": modifier.name, "rig": modifier.object.name if modifier.object else None,
+                       "show_viewport": bool(modifier.show_viewport), "show_render": bool(modifier.show_render),
+                       "use_vertex_groups": bool(modifier.use_vertex_groups),
+                       "use_bone_envelopes": bool(modifier.use_bone_envelopes)} for modifier in modifiers]
+        if len(modifiers) != 1 or modifiers[0].object != armature:
+            finding("armature_modifier_reference_mismatch", object=obj.name,
+                    references=references, expected_rig=armature.name)
+        if any(modifier.object == armature and not modifier.use_vertex_groups for modifier in modifiers):
+            finding("vertex_group_deformation_disabled", object=obj.name,
+                    note="Envelope-based deformation needs its own declared review")
+        if obj.parent and obj.parent.type == "ARMATURE" and obj.parent != armature:
+            finding("armature_parent_reference_mismatch", object=obj.name, parent=obj.parent.name)
+        groups = {group.name for group in obj.vertex_groups}
+        weights = _audit_weights(obj, deform_names, weight_tolerance, max_influences)
+        for key, count in weights["counts"].items():
+            if count:
+                finding("deform_weights_" + key, object=obj.name, count=count)
+        mesh_reports[obj.name] = {"armature_modifiers": references, "weights": weights,
+                                 "groups_matching_deform_bones": sorted(groups & deform_names),
+                                 "deform_bones_without_group": sorted(deform_names - groups),
+                                 "groups_matching_nondeform_bones": sorted((groups & bones.keys()) - deform_names),
+                                 "groups_without_bone": sorted(groups - bones.keys()),
+                                 "notes": ["Groups without a bone may be intentional masks; unused bones need not have groups on every mesh."]}
+    return {"schema": REPORT_SCHEMA, "command": "rig-audit", "status": "findings" if findings else "inspected",
+            "rig": armature.name, "mechanical": {"finding_count": len(findings), "findings": findings},
+            "rest_bones": rest_bones, "humanoid_mapping": mapping_report, "object_transforms": transforms,
+            "current_pose": pose, "meshes": mesh_reports,
+            "tolerances": {"bone_length_local_units": length_epsilon, "weight_sum": weight_tolerance,
+                           "requested_influence_limit": max_influences},
+            "review": {"appearance": {"status": "not_verified", "required": "Reference-matched front/side/oblique images, proportions, silhouette and joint placement"},
+                       "motion": {"status": "not_verified", "required": "Neutral/intermediate/maximum/return and combined motions; inspect collapse, stretch and penetration"},
+                       "target_application": {"status": "not_verified", "required": "Export/reimport and playback in each intended application"}},
+            "notes": ["No bone count, naming convention, symmetry or left/right location is accepted as visual proof.",
+                      "Absent optional humanoid bones are not missing-required findings; extra helper bones are allowed.",
+                      "A nonidentity current pose is an observation, not proof of a bad rest pose. Nothing is reset or applied.",
+                      "Finding-free inspected fields are not completion, appearance, motion or full VRM conformance approval."],
+            "unverified": ["anatomical/visual rest pose, bone roll and model-side left/right assignment",
+                           "constraint/driver/animation correctness, evaluated deformation and mesh contacts",
+                           "mapped humanoid transform scale after export, VRM metadata and target limits",
+                           "mesh deformation when no explicit meshes were supplied" if not objects else "mesh objects outside the explicit scope"]}
 
 
 def snapshot_meshes(objects, armature=None, *, source_path=None):
@@ -460,6 +664,15 @@ def _write_report(path, report):
         output.write("\n")
 
 
+def _unique_json_pairs(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("Duplicate JSON key: " + key)
+        result[key] = value
+    return result
+
+
 def _save_candidate(path):
     """Blender writes an owned temporary copy; final publication is exclusive."""
     bpy = _bpy()
@@ -491,6 +704,15 @@ def _parser():
             sub.add_argument("--output-blend", required=True, type=Path)
         if command == "audit":
             sub.add_argument("--max-influences", type=int, default=4)
+    sub = commands.add_parser("rig-audit")
+    sub.add_argument("--input", required=True, type=Path)
+    sub.add_argument("--rig", required=True)
+    sub.add_argument("--objects", nargs="+", default=[])
+    sub.add_argument("--human-bones", type=Path)
+    sub.add_argument("--length-epsilon", type=float, default=1e-8)
+    sub.add_argument("--weight-tolerance", type=float, default=1e-4)
+    sub.add_argument("--max-influences", type=int, default=4)
+    sub.add_argument("--report", required=True, type=Path)
     sub = commands.add_parser("compare")
     sub.add_argument("--left", required=True, type=Path)
     sub.add_argument("--right", required=True, type=Path)
@@ -519,6 +741,13 @@ def main(argv=None):
                 raise ValueError("Input must be an existing .blend file")
             if source == report_path:
                 raise ValueError("Report must differ from input")
+            human_bones = None
+            mapping_source = None
+            if args.command == "rig-audit" and args.human_bones is not None:
+                mapping_path = args.human_bones.expanduser().resolve()
+                human_bones = json.loads(mapping_path.read_text(encoding="utf-8-sig"), object_pairs_hook=_unique_json_pairs)
+                _validate_humanoid_map(human_bones)
+                mapping_source = {"name": mapping_path.name, "sha256": _file_hash(mapping_path)}
             output = None
             if args.command == "normalize-copy":
                 output = _new_output(args.output_blend)
@@ -541,6 +770,12 @@ def main(argv=None):
             if args.command == "audit":
                 report = audit_meshes(objects, armature, max_influences=args.max_influences)
                 code = 0
+            elif args.command == "rig-audit":
+                report = audit_rig(armature, objects, human_bones, length_epsilon=args.length_epsilon,
+                                   weight_tolerance=args.weight_tolerance, max_influences=args.max_influences)
+                code = 2 if report["mechanical"]["finding_count"] else 0
+                if mapping_source is not None:
+                    report["humanoid_mapping"]["source"] = mapping_source
             elif args.command == "snapshot":
                 report = snapshot_meshes(objects, armature, source_path=source)
                 code = 0
