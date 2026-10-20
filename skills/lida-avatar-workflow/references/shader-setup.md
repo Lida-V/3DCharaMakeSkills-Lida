@@ -1,5 +1,7 @@
 # LidaAngelToonの取得と使い分け
 
+[日本語](shader-setup.md) · [English](en/shader-setup.md)
+
 [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon)はシェーダーの別リポジトリです。モデル制作の方法を使うだけなら取得は不要。使う見た目とソフトに合わせて選びます。
 
 公開リポジトリの[Release v0.2.1](https://github.com/Lida-V/LidaAngelToon/releases/tag/v0.2.1)から、使用する環境のZIPを選びます。リポジトリの配布版は0.2.1、各実装の版は0.1.0です。ソースZIP全体は開発者向けで、Blenderのアドオン導入には使いません。

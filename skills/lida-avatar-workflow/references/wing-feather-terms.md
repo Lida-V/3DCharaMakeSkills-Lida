@@ -1,5 +1,7 @@
 # 翼全体の羽の配置と用語
 
+[日本語](wing-feather-terms.md) · [English](en/wing-feather-terms.md)
+
 [翼を作る工程](wing-workflow.md) · [図解索引](diagram-index.md)
 
 「長い羽と短い羽」だけで指示すると、生える区域や覆う列を取り違えます。**身体から翼端へ並ぶ風切と、その根元を覆う雨覆（あまおおい）**を分け、下図の番号で原画と対応させてください。
