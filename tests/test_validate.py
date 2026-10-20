@@ -52,8 +52,17 @@ class PublicationChecks(unittest.TestCase):
         self.temp.cleanup()
 
     def manifest(self, assets=None, version="0.1.0-dev"):
+        pairs = []
+        for source, target in [("README.md", "README.en.md"),
+                               (SKILL_DIR + "/SKILL.md", SKILL_DIR + "/SKILL.en.md")]:
+            if target not in self.files:
+                (self.root / target).write_text("# English fixture\nUse matching images.\n", encoding="utf-8")
+                self.files.append(target)
+            pairs.append(dict(source=source, translation=target,
+                              source_sha256=hashlib.sha256((self.root / source).read_bytes()).hexdigest()))
         (self.root / "publication-manifest.json").write_text(
-            json.dumps(dict(version=version, files=self.files, asset_sha256=assets or {})),
+            json.dumps(dict(version=version, files=self.files, asset_sha256=assets or {},
+                            language_support=dict(primary="ja", available=["ja", "en"], pairs=pairs))),
             encoding="utf-8")
 
     def helper(self, *args, script=None, cwd=None):
@@ -74,6 +83,75 @@ class PublicationChecks(unittest.TestCase):
         self.assertTrue(first["audit"]["passed"])
         self.assertEqual(first["sha256"], build(self.root)["sha256"])
         self.assertTrue(audit_archive(self.root / "dist" / first["archive"], self.root)["passed"])
+
+    def test_english_attribution_is_usable_and_does_not_replace_existing_blocks(self):
+        project = self.project()
+        args = ['--target', 'skill', '--component', 'skills', '--project-dir', str(project)]
+        created = self.helper(*args, '--language', 'en', '--changes', 'Adapted the rig review workflow.')
+        self.assertEqual(created.returncode, 0, created.stderr)
+        notice = project / 'THIRD_PARTY_NOTICES.md'
+        original = notice.read_bytes()
+        self.assertIn(b'- Author: Lida', original)
+        self.assertIn(b'- Changes: Adapted the rig review workflow.', original)
+        checked = self.helper(*args, '--language', 'ja', '--check')
+        self.assertEqual(checked.returncode, 0, checked.stderr)
+        repeated = self.helper(*args, '--language', 'ja')
+        self.assertEqual(repeated.returncode, 0, repeated.stderr)
+        self.assertEqual(notice.read_bytes(), original)
+
+    def test_english_model_target_does_not_create_notice(self):
+        project = self.project()
+        result = self.helper('--target', 'model', '--language', 'en', '--project-dir', str(project))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertFalse(json.loads(result.stdout)['required'])
+        self.assertFalse((project / 'THIRD_PARTY_NOTICES.md').exists())
+
+    def english_pack(self):
+        path = self.root / 'publication-manifest.json'
+        return path, json.loads(path.read_text(encoding='utf-8'))
+
+    def test_translation_declaration_cannot_be_removed(self):
+        path, value = self.english_pack()
+        for mode in ('missing', 'null'):
+            candidate = dict(value)
+            if mode == 'missing':
+                candidate.pop('language_support')
+            else:
+                candidate['language_support'] = None
+            path.write_text(json.dumps(candidate), encoding='utf-8')
+            self.assertFalse(validate(self.root)['passed'])
+
+    def test_translation_coverage_and_reviewed_source_version(self):
+        _, _ = self.english_pack()
+        self.assertTrue(validate(self.root)['passed'], validate(self.root))
+        source = self.root / 'README.md'
+        source.write_text(source.read_text(encoding='utf-8') + 'Changed workflow.\n', encoding='utf-8')
+        report = validate(self.root)
+        self.assertFalse(report['passed'])
+        self.assertTrue(any('source version is stale' in item for item in report['errors']))
+
+    def test_registered_translation_must_exist_and_be_nonempty(self):
+        self.english_pack()
+        target = self.root / 'README.en.md'
+        for whitespace in ('  \n', '\ufeff', '\ufeff \u3000\n'):
+            target.write_text(whitespace, encoding='utf-8')
+            self.assertFalse(validate(self.root)['passed'])
+        target.unlink()
+        self.assertFalse(validate(self.root)['passed'])
+
+    def test_new_reference_requires_english_pair(self):
+        self.english_pack()
+        reference = SKILL_DIR + '/references/new-stage.md'
+        path = self.root / reference
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('# New stage\nUse matching evidence.\n', encoding='utf-8')
+        manifest_path = self.root / 'publication-manifest.json'
+        value = json.loads(manifest_path.read_text(encoding='utf-8'))
+        value['files'].append(reference)
+        manifest_path.write_text(json.dumps(value), encoding='utf-8')
+        report = validate(self.root)
+        self.assertFalse(report['passed'])
+        self.assertTrue(any('English document is not registered' in item for item in report['errors']))
 
     def test_unlisted_model_is_rejected(self):
         (self.root / ("raw"+".blend")).write_bytes(b"private model")
