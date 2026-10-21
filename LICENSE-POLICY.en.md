@@ -1,6 +1,6 @@
 # Distribution terms and scope
 
-[Japanese / 日本語](LICENSE-POLICY.md) · Source baseline: 2026-10-20.
+[Japanese / 日本語](LICENSE-POLICY.md) · Source baseline: 2026-10-21.
 
 The documents, original diagrams, instructions, and helper code without separately stated terms use [LICENSE](LICENSE), the Lida Attribution License 1.0. It permits commercial/noncommercial use, modification, and redistribution subject to attribution retention. This is a custom license; do not label it MIT or OSI-approved. [English license assistance](LICENSE.en.md) and [English notice assistance](NOTICE.en.md) are companion translations, not changes to permission.
 
@@ -15,6 +15,10 @@ The documents, original diagrams, instructions, and helper code without separate
 - Redistribution of the material itself retains LICENSE and NOTICE. This does not require relicensing the entire destination project.
 
 AI production/publication procedures also record sources in public apps/new Skills that only refer to methods. This does not claim exclusive rights over general techniques, facts, or ideas. Distinguish legal reproduction/modification conditions from the AI's attribution-retention practice. Use [usage categories/examples](skills/lida-avatar-workflow/references/en/usage-and-attribution.md).
+
+## Separate production reference model
+
+China Wafuku r35 is provided as a separate official Release ZIP under the user's explicit instruction. It may be viewed, analyzed, and adjusted locally for production reference. **Redistribution of the model and sale of modified versions are prohibited.** Its [model-specific terms](model-reference/china-wafuku/MODEL-TERMS.en.md) are separate from the Materials licensed under this pack's LICENSE. The Skills and GPL code terms are unchanged.
 
 ## Excluded rights and files
 

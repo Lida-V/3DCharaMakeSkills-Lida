@@ -15,13 +15,15 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 
 ## 利用と出典を引き継ぐ
 
-商用・非商用を問わず利用できる。販売・受託制作・商用アプリやSkillsへの組込みも制限しない。生成サービスや第三者素材の条件は別途確認する。
+このSkillsの資料は商用・非商用を問わず利用できる。手順を使ったモデルの販売・受託制作・商用アプリやSkillsへの組込みも制限しない。生成サービスや第三者素材の条件は別途確認する。別添の参考モデルにはモデル独自の条件がある。
 
 モデル・画像・動画を制作するだけなら、その成果物のクレジットは不要。アプリや新Skillsを公開する制作では、この資料を参考・組込みした出典として名称・Lida・元URL・利用／改変内容をREADME、AboutまたはNOTICEへ実際に記載し、保存先を報告する。一般的な手法の独占や、利用先全体へのライセンス変更を主張しない。
 
 [利用区分・表記例・補助ツール](references/usage-and-attribution.md)と同梱[LICENSE](LICENSE)・[NOTICE](NOTICE.md)を使う。読むだけで別プロジェクトへ自動書込みせず、公開物を作る依頼の範囲で出典を保持する。参考ダンスFBXや変換参考モーションは配布物へ含めない。
 
 シェーダーが必要な時だけ[別配布のLidaAngelToon](references/shader-setup.md)を確認する。Skillsの利用に必須化せず、未実装のUnity／UE対応を約束しない。
+
+[完成モデルの参照手順](references/model-reference.md)から、チャイナ和服の新キャラr35の別添ZIPを任意取得できる。モデル本体の再配布、改変による販売は禁止で、Skills資料やGPLコードの条件とは別。読むだけで取得・展開・読み込みを自動実行せず、参照を依頼された範囲で構造を観察する。
 
 ## 必要な説明だけ読む
 
@@ -44,6 +46,7 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 | 今の作業 | 読む資料 |
 | --- | --- |
 | 制作初回・補正漏れを防ぐ計画・工程順 | [制作計画と5項目の診断](references/production-plan.md)、[品質の提案とゴール設定](references/quality-goals.md) |
+| 完成例の顔・手指・関節・袖・材質・揺れ・表情を観察 | [別添モデルr35の参照方法と条件](references/model-reference.md) |
 | 新規制作で発生した手指・口内・FBX往復・袖の問題 | [別の新規制作からのフィードバック](references/generation-feedback.md) |
 | 原画・素体・服・部品の準備 | [入力素材](references/input-materials.md)、[複数角度から三面図](references/multiangle-threeview.md) |
 | FBXから初期骨格を導入、150MBの容量対策 | [TripoオートリグとVRM 1.0骨格](references/tripo-autorig.md) |

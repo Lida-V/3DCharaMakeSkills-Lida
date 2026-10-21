@@ -1,8 +1,10 @@
 # Process index for an avatar made from images
 
-[Japanese source](../process-index.md) · Source baseline: 2026-10-20.
+[Japanese source](../process-index.md) · Source baseline: 2026-10-21.
 
 Start with required materials, execution order, common difficulties, and adjustment methods, then open the chapter for the part you are working on. This package documents methods; it does not include the source model or production environment.
+
+[Use the separately distributed finished r35 model as a reference](model-reference.md): optionally obtain its VRM to observe face, hands/fingers, joints, sleeves, materials, secondary motion, and expressions, informing decisions in stages 3–7. Read the model-specific terms and distinguish VRM triangles from the original editing topology. Downloading/loading stays within the production request.
 
 [Practical feedback from another new character](generation-feedback.md): diagnose hands, the mouth interior, FBX display, donor rigs, and long sleeves. Include these lessons in the initial plan when relevant.
 

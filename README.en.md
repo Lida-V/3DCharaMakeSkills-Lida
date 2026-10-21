@@ -2,7 +2,7 @@
 
 [日本語](README.md) · English
 
-**Version 1.7.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 24 diagram pairs and images rendered from Lida's actual model.
+**Version 1.8.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 24 diagram pairs and images rendered from Lida's actual model.
 
 ## See a production example
 
@@ -17,6 +17,12 @@ These are Blender renders of Lida's 3D model. The generated starting model was r
 The previews use Blender 5.2.1 LTS / EEVEE and the production model's toon materials. They demonstrate a refined production result, not the output of one generation or a guarantee of identical results. See [preview conditions](media/README.en.md).
 
 The original diagrams retain their Japanese labels. English captions, numbered descriptions, and legends accompany them in the English guides. Diagrams and previews retain visible Lida/source attribution in the margins.
+
+## Open a completed model as a production reference
+
+The separate example **China Wafuku r35** is available as an **[optional reference-only ZIP attachment](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/tag/model-reference-r35)**. The approximately 33 MB ZIP contains a self-contained VRM 1.0 model, Japanese/English guides and terms, and checksums. Inspect the actual relationships among face, hands, joints, sleeves, materials, expressions, and secondary motion. See [what to inspect and how to ask an AI](skills/lida-avatar-workflow/references/en/model-reference.md).
+
+**Redistribution of this model and sale of modified versions are prohibited.** Its [model-specific terms](model-reference/china-wafuku/MODEL-TERMS.en.md) are separate from the commercial-use and redistribution permissions for the Skills pack. They do not prohibit selling a different, independently created model after studying the methods. Downloading is optional; the regular Skills ZIP does not bundle the model. Exported VRM triangles are not the original editing topology, and Unity/UE appearance and motion are not guaranteed.
 
 ## Production assumptions
 
@@ -64,6 +70,8 @@ These tools do not bundle the complete production add-on, its panels, automatic 
 
 ## Usage and attribution
 
+The optional reference model has its own model-specific terms described above; it is not covered by the Skills pack's redistribution permission.
+
 Commercial and noncommercial use are permitted, including commissioned models, model sales, and commercial apps or derivative skills. Requirements from generation services and third-party assets remain separate.
 
 | Use | Attribution |
@@ -84,7 +92,7 @@ The documented test environments are Blender 5.2.1 LTS / EEVEE, Unity 6000.6.0f1
 
 ## Distribution and maintenance
 
-The pack contains documentation, original diagrams, preview images, the skill, and helper code. **It does not include models, source assets, credentials, reference dance FBX files, renamed copies, or converted reference motions.** Use motion for which you have the necessary rights.
+The regular Skills pack contains documentation, original diagrams, preview images, the skill, and helper code. **It does not include models, source assets, credentials, reference dance FBX files, renamed copies, or converted reference motions.** Only the optional China Wafuku reference model is provided as a separate official Release ZIP under its own terms. Use motion for which you have the necessary rights.
 
 Reading users need not run the validation tools. Maintainers can follow [updating](UPDATING.en.md), [contributing](CONTRIBUTING.en.md), and the [change history (Japanese)](CHANGELOG.md):
 
