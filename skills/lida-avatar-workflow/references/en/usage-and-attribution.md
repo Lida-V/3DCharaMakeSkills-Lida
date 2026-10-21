@@ -8,6 +8,8 @@ This package permits commercial and noncommercial use, including model sales, co
 
 ## Creating a model
 
+The bundled completed reference model r35 uses its [model-specific terms](../../assets/model-reference/china-wafuku/MODEL-TERMS.en.md). Redistribution of the model and sale of modified versions are prohibited; users may not distribute the complete ZIP containing it. When publishing derivative Skills or apps, exclude this model and extracted assets, and retain the applicable licenses and attribution for documentation and code. Selling a different, independently created model after studying the reference is not prohibited.
+
 If you only read this skill to create a 3D model, image, or video, that output does not need credits to Lida or these documents. Check any separate conditions for materials, services, and models you use.
 
 ## Publishing an app or new Skills package

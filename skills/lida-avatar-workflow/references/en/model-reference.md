@@ -2,15 +2,19 @@
 
 [Japanese source](../model-reference.md) · Source baseline: 2026-10-21.
 
-The finished **r35** example of the new China/Wafuku character is distributed separately as a reference for understanding the relationships among face shape, bones, weights, clothing, materials, and expressions. Adapt the reasons and checks you observe to your own art, proportions, and use. This guide does not recommend copying parts into another model or using the character design without authorization.
+The finished **r35** example of the new China/Wafuku character is included as a production-reference component of the Skills pack for understanding the relationships among face shape, bones, weights, clothing, materials, and expressions. Adapt the reasons and checks you observe to your own art, proportions, and use. This guide does not recommend copying parts into another model or using the character design without authorization.
 
-## Optional download and model terms
+## Download and install together
 
-- [Download the reference ZIP from the official GitHub repository](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/model-reference-r35/ChinaWafuku-Reference-r35.zip): `ChinaWafuku-Reference-r35.zip`. The VRM inside is approximately 41 MB.
-- Check the version and contents on the [release page](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/tag/model-reference-r35), then read the model terms, provenance, and file inventory inside the ZIP.
-- **Redistribution of the model itself and sale of modified versions are prohibited.** These are separate conditions for this model. Keep them separate from the commercial-use terms for the Skills documents/diagrams and the terms for the GPL production helper code.
+1. Download and extract the [official finished Skills 1.8.1 ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip). It includes the reference VRM, approximately 41 MB.
+2. Copy the entire `skills/lida-avatar-workflow` folder to your skill location, including `assets`, `references`, `scripts`, and terms. The reference model is at `assets/model-reference/china-wafuku/ChinaWafuku-Reference-r35.vrm`.
+3. Read the [model-specific terms](../../assets/model-reference/china-wafuku/MODEL-TERMS.en.md), then inspect only the parts needed for production in a separate session of a VRM-compatible tool. Reading alone must not start model processing or environment changes.
 
-The model is not bundled in the main Skills ZIP; downloading it is optional. Reading the skill alone must not automatically download, extract, or load the model. Within a request to inspect the model, identify the downloaded file, its terms, and available VRM-compatible software, preserve the original, and inspect it in a separate session.
+GitHub **Code → Download ZIP / Source code ZIP** is the maintenance source and does not contain the model itself. Use the finished distribution ZIP above for normal installation. The [standalone official r35 download](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/tag/model-reference-r35) remains available if only the model needs to be retrieved again.
+
+## Separate model terms from document/code terms
+
+**Redistribution of the model and sale of modified versions are prohibited.** Therefore users must not redistribute the official complete ZIP containing the model. Documents, diagrams, and code separated from the model and its extracted assets retain their existing respective LICENSE and GPL conditions. These terms do not prohibit studying the model for commercial production or selling a different, independently created model.
 
 ## Return from the observed part to its workflow
 
@@ -34,7 +38,7 @@ Obtaining this reference model does not guarantee LidaAngelToon compatibility, t
 
 For example, give the AI this request:
 
-> Use the downloaded r35 reference VRM to inspect only hand/finger and sleeve structure. Compare the neutral shape with intermediate arm/finger bends. Briefly report the relationships among bones, weights, and adjacent parts, why they may be useful as a reference, and what the VRM alone cannot establish. The new model will be designed for my own art and use, so do not adopt the example's numbers as defaults or transfer its parts.
+> Use the r35 reference VRM included in the skill to inspect only hand/finger and sleeve structure. Compare the neutral shape with intermediate arm/finger bends. Briefly report the relationships among bones, weights, and adjacent parts, why they may be useful as a reference, and what the VRM alone cannot establish. The new model will be designed for my own art and use, so do not adopt the example's numbers as defaults or transfer its parts.
 
 Record the input version, software, inspected views/motions, observed relationships, and unchecked items. Separate completion of the example from acceptance of the model currently being made or of another destination.
 
