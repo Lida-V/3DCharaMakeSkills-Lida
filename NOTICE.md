@@ -17,3 +17,5 @@
 本資料の転載・改変・同梱時はLICENSEとこの出典を保持してください。
 方法を参考にしただけのアプリ・Skillsについても、AIの制作・公開手順では出典を残します。
 一般的な手法への独占権や、利用先の公認を意味しません。
+
+別添のチャイナ和服参照モデルは本LICENSEの再配布許諾に含みません。モデル本体の再配布・改変による販売は禁止です。モデル専用条件：https://github.com/Lida-V/3DCharaMakeSkills-Lida/blob/main/model-reference/china-wafuku/MODEL-TERMS.md
