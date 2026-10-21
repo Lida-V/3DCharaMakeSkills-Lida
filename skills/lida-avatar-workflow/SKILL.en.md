@@ -6,11 +6,11 @@ Use the language requested by the user. For English, use this guide and only the
 
 Select reusable decisions and concrete instructions from the lessons of Lida's production. For beginners, briefly explain materials, execution order, adjustment methods, and common difficulties. Separate Lida-specific appearance choices from technical problems.
 
-This skill packages knowledge, request methods, and production helper scripts. New production from images assumes a service such as Tripo generates base models or part-specific references, followed by correction and finishing in software such as Blender. Existing-model corrections do not require regeneration. Modeling software, 3D generation services, image-generation APIs, connectors, credentials, and the source model are not bundled. Before actual work, check available methods in the current environment and prioritize the user's instructions.
+This skill packages knowledge, request methods, production helper scripts, and a production reference model. New production from images assumes a service such as Tripo generates base models or part-specific references, followed by correction and finishing in software such as Blender. Existing-model corrections do not require regeneration. The official finished distribution ZIP includes reference model r35. Modeling software, 3D generation services, image-generation APIs, connectors, credentials, and the original editable Blend are not bundled. Before actual work, check available methods in the current environment and prioritize the user's instructions.
 
 ## Carry forward usage terms and attribution
 
-Commercial and noncommercial use of this Skills material is permitted, including sales of models made using the methods, commissioned work, and incorporation into commercial apps or Skills. Check generation-service and third-party-material conditions separately. The separately distributed reference model has model-specific terms.
+Commercial and noncommercial use of this Skills material is permitted, including sales of models made using the methods, commissioned work, and incorporation into commercial apps or Skills. Check generation-service and third-party-material conditions separately. The included reference model has model-specific terms.
 
 Creating models, images, or video alone does not require credits on those outputs. When creating an app or new Skills package for publication, actually record the source name, Lida, original URL, and used/modified portions in README, About, or NOTICE, and report the location. This does not claim ownership of general methods or require changing the entire destination project's license.
 
@@ -20,7 +20,7 @@ The Blender helper `lida_model_tools.py` separately uses **GPL-3.0-or-later**. R
 
 Only when a shader is needed, check the [separately distributed LidaAngelToon](references/en/shader-setup.md). It is optional for this Skills package. Do not promise unimplemented Unity/UE support.
 
-The [finished-model reference guide](references/en/model-reference.md) offers an optional separate ZIP of the new China/Wafuku character r35. Redistribution of the model itself and sale of modified versions are prohibited under separate model terms, distinct from the Skills material and GPL code. Reading alone must not automatically download, extract, or load it; inspect structure within a request to use the reference.
+Follow the [finished-model reference guide](references/en/model-reference.md) to use the included China/Wafuku character r35 as a component for studying shape, bones, weights, materials, expressions, and secondary motion. Its location is `assets/model-reference/china-wafuku/ChinaWafuku-Reference-r35.vrm`. Inspect the relevant structure within a production request; reading alone must not start model processing or environment changes. Redistribution of the model and sale of modified versions are prohibited, so do not redistribute the complete ZIP containing it. Documents and code separated from the model retain their existing respective terms. Read the [model-specific terms](assets/model-reference/china-wafuku/MODEL-TERMS.en.md).
 
 ## Read only what is needed
 
@@ -43,7 +43,7 @@ For directions, change regions, or connections, select only needed figures from 
 | Current work | Read |
 | --- | --- |
 | Initial plan, preventing omitted corrections, stage order | [Production plan/five-area diagnosis](references/en/production-plan.md), [quality proposals/goals](references/en/quality-goals.md) |
-| Inspect a finished example's face, hands/fingers, joints, sleeves, materials, secondary motion, and expressions | [Separate r35 model: reference procedure and terms](references/en/model-reference.md) |
+| Inspect a finished example's face, hands/fingers, joints, sleeves, materials, secondary motion, and expressions | [Included r35 model: reference procedure and terms](references/en/model-reference.md) |
 | Finger, mouth-interior, FBX-round-trip, or sleeve issues in new production | [Feedback from another new production](references/en/generation-feedback.md) |
 | Art, base body, clothing, part references | [Input materials](references/en/input-materials.md), [multiple angles to three-view sheets](references/en/multiangle-threeview.md) |
 | Initial rig from FBX, 150 MB size preparation | [Tripo auto-rigging/VRM 1.0 skeleton](references/en/tripo-autorig.md) |
