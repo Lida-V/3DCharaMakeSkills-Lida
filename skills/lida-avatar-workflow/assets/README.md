@@ -1,4 +1,4 @@
-# 同梱図版
+# 同梱図版と参照モデル
 
 [日本語](README.md) · [English](README.en.md)
 
@@ -7,6 +7,14 @@
 - `material-repair-selection`：割当/画像設定/UV・材質値/共有先・形/法線、共有材質と元画像保持を分ける自作模式図。
 - `mesh-repair-selection`：意図した開口を残し、向き・局所パッチ・境界接続・局所再構築を選ぶ自作模式図。
 - `mesh-boundary-repair`：固定境界、新規面、対応点、確認済み/推定を分ける施工の自作模式図。実モデルの修復成功を示すものではない。
+
+## 制作参照モデル
+
+公式Skills完成配布ZIPには、`model-reference/china-wafuku/ChinaWafuku-Reference-r35.vrm`をSkillsの構成要素として同梱します。スキルフォルダと一緒にコピーし、[観察ガイド](../references/model-reference.md)に従って必要な工程で構造を参照してください。通常の導入にモデルの別ダウンロードは不要です。
+
+モデル本体の再配布・改変による販売は禁止です。[モデル専用条件](model-reference/china-wafuku/MODEL-TERMS.md)を適用し、下記の自作図版やGPLコードの条件とは分けます。モデルを含む一式ZIPを利用者が再配布することはできません。
+
+GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒に導入する場合は[公式完成配布ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip)を使ってください。
 
 ## 出所と役割
 

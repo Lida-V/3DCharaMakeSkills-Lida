@@ -1,8 +1,16 @@
-# Included figures
+# Included figures and reference model
 
 [Japanese source](README.md)
 
 The [English diagram index](../references/en/diagram-index.md) links all 24 PNG/SVG pairs to their chapters. PNG is for display; SVG is for enlargement. Shared figures retain Japanese labels; English chapter captions and legends explain their numbers, colors, directions, fixed areas, and line meanings.
+
+## Production reference model
+
+The official finished Skills ZIP includes `model-reference/china-wafuku/ChinaWafuku-Reference-r35.vrm` as a Skills component. Copy it with the skill folder, then follow the [observation guide](../references/en/model-reference.md) to inspect structure at relevant stages. Normal installation does not require a separate model download.
+
+Redistribution of the model and sale of modified versions are prohibited. Its [model-specific terms](model-reference/china-wafuku/MODEL-TERMS.en.md) are separate from the terms for the original figures below and GPL code. Users must not redistribute the complete ZIP containing the model.
+
+GitHub Code / Source code ZIP contains maintenance source. Use the [official finished distribution ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip) to install the model together with the skill.
 
 ## Origin and role
 
