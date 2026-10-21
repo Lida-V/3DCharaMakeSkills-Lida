@@ -16,13 +16,13 @@ The documents, original diagrams, instructions, and helper code without separate
 
 AI production/publication procedures also record sources in public apps/new Skills that only refer to methods. This does not claim exclusive rights over general techniques, facts, or ideas. Distinguish legal reproduction/modification conditions from the AI's attribution-retention practice. Use [usage categories/examples](skills/lida-avatar-workflow/references/en/usage-and-attribution.md).
 
-## Separate production reference model
+## Production reference model included in the Skills
 
-China Wafuku r35 is provided as a separate official Release ZIP under the user's explicit instruction. It may be viewed, analyzed, and adjusted locally for production reference. **Redistribution of the model and sale of modified versions are prohibited.** Its [model-specific terms](model-reference/china-wafuku/MODEL-TERMS.en.md) are separate from the Materials licensed under this pack's LICENSE. The Skills and GPL code terms are unchanged.
+Under the user's explicit instruction, China Wafuku r35 is a Skills component included in the official complete ZIP. It may be viewed, analyzed, and adjusted locally for production reference. **Redistribution of the model and sale of modified versions are prohibited.** Its [model-specific terms](model-reference/china-wafuku/MODEL-TERMS.en.md) apply. Users may not redistribute the complete ZIP containing the model. Documentation, diagrams, and code separated from the model retain their existing permissions, including the separate GPL code terms.
 
 ## Excluded rights and files
 
-The package does not grant general permission to use the character design or 3D model, received originals, third-party material rights, or service access. It does not bundle model data, API logs, credentials, external comparison material, reference dance FBX, renamed copies, or converted reference motion. Supply test motions for which you hold usage rights.
+The package does not grant general permission to use the character design or 3D model, received originals, third-party material rights, or service access. It does not bundle models other than the specified r35 reference, source editing files, API logs, credentials, external comparison material, reference dance FBX, renamed copies, or converted reference motion. Supply test motions for which you hold usage rights.
 
 ## Shader
 

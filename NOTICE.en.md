@@ -19,4 +19,4 @@ Example for an app or derivative skill:
 
 Retain LICENSE and source information when copying, modifying, or bundling the Materials. The AI publishing workflow also records the reference for apps/skills that only use the methods as a reference. This does not claim ownership of general methods or imply official endorsement.
 
-The separately distributed China Wafuku reference model is not covered by this LICENSE's redistribution permission. Redistribution of that model and sale of modified versions are prohibited. Model terms: https://github.com/Lida-V/3DCharaMakeSkills-Lida/blob/main/model-reference/china-wafuku/MODEL-TERMS.en.md
+The China Wafuku reference model bundled in the Skills is not covered by this LICENSE's redistribution permission. Redistribution of that model and sale of modified versions are prohibited. Users must not redistribute the complete ZIP containing it; documentation and code separated from the model retain their individual licenses. Model terms: https://github.com/Lida-V/3DCharaMakeSkills-Lida/blob/main/model-reference/china-wafuku/MODEL-TERMS.en.md
