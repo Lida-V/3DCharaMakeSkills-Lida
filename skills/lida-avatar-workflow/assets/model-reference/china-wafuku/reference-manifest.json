@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "model": "China Wafuku",
+  "author": "Lida",
+  "version": "r35-reference-1",
+  "source_version": "r35 / internal revision37",
+  "format": "VRM 1.0",
+  "source_vrm_sha256": "544f8ffe19925396e70b59eae34aef7e17bafaedd7a0334a6980e9e2de5e2b96",
+  "distribution_vrm_sha256": "dba7ff78779b4d59085d8452ae6553454c5faf765aee8a2cb3b854055eb4c4e5",
+  "distribution_vrm_bytes": 41433844,
+  "official_source": "https://github.com/Lida-V/3DCharaMakeSkills-Lida",
+  "terms_url": "https://github.com/Lida-V/3DCharaMakeSkills-Lida/blob/v1.8.1/skills/lida-avatar-workflow/assets/model-reference/china-wafuku/MODEL-TERMS.md",
+  "redistribution": false,
+  "sale_of_modified_versions": false,
+  "purpose": "Production-reference component physically included in the official complete Skills ZIP",
+  "metadata_only_changes": [
+    "authors",
+    "avatarPermission",
+    "commercialUsage",
+    "copyrightInformation",
+    "modification",
+    "name",
+    "otherLicenseUrl",
+    "version"
+  ],
+  "bin_unchanged": true,
+  "json_outside_vrm_meta_unchanged": true,
+  "counts": {
+    "meshes": 28,
+    "nodes": 125,
+    "skins": 1,
+    "images": 38,
+    "animations": 0,
+    "springs": 18,
+    "colliders": 13
+  },
+  "limitations": [
+    "Exported triangle topology, not original edit topology",
+    "No native LidaAngelToon node graph or target-engine acceptance guarantee",
+    "No reference dance or motion files"
+  ],
+  "embedded_terms_url": "https://github.com/Lida-V/3DCharaMakeSkills-Lida/blob/model-reference-r35/model-reference/china-wafuku/MODEL-TERMS.md"
+}
