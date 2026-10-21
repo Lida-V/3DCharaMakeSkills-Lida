@@ -4,6 +4,7 @@ import ast
 import hashlib
 import json
 import re
+import struct
 import sys
 import xml.etree.ElementTree as ET
 from urllib.parse import unquote, urlsplit
@@ -19,6 +20,13 @@ IGNORED_PARTS = {".git", "dist", "__pycache__"}
 TEXT_EXTENSIONS = {".md", ".py", ".yml", ".yaml", ".json", ".svg", ".txt", ""}
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".svg"}
 ALLOWED_EXTENSIONS = TEXT_EXTENSIONS | IMAGE_EXTENSIONS
+REFERENCE_PATH = SKILL_DIR + "/assets/model-reference/china-wafuku/ChinaWafuku-Reference-r35.vrm"
+REFERENCE_TERMS = [SKILL_DIR + "/assets/model-reference/china-wafuku/MODEL-TERMS.md",
+                   SKILL_DIR + "/assets/model-reference/china-wafuku/MODEL-TERMS.en.md"]
+REFERENCE_ARCHIVE_URL = ("https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/"
+                         "model-reference-r35/ChinaWafuku-Reference-r35.zip")
+REFERENCE_MEMBER = "ChinaWafuku-Reference-r35/ChinaWafuku-Reference-r35.vrm"
+MAX_REFERENCE_BYTES = 50 * 1024 * 1024
 LOCAL_PATH = re.compile(r"(?i)(?:(?<![a-z0-9])[a-z]:[\\/]|" + r"file:" + r"//|/(?:Users|home)/)")
 SECRET = re.compile(r"(?:gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----)")
 # Keep excluded names out of distributed prose.
@@ -40,6 +48,75 @@ def safe_relative(relative):
     return (not path.is_absolute() and path.as_posix() == relative
             and all(part not in {"", ".", ".."} for part in relative.split("/"))
             and not any(part in IGNORED_PARTS for part in path.parts))
+
+
+def reference_declaration(manifest):
+    """One bounded model exception; never a general model-file permission."""
+    value = manifest.get("bundled_reference_model")
+    if value is None:
+        version = manifest.get("version", "")
+        match = re.match(r"^(\d+)\.(\d+)\.(\d+)", version) if isinstance(version, str) else None
+        required = match and tuple(map(int, match.groups())) >= (1, 8, 1)
+        return None, (["Bundled reference model declaration is required"] if required else [])
+    fields = {"path", "sha256", "bytes", "archive_url", "archive_sha256", "archive_bytes", "archive_member", "terms"}
+    errors = []
+    if not isinstance(value, dict) or set(value) != fields:
+        return None, ["Bundled reference model declaration fields are invalid"]
+    if (value["path"] != REFERENCE_PATH or value["terms"] != REFERENCE_TERMS
+            or value["archive_url"] != REFERENCE_ARCHIVE_URL or value["archive_member"] != REFERENCE_MEMBER):
+        errors.append("Bundled reference model paths, terms, or official source are invalid")
+    for key in ("sha256", "archive_sha256"):
+        if not isinstance(value[key], str) or not re.fullmatch(r"[a-f0-9]{64}", value[key]):
+            errors.append("Bundled reference model SHA256 must be pinned")
+    for key in ("bytes", "archive_bytes"):
+        if type(value[key]) is not int or not 0 < value[key] <= MAX_REFERENCE_BYTES:
+            errors.append("Bundled reference model byte limit is invalid")
+    return (None if errors else value), errors
+
+
+def safe_file_path(path, root):
+    """Confine both reads and optional acquisition to a plain repository path."""
+    return (path.resolve().is_relative_to(root)
+            and not any(parent.is_symlink() for parent in [path, *path.parents] if parent.is_relative_to(root)))
+
+
+def check_reference_bytes(declaration, data):
+    """Check exact bytes and reference-only VRM structure without logging metadata."""
+    errors = []
+    if len(data) != declaration["bytes"] or hashlib.sha256(data).hexdigest() != declaration["sha256"]:
+        return ["Bundled reference model size or SHA256 mismatch"]
+    try:
+        if (len(data) < 28 or data[:4] != b"glTF"
+                or struct.unpack_from("<II", data, 4) != (2, len(data))):
+            raise ValueError("header")
+        chunks, offset = [], 12
+        while offset < len(data):
+            length, kind = struct.unpack_from("<II", data, offset)
+            if length % 4 or offset + 8 + length > len(data):
+                raise ValueError("chunk bounds")
+            chunks.append((kind, data[offset + 8:offset + 8 + length]))
+            offset += 8 + length
+        if offset != len(data) or [kind for kind, _ in chunks] != [0x4E4F534A, 0x004E4942]:
+            raise ValueError("chunks")
+        document = json.loads(chunks[0][1])
+        vrm = document["extensions"]["VRMC_vrm"]
+        meta = vrm["meta"]
+        if (document.get("asset", {}).get("version") != "2.0" or vrm["specVersion"] != "1.0"
+                or document.get("animations")
+                or any("uri" in item for item in document.get("buffers", []))
+                or any("uri" in item for item in document.get("images", []))):
+            raise ValueError("external asset or animation")
+        if (meta.get("allowRedistribution") is not False
+                or meta.get("modification") != "allowModification"
+                or meta.get("commercialUsage") != "corporation"
+                or meta.get("avatarPermission") != "onlySeparatelyLicensedPerson"
+                or meta.get("authors") != ["Lida"]):
+            raise ValueError("reference usage metadata")
+        # Deliberately never include the offending values in errors.
+        errors.extend(check_content("Bundled reference model JSON", json.dumps(document, ensure_ascii=False)))
+    except (ValueError, TypeError, KeyError, AttributeError, IndexError, struct.error, UnicodeError):
+        errors.append("Bundled reference model must be self-contained VRM 1.0 with its reference terms and no animation")
+    return errors
 
 
 def is_fbx(data):
@@ -149,7 +226,7 @@ def check_translations(manifest, contents):
     return errors
 
 
-def validate(root=ROOT):
+def validate(root=ROOT, require_reference_model=False):
     root = Path(root).resolve()
     errors = []
     try:
@@ -164,20 +241,43 @@ def validate(root=ROOT):
     if not files or len(files) != len({item.casefold() for item in files}):
         errors.append("Publication file list is empty or duplicated")
     expected = set(files)
+    reference, reference_errors = reference_declaration(manifest)
+    errors.extend(reference_errors)
+    reference_path = reference["path"] if reference else None
+    if reference:
+        if reference_path in expected:
+            errors.append("Bundled reference model must be separate from source-file allowlist")
+        for terms in reference["terms"]:
+            if terms not in expected:
+                errors.append("Bundled reference model requires both portable terms files")
+    reference_present = False
+    if reference:
+        path = root / reference_path
+        if not safe_file_path(path, root):
+            errors.append("Bundled reference model path leaves repository or is a symlink")
+        elif path.is_file():
+            reference_present = True
+            if path.stat().st_size != reference["bytes"]:
+                errors.append("Bundled reference model size or SHA256 mismatch")
+            else:
+                errors.extend(check_reference_bytes(reference, path.read_bytes()))
+        elif path.exists():
+            errors.append("Bundled reference model must be a regular file")
+        elif require_reference_model:
+            errors.append("Bundled reference model is missing; explicitly use build_package.py --fetch-reference-model to acquire it")
     for required in sorted(REQUIRED_FILES - expected):
         errors.append(f"{required}: mandatory distribution file not listed")
     for path in root.rglob("*"):
         relative = path.relative_to(root)
         if any(part in IGNORED_PARTS for part in relative.parts) or not path.is_file():
             continue
-        if relative.as_posix() not in expected:
+        if relative.as_posix() not in expected and relative.as_posix() != reference_path:
             errors.append(f"{relative.as_posix()}: unlisted file")
     links = 0
     contents = {}
     for relative in files:
         path = root / relative
-        if (not path.resolve().is_relative_to(root)
-                or any(parent.is_symlink() for parent in [path, *path.parents] if parent.is_relative_to(root))):
+        if not safe_file_path(path, root):
             errors.append(f"{relative}: path leaves repository or is a symlink")
             continue
         if not path.is_file():
@@ -198,11 +298,12 @@ def validate(root=ROOT):
                 links += 1
                 location, _, anchor = target.partition("#")
                 resolved = (path.parent / unquote(location)).resolve() if location else path
-                if not resolved.is_relative_to(root) or not resolved.is_file():
+                virtual_reference = reference_path and resolved == root / reference_path
+                if not resolved.is_relative_to(root) or (not resolved.is_file() and not virtual_reference):
                     errors.append(f"{relative}: broken/outside local link")
                 elif relative.startswith(SKILL_DIR + "/") and not resolved.is_relative_to(root / SKILL_DIR):
                     errors.append(f"{relative}: local link leaves portable skill folder")
-                elif resolved.relative_to(root).as_posix() not in expected:
+                elif resolved.relative_to(root).as_posix() not in expected and not virtual_reference:
                     errors.append(f"{relative}: linked file is not in package")
                 elif anchor and resolved.suffix == ".md":
                     try:
@@ -233,6 +334,16 @@ def validate(root=ROOT):
                     errors.append(f"{portable}: must match nonempty root {relative}")
             except UnicodeError:
                 errors.append(f"{portable}: license/notice must be UTF-8")
+    if reference:
+        for terms in reference["terms"]:
+            if terms in contents and not contents[terms].decode("utf-8", errors="replace").strip():
+                errors.append("Bundled reference model terms must be nonempty")
+            root_copy = "model-reference/china-wafuku/" + PurePosixPath(terms).name
+            if terms in contents and root_copy in contents:
+                portable = contents[terms].decode("utf-8", errors="replace").replace("\r\n", "\n")
+                original = contents[root_copy].decode("utf-8", errors="replace").replace("\r\n", "\n")
+                if not portable.strip() or portable != original:
+                    errors.append("Bundled reference model portable terms must match root model terms")
     if SKILL in contents:
         text = contents[SKILL].decode("utf-8", errors="replace").replace("\r\n", "\n")
         if not re.match(r"\A---\nname: lida-avatar-workflow\ndescription: .+\n---\n", text):
@@ -244,7 +355,8 @@ def validate(root=ROOT):
         errors.append("VERSION must contain a valid development/release version")
     if manifest.get("version") != version:
         errors.append("Manifest version must match VERSION")
-    return dict(passed=not errors, files=len(files), links=links, errors=errors)
+    return dict(passed=not errors, files=len(files), links=links, errors=errors,
+                reference_model=dict(declared=reference is not None, present=reference_present))
 
 
 if __name__ == "__main__":
