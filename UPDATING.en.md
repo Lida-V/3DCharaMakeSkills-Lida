@@ -11,6 +11,9 @@
 
 Python, Git, and the shader are not required merely to read the procedures and make a model. For initial setup, use the installation check in [README](README.en.md).
 
+
+For normal installation, use the [complete ZIP including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip). Keep the VRM and its model-specific terms in the skill's `assets/model-reference/china-wafuku/` folder when copying the skill. Users must not redistribute the complete package containing the model.
+
 ## Updating as an author or contributor
 
 1. In the production project, record reference versions, actual requests, causes, changing/fixed areas, comparisons, selection, and remaining work.
@@ -31,3 +34,9 @@ Check [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon) version, supporte
 The administrator separately decides repository visibility changes and public releases. Packaging/building a ZIP alone does not authorize publication operations.
 
 © 2026 Lida · Source: [3DCharaMakeSkills-Lida](https://github.com/Lida-V/3DCharaMakeSkills-Lida)
+
+## Building a complete ZIP from source
+
+GitHub Code ZIPs are maintenance sources without the model binary. Explicitly run `python scripts/build_package.py --fetch-reference-model` to retrieve the pinned official model archive, verify its size/SHA and exact member, and include the model. The default build makes no network request and fails if the model is missing. A differing existing model is not overwritten.
+
+The complete model-containing ZIP is intended for the author's official distribution. This command does not grant users permission to redistribute the model.

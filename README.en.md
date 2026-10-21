@@ -2,7 +2,7 @@
 
 [日本語](README.md) · English
 
-**Version 1.8.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 24 diagram pairs and images rendered from Lida's actual model.
+**Version 1.8.1**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 24 diagram pairs and images rendered from Lida's actual model.
 
 ## See a production example
 
@@ -18,11 +18,13 @@ The previews use Blender 5.2.1 LTS / EEVEE and the production model's toon mater
 
 The original diagrams retain their Japanese labels. English captions, numbered descriptions, and legends accompany them in the English guides. Diagrams and previews retain visible Lida/source attribution in the margins.
 
-## Open a completed model as a production reference
+## Completed reference model included in the Skills
 
-The separate example **China Wafuku r35** is available as an **[optional reference-only ZIP attachment](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/tag/model-reference-r35)**. The approximately 33 MB ZIP contains a self-contained VRM 1.0 model, Japanese/English guides and terms, and checksums. Inspect the actual relationships among face, hands, joints, sleeves, materials, expressions, and secondary motion. See [what to inspect and how to ask an AI](skills/lida-avatar-workflow/references/en/model-reference.md).
+**[Download the complete Skills ZIP, including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip)**. The official ready-to-use ZIP contains the China Wafuku r35 VRM 1.0 model. Copy the entire extracted skill folder to install the model together with the skill; no separate model download is needed.
 
-**Redistribution of this model and sale of modified versions are prohibited.** Its [model-specific terms](model-reference/china-wafuku/MODEL-TERMS.en.md) are separate from the commercial-use and redistribution permissions for the Skills pack. They do not prohibit selling a different, independently created model after studying the methods. Downloading is optional; the regular Skills ZIP does not bundle the model. Exported VRM triangles are not the original editing topology, and Unity/UE appearance and motion are not guaranteed.
+The model is a production-reference component of the Skills. Inspect relationships among face, hands, joints, sleeves, materials, expressions, and secondary motion. Use the [observation guide and AI request](skills/lida-avatar-workflow/references/en/model-reference.md) to inspect only the relevant parts.
+
+**Redistribution of the model and sale of modified versions are prohibited. Users must not redistribute the complete ZIP containing the model.** The [model-specific terms](model-reference/china-wafuku/MODEL-TERMS.en.md) apply. Individual documentation, diagram, and code licenses are unchanged; those materials can still be redistributed under their applicable licenses after excluding the model. Selling a different, independently created model after studying the reference is not prohibited. Exported VRM triangles are not original editing topology; Unity/UE appearance and motion are not guaranteed.
 
 ## Production assumptions
 
@@ -30,11 +32,11 @@ The separate example **China Wafuku r35** is available as an **[optional referen
 
 For a new animated humanoid, first check the neutral form and joint topology, then use **an FBX within 150 MB → Tripo auto-rig with the VRM 1.0 skeleton → preservation checks → rig and weight adjustment**. A skeleton convention is one step toward a finished VRM; expressions, materials, look direction, secondary motion, metadata, and target behavior still need their own checks. Reuse a good existing rig where appropriate.
 
-Applications, generation services, API credentials, reference images, and model data are not bundled. Another generation service can be used when its inputs and outputs meet the project requirements. Repairing an existing model does not require regenerating it.
+Applications, generation services, API credentials, input illustrations, and source editing models are not bundled. The completed r35 reference model is included in the official ready-to-use ZIP. Another generation service can be used when its inputs and outputs meet the project requirements. Repairing an existing model does not require regenerating it.
 
 ## Install and start
 
-1. Download and extract the repository ZIP or a supplied distribution ZIP.
+1. Download and extract the **[official complete Skills ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip)**, which includes the reference model and its terms. GitHub Code → Download ZIP and automatic Source code ZIPs are maintenance sources without the model binary. Use the complete Release ZIP for normal installation.
 2. Copy the entire `skills/lida-avatar-workflow` folder to your agent's skill location, including references, assets, scripts, LICENSE, and NOTICE. Do not copy only `SKILL.md`.
 3. Ask the agent to load the skill. English requests route to [SKILL.en.md](skills/lida-avatar-workflow/SKILL.en.md) and the [English reference index](skills/lida-avatar-workflow/references/en/README.md). You do not need Python or the shader merely to read the workflow.
 
@@ -70,7 +72,7 @@ These tools do not bundle the complete production add-on, its panels, automatic 
 
 ## Usage and attribution
 
-The optional reference model has its own model-specific terms described above; it is not covered by the Skills pack's redistribution permission.
+The bundled reference model has the model-specific terms above. A complete ZIP containing it must not be redistributed by users; documentation and code retain their individual permissions when separated from the model.
 
 Commercial and noncommercial use are permitted, including commissioned models, model sales, and commercial apps or derivative skills. Requirements from generation services and third-party assets remain separate.
 
@@ -92,7 +94,7 @@ The documented test environments are Blender 5.2.1 LTS / EEVEE, Unity 6000.6.0f1
 
 ## Distribution and maintenance
 
-The regular Skills pack contains documentation, original diagrams, preview images, the skill, and helper code. **It does not include models, source assets, credentials, reference dance FBX files, renamed copies, or converted reference motions.** Only the optional China Wafuku reference model is provided as a separate official Release ZIP under its own terms. Use motion for which you have the necessary rights.
+The official ready-to-use Skills ZIP contains documentation, diagrams, previews, the skill, helper code, and the r35 production-reference model with its own terms. It excludes source editing files, other models, credentials, reference dance FBX files, renamed copies, and converted reference motions. Use test motion for which you have the necessary rights.
 
 Reading users need not run the validation tools. Maintainers can follow [updating](UPDATING.en.md), [contributing](CONTRIBUTING.en.md), and the [change history (Japanese)](CHANGELOG.md):
 

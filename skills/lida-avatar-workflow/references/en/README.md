@@ -4,7 +4,7 @@
 
 The shared original diagrams retain Japanese labels. Read them together with the English captions and legends in these chapters, which explain the numbered regions, colors, fixed areas, and directions. The diagrams are instructional schematics unless explicitly identified as actual model evidence.
 
-[Use a finished model as a production reference](model-reference.md): optionally obtain the new China/Wafuku character r35 as a separate ZIP from the official GitHub repository to inspect face, hands/fingers, joints, sleeves, materials, secondary motion, and expressions. Redistribution of the model itself and sale of modified versions are prohibited under separate model terms, distinct from the Skills terms.
+[Use the included finished model as a production reference](model-reference.md): the official finished ZIP includes China/Wafuku character r35, which stays with the skill folder when installed. Inspect face, hands/fingers, joints, sleeves, materials, secondary motion, and expressions at relevant stages. Redistribution of the model and sale of modified versions are prohibited under terms separate from those for the documents and code.
 
 For finger dents, thumb axes, tongue and lower teeth, FBX display problems, or sleeve folds found during a new production, read [practical feedback from another character](generation-feedback.md). Diagnose the cause rather than copying example settings.
 

@@ -2,9 +2,9 @@
 
 [Japanese source](../process-index.md) · Source baseline: 2026-10-21.
 
-Start with required materials, execution order, common difficulties, and adjustment methods, then open the chapter for the part you are working on. This package documents methods; it does not include the source model or production environment.
+Start with required materials, execution order, common difficulties, and adjustment methods, then open the chapter for the part you are working on. The official finished distribution ZIP includes the methods and reference model r35, but not the original editable Blend or production environment.
 
-[Use the separately distributed finished r35 model as a reference](model-reference.md): optionally obtain its VRM to observe face, hands/fingers, joints, sleeves, materials, secondary motion, and expressions, informing decisions in stages 3–7. Read the model-specific terms and distinguish VRM triangles from the original editing topology. Downloading/loading stays within the production request.
+[Use the included finished r35 model as a reference](model-reference.md): observe the VRM inside the skill to study face, hands/fingers, joints, sleeves, materials, secondary motion, and expressions, informing decisions in stages 3–7. Read the model-specific terms and distinguish VRM triangles from original editing topology. Load the relevant parts within the production request.
 
 [Practical feedback from another new character](generation-feedback.md): diagnose hands, the mouth interior, FBX display, donor rigs, and long sleeves. Include these lessons in the initial plan when relevant.
 

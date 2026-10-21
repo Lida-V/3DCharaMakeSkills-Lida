@@ -2,21 +2,25 @@
 from pathlib import Path
 import base64
 import hashlib
+import io
 import json
 import os
 import re
 import shutil
 import subprocess
+import struct
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 import warnings
 import zipfile
 
 PACKAGE_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PACKAGE_ROOT / "scripts"))
-from validate import validate, EXCLUDED_NAMES, SKILL_DIR, ATTRIBUTION_HELPER
-from build_package import build, audit_archive
+from validate import (validate, EXCLUDED_NAMES, SKILL_DIR, ATTRIBUTION_HELPER,
+                      REFERENCE_PATH, REFERENCE_TERMS, REFERENCE_ARCHIVE_URL, REFERENCE_MEMBER)
+from build_package import build, audit_archive, fetch_reference_model
 
 DEFAULT_TEST_TEMP = Path(tempfile.gettempdir()) / "lida-distribution-tests"
 TEST_TEMP = Path(os.environ.get("LIDA_DISTRIBUTION_TEST_TEMP", str(DEFAULT_TEST_TEMP)))
@@ -83,6 +87,199 @@ class PublicationChecks(unittest.TestCase):
         self.assertTrue(first["audit"]["passed"])
         self.assertEqual(first["sha256"], build(self.root)["sha256"])
         self.assertTrue(audit_archive(self.root / "dist" / first["archive"], self.root)["passed"])
+
+    def reference(self, present=True, external=False, animation=False, binary_size=4):
+        document = dict(asset=dict(version="2.0"), buffers=[dict(byteLength=binary_size)], images=[],
+                        extensions={"VRMC_vrm":dict(specVersion="1.0", meta=dict(
+                            authors=["Lida"], allowRedistribution=False, modification="allowModification",
+                            commercialUsage="corporation", avatarPermission="onlySeparatelyLicensedPerson"))})
+        if external:
+            document["images"] = [dict(uri="https://example.invalid/image.png")]
+        if animation:
+            document["animations"] = [dict(name="reference-motion")]
+        raw = json.dumps(document).encode("utf-8")
+        raw += b" " * (-len(raw) % 4)
+        chunks = struct.pack("<II",len(raw),0x4E4F534A) + raw + struct.pack("<II",binary_size,0x004E4942) + b"\0"*binary_size
+        data = struct.pack("<4sII",b"glTF",2,len(chunks)+12)+chunks
+        for name in REFERENCE_TERMS:
+            target = self.root/name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text("# Model-only terms\nNo redistribution or modified-model sales.\n",encoding="utf-8")
+            self.files.append(name)
+        self.manifest()
+        path, manifest = self.english_pack()
+        declaration = dict(path=REFERENCE_PATH, sha256=hashlib.sha256(data).hexdigest(), bytes=len(data),
+                           archive_url=REFERENCE_ARCHIVE_URL, archive_sha256="0"*64, archive_bytes=1,
+                           archive_member=REFERENCE_MEMBER, terms=REFERENCE_TERMS)
+        manifest["bundled_reference_model"] = declaration
+        path.write_text(json.dumps(manifest),encoding="utf-8")
+        if present:
+            (self.root/REFERENCE_PATH).write_bytes(data)
+        return data, declaration
+
+    def reference_archive(self, data, extra=None):
+        contents = io.BytesIO()
+        prefix = REFERENCE_MEMBER.rsplit("/",1)[0]+"/"
+        with zipfile.ZipFile(contents,"w",compression=zipfile.ZIP_DEFLATED) as archive:
+            archive.writestr(REFERENCE_MEMBER,data)
+            for name in ("README.md","README.en.md","MODEL-TERMS.md","MODEL-TERMS.en.md",
+                         "reference-manifest.json","SHA256SUMS.txt"):
+                archive.writestr(prefix+name,b"Fixture guide")
+            if extra:
+                archive.writestr(*extra)
+        raw = contents.getvalue()
+        path, manifest = self.english_pack()
+        declaration = manifest["bundled_reference_model"]
+        declaration.update(archive_sha256=hashlib.sha256(raw).hexdigest(), archive_bytes=len(raw))
+        path.write_text(json.dumps(manifest),encoding="utf-8")
+        return raw
+
+    def test_bundled_reference_is_physically_in_complete_zip_and_portable_skill(self):
+        data, _ = self.reference(binary_size=5*1024*1024+4)
+        result = build(self.root)
+        self.assertTrue(result['audit']['passed'])
+        archive = self.root/'dist'/result['archive']
+        with zipfile.ZipFile(archive) as pack:
+            prefix = '3DCharaMakeSkills-Lida-0.1.0-dev/'
+            self.assertEqual(pack.read(prefix+REFERENCE_PATH),data)
+            for name in REFERENCE_TERMS:
+                self.assertIn(prefix+name,pack.namelist())
+        portable = self.outer/'portable-with-model'
+        shutil.copytree(self.root/SKILL_DIR,portable)
+        relative = Path(REFERENCE_PATH).relative_to(SKILL_DIR)
+        self.assertEqual((portable/relative).read_bytes(),data)
+
+    def test_missing_reference_is_allowed_in_source_but_not_in_complete_build_or_audit(self):
+        self.reference(present=False)
+        self.assertTrue(validate(self.root)['passed'])
+        self.assertFalse(validate(self.root,require_reference_model=True)['passed'])
+        with patch('build_package.urllib.request.build_opener') as network:
+            with self.assertRaisesRegex(RuntimeError,'reference model is missing'):
+                build(self.root)
+            network.assert_not_called()
+        self.assertFalse(audit_archive(self.outer/'absent.zip',self.root)['passed'])
+
+    def test_reference_hash_structure_animation_and_external_dependencies_are_enforced(self):
+        data, _ = self.reference()
+        target = self.root/REFERENCE_PATH
+        target.write_bytes(data+b'changed')
+        self.assertFalse(validate(self.root)['passed'])
+        target.write_bytes(data[:-1]+b'x')
+        self.assertFalse(validate(self.root)['passed'])
+        for external, animation in ((True,False),(False,True)):
+            bad_doc = dict(asset=dict(version='2.0'), buffers=[],images=[dict(uri='private.png')] if external else [],
+                           extensions={'VRMC_vrm':dict(specVersion='1.0',meta=dict(authors=['Lida'],
+                               allowRedistribution=False,modification='allowModification',
+                               commercialUsage='corporation',avatarPermission='onlySeparatelyLicensedPerson'))})
+            if animation:
+                bad_doc['animations'] = [dict(name='motion')]
+            raw = json.dumps(bad_doc).encode(); raw += b' '*(-len(raw)%4)
+            chunks = struct.pack('<II',len(raw),0x4E4F534A)+raw+struct.pack('<II',4,0x004E4942)+b'\0'*4
+            candidate = struct.pack('<4sII',b'glTF',2,len(chunks)+12)+chunks
+            target.write_bytes(candidate)
+            path, manifest = self.english_pack()
+            manifest['bundled_reference_model'].update(bytes=len(candidate),sha256=hashlib.sha256(candidate).hexdigest())
+            path.write_text(json.dumps(manifest),encoding='utf-8')
+            self.assertFalse(validate(self.root)['passed'])
+
+    def test_bundled_reference_does_not_permit_other_models_or_missing_terms(self):
+        self.reference()
+        other = self.root/'unexpected.vrm'
+        other.write_bytes(b'other model')
+        self.assertFalse(validate(self.root)['passed'])
+        other.unlink()
+        (self.root/REFERENCE_TERMS[1]).unlink()
+        self.assertFalse(validate(self.root)['passed'])
+
+    def test_reference_exception_does_not_raise_regular_file_size_limit(self):
+        self.reference()
+        (self.root/'guide.md').write_bytes(b'# Steps\n'+b'x'*(5*1024*1024))
+        self.assertFalse(validate(self.root)['passed'])
+
+    def test_reference_terms_cannot_be_empty_or_disagree_with_root_copy(self):
+        self.reference()
+        terms = self.root/REFERENCE_TERMS[0]
+        terms.write_text(' \n',encoding='utf-8')
+        self.assertFalse(validate(self.root)['passed'])
+        terms.write_text('# Model terms\nNo redistribution.\n',encoding='utf-8')
+        root_copy = self.root/'model-reference/china-wafuku/MODEL-TERMS.md'
+        root_copy.parent.mkdir(parents=True)
+        root_copy.write_text('Different permission.\n',encoding='utf-8')
+        self.files.append(root_copy.relative_to(self.root).as_posix())
+        path, manifest = self.english_pack()
+        manifest['files'] = self.files
+        path.write_text(json.dumps(manifest),encoding='utf-8')
+        self.assertFalse(validate(self.root)['passed'])
+
+    def test_reference_declaration_cannot_widen_path_host_or_remove_terms(self):
+        self.reference()
+        path, manifest = self.english_pack()
+        original = dict(manifest['bundled_reference_model'])
+        for key,value in (('path','../escape.vrm'),('path','other.vrm'),
+                          ('archive_url','https://example.invalid/model.zip'),('terms',[]),
+                          ('bytes',True),('archive_sha256','not-a-hash')):
+            manifest['bundled_reference_model'] = {**original,key:value}
+            path.write_text(json.dumps(manifest),encoding='utf-8')
+            self.assertFalse(validate(self.root)['passed'])
+
+    def test_release_181_requires_reference_declaration(self):
+        self.manifest(version='1.8.1')
+        (self.root/'VERSION').write_text('1.8.1\n',encoding='utf-8')
+        self.assertFalse(validate(self.root)['passed'])
+
+    def test_reference_fetch_requires_explicit_build_flag_and_never_overwrites(self):
+        data, _ = self.reference(present=False)
+        raw = self.reference_archive(data)
+        with patch('build_package.urllib.request.build_opener') as network:
+            network.return_value.open.return_value.__enter__.return_value.read.return_value = raw
+            result = build(self.root,fetch_reference=True)
+            self.assertTrue(result['audit']['passed'])
+            self.assertEqual(network.call_count,1)
+            self.assertEqual((self.root/REFERENCE_PATH).read_bytes(),data)
+            fetch_reference_model(self.root)
+            self.assertEqual(network.call_count,1)
+            (self.root/REFERENCE_PATH).write_bytes(b'keep this local candidate')
+            with self.assertRaises(RuntimeError):
+                fetch_reference_model(self.root)
+            self.assertEqual((self.root/REFERENCE_PATH).read_bytes(),b'keep this local candidate')
+            self.assertEqual(network.call_count,1)
+
+    def test_reference_fetch_rejects_wrong_archive_hash_and_unexpected_motion(self):
+        data, _ = self.reference(present=False)
+        raw = self.reference_archive(data)
+        for payload in (raw+b'tampered', self.reference_archive(data,('ChinaWafuku-Reference-r35/reference.fbx',b'motion'))):
+            if payload.endswith(b'tampered'):
+                path,manifest=self.english_pack()
+                manifest['bundled_reference_model'].update(archive_sha256=hashlib.sha256(raw).hexdigest(),archive_bytes=len(raw))
+                path.write_text(json.dumps(manifest),encoding='utf-8')
+            else:
+                path,manifest=self.english_pack()
+                manifest['bundled_reference_model'].update(archive_sha256=hashlib.sha256(payload).hexdigest(),archive_bytes=len(payload))
+                path.write_text(json.dumps(manifest),encoding='utf-8')
+            with patch('build_package.urllib.request.build_opener') as network:
+                network.return_value.open.return_value.__enter__.return_value.read.return_value=payload
+                with self.assertRaises(RuntimeError):
+                    fetch_reference_model(self.root)
+            self.assertFalse((self.root/REFERENCE_PATH).exists())
+
+    def test_complete_zip_rejects_missing_changed_and_additional_reference_models(self):
+        self.reference()
+        result = build(self.root)
+        with zipfile.ZipFile(self.root/'dist'/result['archive']) as reader:
+            entries = [(i.filename,reader.read(i)) for i in reader.infolist()]
+        prefix = '3DCharaMakeSkills-Lida-0.1.0-dev/'
+        cases = [
+            [(n,d) for n,d in entries if n != prefix+REFERENCE_PATH],
+            [(n,b'changed' if n==prefix+REFERENCE_PATH else d) for n,d in entries],
+            entries+[(prefix+'another.vrm',b'model')],
+            entries+[(prefix+'reference.fbx',b'motion')],
+        ]
+        for index,entries in enumerate(cases):
+            archive = self.outer/f'tampered-{index}.zip'
+            with zipfile.ZipFile(archive,'w') as writer:
+                for n,d in entries:
+                    writer.writestr(n,d)
+            self.assertFalse(audit_archive(archive,self.root)['passed'])
 
     def test_english_attribution_is_usable_and_does_not_replace_existing_blocks(self):
         project = self.project()
