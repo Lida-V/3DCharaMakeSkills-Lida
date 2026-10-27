@@ -15,6 +15,7 @@
 | 境界から面を作り直す | P1局所パッチ・P2対応点の接続・P3局所再構築。固定境界・新規面・推定を区別 | [修復の具体手順](mesh-repair-completion.md) | [PNG](../assets/mesh-boundary-repair.png) / [SVG](../assets/mesh-boundary-repair.svg) |
 | 眼球の構成と視線 | 球面・虹彩/瞳孔・白目・任意の反射面と固定する線の層を分ける | [眼球の制作](eye-modeling.md) | [PNG](../assets/eye-structure-flow.png) / [SVG](../assets/eye-structure-flow.svg) |
 | 口・表情キー | 共通の顔で対象部位だけ動かす。顎・輪郭・対象外を固定する | [口型](mouth-shapes.md) | [PNG](../assets/face-key-locality.png) / [SVG](../assets/face-key-locality.svg) |
+| 口線と実際の開口・口角の接続 | 描画線と上下の開口境界、口角の支点と表裏を分けて照合。通常顔・顎・口外の保持も確認する自作模式図 | [最新制作の実践知見](recent-production-lessons.md) | [PNG](../assets/mouth-seam-opening.png) / [SVG](../assets/mouth-seam-opening.svg) |
 | 通常の瞬きとウインクの閉じ方 | W1目だけの差分・W2本人左右の分離・W3途中/隣接列/別層。通常blinkと口・眉・反対眼を保持 | [ウインクの閉じ方](wink-closure.md) | [PNG](../assets/wink-eye-isolation.png) / [SVG](../assets/wink-eye-isolation.svg) |
 | まぶたの白い帯・折れ | 縁と隣接列で同じ局所変換を共有し、外側へ減衰する | [表情の調整](expression-adjustment.md) | [PNG](../assets/eyelid-band-follow.png) / [SVG](../assets/eyelid-band-follow.svg) |
 | 手の形・関節・網目 | 甲/掌の向き、目印、指の輪と母指球・指間のつながりを対応させる | [手](hand-shape.md) | [PNG](../assets/hand-structure-map.png) / [SVG](../assets/hand-structure-map.svg) |
@@ -33,12 +34,16 @@
 | 膝の実メッシュの線 | 当時の実辺と、未実施の配置案を区別する | [膝の図の読み方](knee-edge-placement.md) | [PNG](../assets/actual-knee-layout.png) / [SVG](../assets/actual-knee-layout.svg) |
 | 膝を曲げた診断 | 通常・途中・曲げた形で伸びと潰れを確認する | [膝の図の読み方](knee-edge-placement.md) | [PNG](../assets/actual-knee-bend.png) / [SVG](../assets/actual-knee-bend.svg) |
 
+## 口線と開口の図の読み方
+
+①赤い破線は通常顔に描かれた口線、②青い実線は開口時の上下のメッシュ境界、③白丸は支点・確認位置を示します。左は口角側がつながり中央だけ開く再検討例、右は支点より外へ切り広げず口角付近まで開口を対応させる設計例です。下段の青い実線は表側、橙の破線は口角裏の折り返しを示します。通常顔・顎・口外を保持し、通常・途中・最大・口型の組合せを実モデルで確認してください。形や頂点数は固定値ではありません。
+
 ## AIに渡すとき
 
 1. 必要な図を一枚選び、対象部位の実画像・基準素材と一緒に渡す。
 2. 「図のどの番号・線が、実モデルのどこに対応するか」を指定する。画面の左右とモデルの左右、移動軸と単位もそろえる。
 3. 変える部位、固定する部位、途中姿勢、終了条件を添える。[依頼の型](ai-instructions.md)を使う。
 
-全24組のうち、膝の2枚は以前の実メッシュの診断で、現在の完成や合格を示す図ではありません。他の22枚は自作模式図です。模式図の形・列数・寸法をそのまま実モデルへ移す指示にはせず、実際の形と必要な動作で決め直してください。
+全25組のうち、膝の2枚は以前の実メッシュの診断で、現在の完成や合格を示す図ではありません。他の23枚は自作模式図です。模式図の形・列数・寸法をそのまま実モデルへ移す指示にはせず、実際の形と必要な動作で決め直してください。
 
 身体と服を段階別に生成する方法は次回の予防案です。複数角度を先に用意した顔の改善は今回の制作経験です。図の出所と確認範囲は[同梱図版](../assets/README.md)にも記載しています。
