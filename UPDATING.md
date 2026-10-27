@@ -12,7 +12,7 @@
 読むだけのモデル制作では、Python・Git・シェーダーは必須ではありません。初回は[READMEの導入確認](README.md#入手して使う)を使ってください。
 
 
-公式の通常導入は[参照モデルを含む一式ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip)を使います。スキルフォルダの`assets/model-reference/china-wafuku/`にVRMとモデル専用条件があることを確認し、フォルダを丸ごと引き継いでください。モデルを含む一式を利用者が再配布することはできません。
+公式の通常導入は[参照モデルを含む一式ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.9.0/3DCharaMakeSkills-Lida-1.9.0.zip)を使います。スキルフォルダの`assets/model-reference/china-wafuku/`にVRMとモデル専用条件があることを確認し、フォルダを丸ごと引き継いでください。モデルを含む一式を利用者が再配布することはできません。
 
 ## 作者とコントリビューターの更新
 

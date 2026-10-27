@@ -48,6 +48,7 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 | 制作初回・補正漏れを防ぐ計画・工程順 | [制作計画と5項目の診断](references/production-plan.md)、[品質の提案とゴール設定](references/quality-goals.md) |
 | 完成例の顔・手指・関節・袖・材質・揺れ・表情を観察 | [同梱モデルr35の参照方法と条件](references/model-reference.md) |
 | 新規制作で発生した手指・口内・FBX往復・袖の問題 | [別の新規制作からのフィードバック](references/generation-feedback.md) |
+| 最新制作の口角・UV/材質境界・リグ・揺れ・保存/出力でのつまずき | [最新制作の実践知見](references/recent-production-lessons.md) |
 | 原画・素体・服・部品の準備 | [入力素材](references/input-materials.md)、[複数角度から三面図](references/multiangle-threeview.md) |
 | FBXから初期骨格を導入、150MBの容量対策 | [TripoオートリグとVRM 1.0骨格](references/tripo-autorig.md) |
 | 網目・関節・スキンウェイト | [メッシュと重み](references/mesh-weight.md)、膝の具体例なら[線の配置](references/knee-edge-placement.md) |

@@ -4,7 +4,7 @@
 
 © 2026 Lida · [公式配布元](https://github.com/Lida-V/3DCharaMakeSkills-Lida)
 
-リダとは別の完成例として、Skillsに含める制作参照モデルです。**[モデルを含むSkills一式ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip)**を展開し、スキルフォルダを丸ごと導入してください。VRM 1.0とモデル専用条件も同じフォルダへ配置されます。別取得は不要です。
+リダとは別の完成例として、Skillsに含める制作参照モデルです。**[モデルを含むSkills一式ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.9.0/3DCharaMakeSkills-Lida-1.9.0.zip)**を展開し、スキルフォルダを丸ごと導入してください。VRM 1.0とモデル専用条件も同じフォルダへ配置されます。別取得は不要です。
 
 **モデル本体の再配布・改変販売は禁止。モデルを含む一式ZIPの利用者による再配布もできません。** [専用利用条件](MODEL-TERMS.md)を確認してください。文書・図解・コードは、モデルを除いて各LICENSEに従い利用・再配布できます。
 

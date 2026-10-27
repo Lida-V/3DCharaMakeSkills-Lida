@@ -12,7 +12,7 @@
 Python, Git, and the shader are not required merely to read the procedures and make a model. For initial setup, use the installation check in [README](README.en.md).
 
 
-For normal installation, use the [complete ZIP including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip). Keep the VRM and its model-specific terms in the skill's `assets/model-reference/china-wafuku/` folder when copying the skill. Users must not redistribute the complete package containing the model.
+For normal installation, use the [complete ZIP including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.9.0/3DCharaMakeSkills-Lida-1.9.0.zip). Keep the VRM and its model-specific terms in the skill's `assets/model-reference/china-wafuku/` folder when copying the skill. Users must not redistribute the complete package containing the model.
 
 ## Updating as an author or contributor
 

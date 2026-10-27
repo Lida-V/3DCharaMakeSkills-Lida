@@ -4,7 +4,7 @@
 
 © 2026 Lida · [Official source](https://github.com/Lida-V/3DCharaMakeSkills-Lida)
 
-This completed example, distinct from the Lida avatar, is a production-reference component of the Skills. **[Download the complete Skills ZIP with the model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip)**, extract it, and install the entire skill folder. The VRM 1.0 and its terms are installed together; no separate download is needed.
+This completed example, distinct from the Lida avatar, is a production-reference component of the Skills. **[Download the complete Skills ZIP with the model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.9.0/3DCharaMakeSkills-Lida-1.9.0.zip)**, extract it, and install the entire skill folder. The VRM 1.0 and its terms are installed together; no separate download is needed.
 
 **Redistribution of the model and sale of modified versions are prohibited. Users may not redistribute the complete ZIP containing it.** Read the [model-specific terms](MODEL-TERMS.en.md). Documentation, diagrams, and code can still be used and redistributed under their applicable licenses after excluding the model.
 

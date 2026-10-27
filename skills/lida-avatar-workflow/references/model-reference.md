@@ -6,7 +6,7 @@
 
 ## 一緒に取得・配置する
 
-1. [公式Skills 1.8.1の完成配布ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip)を取得し、展開します。参照VRMは約41MBで、このZIPに含まれます。
+1. [公式Skills 1.9.0の完成配布ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.9.0/3DCharaMakeSkills-Lida-1.9.0.zip)を取得し、展開します。参照VRMは約41MBで、このZIPに含まれます。
 2. `skills/lida-avatar-workflow`フォルダを、`assets`・`references`・`scripts`・利用条件を含めて丸ごとスキル保存先へコピーします。参照モデルの場所は`assets/model-reference/china-wafuku/ChinaWafuku-Reference-r35.vrm`です。
 3. [モデル専用条件](../assets/model-reference/china-wafuku/MODEL-TERMS.md)を確認し、制作で必要な部位だけをVRM対応ソフトの別セッションで観察します。読むだけでモデル処理や環境変更を始めません。
 

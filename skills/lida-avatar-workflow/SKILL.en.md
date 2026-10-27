@@ -45,6 +45,7 @@ For directions, change regions, or connections, select only needed figures from 
 | Initial plan, preventing omitted corrections, stage order | [Production plan/five-area diagnosis](references/en/production-plan.md), [quality proposals/goals](references/en/quality-goals.md) |
 | Inspect a finished example's face, hands/fingers, joints, sleeves, materials, secondary motion, and expressions | [Included r35 model: reference procedure and terms](references/en/model-reference.md) |
 | Finger, mouth-interior, FBX-round-trip, or sleeve issues in new production | [Feedback from another new production](references/en/generation-feedback.md) |
+| Mouth corners, UV/material boundaries, rigging, secondary motion, or save/export issues in recent production | [Recent production lessons](references/en/recent-production-lessons.md) |
 | Art, base body, clothing, part references | [Input materials](references/en/input-materials.md), [multiple angles to three-view sheets](references/en/multiangle-threeview.md) |
 | Initial rig from FBX, 150 MB size preparation | [Tripo auto-rigging/VRM 1.0 skeleton](references/en/tripo-autorig.md) |
 | Topology, joints, skin weights | [Topology/weights](references/en/mesh-weight.md), [knee edge placement](references/en/knee-edge-placement.md) |

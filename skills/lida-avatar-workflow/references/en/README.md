@@ -8,6 +8,8 @@ The shared original diagrams retain Japanese labels. Read them together with the
 
 For finger dents, thumb axes, tongue and lower teeth, FBX display problems, or sleeve folds found during a new production, read [practical feedback from another character](generation-feedback.md). Diagnose the cause rather than copying example settings.
 
+For recent problems with mouth-corner opening, UV/material boundaries, rigging, secondary motion, and saving/exporting, select the relevant symptom in [recent production lessons](recent-production-lessons.md). Do not copy example shapes or values as defaults; distinguish saved-file checks from destination checks.
+
 Start with a [production plan](production-plan.md). Include diagnosis and any necessary corrections for mesh structure, intersections, materials, hand and finger movement, and eyes. Record the permitted material changes and reasons for deferral so work does not fall through gaps while waiting for separate instructions.
 
 Use [quality proposals and stage goals](quality-goals.md) to define the intended finished result and the boundary of each stage.
