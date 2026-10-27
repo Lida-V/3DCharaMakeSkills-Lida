@@ -6,7 +6,7 @@ The finished **r35** example of the new China/Wafuku character is included as a 
 
 ## Download and install together
 
-1. Download and extract the [official finished Skills 1.8.1 ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip). It includes the reference VRM, approximately 41 MB.
+1. Download and extract the [official finished Skills 1.9.0 ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.9.0/3DCharaMakeSkills-Lida-1.9.0.zip). It includes the reference VRM, approximately 41 MB.
 2. Copy the entire `skills/lida-avatar-workflow` folder to your skill location, including `assets`, `references`, `scripts`, and terms. The reference model is at `assets/model-reference/china-wafuku/ChinaWafuku-Reference-r35.vrm`.
 3. Read the [model-specific terms](../../assets/model-reference/china-wafuku/MODEL-TERMS.en.md), then inspect only the parts needed for production in a separate session of a VRM-compatible tool. Reading alone must not start model processing or environment changes.
 

@@ -15,6 +15,7 @@ The shared original diagrams retain their Japanese labels. Use the English descr
 | Rebuilding surfaces from boundaries | P1 local patch, P2 corresponding-point connection, P3 local reconstruction. Distinguish fixed boundaries, new faces, and inferred shape. | [Repair procedures](mesh-repair-completion.md) | [PNG](../../assets/mesh-boundary-repair.png) / [SVG](../../assets/mesh-boundary-repair.svg) |
 | Eyeball structure and gaze | Separate sphere, iris/pupil, sclera, optional reflective surface, and head-fixed lines. | [Eyeball modeling](eye-modeling.md) | [PNG](../../assets/eye-structure-flow.png) / [SVG](../../assets/eye-structure-flow.svg) |
 | Mouth and expression keys | Move only the target region on one shared face. Fix jaw, outline, and unrelated regions. | [Mouth shapes](mouth-shapes.md) | [PNG](../../assets/face-key-locality.png) / [SVG](../../assets/face-key-locality.svg) |
+| Painted mouth line and actual opening at the corners | Compare painted line, upper/lower opening edges, corner pivots and front/interior surfaces. Check preservation of neutral face, jaw, and outside-mouth areas. Original schematic. | [Recent production lessons](recent-production-lessons.md) | [PNG](../../assets/mouth-seam-opening.png) / [SVG](../../assets/mouth-seam-opening.svg) |
 | Ordinary blink versus wink closure | W1 eye-only differences, W2 separation by the character's own left/right, W3 intermediate values/neighboring rows/separate layers. Preserve ordinary blink, mouth, brows, and opposite eye. | [Wink closure](wink-closure.md) | [PNG](../../assets/wink-eye-isolation.png) / [SVG](../../assets/wink-eye-isolation.svg) |
 | White bands or folds at eyelids | Share one local transform between rim and adjacent rows, fading toward the outside. | [Expression adjustment](expression-adjustment.md) | [PNG](../../assets/eyelid-band-follow.png) / [SVG](../../assets/eyelid-band-follow.svg) |
 | Hand shape, joints, and topology | Match back/palm orientation, landmarks, finger loops, thenar region, and finger-web connections. | [Hands](hand-shape.md) | [PNG](../../assets/hand-structure-map.png) / [SVG](../../assets/hand-structure-map.svg) |
@@ -33,12 +34,16 @@ The shared original diagrams retain their Japanese labels. Use the English descr
 | Edges on an actual knee mesh | Distinguish actual edges at the time from a proposed layout that was not implemented. | [Reading the knee diagrams](knee-edge-placement.md) | [PNG](../../assets/actual-knee-layout.png) / [SVG](../../assets/actual-knee-layout.svg) |
 | Diagnosing a bent knee | Check stretching and collapse in neutral, intermediate, and bent shapes. | [Reading the knee diagrams](knee-edge-placement.md) | [PNG](../../assets/actual-knee-bend.png) / [SVG](../../assets/actual-knee-bend.svg) |
 
+## Key for the painted mouth line and opening diagram
+
+① **Red dashed line:** mouth line painted on the neutral face. ② **Solid blue lines:** actual upper and lower mesh boundaries when open. ③ **White outlined circles:** pivots/checkpoints. The left panel shows an example to reconsider, where only the center opens while the corners remain connected; the right shows an opening extended toward the corner without cutting beyond the pivot. In the lower side/oblique schematic, solid blue is the front surface and dashed orange is the fold inside the corner. Preserve the neutral face, jaw, and outside-mouth regions; check neutral, intermediate, maximum, and combined mouth shapes on the actual model. Shapes and vertex counts are not fixed values.
+
 ## Giving a diagram to an AI
 
 1. Select one relevant diagram and provide it with real images of the target and its reference materials.
 2. Identify which number or line corresponds to which area of the actual model. Align screen left/right with model left/right, and specify movement axes and units.
 3. Add editable and fixed regions, intermediate poses, and exit criteria. Use the [request structure](ai-instructions.md).
 
-Of all 24 diagram pairs, the two knee diagrams diagnose an earlier real mesh; they do not show current completion or approval. The other 22 are original explanatory schematics. Do not copy their shapes, row counts, or dimensions directly into the real model. Decide these from the actual shape and required movements.
+Of all 25 diagram pairs, the two knee diagrams diagnose an earlier real mesh; they do not show current completion or approval. The other 23 are original explanatory schematics. Do not copy their shapes, row counts, or dimensions directly into the real model. Decide these from the actual shape and required movements.
 
 Generating body and clothes in stages is a prevention proposal for future work. The facial improvement after preparing multiple angles is an observation from this production. Sources and verification scope are also documented in [included diagrams](../../assets/README.md).

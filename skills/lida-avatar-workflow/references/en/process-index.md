@@ -8,6 +8,8 @@ Start with required materials, execution order, common difficulties, and adjustm
 
 [Practical feedback from another new character](generation-feedback.md): diagnose hands, the mouth interior, FBX display, donor rigs, and long sleeves. Include these lessons in the initial plan when relevant.
 
+[Recent production lessons](recent-production-lessons.md): diagnose mouth-corner opening, UV/material boundaries, bones and weights, secondary motion, and saved/exported results at the relevant stage.
+
 ## Shortest path through the workflow
 
 Begin with a [production plan](production-plan.md), aligning [target quality](quality-goals.md), input version, order/dependencies, change scope, and exit conditions. Diagnose mesh, intersections, materials, hand/finger motion, and eyes. Necessary corrections must not wait for another individual instruction. If a material change's scope is unresolved, show a concrete proposal and confirm only that change.
