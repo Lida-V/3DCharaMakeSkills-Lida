@@ -2,7 +2,7 @@
 
 [日本語](README.md) · English
 
-**Version 1.8.1**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 24 diagram pairs and images rendered from Lida's actual model.
+**Version 1.9.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 25 diagram pairs and images rendered from Lida's actual model.
 
 ## See a production example
 
@@ -20,7 +20,7 @@ The original diagrams retain their Japanese labels. English captions, numbered d
 
 ## Completed reference model included in the Skills
 
-**[Download the complete Skills ZIP, including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip)**. The official ready-to-use ZIP contains the China Wafuku r35 VRM 1.0 model. Copy the entire extracted skill folder to install the model together with the skill; no separate model download is needed.
+**[Download the complete Skills ZIP, including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.9.0/3DCharaMakeSkills-Lida-1.9.0.zip)**. The official ready-to-use ZIP contains the China Wafuku r35 VRM 1.0 model. Copy the entire extracted skill folder to install the model together with the skill; no separate model download is needed.
 
 The model is a production-reference component of the Skills. Inspect relationships among face, hands, joints, sleeves, materials, expressions, and secondary motion. Use the [observation guide and AI request](skills/lida-avatar-workflow/references/en/model-reference.md) to inspect only the relevant parts.
 
@@ -36,7 +36,7 @@ Applications, generation services, API credentials, input illustrations, and sou
 
 ## Install and start
 
-1. Download and extract the **[official complete Skills ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.8.1/3DCharaMakeSkills-Lida-1.8.1.zip)**, which includes the reference model and its terms. GitHub Code → Download ZIP and automatic Source code ZIPs are maintenance sources without the model binary. Use the complete Release ZIP for normal installation.
+1. Download and extract the **[official complete Skills ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.9.0/3DCharaMakeSkills-Lida-1.9.0.zip)**, which includes the reference model and its terms. GitHub Code → Download ZIP and automatic Source code ZIPs are maintenance sources without the model binary. Use the complete Release ZIP for normal installation.
 2. Copy the entire `skills/lida-avatar-workflow` folder to your agent's skill location, including references, assets, scripts, LICENSE, and NOTICE. Do not copy only `SKILL.md`.
 3. Ask the agent to load the skill. English requests route to [SKILL.en.md](skills/lida-avatar-workflow/SKILL.en.md) and the [English reference index](skills/lida-avatar-workflow/references/en/README.md). You do not need Python or the shader merely to read the workflow.
 
@@ -51,6 +51,7 @@ Where supported, invoke `$lida-avatar-workflow`. If loading fails, check the fol
 | Plan scope, quality, dependencies, and stage completion | [Production plan](skills/lida-avatar-workflow/references/en/production-plan.md), [quality goals](skills/lida-avatar-workflow/references/en/quality-goals.md), [process index](skills/lida-avatar-workflow/references/en/process-index.md) |
 | Prepare consistent images and three-view references | [Input materials](skills/lida-avatar-workflow/references/en/input-materials.md), [multi-angle and paired heads](skills/lida-avatar-workflow/references/en/multiangle-threeview.md) |
 | Learn from a separate new-model production | [Generation and repair feedback](skills/lida-avatar-workflow/references/en/generation-feedback.md) |
+| Diagnose recent mouth, UV/material, rigging, secondary motion, and export issues | [Recent production lessons](skills/lida-avatar-workflow/references/en/recent-production-lessons.md) |
 | Introduce the initial humanoid skeleton | [Tripo auto-rig and FBX preparation](skills/lida-avatar-workflow/references/en/tripo-autorig.md) |
 | Diagnose mesh damage, missing parts, and deformation | [Repair and completion](skills/lida-avatar-workflow/references/en/mesh-repair-completion.md), [mesh and weights](skills/lida-avatar-workflow/references/en/mesh-weight.md), [adjustment methods](skills/lida-avatar-workflow/references/en/adjustment-methods.md) |
 | Build eyes, mouth shapes, and expressions | [Eyes](skills/lida-avatar-workflow/references/en/eye-modeling.md), [expression sheets](skills/lida-avatar-workflow/references/en/expression-sheets.md), [expression adjustment](skills/lida-avatar-workflow/references/en/expression-adjustment.md), [mouth shapes](skills/lida-avatar-workflow/references/en/mouth-shapes.md), [winks](skills/lida-avatar-workflow/references/en/wink-closure.md) |
