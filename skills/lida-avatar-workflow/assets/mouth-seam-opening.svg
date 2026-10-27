@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1310" viewBox="0 0 1200 1310" role="img" aria-labelledby="title desc">
+<title id="title">口の描画線と、実際に開くメッシュ境界を対応させる</title>
+<desc id="desc">口元のみを示す自作模式図。中央だけが開く例と、見た目の口線に沿って口角付近まで開き、口角を支点として残す例を比較する。表側と口角裏の接続および保持範囲を確認する。</desc>
+<rect width="1200" height="1212" fill="#f4f7fb"/>
+<defs>
+  <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#147cac"/></marker>
+  <marker id="arrow-dark" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#19334a"/></marker>
+</defs>
+<g font-family="Yu Gothic, Meiryo, sans-serif" fill="#19334a">
+  <text x="38" y="50" font-size="32" font-weight="700">口の線と、実際に開くメッシュを対応させる</text>
+  <text x="38" y="84" font-size="19" fill="#576879">口元だけの模式図。口の形・点の数・分離位置はモデルごとに確認します。</text>
+
+  <rect x="32" y="112" width="552" height="602" rx="15" fill="#fff" stroke="#d5e0eb" stroke-width="2"/>
+  <rect x="616" y="112" width="552" height="602" rx="15" fill="#fff" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="54" y="150" font-size="23" font-weight="700" fill="#c34251">再検討する例：中央だけが開く</text>
+  <text x="638" y="150" font-size="23" font-weight="700" fill="#167f69">設計例：口線に沿って開く</text>
+  <text x="54" y="183" font-size="18">口角側がつながり、開きが途中で止まる</text>
+  <text x="638" y="183" font-size="18">口角付近まで確認し、端を支点として残す</text>
+
+  <text x="55" y="225" font-size="19" font-weight="700">① 通常顔：描画された口線</text>
+  <text x="639" y="225" font-size="19" font-weight="700">① 通常顔：描画された口線</text>
+  <path d="M112 273 Q308 299 504 273" fill="none" stroke="#b63d58" stroke-width="5" stroke-dasharray="12 7" stroke-linecap="round"/>
+  <path d="M696 273 Q892 299 1088 273" fill="none" stroke="#b63d58" stroke-width="5" stroke-dasharray="12 7" stroke-linecap="round"/>
+  <circle cx="112" cy="273" r="7" fill="#fff" stroke="#19334a" stroke-width="3"/>
+  <circle cx="504" cy="273" r="7" fill="#fff" stroke="#19334a" stroke-width="3"/>
+  <circle cx="696" cy="273" r="7" fill="#fff" stroke="#19334a" stroke-width="3"/>
+  <circle cx="1088" cy="273" r="7" fill="#fff" stroke="#19334a" stroke-width="3"/>
+  <text x="55" y="330" font-size="19" font-weight="700">② 開口時：上下の境界を確認</text>
+  <text x="639" y="330" font-size="19" font-weight="700">② 開口時：上下の境界を確認</text>
+  <!-- Gray connected sections remain joined in the left example. -->
+  <path d="M112 400 Q169 410 234 417" fill="none" stroke="#758391" stroke-width="6"/>
+  <path d="M382 417 Q447 410 504 400" fill="none" stroke="#758391" stroke-width="6"/>
+  <path d="M234 417 Q308 386 382 417 Q308 455 234 417Z" fill="#dcebf2" stroke="#147cac" stroke-width="5"/>
+  <circle cx="234" cy="417" r="7" fill="#fff" stroke="#19334a" stroke-width="3"/>
+  <circle cx="382" cy="417" r="7" fill="#fff" stroke="#19334a" stroke-width="3"/>
+  <path d="M155 452 L212 427" fill="none" stroke="#19334a" stroke-width="2" marker-end="url(#arrow-dark)"/>
+  <path d="M462 452 L405 427" fill="none" stroke="#19334a" stroke-width="2" marker-end="url(#arrow-dark)"/>
+  <text x="79" y="480" font-size="18">外側は</text><text x="397" y="480" font-size="18">つながったまま</text>
+  <text x="148" y="513" font-size="18" fill="#b34351" font-weight="700">描画線と開口範囲がずれる</text>
+
+  <!-- A full-span opening tapers to two hinge points, not beyond them. -->
+  <path d="M696 400 Q730 405 749 409" fill="none" stroke="#758391" stroke-width="6"/>
+  <path d="M1035 409 Q1054 405 1088 400" fill="none" stroke="#758391" stroke-width="6"/>
+  <path d="M749 409 Q892 348 1035 409 Q892 484 749 409Z" fill="#dcebf2" stroke="#147cac" stroke-width="5"/>
+  <circle cx="749" cy="409" r="8" fill="#fff" stroke="#19334a" stroke-width="3"/>
+  <circle cx="1035" cy="409" r="8" fill="#fff" stroke="#19334a" stroke-width="3"/>
+  <path d="M703 456 L741 422" fill="none" stroke="#19334a" stroke-width="2" marker-end="url(#arrow-dark)"/>
+  <path d="M1082 456 L1043 422" fill="none" stroke="#19334a" stroke-width="2" marker-end="url(#arrow-dark)"/>
+  <text x="655" y="481" font-size="18">③ 支点</text><text x="1000" y="481" font-size="18">③ 支点</text>
+  <text x="660" y="513" font-size="18" fill="#167f69" font-weight="700">口角付近まで連続させ、外側へ切り広げない</text>
+
+  <line x1="55" y1="550" x2="558" y2="550" stroke="#d5e0eb" stroke-width="2"/>
+  <line x1="639" y1="550" x2="1142" y2="550" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="55" y="585" font-size="18">描画された端と、上下が分かれる範囲を</text>
+  <text x="55" y="615" font-size="18">通常顔と開口の両方で照合する。</text>
+  <text x="639" y="585" font-size="18">端の形や支点は、原画と対象メッシュに</text>
+  <text x="639" y="615" font-size="18">合わせて決める。全てを一直線にはしない。</text>
+  <text x="55" y="677" font-size="17" fill="#576879">※ ①は通常時の線。②は開口状態の模式図。</text>
+  <text x="639" y="677" font-size="17" fill="#576879">※ 図の口幅・頂点数は推奨値ではありません。</text>
+
+  <rect x="32" y="740" width="1136" height="260" rx="15" fill="#fff" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="58" y="780" font-size="23" font-weight="700">③ 口角は、表側と裏側を別々に確認</text>
+  <text x="58" y="812" font-size="18">斜め／側面で見る概念図</text>
+  <!-- Schematic side layers: the fold behind the visible outer face can remain connected. -->
+  <path d="M86 865 C146 831 216 835 269 872 C305 897 324 907 367 893" fill="none" stroke="#147cac" stroke-width="6"/>
+  <path d="M107 903 C163 871 225 879 269 905 C300 923 326 926 358 915" fill="none" stroke="#c47b25" stroke-width="5" stroke-dasharray="11 6"/>
+  <circle cx="273" cy="889" r="29" fill="none" stroke="#19334a" stroke-width="3" stroke-dasharray="4 5"/>
+  <path d="M336 836 L290 865" fill="none" stroke="#147cac" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="340" y="836" font-size="18">表側</text>
+  <path d="M367 960 L305 915" fill="none" stroke="#19334a" stroke-width="2" marker-end="url(#arrow-dark)"/>
+  <text x="372" y="968" font-size="18">口角裏の折り返し</text>
+  <line x1="565" y1="792" x2="565" y2="965" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="594" y="821" font-size="20" font-weight="700">表だけ開いても、裏で接続が残ることがある</text>
+  <text x="594" y="858" font-size="19">・支点と奥の面のつながりを立体で確認。</text>
+  <text x="594" y="892" font-size="19">・必要な境界だけを調整し、周囲へ滑らかに戻す。</text>
+  <text x="594" y="926" font-size="19">・歯・舌・口内を開口時に確認。閉口では隠す。</text>
+  <text x="594" y="960" font-size="19">・原画にない線や全顔へ広がる切断は避ける。</text>
+
+  <rect x="32" y="1024" width="1136" height="145" rx="15" fill="#e8f2f8" stroke="#bad5e2" stroke-width="2"/>
+  <text x="58" y="1060" font-size="21" font-weight="700">前後の確認</text>
+  <text x="58" y="1092" font-size="19">通常・途中・最大・口型の組合せを、正面／斜め／横・斜光で見る。</text>
+  <text x="58" y="1122" font-size="19">UV・法線・通常顔の形・口以外の保持と、保存後の表示を確認する。</text>
+  <text x="58" y="1152" font-size="18" fill="#576879">凡例：① 赤破線＝通常時の描画線　② 青実線＝開く境界　③ 白丸＝支点／確認位置</text>
+</g>
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+  <rect x="0" y="1212" width="1200" height="98" fill="#eef3f8"/>
+  <path d="M32 1220 H1168" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+  <text x="32" y="1251" font-family="Meiryo, sans-serif" font-size="25" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+  <text x="32" y="1283" font-family="Meiryo, sans-serif" font-size="25" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
+</svg>
