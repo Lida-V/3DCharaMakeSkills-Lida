@@ -68,6 +68,8 @@ Visible skin does not mean every ear and neck area should be covered. Distinguis
 
 Where volume is needed, preserve outer strands, add an inner hair layer, and tuck its upper edge beneath existing roots. Retain ear openings, a natural hairline, and clearance from the collar. Avoid a plate pressed against the neck or a uniform mass hanging below the ear. Adjust growth pattern, flow direction, and lift separately to match the design. Lida's adopted revision retained skin below the earlobe and flowed from behind the ear toward the nape. Its angles and millimeter values are not defaults for other characters.
 
+When the inner layer is built from thin strand cards, check crossings around the ear specifically. If the tip of a front card passes through the earlobe, it can look like a small earring-like fragment. Moving a crossing card's front edge back behind the ear usually looks more natural than lowering its root; lowering every card until none touches the head opens the back of the neck again. Roots that end inside the underside of the back of the head may be treated like ordinary hair roots if they cannot be seen from outside. Check with each part rendered in a distinct flat color, and with close views and head turns in the destination.
+
 ## 3. Check topology, bones, and basic following first
 
 **Goal: With secondary motion disabled, roots remain attached during head and neck movement and the required bends are possible.**

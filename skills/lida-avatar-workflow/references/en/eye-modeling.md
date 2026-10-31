@@ -99,6 +99,7 @@ Keep exposed interiors at test-range limits and tiny gaps as open items. A finit
 | Iris looks like a plate or step from the side | Check return-section shape and width as well as indentation depth |
 | Changing bone direction leaves cross-eyed appearance | Measure opening/iris/pupil positions and sclera ratios to isolate the cause |
 | Exported cornea turns white and hides the pupil | Test output early on one representative eye, including a no-cornea setup |
+| Eyeball looks set back when seen from the side | Check the color of the band from the lid edge to the eyeball. Skin color all around reads as a skin wall from the side; use sclera color toward the inner and outer corners and lid color above and below. Whether the eyeball can move forward depends on its clearance from the closed lid |
 
 ## First integrated request
 

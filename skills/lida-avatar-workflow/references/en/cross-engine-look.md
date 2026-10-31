@@ -43,6 +43,10 @@ Example AI request:
 
 > Check the expression showing the black mouth and a neutral face under matching conditions. Identify the visible faces first, then isolate the mouth bag's base color from light, AO, and shadows to explain the cause. If needed, compare a few mouth-bag-only color options while preserving shape, expressions, and other materials. Review front and oblique open-mouth views, closed mouth, and smile after saving in the destination. Report changed values, preservation of unrelated areas, and remaining work.
 
+## When head and body skin shade differently
+
+When skin on a separate material—such as a rebuilt head—is exported, that skin alone may receive no shade, so the neck seam shows a color difference. MToon shade is “shade image × shade color factor”; if the shade image is the base color image itself and the factor is 1, the shade equals the base color and shading disappears. Move the production toon material's shade color into the factor, or bake a shade image, then compare the neck seam with the body skin under the same light. If the shade boundary (shift) values differ from the body, an oblique light shows a step at the seam, so compare those values as well.
+
 ## When feather edges have a dark line
 
 For transparent-image edges, **inspect the shadow-color image and alpha together with base color**. Correcting only base color may leave a dark edge on the shadowed side.

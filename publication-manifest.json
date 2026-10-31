@@ -336,7 +336,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/cross-engine-look.md",
         "translation": "skills/lida-avatar-workflow/references/en/cross-engine-look.md",
-        "source_sha256": "2305466893f2fb93cd820d179db2e3c4d97ff9b06b516eb75666113b43172b0f"
+        "source_sha256": "fcd4e26736ea339475b358de238830bb07a7a863669c10c5b6171c0c2a90daa5"
       },
       {
         "source": "skills/lida-avatar-workflow/references/diagram-index.md",
@@ -356,7 +356,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/eye-modeling.md",
         "translation": "skills/lida-avatar-workflow/references/en/eye-modeling.md",
-        "source_sha256": "5cb44d329096937ea5ed95f96e1d77310d7fe82a13da127edcedce1e08ab999e"
+        "source_sha256": "f7a5705756945afa3b33c17c34f2722d0dd639f77118811395c0b9ccf65fc846"
       },
       {
         "source": "skills/lida-avatar-workflow/references/generation-feedback.md",
@@ -366,7 +366,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/hair-workflow.md",
         "translation": "skills/lida-avatar-workflow/references/en/hair-workflow.md",
-        "source_sha256": "da2d85a2d354c23be35647405693654925809ba6ac11a418a6555fed8dbd141a"
+        "source_sha256": "a9f94e6ab41670f7c6d9da5626cd4bd9f1ea8e3735ed9ff691a666a35dc85090"
       },
       {
         "source": "skills/lida-avatar-workflow/references/hand-shape.md",
@@ -511,7 +511,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/recent-production-lessons.md",
         "translation": "skills/lida-avatar-workflow/references/en/recent-production-lessons.md",
-        "source_sha256": "a357d90029af46c458d60f3c452b0179751a906c0ba1a5c83be193d49b890a47"
+        "source_sha256": "f8cf81a62f71a239875a37eaef2f90467afd54c2710fe7c31d6204171f591cfa"
       }
     ]
   },
