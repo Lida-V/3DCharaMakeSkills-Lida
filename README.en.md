@@ -2,7 +2,7 @@
 
 [日本語](README.md) · English
 
-**Version 1.11.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 27 diagram pairs and images rendered from Lida's actual model.
+**Version 1.12.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 28 diagram pairs and images rendered from Lida's actual model.
 
 ## See a production example
 
@@ -22,7 +22,7 @@ The original diagrams retain their Japanese labels. English captions, numbered d
 
 ## Completed reference model included in the Skills
 
-**[Download the complete Skills ZIP, including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.11.0/3DCharaMakeSkills-Lida-1.11.0.zip)**. The official ready-to-use ZIP contains the China Wafuku r35 VRM 1.0 model. Copy the entire extracted skill folder to install the model together with the skill; no separate model download is needed.
+**[Download the complete Skills ZIP, including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip)**. The official ready-to-use ZIP contains the China Wafuku r35 VRM 1.0 model. Copy the entire extracted skill folder to install the model together with the skill; no separate model download is needed.
 
 The model is a production-reference component of the Skills. Inspect relationships among face, hands, joints, sleeves, materials, expressions, and secondary motion. Use the [observation guide and AI request](skills/lida-avatar-workflow/references/en/model-reference.md) to inspect only the relevant parts.
 
@@ -38,7 +38,7 @@ Applications, generation services, API credentials, input illustrations, and sou
 
 ## Install and start
 
-1. Download and extract the **[official complete Skills ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.11.0/3DCharaMakeSkills-Lida-1.11.0.zip)**, which includes the reference model and its terms. GitHub Code → Download ZIP and automatic Source code ZIPs are maintenance sources without the model binary. Use the complete Release ZIP for normal installation.
+1. Download and extract the **[official complete Skills ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip)**, which includes the reference model and its terms. GitHub Code → Download ZIP and automatic Source code ZIPs are maintenance sources without the model binary. Use the complete Release ZIP for normal installation.
 2. Copy the entire `skills/lida-avatar-workflow` folder to your agent's skill location, including references, assets, scripts, LICENSE, and NOTICE. Do not copy only `SKILL.md`.
 3. Ask the agent to load the skill. English requests route to [SKILL.en.md](skills/lida-avatar-workflow/SKILL.en.md) and the [English reference index](skills/lida-avatar-workflow/references/en/README.md). You do not need Python or the shader merely to read the workflow.
 

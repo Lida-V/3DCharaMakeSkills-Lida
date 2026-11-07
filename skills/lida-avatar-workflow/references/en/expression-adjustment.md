@@ -62,14 +62,17 @@ The shared Japanese diagram illustrates a possible white-band cause: mismatched 
 - In one example, a particular vowel's rim depth changed by up to about 0.35 mm, with the same displacement applied to two adjacent lip rows.
 - That amount is an example. Establish mouth size, units, and face spacing before choosing a value.
 - Check painted mouth lines and inner-wall color too. Rolling the entire lip inward to hide a line easily creates new intersections.
-- Inspect teeth at closed, intermediate, and open values. Hiding teeth for every vowel changes vowels that need them visible.
+- If an inner mouth-pocket wall stays narrower than the open rim, oblique and plain-shaded views expose crescent blocks at the corners; conversely, pinning the front edge while pulling only the rear wall sharply outward tilts face normals across two-tone toon thresholds and draws vertical shade lines inside the dark cavity. Retract a two-stage pocket (skin-colored lip return plus dark rear wall) at a shallow dome angle (see the [mouth-rim smoothing schematic](../../assets/mouth-rim-smoothing.png)).
+- Inspect teeth at closed, intermediate, and open values. Hiding teeth for every vowel changes vowels that need them visible. When adding a 3D tongue inside the mouth, build a closed-manifold dome mesh coordinated with clean upper-incisor visibility, inward-tucked rear teeth, and downward/backward lower-teeth retraction.
 - See [mouth shapes](mouth-shapes.md) for mouth-only keys and a fixed jaw.
 
 ## Shadows, painted lines, and separate parts
 
 - After changing skin, inspect overlying shadow and line parts. Measure sinking below skin separately from floating above it.
 - Change only the required expression deltas; do not move the neutral face and other expressions together.
-- Make separate eyelashes follow corresponding skin faces. Unconditionally rotating an open root can expose its interior.
+- When forehead skin textures contain baked eyebrow shadows, moving only 3D brow parts leaves a double-eyebrow ghost behind; couple 3D brows and forehead skin in one harmonic/biharmonic field.
+- Rotate separate 3D eyelash cards around the corresponding eyelid closure axis rather than translating them straight down, which protrudes as black spikes in side/oblique closed-eye views. Because unconditionally rotating an open root can expose its interior, tune upper/lower rim overlap and eyeball-sphere clearance together.
+- Confirm from the expression sheet whether left/right one-eye closures (`blinkLeft`, `blinkRight`) should be smiling winks or gentle closures matching ordinary `blink` (`blinkLeft + blinkRight = blink` with zero shared moving vertices across a central fixed band).
 - If painted lid lines move with gaze, separate lines fixed to the face from patterns belonging to the eyeball.
 
 ## Inspection order
@@ -79,7 +82,7 @@ The shared Japanese diagram illustrates a possible white-band cause: mismatched 
 3. Explicitly state input rules, such as vowel sum ≤1 or same-eye blink plus wink ≤1.
 4. For combinations that double-add closure, consider a transition such as smile `e` and blink `1-e`.
 5. Sample faulty intervals more finely than the normal increment. Valid endpoints do not validate the interval.
-6. Inspect left/right oblique, side, and low views as well as front; plain and actual materials; full view and detail.
+6. Inspect left/right oblique, side, and low views as well as front; plain clay (such as Workbench Solid) and actual materials; full view and detail. Use plain oblique, side, and low-angle views to catch tent-like mouth creases, exposed inner-pocket crescents, and side-view eyelash spikes that flat toon shading can hide.
 7. Save/reopen and verify return to key 0, fixed-region displacement, and preservation of UVs, materials, and other keys.
 
 ## First request

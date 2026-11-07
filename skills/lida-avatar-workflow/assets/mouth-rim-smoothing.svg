@@ -1,0 +1,272 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1500" viewBox="0 0 1440 1500" role="img" aria-labelledby="title desc">
+<title id="title">開口時の口縁スムージングと2段裏袋：ガタつき・口角ジワ・口裏の縦筋を防ぐ</title>
+<desc id="desc">自作模式図。開口時に口縁がガタつく補助ベベル点の取り残しやsin型幅縮小による口角直外の局所圧縮、1階膜補間のテント折れジワと、全縁点のガウス畳み込み曲線および薄板スプライン重調和補間を比較する。また口裏袋を暗色1段で直結した閉口透け・開口幅内側の三日月残り・急角度引きの2階調トゥーン縦筋と、肌色折り返し＋暗色奥壁の2段裏袋を浅角度ドーム状に退避させる設計を比較する。実モデルの実測図ではない。</desc>
+<rect width="1440" height="1402" fill="#f4f7fb"/>
+<g font-family="Meiryo, Yu Gothic, sans-serif" fill="#19334a">
+  <text x="36" y="50" font-size="30.5" font-weight="700">開口時の口縁スムージングと2段裏袋：ガタつき・口角ジワ・口裏の縦筋を防ぐ</text>
+  <text x="36" y="86" font-size="18.5" fill="#4f6478">自作模式図｜全縁点の連続制御・ガウス畳み込みワープ・薄板スプライン補間・2段裏袋の浅角度退避（実測図ではない）</text>
+
+  <!-- Section A: Lip rim continuity & surrounding skin fairing -->
+  <rect x="32" y="108" width="1376" height="520" rx="16" fill="#ffffff" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="56" y="148" font-size="24" font-weight="700" fill="#167f69">A　口縁と周囲肌の変形：補助点の取り残し・口角の局所圧縮と、薄板スプライン補間</text>
+  <text x="56" y="180" font-size="18" fill="#4f6478">正面・斜めから見た開口輪郭と周囲メッシュの比較。補助ベベル点の漏れや1階補間は、粗い網目でガタつきや折れジワになる。</text>
+
+  <!-- Left Card A: Problem -->
+  <rect x="56" y="200" width="648" height="408" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="80" y="236" font-size="20.5" font-weight="700" fill="#c34251">再検討する例：補助点の取り残し・局所圧縮・1階膜補間</text>
+
+  <!-- Outer fixed boundary box (left) -->
+  <rect x="78" y="264" width="280" height="256" rx="22" fill="#eef4f9" stroke="#647c92" stroke-width="2.2" stroke-dasharray="6 5"/>
+  <text x="218" y="286" text-anchor="middle" font-size="13.5" font-weight="700" fill="#536d82">口外固定境界（変位0）</text>
+
+  <!-- Tent-crease polygon lines from 1st-order membrane solver -->
+  <g stroke="#d46a2e" stroke-width="2" stroke-dasharray="5 4" fill="none">
+    <line x1="98" y1="312" x2="156" y2="356"/>
+    <line x1="218" y1="300" x2="188" y2="346"/>
+    <line x1="218" y1="300" x2="248" y2="346"/>
+    <line x1="338" y1="312" x2="280" y2="356"/>
+    <line x1="102" y1="478" x2="158" y2="434"/>
+    <line x1="218" y1="494" x2="218" y2="452"/>
+    <line x1="334" y1="478" x2="278" y2="434"/>
+  </g>
+
+  <!-- Locally compressed vertical columns right outside mouth corners (sin warp) -->
+  <g stroke="#c34251" stroke-width="2.2">
+    <line x1="112" y1="358" x2="112" y2="432"/>
+    <line x1="117" y1="356" x2="117" y2="434"/>
+    <line x1="122" y1="354" x2="122" y2="436"/>
+    <line x1="314" y1="354" x2="314" y2="436"/>
+    <line x1="319" y1="356" x2="319" y2="434"/>
+    <line x1="324" y1="358" x2="324" y2="432"/>
+  </g>
+
+  <!-- Jagged sawtooth mouth opening with sharp corner horns -->
+  <polygon points="126,395 148,354 170,372 194,344 218,364 242,344 266,372 288,354 310,395 288,434 264,418 242,448 218,434 194,448 172,418 148,434" fill="#3a2330" stroke="#c34251" stroke-width="3.6" stroke-linejoin="miter"/>
+
+  <!-- Residual pink whisker marks outside narrowed corners -->
+  <line x1="94" y1="392" x2="120" y2="385" stroke="#d96b88" stroke-width="4" stroke-linecap="round"/>
+  <line x1="316" y1="385" x2="342" y2="392" stroke="#d96b88" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Uncontrolled auxiliary bevel dots causing sawtooth -->
+  <g fill="#ffffff" stroke="#c34251" stroke-width="2.5">
+    <circle cx="170" cy="372" r="5.5"/>
+    <circle cx="218" cy="364" r="5.5"/>
+    <circle cx="266" cy="372" r="5.5"/>
+    <circle cx="172" cy="418" r="5.5"/>
+    <circle cx="264" cy="418" r="5.5"/>
+  </g>
+
+  <!-- Badges 1 & 2 (Left Card A) -->
+  <circle cx="218" cy="330" r="13" fill="#ffffff" stroke="#c34251" stroke-width="2.8"/>
+  <text x="218" y="335" text-anchor="middle" font-size="15" font-weight="700" fill="#c34251">1</text>
+  <circle cx="326" cy="448" r="13" fill="#ffffff" stroke="#d46a2e" stroke-width="2.8"/>
+  <text x="326" y="453" text-anchor="middle" font-size="15" font-weight="700" fill="#d46a2e">2</text>
+  <text x="218" y="510" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b8561e">テント折れ・口角圧縮ジワ</text>
+
+  <!-- Callouts on right side of Left Card A -->
+  <text x="374" y="294" font-size="16.5" font-weight="700" fill="#c34251">① 補助点漏れで輪郭が鋸歯状</text>
+  <text x="374" y="321" font-size="15" fill="#354b5e">・折れ目ベベル点が自由頂点に残り</text>
+  <text x="374" y="344" font-size="15" fill="#354b5e">　口縁ポリゴンがガタガタに段差化</text>
+  <text x="374" y="369" font-size="15" fill="#354b5e">・端の急勾配（√r等）で口角が尖る</text>
+
+  <text x="374" y="408" font-size="16.5" font-weight="700" fill="#b8561e">② 口角の局所圧縮とテント折れ</text>
+  <text x="374" y="435" font-size="15" fill="#354b5e">・sin型の幅縮小で口角直外の1列が</text>
+  <text x="374" y="458" font-size="15" fill="#354b5e">　強く潰れて縦のピンチジワになる</text>
+  <text x="374" y="483" font-size="15" fill="#354b5e">・1階膜補間（Δu=0）は境界で勾配が</text>
+  <text x="374" y="506" font-size="15" fill="#354b5e">　折れ、頬〜顎上に直線ジワが出る</text>
+
+  <text x="80" y="562" font-size="16.8" font-weight="700" fill="#c34251">・第2列の唇端塗りが残ると、すぼめ口の両脇にピンクの横線が出る</text>
+  <text x="80" y="590" font-size="16.2" fill="#354b5e">・補正前の目標値を肌補間へ渡すと、口角の微笑み反りが段差として残る</text>
+
+  <!-- Right Card A: Good Design -->
+  <rect x="736" y="200" width="648" height="408" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="760" y="236" font-size="20.5" font-weight="700" fill="#167f69">設計例：全縁点のガウス畳み込み曲線＋薄板スプライン補間</text>
+
+  <!-- Outer fixed boundary box (right) -->
+  <rect x="758" y="264" width="280" height="256" rx="22" fill="#eef4f9" stroke="#647c92" stroke-width="2.2" stroke-dasharray="6 5"/>
+  <text x="898" y="286" text-anchor="middle" font-size="13.5" font-weight="700" fill="#536d82">口外固定境界（変位0）</text>
+
+  <!-- Smooth C1 biharmonic iso-rings and evenly spaced lateral grid -->
+  <ellipse cx="898" cy="396" rx="116" ry="86" fill="none" stroke="#b8dcd2" stroke-width="2" stroke-dasharray="6 4"/>
+  <ellipse cx="898" cy="396" rx="94" ry="66" fill="none" stroke="#8ec7b7" stroke-width="2"/>
+  <g stroke="#9abdd4" stroke-width="1.8" fill="none">
+    <path d="M784 356 Q796 396 784 436"/>
+    <path d="M800 350 Q810 396 800 442"/>
+    <path d="M996 350 Q986 396 996 442"/>
+    <path d="M1012 356 Q1000 396 1012 436"/>
+  </g>
+
+  <!-- Smooth oval mouth opening with 3D dome tongue & upper front teeth -->
+  <path d="M820 396 C836 344 960 344 976 396 C960 452 836 452 820 396 Z" fill="#3b222d" stroke="#167f69" stroke-width="4"/>
+  <!-- Upper clean teeth -->
+  <path d="M858 362 Q898 355 938 362 L934 372 Q898 367 862 372 Z" fill="#ffffff" opacity="0.95"/>
+  <!-- Smooth pink 3D dome tongue -->
+  <path d="M850 420 Q898 394 946 420 Q926 441 898 441 Q870 441 850 420 Z" fill="#eb8da2"/>
+
+  <!-- All rim + auxiliary bevel points smoothly aligned along curve -->
+  <g fill="#ffffff" stroke="#167f69" stroke-width="2.4">
+    <circle cx="820" cy="396" r="5"/>
+    <circle cx="842" cy="370" r="5"/>
+    <circle cx="868" cy="358" r="5"/>
+    <circle cx="898" cy="354" r="5"/>
+    <circle cx="928" cy="358" r="5"/>
+    <circle cx="954" cy="370" r="5"/>
+    <circle cx="976" cy="396" r="5"/>
+    <circle cx="844" cy="422" r="5"/>
+    <circle cx="898" cy="439" r="5"/>
+    <circle cx="952" cy="422" r="5"/>
+  </g>
+
+  <!-- Badges 1 & 2 (Right Card A) -->
+  <circle cx="898" cy="326" r="13" fill="#ffffff" stroke="#167f69" stroke-width="2.8"/>
+  <text x="898" y="331" text-anchor="middle" font-size="15" font-weight="700" fill="#167f69">1</text>
+  <circle cx="1004" cy="448" r="13" fill="#ffffff" stroke="#147cac" stroke-width="2.8"/>
+  <text x="1004" y="453" text-anchor="middle" font-size="15" font-weight="700" fill="#147cac">2</text>
+  <text x="898" y="510" text-anchor="middle" font-size="13.5" font-weight="700" fill="#167f69">C¹連続で頬・顎へ滑らかに減衰</text>
+
+  <!-- Callouts on right side of Right Card A -->
+  <text x="1054" y="294" font-size="16.5" font-weight="700" fill="#167f69">① 主縁＋補助ベベル点を一括制御</text>
+  <text x="1054" y="321" font-size="15" fill="#354b5e">・折れ目補助点や第2列唇端も曲線へ</text>
+  <text x="1054" y="344" font-size="15" fill="#354b5e">　整列し、(1−s²)^p で端まで丸く繋ぐ</text>
+  <text x="1054" y="369" font-size="15" fill="#354b5e">・閉口への字は口角端の跳ねを直線化</text>
+
+  <text x="1054" y="408" font-size="16.5" font-weight="700" fill="#147cac">② ガウス畳み込み＋重調和補間</text>
+  <text x="1054" y="435" font-size="15" fill="#354b5e">・一様線形幅＋ガウス核で滑らかに</text>
+  <text x="1054" y="458" font-size="15" fill="#354b5e">　幅を伸縮し、口角直外の密集を解消</text>
+  <text x="1054" y="483" font-size="15" fill="#354b5e">・薄板スプライン（Δ²u=0）へ最終実</text>
+  <text x="1054" y="506" font-size="15" fill="#354b5e">　変位を渡してテント折れをなくす</text>
+
+  <text x="760" y="562" font-size="16.8" font-weight="700" fill="#167f69">・口縁から頬・顎上まで折れ目のない曲面でつながり、口外は変位0を保つ</text>
+  <text x="760" y="590" font-size="16.2" fill="#354b5e">・すぼめ口（う・お）でも口角脇の色残りや縦のピンチジワが出ない</text>
+
+  <!-- Section B: Horizontal cross-section of 2-stage inner mouth pocket -->
+  <rect x="32" y="646" width="1376" height="566" rx="16" fill="#ffffff" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="56" y="686" font-size="24" font-weight="700" fill="#167f69">B　口裏袋の水平断面（上から見た模式図）：1段直結・急角度引きと、2段裏袋の浅角度退避</text>
+  <text x="56" y="718" font-size="18" fill="#4f6478">上側が奥（口腔内・+Y）、下側が顔の表面（正面・−Y）。閉口時の暗色透け、開口時の三日月残り、2階調トゥーンの縦筋を同時に防ぐ。</text>
+
+  <!-- Left Card B: Problem -->
+  <rect x="56" y="738" width="648" height="454" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="80" y="774" font-size="20.5" font-weight="700" fill="#c34251">再検討する例：暗色1段直結／内残り・急角度の横引き</text>
+
+  <!-- Cross-section diagram (Left Card B, x=76..340, y=804..1090) -->
+  <text x="208" y="812" text-anchor="middle" font-size="13.5" font-weight="700" fill="#536d82">↑ 奥（口腔内側）</text>
+  <text x="208" y="1092" text-anchor="middle" font-size="13.5" font-weight="700" fill="#536d82">↓ 正面（表の肌側）</text>
+
+  <!-- Outer cheek skin left & right -->
+  <path d="M84 968 Q106 998 138 1022" fill="none" stroke="#536d82" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M278 1022 Q310 998 332 968" fill="none" stroke="#536d82" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Left side problem: narrow pocket wall inside hw_open -> exposed crescent block -->
+  <polygon points="138,1022 166,1022 162,906 138,940" fill="#f6cbd2" stroke="#c34251" stroke-width="2.5"/>
+  <path d="M162 906 L254 906" fill="none" stroke="#3b222d" stroke-width="4"/>
+
+  <!-- Right side problem: front pinned at 278, back yanked sharply outward to 326 -> steep wall & toon shade step -->
+  <path d="M278 1022 L278 994 L326 914 L254 906" fill="none" stroke="#d46a2e" stroke-width="3.8" stroke-linejoin="round"/>
+  <!-- Toon vertical shade line marker -->
+  <line x1="298" y1="922" x2="298" y2="1008" stroke="#c34251" stroke-width="3" stroke-dasharray="5 3"/>
+
+  <!-- Open width double arrow -->
+  <line x1="138" y1="1048" x2="278" y2="1048" stroke="#19334a" stroke-width="2"/>
+  <polygon points="138,1048 147,1043.5 147,1052.5" fill="#19334a"/>
+  <polygon points="278,1048 269,1043.5 269,1052.5" fill="#19334a"/>
+  <text x="208" y="1068" text-anchor="middle" font-size="13.5" font-weight="700" fill="#19334a">開口幅（2·hw_open）</text>
+
+  <!-- Rim endpoints -->
+  <circle cx="138" cy="1022" r="6" fill="#ffffff" stroke="#c34251" stroke-width="2.6"/>
+  <circle cx="278" cy="1022" r="6" fill="#ffffff" stroke="#c34251" stroke-width="2.6"/>
+
+  <!-- Badges 3 & 4 (Left Card B) -->
+  <circle cx="152" cy="964" r="13" fill="#ffffff" stroke="#c34251" stroke-width="2.8"/>
+  <text x="152" y="969" text-anchor="middle" font-size="15" font-weight="700" fill="#c34251">3</text>
+  <text x="128" y="886" font-size="13.5" font-weight="700" fill="#c34251">三日月残り</text>
+
+  <circle cx="308" cy="954" r="13" fill="#ffffff" stroke="#d46a2e" stroke-width="2.8"/>
+  <text x="308" y="959" text-anchor="middle" font-size="15" font-weight="700" fill="#d46a2e">4</text>
+  <text x="298" y="886" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b8561e">急傾斜の縦筋</text>
+
+  <!-- Explanation boxes inside Left Card B -->
+  <rect x="350" y="812" width="330" height="128" rx="10" fill="#fdf2f4" stroke="#ecc6cd" stroke-width="1.8"/>
+  <text x="368" y="842" font-size="16.5" font-weight="700" fill="#c34251">③ 暗色1段直結・開口幅の内残り</text>
+  <text x="368" y="868" font-size="15" fill="#354b5e">暗色帯を縁へ直結すると閉口斜めで黒が</text>
+  <text x="368" y="892" font-size="15" fill="#354b5e">透け、開口幅より内に壁が残ると斜めや</text>
+  <text x="368" y="916" font-size="15" fill="#354b5e">色なし表示で三日月状の塊が覗く。</text>
+
+  <rect x="350" y="956" width="330" height="128" rx="10" fill="#fdf6f0" stroke="#edd4be" stroke-width="1.8"/>
+  <text x="368" y="986" font-size="16.5" font-weight="700" fill="#b8561e">④ 奥だけ急角度で外へ引く（縦筋）</text>
+  <text x="368" y="1012" font-size="15" fill="#354b5e">手前を止め奥だけ強く横へ引くと壁法線が</text>
+  <text x="368" y="1036" font-size="15" fill="#354b5e">大きく傾き、2階調トゥーンの明暗閾値を</text>
+  <text x="368" y="1060" font-size="15" fill="#354b5e">跨いで暗い口内に縦の陰影線が現れる。</text>
+
+  <text x="80" y="1132" font-size="16.8" font-weight="700" fill="#c34251">・表から見える中央ベベル面に暗色材質を塗ると、閉口正面に黒線が出る</text>
+  <text x="80" y="1160" font-size="16.2" fill="#354b5e">・引きすぎは頬の外肌への裏からの突き抜けも招くため、奥行き余白を管理する</text>
+
+  <!-- Right Card B: Good Design -->
+  <rect x="736" y="738" width="648" height="454" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="760" y="774" font-size="20.5" font-weight="700" fill="#167f69">設計例：肌色折り返し＋暗色奥壁の2段裏袋と浅角度ドーム退避</text>
+
+  <!-- Cross-section diagram (Right Card B, x=756..1020, y=804..1090) -->
+  <text x="888" y="812" text-anchor="middle" font-size="13.5" font-weight="700" fill="#536d82">↑ 奥（口腔内側）</text>
+  <text x="888" y="1092" text-anchor="middle" font-size="13.5" font-weight="700" fill="#536d82">↓ 正面（表の肌側）</text>
+
+  <!-- Outer cheek skin left & right (with safe clearance gap) -->
+  <path d="M762 962 Q786 996 818 1022" fill="none" stroke="#536d82" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M958 1022 Q990 996 1014 962" fill="none" stroke="#536d82" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Stage 1: Skin/lip material return band (~1mm inward, sharing ~40% lateral shift) -->
+  <path d="M818 1022 L811 986" fill="none" stroke="#167f69" stroke-width="5" stroke-linecap="round"/>
+  <path d="M958 1022 L965 986" fill="none" stroke="#167f69" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Stage 2: Shallow-angle dark dome cavity wall just outside hw_open (+margin) -->
+  <path d="M811 986 C804 942 824 896 888 896 C952 896 972 942 965 986" fill="#eef5fa" stroke="#147cac" stroke-width="4.2" stroke-linecap="round"/>
+
+  <!-- Closed-manifold 3D dome tongue cross-section inside cavity -->
+  <ellipse cx="888" cy="948" rx="44" ry="22" fill="#eb8da2" stroke="#c8647c" stroke-width="2"/>
+  <text x="888" y="953" text-anchor="middle" font-size="13" font-weight="700" fill="#6b2336">立体ドーム舌</text>
+
+  <!-- Open width double arrow -->
+  <line x1="818" y1="1048" x2="958" y2="1048" stroke="#19334a" stroke-width="2"/>
+  <polygon points="818,1048 827,1043.5 827,1052.5" fill="#19334a"/>
+  <polygon points="958,1048 949,1043.5 949,1052.5" fill="#19334a"/>
+  <text x="888" y="1068" text-anchor="middle" font-size="13.5" font-weight="700" fill="#167f69">開口幅＋小余白へ浅く退避</text>
+
+  <!-- Rim endpoints -->
+  <circle cx="818" cy="1022" r="6" fill="#ffffff" stroke="#167f69" stroke-width="2.6"/>
+  <circle cx="958" cy="1022" r="6" fill="#ffffff" stroke="#167f69" stroke-width="2.6"/>
+
+  <!-- Badges 3 & 4 (Right Card B) -->
+  <circle cx="802" cy="1002" r="13" fill="#ffffff" stroke="#167f69" stroke-width="2.8"/>
+  <text x="802" y="1007" text-anchor="middle" font-size="15" font-weight="700" fill="#167f69">3</text>
+  <circle cx="968" cy="936" r="13" fill="#ffffff" stroke="#147cac" stroke-width="2.8"/>
+  <text x="968" y="941" text-anchor="middle" font-size="15" font-weight="700" fill="#147cac">4</text>
+  <text x="888" y="880" text-anchor="middle" font-size="13.5" font-weight="700" fill="#147cac">外肌との奥行き余白を確保</text>
+
+  <!-- Explanation boxes inside Right Card B -->
+  <rect x="1030" y="812" width="330" height="128" rx="10" fill="#eef8f5" stroke="#bce0d5" stroke-width="1.8"/>
+  <text x="1048" y="842" font-size="16.5" font-weight="700" fill="#167f69">③ 手前に肌色の唇折り返し帯を挟む</text>
+  <text x="1048" y="868" font-size="15" fill="#354b5e">縁のすぐ裏は肌／唇材質（元UV継承）で</text>
+  <text x="1048" y="892" font-size="15" fill="#354b5e">折り返して閉口透けと薄っぺらさを防ぎ、</text>
+  <text x="1048" y="916" font-size="15" fill="#354b5e">中央ベベルは開口時に唇裏へ畳み込む。</text>
+
+  <rect x="1030" y="956" width="330" height="128" rx="10" fill="#eef5fa" stroke="#bfd6e6" stroke-width="1.8"/>
+  <text x="1048" y="986" font-size="16.5" font-weight="700" fill="#147cac">④ 開口幅＋小余白へ浅角度で退避</text>
+  <text x="1048" y="1012" font-size="15" fill="#354b5e">奥壁を開口幅のすぐ外へ逃がしつつ折り返し</text>
+  <text x="1048" y="1036" font-size="15" fill="#354b5e">列にも横移動を配分して法線傾きを抑え、</text>
+  <text x="1048" y="1060" font-size="15" fill="#354b5e">三日月残りとトゥーン縦筋を同時に防ぐ。</text>
+
+  <text x="760" y="1132" font-size="16.8" font-weight="700" fill="#167f69">・口腔内には閉じた多様体の立体ドーム舌を置き、下歯は下後方へ退避させる</text>
+  <text x="760" y="1160" font-size="16.2" fill="#354b5e">・面張り替え後は孤立辺（wire_edges=0）を掃除し、外肌との非貫通を確認する</text>
+
+  <!-- Section C: Brow/eyelash coupling, VRM override, and multi-view inspection -->
+  <rect x="32" y="1230" width="1376" height="148" rx="15" fill="#e8f2f8" stroke="#bad5e2" stroke-width="2"/>
+  <text x="56" y="1266" font-size="20.5" font-weight="700">C　目・眉の連動、VRMオーバーライド、多視点検品（確認セット）</text>
+  <text x="56" y="1298" font-size="17">・おでこに眉影が描かれた顔は3D眉とおでこ肌を一体補間して二重眉を防ぎ、別パーツの立体まつ毛はまぶたの閉眼軸回転で横視点の棘をなくす。</text>
+  <text x="56" y="1327" font-size="17">・大きく口を開く感情（happy・surprised）は overrideMouth="blend" で二重開口を防ぎ、実材質＋色なしSolid（斜め・横・下）と途中値で検品する。</text>
+  <text x="56" y="1357" font-size="16" fill="#4f6478">凡例：①口縁の主点と補助点　②周囲肌の補間（緑/青＝重調和）　③第1段：唇折り返し帯　④第2段：暗色口腔壁と退避角 ※寸法・比率は固定値ではない</text>
+</g>
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+  <rect x="0" y="1402" width="1440" height="98" fill="#eef3f8"/>
+  <path d="M32 1410 H1408" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+  <text x="32" y="1441" font-family="Meiryo, sans-serif" font-size="25" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+  <text x="32" y="1473" font-family="Meiryo, sans-serif" font-size="25" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
+</svg>

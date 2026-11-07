@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "1.11.0",
+  "version": "1.12.0",
   "status": "distribution-ready",
   "scope": "Production skill, methods, diagrams, helpers, and a reference-model component included in the official complete distribution ZIP. Source checkout stores pinned acquisition metadata; reference dance and other models are excluded.",
   "visual_review_required": true,
@@ -89,6 +89,8 @@
     "skills/lida-avatar-workflow/assets/model-reference/china-wafuku/reference-manifest.json",
     "skills/lida-avatar-workflow/assets/mouth-seam-opening.png",
     "skills/lida-avatar-workflow/assets/mouth-seam-opening.svg",
+    "skills/lida-avatar-workflow/assets/mouth-rim-smoothing.svg",
+    "skills/lida-avatar-workflow/assets/mouth-rim-smoothing.png",
     "skills/lida-avatar-workflow/assets/skirt-layer-route.png",
     "skills/lida-avatar-workflow/assets/skirt-layer-route.svg",
     "skills/lida-avatar-workflow/assets/wing-build-sequence.png",
@@ -241,7 +243,9 @@
     "skills/lida-avatar-workflow/assets/hand-opposition-weights.png": "368a39ad4860495b498637812b4984b356baee04f8990190b3ea0780f3dde454",
     "skills/lida-avatar-workflow/assets/hand-opposition-weights.svg": "00a9b229f12d724c23f9357e6a4c7130466d68b5e33e96d0914da41786fb74e9",
     "skills/lida-avatar-workflow/assets/finger-wrist-convergence.png": "1919a5d7973d75cb9e64cc7a4003d500e26e4c5fd647a44d0ed3637e068ef01e",
-    "skills/lida-avatar-workflow/assets/finger-wrist-convergence.svg": "ca4fbf37f2ac43045ef47da22cb7fc03cc6d46f1df4eca4366236b20f41083f6"
+    "skills/lida-avatar-workflow/assets/finger-wrist-convergence.svg": "ca4fbf37f2ac43045ef47da22cb7fc03cc6d46f1df4eca4366236b20f41083f6",
+    "skills/lida-avatar-workflow/assets/mouth-rim-smoothing.png": "a7df9379b9337c83101eb1205d3f0af1a466a387337da378ff0eb8839b7f54a8",
+    "skills/lida-avatar-workflow/assets/mouth-rim-smoothing.svg": "2d08274f07396b79329dc9020635a0bc908f047b338f210f065e9ed7ce697861"
   },
   "shader_repository": "https://github.com/Lida-V/LidaAngelToon",
   "code_licenses": {
@@ -250,7 +254,7 @@
   "visible_provenance": {
     "name": "Lida",
     "repository": "https://github.com/Lida-V/3DCharaMakeSkills-Lida",
-    "diagram_pairs": 27,
+    "diagram_pairs": 28,
     "preview_pngs": 2,
     "placement": "Added footer margin; explanatory content and original model-preview pixel area retained."
   },
@@ -284,12 +288,12 @@
       {
         "source": "README.md",
         "translation": "README.en.md",
-        "source_sha256": "60ad9999592c9239d5fa3f223acb67c44a22f9435ccb9fb5837b61b57f4b57d2"
+        "source_sha256": "d473300324817e55d8808aa5007bc3534e7166a4e7cc7b6cfeb75c6982b89abd"
       },
       {
         "source": "UPDATING.md",
         "translation": "UPDATING.en.md",
-        "source_sha256": "8596263fd05a3b63e571a620fb238aea7d1b55137476e96063f786c47861f014"
+        "source_sha256": "aa2948810121a769969062dc0bbfe3ca6a47258ee63d2edadd7f1238b048e075"
       },
       {
         "source": "media/README.md",
@@ -319,7 +323,7 @@
       {
         "source": "skills/lida-avatar-workflow/assets/README.md",
         "translation": "skills/lida-avatar-workflow/assets/README.en.md",
-        "source_sha256": "0a20b1497b0b1072f11f40e109255e358b136510dfa36cc4948acee3d1932331"
+        "source_sha256": "99aed027610a61f2acd5e7839d1ff9d6e177746f8baa748b0d802ca16081d956"
       },
       {
         "source": "skills/lida-avatar-workflow/references/README.md",
@@ -349,12 +353,12 @@
       {
         "source": "skills/lida-avatar-workflow/references/diagram-index.md",
         "translation": "skills/lida-avatar-workflow/references/en/diagram-index.md",
-        "source_sha256": "546387a5d99f99fb334c5b92a2e40a6afd6f27f2d6d60f16b6c1f9730c02c1b2"
+        "source_sha256": "8fe1106c348a88b7b60d33fc9cc08b0976cd77efaee9e2d02c16883cc390e121"
       },
       {
         "source": "skills/lida-avatar-workflow/references/expression-adjustment.md",
         "translation": "skills/lida-avatar-workflow/references/en/expression-adjustment.md",
-        "source_sha256": "89b9aa00671054c04fe0b5b98759e68621dfb1d6b3c0e789b3d72212b609a199"
+        "source_sha256": "6f7d1821ed0c70ebefcb9b0536030aaf9a5cb229ac639445f87d4364908642f8"
       },
       {
         "source": "skills/lida-avatar-workflow/references/expression-sheets.md",
@@ -419,7 +423,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/mouth-shapes.md",
         "translation": "skills/lida-avatar-workflow/references/en/mouth-shapes.md",
-        "source_sha256": "63ef7e4fe385ab79f0294f16a286403dd7d0637145a7a2171fc6545916836781"
+        "source_sha256": "94870d5b71db489d16edaaeda513937dc8479bc54de4ed92ba2016cc07d8e229"
       },
       {
         "source": "skills/lida-avatar-workflow/references/multiangle-threeview.md",
@@ -499,7 +503,7 @@
       {
         "source": "model-reference/china-wafuku/README.md",
         "translation": "model-reference/china-wafuku/README.en.md",
-        "source_sha256": "ee1eb9140bdbff3d1eb8f284e9e6e4bd0de9a633ab1c97284bfd43279fd10307"
+        "source_sha256": "636231a664ab2652807e42eb2cd3b6556b1a111638157a822cd59f019691d833"
       },
       {
         "source": "model-reference/china-wafuku/MODEL-TERMS.md",
@@ -509,7 +513,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/model-reference.md",
         "translation": "skills/lida-avatar-workflow/references/en/model-reference.md",
-        "source_sha256": "bb922f6905df22163c2c1319eec24d55412c0c36fb9060d0ff3a70f7957b6573"
+        "source_sha256": "5f7ebfcc4ad201f351c59fd37ca39d79ce76f3e6b1fb5bcffdeb70f0b270e6e8"
       },
       {
         "source": "skills/lida-avatar-workflow/assets/model-reference/china-wafuku/MODEL-TERMS.md",
@@ -519,7 +523,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/recent-production-lessons.md",
         "translation": "skills/lida-avatar-workflow/references/en/recent-production-lessons.md",
-        "source_sha256": "4bce6eaf1b45d3e47ecffc92192062c364e9f08f68942600f9f79f0b4cbb2756"
+        "source_sha256": "d1a7364d46a13fc3da5d1096c5c2bd3630f2033e6f844c0a16c0bf3a2f6e0a40"
       }
     ]
   },

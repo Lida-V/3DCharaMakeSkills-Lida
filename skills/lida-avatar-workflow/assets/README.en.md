@@ -2,7 +2,7 @@
 
 [Japanese source](README.md)
 
-The [English diagram index](../references/en/diagram-index.md) links all 27 PNG/SVG pairs to their chapters. PNG is for display; SVG is for enlargement. Shared figures retain Japanese labels; English chapter captions and legends explain their numbers, colors, directions, fixed areas, and line meanings.
+The [English diagram index](../references/en/diagram-index.md) links all 28 PNG/SVG pairs to their chapters. PNG is for display; SVG is for enlargement. Shared figures retain Japanese labels; English chapter captions and legends explain their numbers, colors, directions, fixed areas, and line meanings.
 
 ## Production reference model
 
@@ -10,7 +10,7 @@ The official finished Skills ZIP includes `model-reference/china-wafuku/ChinaWaf
 
 Redistribution of the model and sale of modified versions are prohibited. Its [model-specific terms](model-reference/china-wafuku/MODEL-TERMS.en.md) are separate from the terms for the original figures below and GPL code. Users must not redistribute the complete ZIP containing the model.
 
-GitHub Code / Source code ZIP contains maintenance source. Use the [official finished distribution ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.11.0/3DCharaMakeSkills-Lida-1.11.0.zip) to install the model together with the skill.
+GitHub Code / Source code ZIP contains maintenance source. Use the [official finished distribution ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip) to install the model together with the skill.
 
 ## Origin and role
 
@@ -27,6 +27,7 @@ All figures are original instructional schematics except the two historical knee
 | `eye-structure-flow` | Eye surface, iris/pupil, sclera, optional reflection layer, and lines that must not rotate with the eyeball |
 | `face-key-locality` | Local expression keys with jaw, outline, and unrelated regions fixed |
 | `mouth-seam-opening` | Painted neutral mouth line, actual upper/lower opening edges, corner pivots, and front/interior fold; original schematic, not proof of a completed repair |
+| `mouth-rim-smoothing` | Full-rim plus auxiliary-bevel Gaussian-convolved curves and thin-plate spline skin fairing versus sawtooth rims, corner-pinch compression, and membrane tent creases, plus a shallow-angle two-stage inner mouth pocket; original schematic, not an actual-model plot |
 | `eyelid-band-follow` | Local eyelid-edge and adjacent-row transforms, with an outward fade |
 | `hand-shortening-flow` | Adjust palm height separately from the U-shaped thumb/index outline |
 | `hand-opposition-weights` | Outer-contour proportional compression plus frozen-surface tangential redistribution, and circumferential thumb-tube weights plus centered palm anchor and radial index protection during opposition; original schematic, not an actual-model plot |
@@ -52,6 +53,6 @@ Shapes, dimensions, row counts, and version symbols are not common settings. Mat
 
 ## Attribution visible on standalone figures
 
-All 27 SVG/PNG pairs have a margin below the explanation displaying “© 2026 Lida · 3DCharaMakeSkills-Lida” and `github.com/Lida-V/3DCharaMakeSkills-Lida`. This identifies the origin when an image is shared alone without covering text, lines, or arrows.
+All 28 SVG/PNG pairs have a margin below the explanation displaying “© 2026 Lida · 3DCharaMakeSkills-Lida” and `github.com/Lida-V/3DCharaMakeSkills-Lida`. This identifies the origin when an image is shared alone without covering text, lines, or arrows.
 
 The original SVG shapes and text are preserved; PNG is rendered from SVG. Check that the attribution band is readable in both. Adding the band did not change the usage terms.

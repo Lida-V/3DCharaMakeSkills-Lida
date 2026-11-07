@@ -2,7 +2,7 @@
 
 日本語 · [English](README.en.md)
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **日本語・英語対応の配布用1.11.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、27枚の図解と実モデルの表示例を収録しています。英語版はREADME・スキル入口・参照全章と依頼文に対応し、図内の日本語ラベルは英語の凡例と説明を併用します。
+画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **日本語・英語対応の配布用1.12.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、28枚の図解と実モデルの表示例を収録しています。英語版はREADME・スキル入口・参照全章と依頼文に対応し、図内の日本語ラベルは英語の凡例と説明を併用します。
 
 ## 実際の制作例
 
@@ -24,7 +24,7 @@
 
 ## Skillsに含まれる完成参照モデル
 
-**[参照モデルを含むSkills一式をダウンロード](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.11.0/3DCharaMakeSkills-Lida-1.11.0.zip)** — 公式の完成ZIPに、制作例「チャイナ和服新キャラ r35」のVRM 1.0を収録しています。展開後のスキルフォルダを丸ごと導入すると、参照モデルも一緒に配置されます。別ダウンロードは不要です。
+**[参照モデルを含むSkills一式をダウンロード](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip)** — 公式の完成ZIPに、制作例「チャイナ和服新キャラ r35」のVRM 1.0を収録しています。展開後のスキルフォルダを丸ごと導入すると、参照モデルも一緒に配置されます。別ダウンロードは不要です。
 
 このモデルはSkillsの制作参照資料です。顔・手指・関節・袖・材質・表情・揺れの関係を実物で学べます。[何を見るか・AIへの依頼例](skills/lida-avatar-workflow/references/model-reference.md)から必要な部位だけを参照してください。
 
@@ -38,7 +38,7 @@
 
 ## 入手して使う
 
-1. **[公式のSkills一式ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.11.0/3DCharaMakeSkills-Lida-1.11.0.zip)**を取得して展開します。参照モデル・専用条件も含まれています。GitHubのCode → Download ZIPと自動生成のSource code ZIPは保守用ソースで、モデル本体を含みません。通常の導入には上記の完成ZIPを使ってください。
+1. **[公式のSkills一式ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip)**を取得して展開します。参照モデル・専用条件も含まれています。GitHubのCode → Download ZIPと自動生成のSource code ZIPは保守用ソースで、モデル本体を含みません。通常の導入には上記の完成ZIPを使ってください。
 2. `skills/lida-avatar-workflow` を、参照文書・画像・LICENSE・NOTICE・補助スクリプトを含め、エージェントのスキル保存先へ丸ごとコピーします。`SKILL.md`だけにしないでください。
 3. スキルを読み込ませ、次の導入確認を依頼します。読むだけの利用者にPythonやシェーダーの導入は必要ありません。
 

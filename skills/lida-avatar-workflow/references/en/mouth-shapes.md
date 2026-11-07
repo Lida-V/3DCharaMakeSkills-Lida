@@ -33,7 +33,10 @@ Use each Tripo model as a shape reference; do not transfer its vertex indices or
 ## Concrete adjustments
 
 - Parameterize width, vertical opening, and depth projection independently. A front view cannot establish depth.
-- Move lip rims and neighboring faces continuously instead of pulling mouth corners as isolated points.
+- Move lip rims and neighboring faces continuously instead of pulling mouth corners as isolated points: include auxiliary crease/bevel vertices and painted second-row corner tips in the parametric target curve so uncontrolled bevel points do not form a sawtooth rim or leave pink horizontal marks beside narrowed mouths (see the [mouth-rim smoothing and two-stage pocket schematic](../../assets/mouth-rim-smoothing.png)).
+- Avoid `sin(π/2·s)` width-narrowing profiles (whose zero slope at the corner locally compresses skin right outside the corner into vertical pinch creases) and $\sqrt{r}$ tip profiles (whose infinite slope creates sharp corner horns). Convolve a uniform linear width scale plus smooth outer decay with a Gaussian kernel, paired with $(1 - s^2)^p$ oval opening curves.
+- When fairing surrounding cheek and upper-chin skin, first-order Laplacian smoothing ($\Delta u = 0$, membrane interpolation) kinks gradients across the boundary curve and leaves tent-like creases on coarse meshes. Solve a cotangent-Laplacian thin-plate spline / biharmonic system ($(L^T L + \varepsilon L) u = 0$) driven by the **exact final rim displacement** after all corner adjustments so displacement decays with $C^1$ continuity.
+- When unzipping painted corner grooves and building an inner pocket, follow actual UV seams and anatomical groove edges (removing orphaned `wire_edges` afterward) and build a **two-stage inner pocket**: a front lip-return band using the skin/lip material (inheriting loop UVs) plus a rear dark cavity wall. During openings, tuck the central first bevel behind the lip and retract the rear wall slightly wider than the open half-width at a shallow dome angle (sharing part of the lateral shift across the inner return row) to prevent both exposed corner crescents and two-tone toon vertical shade lines while maintaining clearance behind outer cheek skin.
 - For a different face size, compare proportions to mouth half-width rather than copying millimeter values.
 - Add an outer fade band so displacement does not leak into cheeks, nose, eyes, jaw outline, or neck.
 - Inspect inner lips and boundaries with teeth/tongue. A correct opening outline can still contain intersecting inner faces.
@@ -47,6 +50,7 @@ Use each Tripo model as a shape reference; do not transfer its vertex indices or
 - This production limited total vowel input to 1. Sums above 1 folded corners, so output used the same rule.
 - That rule is not universal; choose it for the actual keys and software's additive behavior.
 - First test whether existing mouth/smile keys provide an open-mouth smile. Add references only where needed.
+- When combining emotion presets with vowel lip-sync in VRM 1.0, set `overrideMouth = "blend"` on wide-open emotions (`happy`, `surprised`) to prevent double-opening, while keeping `overrideMouth = "none"` on closed-mouth emotions (`angry`, `sad`, `relaxed`). If closed frowns narrow mouth width, document lip-sync weight caps or override rules so stacking `100%` narrow vowels (`ou`, `oh`) does not over-compress width.
 
 ## First request
 
