@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "1.9.0",
+  "version": "1.10.0",
   "status": "distribution-ready",
   "scope": "Production skill, methods, diagrams, helpers, and a reference-model component included in the official complete distribution ZIP. Source checkout stores pinned acquisition metadata; reference dance and other models are excluded.",
   "visual_review_required": true,
@@ -280,17 +280,17 @@
       {
         "source": "README.md",
         "translation": "README.en.md",
-        "source_sha256": "6236832c12eff8375aca10af2bca97168a16cbb5a5ae880563e1fd4aa4a38ab2"
+        "source_sha256": "fdd0e18add23b9e458b8ad9709d0d55d519218e1741285d3726d8edd3e4781dc"
       },
       {
         "source": "UPDATING.md",
         "translation": "UPDATING.en.md",
-        "source_sha256": "fc9ac4586b7791f407f858d6dc9ba62082b6afa42dac4ff11ac42ea5466546a0"
+        "source_sha256": "822f71cf961dbec25dd0cf992424b102a362e6baa8dcf5d3b907560d0123671e"
       },
       {
         "source": "media/README.md",
         "translation": "media/README.en.md",
-        "source_sha256": "47f754bc988cd5c556722d176498854ad38699a8f8969615a1e5de8ed178a094"
+        "source_sha256": "52ce464cd932a2e8459fbee6bf039a75171d5a50039cd2dd49d22aa2d391a4c6"
       },
       {
         "source": "scripts/README.md",
@@ -315,7 +315,7 @@
       {
         "source": "skills/lida-avatar-workflow/assets/README.md",
         "translation": "skills/lida-avatar-workflow/assets/README.en.md",
-        "source_sha256": "81bf161adb2751c65c51c492658fbd10d7b6c67750d9ee7226c08d9bd9ff7d4a"
+        "source_sha256": "42a415031b956aa3a601e9823ba99b4c79bc4d8c19857ccc1c9472e7457d6b5e"
       },
       {
         "source": "skills/lida-avatar-workflow/references/README.md",
@@ -495,7 +495,7 @@
       {
         "source": "model-reference/china-wafuku/README.md",
         "translation": "model-reference/china-wafuku/README.en.md",
-        "source_sha256": "e29f1a2e4886762b0fc57b83e6e21680a84e86b2036e50e826b1d8efa19ceadb"
+        "source_sha256": "1415c13258518e732364cfc9087e4b08ed0409706654e483a4bcda16abcdd253"
       },
       {
         "source": "model-reference/china-wafuku/MODEL-TERMS.md",
@@ -505,7 +505,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/model-reference.md",
         "translation": "skills/lida-avatar-workflow/references/en/model-reference.md",
-        "source_sha256": "675e6d6521e1bd9eb624118e042b12e2814dbdee3686af3229a8f14815cb1cfc"
+        "source_sha256": "270379e52462038b2ae7afb9c9bb5ea05c5820eac2870edda7212e9cb22843ea"
       },
       {
         "source": "skills/lida-avatar-workflow/assets/model-reference/china-wafuku/MODEL-TERMS.md",

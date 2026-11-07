@@ -14,7 +14,7 @@
 
 モデル本体の再配布・改変による販売は禁止です。[モデル専用条件](model-reference/china-wafuku/MODEL-TERMS.md)を適用し、下記の自作図版やGPLコードの条件とは分けます。モデルを含む一式ZIPを利用者が再配布することはできません。
 
-GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒に導入する場合は[公式完成配布ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.9.0/3DCharaMakeSkills-Lida-1.9.0.zip)を使ってください。
+GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒に導入する場合は[公式完成配布ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.10.0/3DCharaMakeSkills-Lida-1.10.0.zip)を使ってください。
 
 ## 出所と役割
 
