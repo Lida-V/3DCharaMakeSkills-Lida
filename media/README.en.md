@@ -2,14 +2,14 @@
 
 [Japanese / 日本語](README.md) · Source baseline: 2026-11-07.
 
-These images and videos show Lida's Blender finish (stills and the 10-second turntable from 2026-10-15; the 18-second diverse-motion showcase from the 2026-11-07 new-head and hand-reshape candidate). They are rendered from the actual 3D model, not generated illustrations or schematics.
+These images and videos show Lida's Blender finish (the two stills and 18-second diverse-motion showcase from the 2026-11-07 new-head and hand-reshape candidate; the 10-second turntable from 2026-10-15). They are rendered from the actual 3D model, not generated illustrations or schematics.
 
 | Item | What it shows |
 | --- | --- |
 | `lida-finished-body.png` (820×1098) | Oblique full-body view: layered clothing, hair, wings, ornaments, shoes. Original 820×1000 image plus a bottom attribution band. |
 | `lida-finished-face.png` (820×1098) | Front bust view: face, hair, crown, collar, chest ornaments. Original 820×1000 image plus a bottom attribution band. |
 | [lida-model-turntable-attributed.mp4](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.2.2/lida-model-turntable-attributed.mp4) (Release attachment) | 10 seconds, 1448×984, 24 fps, 240 frames, no audio. Full-body rotation, smile, surprise, “a” mouth shape, blink. Original 1448×900 frame plus a bottom attribution band. |
-| [lida-motion-showcase-attributed.mp4](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.10.0/lida-motion-showcase-attributed.mp4) (Release attachment) | 18 seconds, 1920×1164, 24 fps, 432 frames, no audio. Synchronized 4-panel full-body, bust-up, and right-hand toon/palmar-clay close-ups (wave greeting, four-finger wave, grip/fist, peace & wink, pointing, thumb-opposition pinches, flower pose & bow, wrist flexion, wing articulation, and hair sway). Original 1920×1080 frame plus an 84-pixel bottom attribution band. |
+| [lida-motion-showcase-attributed.mp4](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.11.0/lida-motion-showcase-attributed.mp4) (Release attachment) | 18 seconds, 1920×1164, 24 fps, 432 frames, no audio. Synchronized 4-panel full-body, bust-up, and right-hand toon/palmar-clay close-ups (wave greeting, four-finger wave, grip/fist, peace & wink, pointing, thumb-opposition pinches, flower pose & bow, wrist flexion, wing articulation, and hair sway). Original 1920×1080 frame plus an 84-pixel bottom attribution band. |
 
 This production example starts with reference images and models generated through services such as Tripo, followed by adjustments to shape, expression keys, bones/skin weights, clothing/hair/wing following, and toon materials. The finish includes iterative production work. It is neither the result of the initial generation alone nor a guarantee of automatically reproducing the same quality.
 

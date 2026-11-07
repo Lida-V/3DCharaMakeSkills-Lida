@@ -2,7 +2,7 @@
 
 [日本語](README.md) · [English](README.en.md)
 
-[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全26枚に表示用PNGと拡大用SVGを同梱しています。
+[図解索引](../references/diagram-index.md)から、説明章とPNG/SVGへ進みます。全27枚に表示用PNGと拡大用SVGを同梱しています。
 
 - `material-repair-selection`：割当/画像設定/UV・材質値/共有先・形/法線、共有材質と元画像保持を分ける自作模式図。
 - `mesh-repair-selection`：意図した開口を残し、向き・局所パッチ・境界接続・局所再構築を選ぶ自作模式図。
@@ -14,7 +14,7 @@
 
 モデル本体の再配布・改変による販売は禁止です。[モデル専用条件](model-reference/china-wafuku/MODEL-TERMS.md)を適用し、下記の自作図版やGPLコードの条件とは分けます。モデルを含む一式ZIPを利用者が再配布することはできません。
 
-GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒に導入する場合は[公式完成配布ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.10.0/3DCharaMakeSkills-Lida-1.10.0.zip)を使ってください。
+GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒に導入する場合は[公式完成配布ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.11.0/3DCharaMakeSkills-Lida-1.11.0.zip)を使ってください。
 
 ## 出所と役割
 
@@ -27,6 +27,7 @@ GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒�
 - `eyelid-band-follow`（自作模式図）：まぶたの縁と隣接列の局所変換、外側への減衰。
 - `hand-shortening-flow`（自作模式図）：掌の高さとU字周辺の輪郭を別々に調整。
 - `hand-opposition-weights`（自作模式図）：外縁直線化での定数クランプと比例圧縮＋凍結表面への接線再配分、および対向動作での親指円筒の円周対称重み・掌中央アンカー・人差し指外縁保護を比較。実モデルの実測図ではない。
+- `finger-wrist-convergence`（自作模式図）：4指ロール0°の平行降下と横ずれ÷指長で配分した手首中央収束軸、および定数ロールの180°戻り・外開き残存と｜基節｜＜｜中節｜＜｜末節｜の漸増ロール＋外開き減衰を比較。実モデルの実測図ではない。
 - `hand-structure-map`（自作模式図）：手の向き・目印と、指関節の輪・骨・母指球・指間の面のつながりを対応。最適トポロジーや比率を指定する図ではない。
 - `hand-deformation-check`（自作模式図）：空間距離と皮膚表面の経路の違い、形・骨・ウェイトの診断、単指・親指・握りの途中と爪の確認。
 - `skirt-layer-route`（自作模式図）：層順序、支持域、自由裾と脚の通り道。
@@ -48,6 +49,6 @@ GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒�
 
 ## 資料単体で分かる出典表示
 
-全26組のSVGとPNGは、説明の下へ余白を足し、「© 2026 Lida · 3DCharaMakeSkills-Lida」と `github.com/Lida-V/3DCharaMakeSkills-Lida` を表示しています。本文・線・矢印を覆う透かしではなく、画像だけで共有された時の来歴表示です。
+全27組のSVGとPNGは、説明の下へ余白を足し、「© 2026 Lida · 3DCharaMakeSkills-Lida」と `github.com/Lida-V/3DCharaMakeSkills-Lida` を表示しています。本文・線・矢印を覆う透かしではなく、画像だけで共有された時の来歴表示です。
 
 SVGの元の図形・文字は保持し、PNGはそのSVGから描画しています。PNGとSVGの両方で出典帯が読めることを確認して更新してください。表示の追加で利用条件を変更してはいません。

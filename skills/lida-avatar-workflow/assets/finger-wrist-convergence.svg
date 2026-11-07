@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1500" viewBox="0 0 1440 1500" role="img" aria-labelledby="title desc">
+<title id="title">4指の屈曲軸とロール配分：外浮き・平行握りを防ぎ手首中央へ収束させる</title>
+<desc id="desc">自作模式図。手のひら側から見た4指の屈曲方向について、全指ロール0度の平行降下による小指の外浮きと、手首中央からの横ずれを指長で割って配分した収束ロールを比較する。また3節すべてを定数ロールにした際の180度握りでの横寄り消失および深い屈曲に残る外開き回転と、基節より中節・末節のロール角を漸増させ深い屈曲で外開きを減衰させる設計を比較する。実モデルの実測図ではない。</desc>
+<rect width="1440" height="1402" fill="#f4f7fb"/>
+<g font-family="Meiryo, Yu Gothic, sans-serif" fill="#19334a">
+  <text x="36" y="50" font-size="30.5" font-weight="700">4指の屈曲軸とロール配分：外浮き・平行握りを防ぎ手首中央へ収束させる</text>
+  <text x="36" y="86" font-size="18.5" fill="#4f6478">自作模式図｜手首中央への収束角・指長正規化・3節の漸増ロール・深い屈曲での外開き減衰（実測図ではない）</text>
+
+  <!-- Section A: 4-finger wrist-center convergence -->
+  <rect x="32" y="108" width="1376" height="520" rx="16" fill="#ffffff" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="56" y="148" font-size="24" font-weight="700" fill="#167f69">A　4指の屈曲方向：真上ロール（0°）の平行降下と、手首中央へ向かう収束軸</text>
+  <text x="56" y="180" font-size="18" fill="#4f6478">手のひら側から見た屈曲軌道の比較。付け根の弧に横幅があり手首へ向かって細くなるため、真下へ曲げると小指側が外へ浮く。</text>
+
+  <!-- Left Card A: Problem (0 deg parallel rolls) -->
+  <rect x="56" y="200" width="648" height="408" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="80" y="236" font-size="20.5" font-weight="700" fill="#c34251">再検討する例：4指すべての骨ロールを真上（0°）に揃える</text>
+
+  <!-- Extended fingers ghost (left card) -->
+  <g fill="none" stroke="#b3c2cf" stroke-width="2" stroke-dasharray="5 4">
+    <path d="M168 338 L168 268 C168 255 188 255 188 268 L188 338"/>
+    <path d="M214 328 L214 254 C214 241 234 241 234 254 L234 328"/>
+    <path d="M262 336 L262 264 C262 251 282 251 282 264 L282 336"/>
+    <path d="M310 352 L310 288 C310 276 328 276 328 288 L328 352"/>
+  </g>
+  <!-- Palm & wrist silhouette (narrowing toward wrist) -->
+  <path d="M154 342 C178 320 296 324 338 356 C336 402 316 442 304 480 L192 480 C172 440 152 394 154 342 Z" fill="#eef4f9" stroke="#536d82" stroke-width="2.8"/>
+  <!-- Thumb hint on radial side (left) -->
+  <path d="M192 472 C156 452 128 422 116 390 C110 376 128 368 136 382 C148 406 164 424 176 434" fill="#eef4f9" stroke="#536d82" stroke-width="2.5"/>
+  <!-- Cuff at wrist -->
+  <rect x="184" y="492" width="128" height="26" rx="6" fill="#dfe8f2" stroke="#647c92" stroke-width="2.3"/>
+  <text x="248" y="510" text-anchor="middle" font-size="14" font-weight="700" fill="#445b70">手首境界</text>
+
+  <!-- Wrist center 1 -->
+  <circle cx="248" cy="474" r="13" fill="#ffffff" stroke="#147cac" stroke-width="2.8"/>
+  <text x="248" y="479" text-anchor="middle" font-size="15" font-weight="700" fill="#147cac">1</text>
+  <text x="248" y="540" text-anchor="middle" font-size="15.5" font-weight="700" fill="#147cac">① 手首中央</text>
+
+  <!-- 4 MCP joints -->
+  <g fill="#ffffff" stroke="#536d82" stroke-width="2.5">
+    <circle cx="178" cy="338" r="6"/>
+    <circle cx="224" cy="328" r="6"/>
+    <circle cx="272" cy="336" r="6"/>
+    <circle cx="319" cy="352" r="6"/>
+  </g>
+  <g font-size="13.5" font-weight="700" fill="#4f6478" text-anchor="middle">
+    <text x="178" y="318">人</text>
+    <text x="224" y="308">中</text>
+    <text x="272" y="316">薬</text>
+    <text x="319" y="332">小</text>
+  </g>
+
+  <!-- 4 Parallel vertical flexion arrows (crimson) -->
+  <g stroke="#c34251" stroke-width="3.5" fill="none">
+    <line x1="178" y1="344" x2="178" y2="438"/>
+    <line x1="224" y1="334" x2="224" y2="444"/>
+    <line x1="272" y1="342" x2="272" y2="442"/>
+    <line x1="319" y1="358" x2="319" y2="446"/>
+  </g>
+  <g fill="#c34251">
+    <polygon points="178,446 172.5,435 183.5,435"/>
+    <polygon points="224,452 218.5,441 229.5,441"/>
+    <polygon points="272,450 266.5,439 277.5,439"/>
+    <polygon points="319,454 313.5,443 324.5,443"/>
+  </g>
+  <!-- Highlight little finger floating outside ulnar border -->
+  <circle cx="319" cy="444" r="18" fill="none" stroke="#c34251" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <line x1="340" y1="438" x2="376" y2="416" stroke="#c34251" stroke-width="2.5"/>
+
+  <!-- Callouts on right side of Left Card A -->
+  <text x="384" y="346" font-size="16.5" font-weight="700" fill="#c34251">全指が真下へ平行に下り</text>
+  <text x="384" y="370" font-size="16.5" font-weight="700" fill="#c34251">小指側が掌の外へ浮く</text>
+  <text x="384" y="408" font-size="15.5" fill="#4f6478">・手首へ向かって細くなる掌の</text>
+  <text x="384" y="431" font-size="15.5" fill="#4f6478">　外縁から小指先端がはみ出す</text>
+  <text x="384" y="462" font-size="15.5" fill="#4f6478">・握り拳でも4本の筒が平行に</text>
+  <text x="384" y="485" font-size="15.5" fill="#4f6478">　並び、中央へまとまらない</text>
+
+  <text x="80" y="566" font-size="17" font-weight="700" fill="#c34251">・単一軸の曲げだけでは4指が平行に下り、小指が外向きに見える</text>
+  <text x="80" y="592" font-size="16.5" fill="#354b5e">・長い薬指と短い小指に同じ角度を与えると、薬指だけ中指へ当たりやすい</text>
+
+  <!-- Right Card A: Good Design (Length-normalized wrist-center convergence) -->
+  <rect x="736" y="200" width="648" height="408" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="760" y="236" font-size="20.5" font-weight="700" fill="#167f69">設計例：手首中央からの横ずれ÷指長で配分した収束ロール</text>
+
+  <!-- Extended fingers ghost (right card, shifted +680 in X) -->
+  <g fill="none" stroke="#b3c2cf" stroke-width="2" stroke-dasharray="5 4">
+    <path d="M848 338 L848 268 C848 255 868 255 868 268 L868 338"/>
+    <path d="M894 328 L894 254 C894 241 914 241 914 254 L914 328"/>
+    <path d="M942 336 L942 264 C942 251 962 251 962 264 L962 336"/>
+    <path d="M990 352 L990 288 C990 276 1008 276 1008 288 L1008 352"/>
+  </g>
+  <!-- Palm & wrist silhouette -->
+  <path d="M834 342 C858 320 976 324 1018 356 C1016 402 996 442 984 480 L872 480 C852 440 832 394 834 342 Z" fill="#eef4f9" stroke="#536d82" stroke-width="2.8"/>
+  <path d="M872 472 C836 452 808 422 796 390 C790 376 808 368 816 382 C828 406 844 424 856 434" fill="#eef4f9" stroke="#536d82" stroke-width="2.5"/>
+  <rect x="864" y="492" width="128" height="26" rx="6" fill="#dfe8f2" stroke="#647c92" stroke-width="2.3"/>
+  <text x="928" y="510" text-anchor="middle" font-size="14" font-weight="700" fill="#445b70">手首境界</text>
+
+  <!-- Soft dashed convergence fan lines to wrist center (928, 474) -->
+  <g stroke="#9ecbc0" stroke-width="2" stroke-dasharray="5 4">
+    <line x1="858" y1="338" x2="928" y2="474"/>
+    <line x1="904" y1="328" x2="928" y2="474"/>
+    <line x1="952" y1="336" x2="928" y2="474"/>
+    <line x1="999" y1="352" x2="928" y2="474"/>
+  </g>
+
+  <!-- 4 MCP joints -->
+  <g fill="#ffffff" stroke="#536d82" stroke-width="2.5">
+    <circle cx="858" cy="338" r="6"/>
+    <circle cx="904" cy="328" r="6"/>
+    <circle cx="952" cy="336" r="6"/>
+    <circle cx="999" cy="352" r="6"/>
+  </g>
+  <g font-size="13.5" font-weight="700" fill="#4f6478" text-anchor="middle">
+    <text x="858" y="318">人</text>
+    <text x="904" y="308">中</text>
+    <text x="952" y="316">薬</text>
+    <text x="999" y="332">小</text>
+  </g>
+
+  <!-- Converging flexion trajectories (teal/blue) -->
+  <g stroke="#167f69" stroke-width="3.8" fill="none">
+    <path d="M858 344 Q872 392 889 436"/>
+    <path d="M904 334 Q910 390 916 442"/>
+    <path d="M952 342 Q945 392 938 440"/>
+    <path d="M999 358 Q982 402 962 442"/>
+  </g>
+  <g fill="#167f69">
+    <polygon points="892,444 882.5,436 893,432"/>
+    <polygon points="917,450 910.5,439.5 921.5,438.5"/>
+    <polygon points="936,448 932,436.5 943,438.5"/>
+    <polygon points="958,450 957.5,437.5 967.5,442"/>
+  </g>
+
+  <!-- Wrist center 1 -->
+  <circle cx="928" cy="474" r="13" fill="#ffffff" stroke="#147cac" stroke-width="2.8"/>
+  <text x="928" y="479" text-anchor="middle" font-size="15" font-weight="700" fill="#147cac">1</text>
+  <text x="928" y="540" text-anchor="middle" font-size="15.5" font-weight="700" fill="#147cac">① 手首中央へ収束</text>
+
+  <!-- Badge 2 -->
+  <circle cx="998" cy="396" r="13" fill="#ffffff" stroke="#167f69" stroke-width="2.8"/>
+  <text x="998" y="401" text-anchor="middle" font-size="15" font-weight="700" fill="#167f69">2</text>
+
+  <!-- Callouts on right side of Right Card A -->
+  <text x="1056" y="338" font-size="16.5" font-weight="700" fill="#167f69">② 横ずれ÷指長でロール配分</text>
+  <text x="1056" y="366" font-size="15.5" fill="#354b5e">・長い薬指が中指へ寄り過ぎない</text>
+  <text x="1056" y="391" font-size="15.5" fill="#354b5e">・短い小指も掌の内側へ収まる</text>
+  <text x="1056" y="426" font-size="15.5" fill="#354b5e">・人差し指は逆符号（小指側）へ</text>
+  <text x="1056" y="450" font-size="15.5" fill="#354b5e">　わずかに傾け、中指はほぼ0°で</text>
+  <text x="1056" y="474" font-size="15.5" fill="#354b5e">　4指全体が扇状に調和する</text>
+
+  <text x="760" y="566" font-size="17" font-weight="700" fill="#167f69">・全4指の屈曲軌道が①手首中央へ向かい、脱力から握り拳までまとまる</text>
+  <text x="760" y="592" font-size="16.5" fill="#354b5e">・横ずれを指の長さで割ることで、隣接する指同士の衝突を防ぐ</text>
+
+  <!-- Section B: 3-segment progressive roll vs constant roll & spread decay -->
+  <rect x="32" y="646" width="1376" height="566" rx="16" fill="#ffffff" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="56" y="686" font-size="24" font-weight="700" fill="#167f69">B　3節ロールの配分と外開き回転：定数ロールの180°戻りと、基節＜中節＜末節の漸増ロール</text>
+  <text x="56" y="718" font-size="18" fill="#4f6478">小指・薬指などを手のひら側から見た3節の軌道。3節すべてに同じロール角を入れると、深く握った時に横寄りが消える。</text>
+
+  <!-- Left Card B: Problem (Constant roll 180 return + residual spread) -->
+  <rect x="56" y="738" width="648" height="454" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="80" y="774" font-size="20.5" font-weight="700" fill="#c34251">再検討する例：3節とも定数ロール／深い握りに外開きが残る</text>
+
+  <!-- Target central side vs 0 deg vertical line -->
+  <line x1="106" y1="816" x2="106" y2="1066" stroke="#9ecbc0" stroke-width="2.2" stroke-dasharray="6 5"/>
+  <text x="106" y="806" text-anchor="middle" font-size="14" font-weight="700" fill="#167f69">中央側</text>
+  <line x1="202" y1="816" x2="202" y2="1066" stroke="#9aaab8" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="202" y="806" text-anchor="middle" font-size="14" fill="#647c92">0°直下線</text>
+
+  <!-- MCP root -->
+  <circle cx="202" cy="836" r="7" fill="#ffffff" stroke="#536d82" stroke-width="2.8"/>
+  <text x="184" y="841" text-anchor="end" font-size="14" font-weight="700" fill="#445b70">付け根</text>
+
+  <!-- Trajectory 1: Constant roll (shifts left at 90 deg, returns to x=202 at 180 deg!) -->
+  <path d="M202 836 C172 878 156 916 156 950 C156 988 182 1024 202 1058" fill="none" stroke="#c34251" stroke-width="4"/>
+  <polygon points="206,1065 194.5,1058 204,1051.5" fill="#c34251"/>
+  <circle cx="156" cy="950" r="13" fill="#ffffff" stroke="#c34251" stroke-width="2.8"/>
+  <text x="156" y="955" text-anchor="middle" font-size="15" font-weight="700" fill="#c34251">3</text>
+  <text x="176" y="1090" text-anchor="middle" font-size="14" font-weight="700" fill="#c34251">180°で横寄り0へ戻る</text>
+
+  <!-- Trajectory 2: Outward spread before deep curl flips outside -->
+  <path d="M202 836 C234 880 264 940 278 1020" fill="none" stroke="#d46a2e" stroke-width="3.2" stroke-dasharray="7 5"/>
+  <polygon points="279,1028 272,1017 283,1015.5" fill="#d46a2e"/>
+  <circle cx="258" cy="942" r="13" fill="#ffffff" stroke="#d46a2e" stroke-width="2.8"/>
+  <text x="258" y="947" text-anchor="middle" font-size="15" font-weight="700" fill="#d46a2e">4</text>
+  <text x="292" y="1050" text-anchor="middle" font-size="14" font-weight="700" fill="#d46a2e">外へ跳ね出す</text>
+
+  <!-- Explanation boxes inside Left Card B -->
+  <rect x="348" y="814" width="332" height="126" rx="10" fill="#fdf2f4" stroke="#ecc6cd" stroke-width="1.8"/>
+  <text x="366" y="844" font-size="16.5" font-weight="700" fill="#c34251">③ 3節とも同じ定数ロール</text>
+  <text x="366" y="871" font-size="15" fill="#354b5e">節間の相対ロールが0°のため、90°付近</text>
+  <text x="366" y="895" font-size="15" fill="#354b5e">では内側へ寄っても、合計180°握り込む</text>
+  <text x="366" y="919" font-size="15" fill="#354b5e">と横変位が打ち消され再び外を向く。</text>
+
+  <rect x="348" y="956" width="332" height="126" rx="10" fill="#fdf6f0" stroke="#edd4be" stroke-width="1.8"/>
+  <text x="366" y="986" font-size="16.5" font-weight="700" fill="#b8561e">④ 深い曲げに外開き（spread）残存</text>
+  <text x="366" y="1013" font-size="15" fill="#354b5e">付け根にパー用の外開き回転を残したまま</text>
+  <text x="366" y="1037" font-size="15" fill="#354b5e">深く曲げると、90°を超えた先で指先が</text>
+  <text x="366" y="1061" font-size="15" fill="#354b5e">小指側の外へ大きく振り出される。</text>
+
+  <text x="80" y="1132" font-size="17" font-weight="700" fill="#c34251">・基節＞中節＞末節の漸減ロールでは、さらに外側へ鉤状に折れ曲がる</text>
+  <text x="80" y="1160" font-size="16.5" fill="#354b5e">・骨ロールとポーズ側の外開き（spread）を切り分けて両方整える</text>
+
+  <!-- Right Card B: Good Design (Progressive |Prox| < |Inter| < |Dist| + spread decay) -->
+  <rect x="736" y="738" width="648" height="454" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="760" y="774" font-size="20.5" font-weight="700" fill="#167f69">設計例：｜基節｜＜｜中節｜＜｜末節｜の漸増ロール＋外開き減衰</text>
+
+  <!-- Target central line vs 0 deg vertical line -->
+  <line x1="806" y1="816" x2="806" y2="1066" stroke="#167f69" stroke-width="2.4" stroke-dasharray="6 5"/>
+  <text x="806" y="806" text-anchor="middle" font-size="14" font-weight="700" fill="#167f69">手首中央側</text>
+  <line x1="946" y1="816" x2="946" y2="1066" stroke="#9aaab8" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="946" y="806" text-anchor="middle" font-size="14" fill="#647c92">0°直下線</text>
+
+  <!-- 3-segment progressive chain curving monotonically inward -->
+  <path d="M946 836 L912 914 L866 988 L816 1054" fill="none" stroke="#147cac" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="811,1062 813,1049 822.5,1055" fill="#147cac"/>
+  <g fill="#ffffff" stroke="#147cac" stroke-width="2.8">
+    <circle cx="946" cy="836" r="7"/>
+    <circle cx="912" cy="914" r="6.5"/>
+    <circle cx="866" cy="988" r="6.5"/>
+  </g>
+  <g font-size="13.5" font-weight="700" fill="#194d69">
+    <text x="956" y="882">基節（小）</text>
+    <text x="920" y="958">中節（中）</text>
+    <text x="862" y="1032">末節（大）</text>
+  </g>
+  <circle cx="889" cy="952" r="13" fill="#ffffff" stroke="#147cac" stroke-width="2.8"/>
+  <text x="889" y="957" text-anchor="middle" font-size="15" font-weight="700" fill="#147cac">3</text>
+  <circle cx="946" cy="836" r="13" fill="#ffffff" stroke="#167f69" stroke-width="2.8"/>
+  <text x="946" y="841" text-anchor="middle" font-size="15" font-weight="700" fill="#167f69">4</text>
+  <text x="860" y="1090" text-anchor="middle" font-size="14" font-weight="700" fill="#167f69">180°でも中央を指す</text>
+
+  <!-- Explanation boxes inside Right Card B -->
+  <rect x="1028" y="814" width="332" height="126" rx="10" fill="#eef8f5" stroke="#bce0d5" stroke-width="1.8"/>
+  <text x="1046" y="844" font-size="16.5" font-weight="700" fill="#167f69">③ 先端節ほどロール角を漸増</text>
+  <text x="1046" y="871" font-size="15" fill="#354b5e">節間の正の相対ロールが掌平面内の内向き</text>
+  <text x="1046" y="895" font-size="15" fill="#354b5e">ヨーとして働き、浅い脱力から180°の深い</text>
+  <text x="1046" y="919" font-size="15" fill="#354b5e">握り拳まで単一軸回転で中央へ収束する。</text>
+
+  <rect x="1028" y="956" width="332" height="126" rx="10" fill="#eef5fa" stroke="#bfd6e6" stroke-width="1.8"/>
+  <text x="1046" y="986" font-size="16.5" font-weight="700" fill="#147cac">④ 曲げが深い指は外開きを減衰</text>
+  <text x="1046" y="1013" font-size="15" fill="#354b5e">パーでは扇状に外開き（spread）を入れ、</text>
+  <text x="1046" y="1037" font-size="15" fill="#354b5e">握り・チョキ・指差しで深く曲げる指は</text>
+  <text x="1046" y="1061" font-size="15" fill="#354b5e">屈曲量に応じて spread→0 へ減衰させる。</text>
+
+  <text x="760" y="1132" font-size="17" font-weight="700" fill="#167f69">・純粋な単一軸の曲げ（X軸回転のみ）で、脱力〜握り拳まで自然に収束</text>
+  <text x="760" y="1160" font-size="16.5" fill="#354b5e">・開いた手と握った手の両立には、漸増ロールと外開き減衰を対で使う</text>
+
+  <!-- Section C: Summary & Inspection Set -->
+  <rect x="32" y="1230" width="1376" height="148" rx="15" fill="#e8f2f8" stroke="#bad5e2" stroke-width="2"/>
+  <text x="56" y="1266" font-size="20.5" font-weight="700">C　静止形の保持と隣接指の干渉検品（確認セット）</text>
+  <text x="56" y="1298" font-size="17.5">・骨の始点・終点・メッシュ・爪・重みを確定した後の最終パスでロール角だけを更新し、Tポーズ静止形の頂点差＝0を保つ。</text>
+  <text x="56" y="1327" font-size="17.5">・中央へ収束させると隣の指との距離が縮まるため、全補間フレーム（順送りウェーブ含む）で隣接指ペア（人-中・中-薬・薬-小）の非干渉を検査する。</text>
+  <text x="56" y="1357" font-size="16.5" fill="#4f6478">凡例：①手首中央の収束目標　②横ずれ÷指長で配分した収束軸（緑）　③3節の漸増ロール配分（青）　④付け根の外開き減衰 ※角度・比率は固定値ではない</text>
+</g>
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+  <rect x="0" y="1402" width="1440" height="98" fill="#eef3f8"/>
+  <path d="M32 1410 H1408" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+  <text x="32" y="1441" font-family="Meiryo, sans-serif" font-size="25" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+  <text x="32" y="1473" font-family="Meiryo, sans-serif" font-size="25" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
+</svg>

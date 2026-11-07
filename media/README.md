@@ -2,14 +2,14 @@
 
 [日本語](README.md) · [English](README.en.md)
 
-リダのBlender仕上げを紹介する画像・動画です（静止画・10秒回転動画は2026-10-15時点、18秒の多様な動作動画は2026-11-07時点の新頭部・手補正候補で撮影）。生成イラストや模式図ではなく、実際の3Dモデルから描画しています。
+リダのBlender仕上げを紹介する画像・動画です（静止画2枚と18秒の多様な動作動画は2026-11-07時点の新頭部・手補正候補、10秒回転動画は2026-10-15時点で撮影）。生成イラストや模式図ではなく、実際の3Dモデルから描画しています。
 
 | 掲載物 | 確認できるもの |
 | --- | --- |
 | `lida-finished-body.png`（820×1098） | 斜めからの全身。多段衣装・髪・翼・装飾・靴。元画像820×1000と下部の出典帯 |
 | `lida-finished-face.png`（820×1098） | 正面のバストアップ。顔・髪・冠・襟・胸元の装飾。元画像820×1000と下部の出典帯 |
 | [lida-model-turntable-attributed.mp4](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.2.2/lida-model-turntable-attributed.mp4)（Release添付） | 10秒・1448×984・24fps・240フレーム・音声なし。全身の回転と笑顔・驚き・口型「あ」・瞬き。元画角1448×900と下部の出典帯 |
-| [lida-motion-showcase-attributed.mp4](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.10.0/lida-motion-showcase-attributed.mp4)（Release添付） | 18秒・1920×1164・24fps・432フレーム・音声なし。全身・バストアップ・右手トゥーン／掌側粘土の同期4画面（挨拶・4指ウェーブ・握り・ピース＆ウインク・指差し・対向つまみ・お花ポーズ＆お辞儀・手首屈伸・翼開閉・髪揺れ）。元画角1920×1080と下84pxの出典帯 |
+| [lida-motion-showcase-attributed.mp4](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.11.0/lida-motion-showcase-attributed.mp4)（Release添付） | 18秒・1920×1164・24fps・432フレーム・音声なし。全身・バストアップ・右手トゥーン／掌側粘土の同期4画面（挨拶・4指ウェーブ・握り・ピース＆ウインク・指差し・対向つまみ・お花ポーズ＆お辞儀・手首屈伸・翼開閉・髪揺れ）。元画角1920×1080と下84pxの出典帯 |
 
 基準画像とTripo等の生成モデルから、形状・表情キー・骨とスキンウェイト・衣装や髪や翼の追従・トゥーン材質を調整した制作例です。各工程の試行錯誤を含む仕上がりで、初回生成だけの結果や同じ品質を自動保証する見本ではありません。
 
