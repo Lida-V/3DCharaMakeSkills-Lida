@@ -2,7 +2,7 @@
 
 [Japanese source](README.md)
 
-The [English diagram index](../references/en/diagram-index.md) links all 25 PNG/SVG pairs to their chapters. PNG is for display; SVG is for enlargement. Shared figures retain Japanese labels; English chapter captions and legends explain their numbers, colors, directions, fixed areas, and line meanings.
+The [English diagram index](../references/en/diagram-index.md) links all 26 PNG/SVG pairs to their chapters. PNG is for display; SVG is for enlargement. Shared figures retain Japanese labels; English chapter captions and legends explain their numbers, colors, directions, fixed areas, and line meanings.
 
 ## Production reference model
 
@@ -29,6 +29,7 @@ All figures are original instructional schematics except the two historical knee
 | `mouth-seam-opening` | Painted neutral mouth line, actual upper/lower opening edges, corner pivots, and front/interior fold; original schematic, not proof of a completed repair |
 | `eyelid-band-follow` | Local eyelid-edge and adjacent-row transforms, with an outward fade |
 | `hand-shortening-flow` | Adjust palm height separately from the U-shaped thumb/index outline |
+| `hand-opposition-weights` | Outer-contour proportional compression plus frozen-surface tangential redistribution, and circumferential thumb-tube weights plus centered palm anchor and radial index protection during opposition; original schematic, not an actual-model plot |
 | `hand-structure-map` | Hand orientation, landmarks, joint loops, bones, thumb mound, and web-to-palm continuity; no universal topology or proportions |
 | `hand-deformation-check` | Spatial distance versus surface paths; shape, bone and weight diagnosis; intermediate finger/thumb/grip poses and nail following |
 | `skirt-layer-route` | Layer order, support regions, free hems, and leg routes |
@@ -50,6 +51,6 @@ Shapes, dimensions, row counts, and version symbols are not common settings. Mat
 
 ## Attribution visible on standalone figures
 
-All 25 SVG/PNG pairs have a margin below the explanation displaying “© 2026 Lida · 3DCharaMakeSkills-Lida” and `github.com/Lida-V/3DCharaMakeSkills-Lida`. This identifies the origin when an image is shared alone without covering text, lines, or arrows.
+All 26 SVG/PNG pairs have a margin below the explanation displaying “© 2026 Lida · 3DCharaMakeSkills-Lida” and `github.com/Lida-V/3DCharaMakeSkills-Lida`. This identifies the origin when an image is shared alone without covering text, lines, or arrows.
 
 The original SVG shapes and text are preserved; PNG is rendered from SVG. Check that the attribution band is readable in both. Adding the band did not change the usage terms.

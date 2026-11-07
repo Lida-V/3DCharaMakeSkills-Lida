@@ -115,4 +115,14 @@ Select only the relevant parts and follow dependencies: **reference shape and sa
 
 **Initial request:** “Confirm the seam line with base color alone and trace its pixels back to UVs to isolate the cause. Blend color by 3D position rather than by island, paint inside triangles only, fill the gutter, and check close views in the destination.”
 
+## 11. After refining the open hand, thumb opposition crushes the thumb base and dents the index-side contour
+
+**Symptom and possible cause:** Although the open and relaxed hands look natural, opposing the thumb toward the little finger or forming a scissors gesture crushes the thumb root and proximal segment into a thin twisted ribbon while pulling an S-shaped dent into the radial contour between the cuff and index base. Web-relaxation blending may be stripping weights from the inner side of the thumb's own cylinder, a simple pole-vector IK test rig may be twisting `ThumbMetacarpal` strongly around its shaft, or thumb weight may be bleeding into the radial index metacarpal just distal to a wide, rigid palm anchor. See [hands](hand-shape.md) and the [hand contour and opposition schematic](../../assets/hand-opposition-weights.png).
+
+**Adjustment:** On a working copy that preserves the approved rest shape, nails, and joint locations, isolate weights from test motion first by applying the exact same bone rotations to old and candidate versions. Start web-relaxation blending outside the thumb cylinder so the thumb tube itself keeps 360-degree circumferentially symmetric axial hinge weights. Narrow the rigid palm anchor toward the center, add a wide protection ramp along the radial index metacarpal with web-bridge smoothing, and purify nailbed skin to the distal bone. Build verification motion from anatomical flexion, abduction, and opposition-roll hinge axes rather than pole-vector IK.
+
+**Check:** Compare little-finger opposition, pinches to each finger, scissors, fists, and transitions in close-up **palmar and oblique clay (Cavity) views** as well as actual materials. Verify minimum cross-sectional diameter across the thumb root/proximal tube, smooth monotonic continuity along the radial index contour, zero nail-to-skin or finger-to-thumb intersections across all interpolated frames, and reproduction after saving and reopening.
+
+**Initial request:** “Preserving the approved rest hand, nails, and bone positions, apply identical poses first to separate weight issues from motion twist. Restore circumferentially symmetric thumb-tube weights, radial index protection, and distal-only nailbed skin, then verify in twist-free opposition/grip video with palmar clay panels and cross-section checks.”
+
 © 2026 Lida · Source: [3DCharaMakeSkills-Lida](https://github.com/Lida-V/3DCharaMakeSkills-Lida)

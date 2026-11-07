@@ -83,6 +83,7 @@ Uniform automatic remeshing/global subdivision alone does not define deformation
 3. With oblique loops, do not use only world-space height for a straight weight cutoff.
 4. Blend webbing through finger/palm connectivity rather than assigning one nearest finger.
 5. Normalize only deform-bone weights to sum 1; exclude mask/normal groups.
+6. Apply region-mask cutoffs before smoothing weights across the mesh and restrict smoothing to the intended bone pair; cutting with a step after smoothing leaves a boundary crease, and coarse pruning thresholds (such as `0.01`) can produce visible micro-steps on gentle surfaces when bent, so use a fine quantization threshold.
 
 After topology edits, reevaluate weight rules at corresponding positions. Do not copy weights/expression keys by old indices. Recheck UVs, clothes, ornaments, and support surfaces too.
 

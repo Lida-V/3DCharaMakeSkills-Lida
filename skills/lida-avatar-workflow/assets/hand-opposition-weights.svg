@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1500" viewBox="0 0 1440 1500" role="img" aria-labelledby="title desc">
+<title id="title">手の輪郭補正と対向動作：面列の偏りと親指・人差し指外縁の潰れを防ぐ</title>
+<desc id="desc">自作模式図。外縁を直線化する際の定数クランプによる四角面列の横潰れと、内側支点からの比例圧縮および凍結表面への接線再配分を比較する。また親指対向時の片側重み剥がし・掌固定直下の滲みによる潰れおよびS字くぼみと、親指円筒の円周対称ヒンジ重み・掌中央アンカー・人差し指外縁保護帯を比較する。実モデルの実測図ではない。</desc>
+<rect width="1440" height="1402" fill="#f4f7fb"/>
+<g font-family="Meiryo, Yu Gothic, sans-serif" fill="#19334a">
+  <text x="36" y="50" font-size="31" font-weight="700">手の輪郭補正と対向動作：面列の偏りと親指・外縁の潰れを防ぐ</text>
+  <text x="36" y="86" font-size="18.5" fill="#4f6478">自作模式図｜静止形の面間隔と、対向時の親指円筒・掌アンカー・人差し指外縁の重みを分けて設計する（実測図ではない）</text>
+
+  <!-- Section A: Outer contour straightening & quad column spacing -->
+  <rect x="32" y="108" width="1376" height="516" rx="16" fill="#ffffff" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="56" y="148" font-size="24" font-weight="700" fill="#167f69">A　外縁の直線化：定数クランプの横潰れと、比例圧縮＋凍結表面への接線再配分</text>
+  <text x="56" y="180" font-size="18" fill="#4f6478">袖口下〜親指付け根の断面・面列イメージ。影に見える暗い斜め筋は、面列が急壁に重なった実形状の偏りで起きる。</text>
+
+  <!-- Left card A -->
+  <rect x="56" y="200" width="648" height="400" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="80" y="236" font-size="21" font-weight="700" fill="#c34251">再検討する例：外縁線へ定数クランプ（列幅＝0）</text>
+  <!-- Original dashed profile -->
+  <path d="M130 430 C230 378 390 368 598 408" fill="none" stroke="#8ea1b2" stroke-width="3" stroke-dasharray="9 6"/>
+  <text x="506" y="382" font-size="15.5" fill="#687c8f">元の張り出した輪郭</text>
+  <!-- Clamped steep wall profile -->
+  <path d="M130 430 C225 382 365 376 488 392 L496 458" fill="none" stroke="#c34251" stroke-width="4.5"/>
+  <!-- Target line 2 -->
+  <line x1="492" y1="268" x2="492" y2="482" stroke="#167f69" stroke-width="3" stroke-dasharray="8 6"/>
+  <circle cx="492" cy="284" r="14" fill="#ffffff" stroke="#167f69" stroke-width="3"/>
+  <text x="492" y="290" text-anchor="middle" font-size="16" font-weight="700" fill="#167f69">2</text>
+  <text x="514" y="290" font-size="16.5" font-weight="700" fill="#167f69">目標の外縁線</text>
+  <!-- Inner pivot 1 -->
+  <circle cx="155" cy="418" r="14" fill="#ffffff" stroke="#147cac" stroke-width="3"/>
+  <text x="155" y="424" text-anchor="middle" font-size="16" font-weight="700" fill="#147cac">1</text>
+  <text x="92" y="464" font-size="16.5" font-weight="700" fill="#147cac">内側の支点</text>
+  <!-- Top-down quad strip showing normal inner cols + 5 crushed outer cols at x=478..492 -->
+  <g stroke="#536d82" stroke-width="2">
+    <rect x="155" y="486" width="82" height="36" fill="#e3eef6"/>
+    <rect x="237" y="486" width="82" height="36" fill="#e3eef6"/>
+    <rect x="319" y="486" width="80" height="36" fill="#e3eef6"/>
+    <rect x="399" y="486" width="67" height="36" fill="#e3eef6"/>
+    <rect x="466" y="486" width="6.5" height="36" fill="#f5ccd2" stroke="#c34251"/>
+    <rect x="472.5" y="486" width="6.5" height="36" fill="#f5ccd2" stroke="#c34251"/>
+    <rect x="479" y="486" width="6.5" height="36" fill="#f5ccd2" stroke="#c34251"/>
+    <rect x="485.5" y="486" width="6.5" height="36" fill="#f5ccd2" stroke="#c34251"/>
+  </g>
+  <!-- Push arrows from outside -->
+  <line x1="590" y1="422" x2="506" y2="422" stroke="#c34251" stroke-width="3.5"/>
+  <polygon points="502.0,422.0 512.0,416.5 512.0,427.5" fill="#c34251"/>
+  <text x="508" y="452" font-size="16" font-weight="700" fill="#c34251">外側の複数列が</text>
+  <text x="508" y="474" font-size="16" font-weight="700" fill="#c34251">1か所へ密集</text>
+  <text x="80" y="556" font-size="17" font-weight="700" fill="#c34251">・外側の四角面列が狭い急壁に重なり、暗い斜め筋が出る</text>
+  <text x="80" y="583" font-size="16.5" fill="#354b5e">・変形前の辺長へ戻す接線緩和は、拘束と綱引きして密集が残る</text>
+
+  <!-- Right card A -->
+  <rect x="736" y="200" width="648" height="400" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="760" y="236" font-size="21" font-weight="700" fill="#167f69">設計例：比例圧縮＋凍結表面への投影付き再配分</text>
+  <!-- Original dashed profile -->
+  <path d="M810 430 C910 378 1070 368 1278 408" fill="none" stroke="#8ea1b2" stroke-width="3" stroke-dasharray="9 6"/>
+  <!-- Smooth faired frozen surface -->
+  <path d="M810 430 C910 384 1055 382 1172 426" fill="none" stroke="#167f69" stroke-width="5"/>
+  <!-- Target line 2 -->
+  <line x1="1172" y1="268" x2="1172" y2="482" stroke="#167f69" stroke-width="3" stroke-dasharray="8 6"/>
+  <circle cx="1172" cy="284" r="14" fill="#ffffff" stroke="#167f69" stroke-width="3"/>
+  <text x="1172" y="290" text-anchor="middle" font-size="16" font-weight="700" fill="#167f69">2</text>
+  <text x="1194" y="290" font-size="16.5" font-weight="700" fill="#167f69">目標の外縁線</text>
+  <!-- Inner pivot 1 -->
+  <circle cx="835" cy="418" r="14" fill="#ffffff" stroke="#147cac" stroke-width="3"/>
+  <text x="835" y="424" text-anchor="middle" font-size="16" font-weight="700" fill="#147cac">1</text>
+  <text x="772" y="464" font-size="16.5" font-weight="700" fill="#147cac">内側の支点</text>
+  <!-- Surface tangent arrows + projection onto frozen curve -->
+  <path d="M925 374 C995 366 1065 374 1126 396" fill="none" stroke="#147cac" stroke-width="3"/>
+  <polygon points="1130.0,398.0 1118.7,399.4 1122.8,389.2" fill="#147cac"/>
+  <text x="842" y="348" font-size="15.5" font-weight="700" fill="#147cac">凍結表面へ最近接投影しつつ面間隔を整える</text>
+  <!-- Evenly spaced quad strip -->
+  <g stroke="#2d6e5e" stroke-width="2">
+    <rect x="835" y="486" width="43" height="36" fill="#dff2ec"/>
+    <rect x="878" y="486" width="43" height="36" fill="#dff2ec"/>
+    <rect x="921" y="486" width="43" height="36" fill="#dff2ec"/>
+    <rect x="964" y="486" width="42" height="36" fill="#dff2ec"/>
+    <rect x="1006" y="486" width="42" height="36" fill="#dff2ec"/>
+    <rect x="1048" y="486" width="42" height="36" fill="#dff2ec"/>
+    <rect x="1090" y="486" width="41" height="36" fill="#dff2ec"/>
+    <rect x="1131" y="486" width="41" height="36" fill="#dff2ec"/>
+  </g>
+  <text x="1186" y="510" font-size="16" font-weight="700" fill="#167f69">全列の幅を維持</text>
+  <text x="760" y="556" font-size="17" font-weight="700" fill="#167f69">・①支点からの比例圧縮で順序と列幅を残し、横潰れを防ぐ</text>
+  <text x="760" y="583" font-size="16.5" fill="#354b5e">・フェアリング後の輪郭と法線を固定したまま接線方向だけ均等化</text>
+
+  <!-- Section B: Thumb opposition weights & radial index protection -->
+  <rect x="32" y="644" width="1376" height="568" rx="16" fill="#ffffff" stroke="#d5e0eb" stroke-width="2"/>
+  <text x="56" y="684" font-size="24" font-weight="700" fill="#167f69">B　対向動作（小指合わせ・チョキ）：親指付け根のリボン潰れと、人差し指外縁のS字くぼみ</text>
+  <text x="56" y="716" font-size="18" fill="#4f6478">手のひら側・斜め前の模式図。静止形が自然でも、重みの偏りや簡易IKの軸ねじれがあると対向時に破綻する。</text>
+
+  <!-- Left card B: Problem -->
+  <rect x="56" y="736" width="648" height="454" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="80" y="772" font-size="21" font-weight="700" fill="#c34251">再検討する例：内側重み剥がし＋掌固定直下の滲み</text>
+  <!-- Cuff at bottom -->
+  <rect x="236" y="1062" width="214" height="36" rx="6" fill="#dfe8f2" stroke="#647c92" stroke-width="2.5"/>
+  <text x="343" y="1086" text-anchor="middle" font-size="15.5" font-weight="700" fill="#445b70">袖口境界（固定）</text>
+  <!-- Hand silhouette with S-dent on left (radial index edge) -->
+  <path d="M250 1062 L246 1018 C246 992 282 972 280 942 C278 912 246 896 246 862 L246 798 C246 784 268 784 268 798 L270 864 L292 864 L292 792 C292 778 314 778 314 792 L316 864 L338 864 L338 798 C338 784 360 784 360 798 L362 868 L384 868 L388 814 C388 800 410 800 410 814 L416 900 C432 952 444 1012 436 1062 Z" fill="#eef4f9" stroke="#536d82" stroke-width="3"/>
+  <!-- Overly wide palm anchor 4 -->
+  <rect x="248" y="998" width="184" height="54" rx="8" fill="none" stroke="#355770" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <circle cx="414" cy="1025" r="13" fill="#ffffff" stroke="#355770" stroke-width="2.5"/>
+  <text x="414" y="1030" text-anchor="middle" font-size="15" font-weight="700" fill="#355770">4</text>
+  <!-- S-dent highlight on radial index metacarpal -->
+  <path d="M246 1014 C246 988 282 970 280 942 C278 914 246 896 246 872" fill="none" stroke="#c34251" stroke-width="5"/>
+  <line x1="204" y1="944" x2="270" y2="944" stroke="#c34251" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <polygon points="274.0,944.0 266.0,948.5 266.0,939.5" fill="#c34251"/>
+  <text x="82" y="936" font-size="16.5" font-weight="700" fill="#c34251">人差し指外縁に</text>
+  <text x="82" y="959" font-size="16.5" font-weight="700" fill="#c34251">S字のくぼみ</text>
+  <!-- Ribbon-crushed thumb reaching across palm toward little finger -->
+  <path d="M284 1008 C306 982 324 968 344 958 C362 948 382 924 402 902 C412 892 422 902 414 916 C394 944 368 962 346 968 C326 974 316 998 302 1022 Z" fill="#f7ccd2" stroke="#c34251" stroke-width="3.5"/>
+  <circle cx="344" cy="963" r="14" fill="#ffffff" stroke="#c34251" stroke-width="3"/>
+  <text x="344" y="969" text-anchor="middle" font-size="16" font-weight="700" fill="#c34251">3</text>
+  <!-- Callout for ribbon crush -->
+  <line x1="464" y1="942" x2="364" y2="958" stroke="#c34251" stroke-width="2.5"/>
+  <polygon points="360.0,959.0 368.1,952.6 369.7,962.5" fill="#c34251"/>
+  <text x="470" y="934" font-size="16.5" font-weight="700" fill="#c34251">③ 付け根〜基節が</text>
+  <text x="470" y="957" font-size="16.5" font-weight="700" fill="#c34251">リボン状に潰れる</text>
+  <text x="470" y="982" font-size="15.5" fill="#4f6478">（内側剥がし＋IK軸ねじれ）</text>
+  <text x="442" y="1032" font-size="15.5" fill="#355770">④ 広い掌固定のすぐ上で</text>
+  <text x="442" y="1053" font-size="15.5" fill="#355770">親指重みが外縁を引く</text>
+  <text x="80" y="1136" font-size="17" font-weight="700" fill="#c34251">・親指円筒の片側だけ重みを逃がすと、対向で内側皮膚が置き去りになる</text>
+  <text x="80" y="1164" font-size="16.5" fill="#354b5e">・硬い掌固定の直下に親指重みが滲むと、外縁だけ内側へ引き込まれる</text>
+
+  <!-- Right card B: Good design -->
+  <rect x="736" y="736" width="648" height="454" rx="12" fill="#fbfcfd" stroke="#dce5ee" stroke-width="2"/>
+  <text x="760" y="772" font-size="21" font-weight="700" fill="#167f69">設計例：円周対称ヒンジ重み＋中央アンカー＋外縁保護</text>
+  <!-- Cuff at bottom -->
+  <rect x="916" y="1062" width="214" height="36" rx="6" fill="#dfe8f2" stroke="#647c92" stroke-width="2.5"/>
+  <text x="1023" y="1086" text-anchor="middle" font-size="15.5" font-weight="700" fill="#445b70">袖口境界（固定）</text>
+  <!-- Hand silhouette with smooth radial index edge -->
+  <path d="M930 1062 C924 1006 922 942 924 862 L926 798 C926 784 948 784 948 798 L950 864 L972 864 L972 792 C972 778 994 778 994 792 L996 864 L1018 864 L1018 798 C1018 784 1040 784 1040 798 L1042 868 L1064 868 L1068 814 C1068 800 1090 800 1090 814 L1096 900 C1112 952 1124 1012 1116 1062 Z" fill="#eef4f9" stroke="#536d82" stroke-width="3"/>
+  <!-- Radial index protection corridor (green highlight) -->
+  <path d="M930 1058 C924 1004 922 942 924 872" fill="none" stroke="#167f69" stroke-width="6"/>
+  <circle cx="924" cy="942" r="13" fill="#ffffff" stroke="#167f69" stroke-width="3"/>
+  <text x="924" y="947" text-anchor="middle" font-size="15" font-weight="700" fill="#167f69">2</text>
+  <text x="760" y="936" font-size="16.5" font-weight="700" fill="#167f69">② 人差し指外縁の</text>
+  <text x="760" y="959" font-size="16.5" font-weight="700" fill="#167f69">広い保護遷移帯</text>
+  <!-- Centered palm anchor 4 -->
+  <rect x="974" y="998" width="112" height="52" rx="10" fill="none" stroke="#355770" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <circle cx="1072" cy="1024" r="13" fill="#ffffff" stroke="#355770" stroke-width="2.5"/>
+  <text x="1072" y="1029" text-anchor="middle" font-size="15" font-weight="700" fill="#355770">4</text>
+  <!-- Plump cylindrical thumb reaching across palm -->
+  <path d="M952 1016 C968 972 1008 934 1072 894 C1090 884 1106 904 1090 920 C1044 958 1008 994 988 1034 Z" fill="#d9eef7" stroke="#147cac" stroke-width="3.5"/>
+  <!-- Circumferential ring markers on thumb tube -->
+  <ellipse cx="1002" cy="978" rx="19" ry="11" transform="rotate(-38 1002 978)" fill="none" stroke="#147cac" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <ellipse cx="1042" cy="938" rx="17" ry="10" transform="rotate(-38 1042 938)" fill="none" stroke="#147cac" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <circle cx="1022" cy="958" r="14" fill="#ffffff" stroke="#147cac" stroke-width="3"/>
+  <text x="1022" y="964" text-anchor="middle" font-size="16" font-weight="700" fill="#147cac">3</text>
+  <line x1="1142" y1="936" x2="1058" y2="952" stroke="#147cac" stroke-width="2.5"/>
+  <polygon points="1054.0,953.0 1061.9,946.4 1063.8,956.2" fill="#147cac"/>
+  <text x="1148" y="928" font-size="16.5" font-weight="700" fill="#147cac">③ 円周対称ヒンジ重み</text>
+  <text x="1148" y="951" font-size="16.5" font-weight="700" fill="#147cac">＋ねじれのない対向軸</text>
+  <text x="1148" y="976" font-size="15.5" fill="#4f6478">（指間緩和は円筒外から）</text>
+  <text x="1124" y="1030" font-size="15.5" fill="#355770">④ 掌アンカーを中央へ絞り</text>
+  <text x="1124" y="1051" font-size="15.5" fill="#355770">指間ブリッジを滑らかに接続</text>
+  <text x="760" y="1136" font-size="17" font-weight="700" fill="#167f69">・親指チューブの断面径を保ったまま、母指球と水かきが自然に追従する</text>
+  <text x="760" y="1164" font-size="16.5" fill="#354b5e">・袖口下から人差し指付け根まで、外縁のなだらかな凸ラインを維持する</text>
+
+  <!-- Section C: Summary & Legend -->
+  <rect x="32" y="1230" width="1376" height="148" rx="15" fill="#e8f2f8" stroke="#bad5e2" stroke-width="2"/>
+  <text x="56" y="1266" font-size="20.5" font-weight="700">C　爪床と稼働検品の要点（確認セット）</text>
+  <text x="56" y="1298" font-size="17.5">・爪床皮膚は末節骨へ純化し（指間緩和の滲みによる曲げ時の甘皮貫通を防ぐ）、5指の単調序列と正面余白をそろえる。</text>
+  <text x="56" y="1327" font-size="17.5">・影と実形状は「ワイヤー重ね＋Cavityオフ＋実寸断面」で分け、動画には「掌側の粘土表示」と全補間フレーム干渉検査を入れる。</text>
+  <text x="56" y="1357" font-size="16.5" fill="#4f6478">凡例：①内側支点　②目標外縁・人差し指外縁保護帯（緑）　③親指チューブの重み（青）　④掌固定アンカー範囲（紺破線）※列数・寸法は固定値ではない</text>
+</g>
+<g id="lida-provenance" aria-label="© 2026 Lida · 3DCharaMakeSkills-Lida; github.com/Lida-V/3DCharaMakeSkills-Lida">
+  <rect x="0" y="1402" width="1440" height="98" fill="#eef3f8"/>
+  <path d="M32 1410 H1408" fill="none" stroke="#b7c7d7" stroke-width="1"/>
+  <text x="32" y="1441" font-family="Meiryo, sans-serif" font-size="25" font-weight="700" fill="#223e57">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+  <text x="32" y="1473" font-family="Meiryo, sans-serif" font-size="25" fill="#355770">github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</g>
+</svg>

@@ -2,7 +2,7 @@
 
 [日本語](README.md) · English
 
-**Version 1.9.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 25 diagram pairs and images rendered from Lida's actual model.
+**Version 1.9.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 26 diagram pairs and images rendered from Lida's actual model.
 
 ## See a production example
 
