@@ -56,7 +56,7 @@ Final cloth finishing branches by destination. For final Blender images, finish 
 
 ## Where to use the bundled tools
 
-Use [model tools](model-tools.md) for upload-FBX format/size, stage-4 skeleton/humanoid mapping and named meshes, and topology/UV/weight/key checks in stages 3–5. Compare before/after changes or the stage-7 saved version item by item. Judge shapes, roots, and joints through images and motion. If only weight sums are wrong, use normalization limited to a copy. For eyes, follow the [sphere/iris/line-layer/gaze workflow](eye-modeling.md). Use [lida_accessory_fit.py](accessory-fit.md) to measure and fit accessory penetration and floating. Use [lida_penetration_check.py](penetration-check.md) to list hair or cloth penetration and get repair suggestions.
+Use [model tools](model-tools.md) for upload-FBX format/size, stage-4 skeleton/humanoid mapping and named meshes, and topology/UV/weight/key checks in stages 3–5. Compare before/after changes or the stage-7 saved version item by item. Judge shapes, roots, and joints through images and motion. If only weight sums are wrong, use normalization limited to a copy. For eyes, follow the [sphere/iris/line-layer/gaze workflow](eye-modeling.md). Use [lida_accessory_fit.py](accessory-fit.md) to measure and fit accessory penetration and floating. Use [lida_penetration_check.py](penetration-check.md) to list hair or cloth penetration and get repair suggestions. Check exported VRM settings, split hard ornaments, shape keys between values and in combination, review media against the saved version, and references before clean-up with the five tools in [check by script what is easy to miss](automated-checks.md).
 
 ## What to give the AI at each stage
 

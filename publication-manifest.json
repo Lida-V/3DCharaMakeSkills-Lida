@@ -196,7 +196,19 @@
     "skills/lida-avatar-workflow/references/penetration-check.md",
     "skills/lida-avatar-workflow/references/en/penetration-check.md",
     "skills/lida-avatar-workflow/scripts/lida_penetration_check.py",
-    "tests/test_penetration_check.py"
+    "tests/test_penetration_check.py",
+    "skills/lida-avatar-workflow/references/automated-checks.md",
+    "skills/lida-avatar-workflow/references/en/automated-checks.md",
+    "skills/lida-avatar-workflow/scripts/lida_vrm_check.py",
+    "skills/lida-avatar-workflow/scripts/lida_rigid_group_check.py",
+    "skills/lida-avatar-workflow/scripts/lida_shape_key_sweep.py",
+    "skills/lida-avatar-workflow/scripts/lida_evidence_manifest.py",
+    "skills/lida-avatar-workflow/scripts/lida_reference_check.py",
+    "tests/test_vrm_check.py",
+    "tests/test_rigid_group_check.py",
+    "tests/test_shape_key_sweep.py",
+    "tests/test_evidence_manifest.py",
+    "tests/test_reference_check.py"
   ],
   "asset_sha256": {
     "skills/lida-avatar-workflow/assets/actual-knee-bend.png": "bab57a7ad833fadea8c9154e9cd6ed4692d911e8c70a9c66d24feac4538ef5e4",
@@ -265,7 +277,12 @@
     "skills/lida-avatar-workflow/scripts/lida_model_tools.py": "GPL-3.0-or-later",
     "skills/lida-avatar-workflow/scripts/lida_accessory_fit.py": "GPL-3.0-or-later",
     "skills/lida-avatar-workflow/scripts/lida_accessory_fit_panel.py": "GPL-3.0-or-later",
-    "skills/lida-avatar-workflow/scripts/lida_penetration_check.py": "GPL-3.0-or-later"
+    "skills/lida-avatar-workflow/scripts/lida_penetration_check.py": "GPL-3.0-or-later",
+    "skills/lida-avatar-workflow/scripts/lida_vrm_check.py": "GPL-3.0-or-later",
+    "skills/lida-avatar-workflow/scripts/lida_rigid_group_check.py": "GPL-3.0-or-later",
+    "skills/lida-avatar-workflow/scripts/lida_shape_key_sweep.py": "GPL-3.0-or-later",
+    "skills/lida-avatar-workflow/scripts/lida_evidence_manifest.py": "GPL-3.0-or-later",
+    "skills/lida-avatar-workflow/scripts/lida_reference_check.py": "GPL-3.0-or-later"
   },
   "visible_provenance": {
     "name": "Lida",
@@ -294,17 +311,17 @@
       {
         "source": "LICENSE-POLICY.md",
         "translation": "LICENSE-POLICY.en.md",
-        "source_sha256": "379058698936364125bee7fd8e53e135314a800403882e9fc7c202ba428d80eb"
+        "source_sha256": "1364d48dbe60af7dd78e35b214e2d654056ce58b0202f1bf4d6eac331f2cfee8"
       },
       {
         "source": "NOTICE.md",
         "translation": "NOTICE.en.md",
-        "source_sha256": "fc2a8d4d5206a5e104850516aa77fb2d8a5731eb230305dd4f44d4dbf4cf31a5"
+        "source_sha256": "d910664ca0d02bfb693edeb3929b733a8fe920c6bd2f1a2b53ad1682849ea84f"
       },
       {
         "source": "README.md",
         "translation": "README.en.md",
-        "source_sha256": "fb7e1630c3b7791f6a8aa963cb01aba3422ee3f7661b6655a12480302bf24aff"
+        "source_sha256": "45f1e0485dad813f991ea50cc29ec6bbffdeb93de6d23cfd4cdd2755398a6bc4"
       },
       {
         "source": "UPDATING.md",
@@ -329,12 +346,12 @@
       {
         "source": "skills/lida-avatar-workflow/NOTICE.md",
         "translation": "skills/lida-avatar-workflow/NOTICE.en.md",
-        "source_sha256": "fc2a8d4d5206a5e104850516aa77fb2d8a5731eb230305dd4f44d4dbf4cf31a5"
+        "source_sha256": "d910664ca0d02bfb693edeb3929b733a8fe920c6bd2f1a2b53ad1682849ea84f"
       },
       {
         "source": "skills/lida-avatar-workflow/SKILL.md",
         "translation": "skills/lida-avatar-workflow/SKILL.en.md",
-        "source_sha256": "e0c12baea346094f39bbe5c3f7df0caf09c997e70960f10eeef1f324122894d9"
+        "source_sha256": "700eabb60d367bfd10437c0257584888dab530d8ee86db9f281c3cd8b90de1fa"
       },
       {
         "source": "skills/lida-avatar-workflow/assets/README.md",
@@ -344,7 +361,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/README.md",
         "translation": "skills/lida-avatar-workflow/references/en/README.md",
-        "source_sha256": "bbde22fa7d0203f210d2f49f8818c03c05812fad87945a453c1128cf82fb8361"
+        "source_sha256": "95a367d7e217e74ec09c44e8bbe59a5d43994f9357de7d1f122956ba170a0acd"
       },
       {
         "source": "skills/lida-avatar-workflow/references/accessory-materials.md",
@@ -419,7 +436,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/mechanical-visual-review.md",
         "translation": "skills/lida-avatar-workflow/references/en/mechanical-visual-review.md",
-        "source_sha256": "28f59cc57dc37d1184d12a9b65ab32d6c3a6b33a2223814254a2c24b984ff66c"
+        "source_sha256": "a23b4b5a9acf581c360f5b5467dd13241d289c94f09986ca4fd1c17bb0f6a8bf"
       },
       {
         "source": "skills/lida-avatar-workflow/references/mesh-repair-completion.md",
@@ -434,7 +451,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/model-tools.md",
         "translation": "skills/lida-avatar-workflow/references/en/model-tools.md",
-        "source_sha256": "41d41f25a066d68aa6b06922a8e6423446dd788bd909d6e16de93722ce4fc8b3"
+        "source_sha256": "51d1762a69d422a9210db31785a9a188de115475e065172a3267e676c20e960d"
       },
       {
         "source": "skills/lida-avatar-workflow/references/mouth-shapes.md",
@@ -449,7 +466,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/process-index.md",
         "translation": "skills/lida-avatar-workflow/references/en/process-index.md",
-        "source_sha256": "9f527f142cabe93e8833f653ef2d7000127fd66c110cbe1a8cacf3041f2bb444"
+        "source_sha256": "2f74ae60145426db93d0fdf693f179e9860879f049bddf999c89b732f5b9d249"
       },
       {
         "source": "skills/lida-avatar-workflow/references/production-plan.md",
@@ -489,7 +506,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/usage-and-attribution.md",
         "translation": "skills/lida-avatar-workflow/references/en/usage-and-attribution.md",
-        "source_sha256": "5cfa2e0b6fd8f6d736b8e00c77fd4892dbd8eae4da093bb02f812804b83fad28"
+        "source_sha256": "6e5caf1ce8112c854625b50eda3b2cb3565266b2864a3fa4ff4741716342fe1f"
       },
       {
         "source": "skills/lida-avatar-workflow/references/visual-handoff.md",
@@ -514,7 +531,7 @@
       {
         "source": "tests/README.md",
         "translation": "tests/README.en.md",
-        "source_sha256": "7555d9d369eda3190ed5b52a5ca3e82e27364d6395c06f70f1dbe6f26800a7e4"
+        "source_sha256": "863b1b7d408263529104f43489439f2d06fbe05752f477aa27f8537068a13d52"
       },
       {
         "source": "model-reference/china-wafuku/README.md",
@@ -550,6 +567,11 @@
         "source": "skills/lida-avatar-workflow/references/penetration-check.md",
         "translation": "skills/lida-avatar-workflow/references/en/penetration-check.md",
         "source_sha256": "a8dc44126a66ddd2fb918fd57656dcc7163a49bbf2feb698726257cc7ee5b352"
+      },
+      {
+        "source": "skills/lida-avatar-workflow/references/automated-checks.md",
+        "translation": "skills/lida-avatar-workflow/references/en/automated-checks.md",
+        "source_sha256": "7cf080147a1a6e4e98c94f45cee672bcb882082c75a17852ac58726b31726010"
       }
     ]
   },
