@@ -2,7 +2,7 @@
 
 日本語 · [English](README.en.md)
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **日本語・英語対応の配布用1.12.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、28枚の図解と実モデルの表示例を収録しています。英語版はREADME・スキル入口・参照全章と依頼文に対応し、図内の日本語ラベルは英語の凡例と説明を併用します。
+画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **日本語・英語対応の配布用1.13.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、28枚の図解と実モデルの表示例を収録しています。英語版はREADME・スキル入口・参照全章と依頼文に対応し、図内の日本語ラベルは英語の凡例と説明を併用します。
 
 ## 実際の制作例
 
@@ -24,7 +24,7 @@
 
 ## Skillsに含まれる完成参照モデル
 
-**[参照モデルを含むSkills一式をダウンロード](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip)** — 公式の完成ZIPに、制作例「チャイナ和服新キャラ r35」のVRM 1.0を収録しています。展開後のスキルフォルダを丸ごと導入すると、参照モデルも一緒に配置されます。別ダウンロードは不要です。
+**[参照モデルを含むSkills一式をダウンロード](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.13.0/3DCharaMakeSkills-Lida-1.13.0.zip)** — 公式の完成ZIPに、制作例「チャイナ和服新キャラ r35」のVRM 1.0を収録しています。展開後のスキルフォルダを丸ごと導入すると、参照モデルも一緒に配置されます。別ダウンロードは不要です。
 
 このモデルはSkillsの制作参照資料です。顔・手指・関節・袖・材質・表情・揺れの関係を実物で学べます。[何を見るか・AIへの依頼例](skills/lida-avatar-workflow/references/model-reference.md)から必要な部位だけを参照してください。
 
@@ -38,7 +38,7 @@
 
 ## 入手して使う
 
-1. **[公式のSkills一式ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip)**を取得して展開します。参照モデル・専用条件も含まれています。GitHubのCode → Download ZIPと自動生成のSource code ZIPは保守用ソースで、モデル本体を含みません。通常の導入には上記の完成ZIPを使ってください。
+1. **[公式のSkills一式ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.13.0/3DCharaMakeSkills-Lida-1.13.0.zip)**を取得して展開します。参照モデル・専用条件も含まれています。GitHubのCode → Download ZIPと自動生成のSource code ZIPは保守用ソースで、モデル本体を含みません。通常の導入には上記の完成ZIPを使ってください。
 2. `skills/lida-avatar-workflow` を、参照文書・画像・LICENSE・NOTICE・補助スクリプトを含め、エージェントのスキル保存先へ丸ごとコピーします。`SKILL.md`だけにしないでください。
 3. スキルを読み込ませ、次の導入確認を依頼します。読むだけの利用者にPythonやシェーダーの導入は必要ありません。
 
@@ -54,6 +54,7 @@
 - [品質と工程ゴール](skills/lida-avatar-workflow/references/quality-goals.md)：初回の完成像と各工程の終了条件。
 - [工程索引](skills/lida-avatar-workflow/references/process-index.md)：今扱う部位の資料だけ選ぶ。
 - [アクセサリー・装飾の材質補正](skills/lida-avatar-workflow/references/accessory-materials.md)：画像・材質・形のどこを直すか判断し、銀の艶・宝石・細い輪郭を比較する。
+- [飾りを体・頭へ合わせる](skills/lida-avatar-workflow/references/accessory-fit.md)：別々に作った冠・腕輪・首飾りを、置き方を変えずに頭や体へ沿わせる。相手を包む外形に対するすき間を測り、輪の軸からの距離だけを直すツールと、崩れた方法の記録。
 - [メッシュの破綻修正と補完](skills/lida-avatar-workflow/references/mesh-repair-completion.md)：必要な開口を残し、面張り・境界接続・局所再構築・欠落部位の補完を図で選ぶ。
 - [使用先とショット間の見た目を揃える](skills/lida-avatar-workflow/references/cross-engine-look.md)：色管理から陰影・艶・輪郭・透過を分けて調整。口内の暗さと羽の暗い縁の診断例も収録。
 - [機械検査と見た目・動きの判定](skills/lida-avatar-workflow/references/mechanical-visual-review.md)：CLIで確認漏れを減らし、原画との画像比較・途中動作・保存/使用先を分けて検収する。

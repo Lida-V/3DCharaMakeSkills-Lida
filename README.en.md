@@ -2,7 +2,7 @@
 
 [日本語](README.md) · English
 
-**Version 1.12.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 28 diagram pairs and images rendered from Lida's actual model.
+**Version 1.13.0**, a Japanese/English skill pack for creating 3D characters from reference illustrations. It covers input materials, production planning, mesh and rig corrections, expressions, materials, reusable CLI checks, and instructions for AI agents. It includes 28 diagram pairs and images rendered from Lida's actual model.
 
 ## See a production example
 
@@ -22,7 +22,7 @@ The original diagrams retain their Japanese labels. English captions, numbered d
 
 ## Completed reference model included in the Skills
 
-**[Download the complete Skills ZIP, including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip)**. The official ready-to-use ZIP contains the China Wafuku r35 VRM 1.0 model. Copy the entire extracted skill folder to install the model together with the skill; no separate model download is needed.
+**[Download the complete Skills ZIP, including the reference model](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.13.0/3DCharaMakeSkills-Lida-1.13.0.zip)**. The official ready-to-use ZIP contains the China Wafuku r35 VRM 1.0 model. Copy the entire extracted skill folder to install the model together with the skill; no separate model download is needed.
 
 The model is a production-reference component of the Skills. Inspect relationships among face, hands, joints, sleeves, materials, expressions, and secondary motion. Use the [observation guide and AI request](skills/lida-avatar-workflow/references/en/model-reference.md) to inspect only the relevant parts.
 
@@ -38,7 +38,7 @@ Applications, generation services, API credentials, input illustrations, and sou
 
 ## Install and start
 
-1. Download and extract the **[official complete Skills ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip)**, which includes the reference model and its terms. GitHub Code → Download ZIP and automatic Source code ZIPs are maintenance sources without the model binary. Use the complete Release ZIP for normal installation.
+1. Download and extract the **[official complete Skills ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.13.0/3DCharaMakeSkills-Lida-1.13.0.zip)**, which includes the reference model and its terms. GitHub Code → Download ZIP and automatic Source code ZIPs are maintenance sources without the model binary. Use the complete Release ZIP for normal installation.
 2. Copy the entire `skills/lida-avatar-workflow` folder to your agent's skill location, including references, assets, scripts, LICENSE, and NOTICE. Do not copy only `SKILL.md`.
 3. Ask the agent to load the skill. English requests route to [SKILL.en.md](skills/lida-avatar-workflow/SKILL.en.md) and the [English reference index](skills/lida-avatar-workflow/references/en/README.md). You do not need Python or the shader merely to read the workflow.
 
@@ -59,6 +59,7 @@ Where supported, invoke `$lida-avatar-workflow`. If loading fails, check the fol
 | Build eyes, mouth shapes, and expressions | [Eyes](skills/lida-avatar-workflow/references/en/eye-modeling.md), [expression sheets](skills/lida-avatar-workflow/references/en/expression-sheets.md), [expression adjustment](skills/lida-avatar-workflow/references/en/expression-adjustment.md), [mouth shapes](skills/lida-avatar-workflow/references/en/mouth-shapes.md), [winks](skills/lida-avatar-workflow/references/en/wink-closure.md) |
 | Work on hands, hair, clothing, and wings | [Hands](skills/lida-avatar-workflow/references/en/hand-shape.md), [hair](skills/lida-avatar-workflow/references/en/hair-workflow.md), [hidden clothing/body](skills/lida-avatar-workflow/references/en/skirt-hidden-modeling.md), [wings](skills/lida-avatar-workflow/references/en/wing-workflow.md), [feather terminology](skills/lida-avatar-workflow/references/en/wing-feather-terms.md) |
 | Correct accessory materials and cross-engine appearance | [Accessory materials](skills/lida-avatar-workflow/references/en/accessory-materials.md), [cross-engine appearance](skills/lida-avatar-workflow/references/en/cross-engine-look.md) |
+| Fit separately made crowns, armlets, and chokers to the head or body without changing their placement | [Fitting accessories](skills/lida-avatar-workflow/references/en/accessory-fit.md) |
 | Run repeatable checks and assess the actual result | [CLI tools](skills/lida-avatar-workflow/references/en/model-tools.md), [mechanical versus visual review](skills/lida-avatar-workflow/references/en/mechanical-visual-review.md) |
 | Handle secondary motion, evidence, and handoff | [Secondary motion](skills/lida-avatar-workflow/references/en/secondary-motion.md), [visual handoff](skills/lida-avatar-workflow/references/en/visual-handoff.md), [AI instructions](skills/lida-avatar-workflow/references/en/ai-instructions.md), [trial and error](skills/lida-avatar-workflow/references/en/trial-and-error.md) |
 | Find diagrams and worked knee examples | [Diagram index](skills/lida-avatar-workflow/references/en/diagram-index.md), [knee edge placement](skills/lida-avatar-workflow/references/en/knee-edge-placement.md) |

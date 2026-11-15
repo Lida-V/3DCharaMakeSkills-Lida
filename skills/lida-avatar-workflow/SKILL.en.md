@@ -16,7 +16,7 @@ Creating models, images, or video alone does not require credits on those output
 
 Use [usage categories, examples, and helper](references/en/usage-and-attribution.md), the bundled [LICENSE](LICENSE), and [NOTICE](NOTICE.md). [English license](LICENSE.en.md) and [English notice](NOTICE.en.md) are companion translations. Reading alone must not write automatically to another project; retain attribution within the request to create the published work. Do not distribute reference dance FBX or converted reference motion.
 
-The Blender helper `lida_model_tools.py` separately uses **GPL-3.0-or-later**. Retain its notices and [GPL text](scripts/LICENSE-GPL-3.0-or-later.txt); do not apply this documentation's additional attribution conditions to GPL code. See [tool scope and terms](references/en/model-tools.md).
+The Blender helpers `lida_model_tools.py`, `lida_accessory_fit.py` and `lida_accessory_fit_panel.py` separately use **GPL-3.0-or-later**. Retain its notices and [GPL text](scripts/LICENSE-GPL-3.0-or-later.txt); do not apply this documentation's additional attribution conditions to GPL code. See [tool scope and terms](references/en/model-tools.md).
 
 Only when a shader is needed, check the [separately distributed LidaAngelToon](references/en/shader-setup.md). It is optional for this Skills package. Do not promise unimplemented Unity/UE support.
 
@@ -51,6 +51,7 @@ For directions, change regions, or connections, select only needed figures from 
 | Topology, joints, skin weights | [Topology/weights](references/en/mesh-weight.md), [knee edge placement](references/en/knee-edge-placement.md) |
 | Diagnosing shape, shading, or following | [Adjustment methods](references/en/adjustment-methods.md) |
 | Accessory reflections, gems, decorative lines; image versus material cause | [Accessory material correction](references/en/accessory-materials.md) |
+| Fitting crowns, armlets, chokers and similar to the head or body; measuring penetration and floating | [Fitting accessories](references/en/accessory-fit.md) |
 | Missing/incorrect faces, filling, boundary connection, missing-part completion | [Mesh repair/completion](references/en/mesh-repair-completion.md) |
 | Appearance between engines/shots, dark mouth interior, dark feather edges | [Destination appearance adjustment](references/en/cross-engine-look.md) |
 | Unnatural appearance/movement despite mechanical success; scope and selection | [Mechanical/image/motion assessment](references/en/mechanical-visual-review.md) |
@@ -80,7 +81,7 @@ For directions, change regions, or connections, select only needed figures from 
 
 Where Blender is available, inspect the [bundled tools](references/en/model-tools.md). Use `audit` after receiving rough 3D and around topology/UV/weight/key corrections; use `snapshot` and `compare` for fixed-item checks. Select bundled functions before generating the same inspection code again.
 
-Specify meshes, rig, input version, and output paths. Start diagnosis in a separate session. Use `normalize-copy` only when weight sums need correction, preserving the source. After receiving/changing bones, use `rig-audit` on explicit rig, humanoid map, and meshes. Before FBX upload, inspect format/actual size with `lida_file_check.py`. Read untested scope in JSON, then [inspect images/movement from the same saved version](references/en/mechanical-visual-review.md). CLI 0 or better numbers alone do not pass modeling, deformation, or destination behavior. Re-diagnose unnatural appearance as unmet. Record unavailable execution as not performed. Reading the skill alone must not start model processing or environment changes.
+Specify meshes, rig, input version, and output paths. Start diagnosis in a separate session. Use `normalize-copy` only when weight sums need correction, preserving the source. After receiving/changing bones, use `rig-audit` on explicit rig, humanoid map, and meshes. Before FBX upload, inspect format/actual size with `lida_file_check.py`. Read untested scope in JSON, then [inspect images/movement from the same saved version](references/en/mechanical-visual-review.md). CLI 0 or better numbers alone do not pass modeling, deformation, or destination behavior. Re-diagnose unnatural appearance as unmet. Record unavailable execution as not performed. Reading the skill alone must not start model processing or environment changes. After placing separately made accessories, use `measure` of the [accessory-fit tool](references/en/accessory-fit.md) for penetration and floating, then `fit` for a candidate that keeps the placement. When the placement does not match, do not force a fit; a person re-places it.
 
 ## Align mesh and movement
 

@@ -10,7 +10,7 @@ The official finished Skills ZIP includes `model-reference/china-wafuku/ChinaWaf
 
 Redistribution of the model and sale of modified versions are prohibited. Its [model-specific terms](model-reference/china-wafuku/MODEL-TERMS.en.md) are separate from the terms for the original figures below and GPL code. Users must not redistribute the complete ZIP containing the model.
 
-GitHub Code / Source code ZIP contains maintenance source. Use the [official finished distribution ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip) to install the model together with the skill.
+GitHub Code / Source code ZIP contains maintenance source. Use the [official finished distribution ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.13.0/3DCharaMakeSkills-Lida-1.13.0.zip) to install the model together with the skill.
 
 ## Origin and role
 

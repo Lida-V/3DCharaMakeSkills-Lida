@@ -44,6 +44,8 @@ Record the target parts/faces, actual material data, images and UVs, node connec
 
 If the whole model brightens or darkens together, return to [lighting, color management, and exposure](cross-engine-look.md). For missing faces, wrong connections, or missing volume, use [mesh repair and completion](mesh-repair-completion.md).
 
+When an accessory cuts into or floats off the head or body, the cause is position and shape, not material. Measure gaps against the outline with [fitting accessories](accessory-fit.md) before correcting.
+
 ## First identify which faces use what
 
 1. **Identify the target.** Isolate the part and use material-slot colors or another clear display to inspect assignments on visible faces. A name such as “silver material” is insufficient.

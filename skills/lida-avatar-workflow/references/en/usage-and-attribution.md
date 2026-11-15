@@ -24,7 +24,7 @@ If also using the shader, retain LidaAngelToon / Lida / https://github.com/Lida-
 
 Within the request to create the published work, the AI writes attribution into actual files and reports locations/content. Adding attribution only to a prompt is insufficient; do not remove existing author notices. Reading the skill alone does not authorize changes to another project.
 
-The bundled Blender `lida_model_tools.py` separately uses GPL-3.0-or-later. Retain the [tool's applicable terms](model-tools.md) and GPL text; do not add this documentation's custom conditions to GPL code. The helper below does not create the GPL text or a complete code-distribution package.
+The bundled Blender `lida_model_tools.py`, `lida_accessory_fit.py`, and `lida_accessory_fit_panel.py` separately use GPL-3.0-or-later. Retain the [tool's applicable terms](model-tools.md) and GPL text; do not add this documentation's custom conditions to GPL code. The helper below does not create the GPL text or a complete code-distribution package.
 
 ## Helper script for attribution files
 
