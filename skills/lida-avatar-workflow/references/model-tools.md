@@ -16,6 +16,7 @@
 | `compare` | 修正前後のsnapshotがそろった時 | 対象と項目ごとの一致・差分。通常のPythonでも実行可 |
 | `normalize-copy` | ウェイト総和だけを直す必要があり、対象と保持条件が決まった時 | 対象の候補コピーと、別名のblend、検査JSON |
 | [飾り合わせ](accessory-fit.md)の`measure`／`fit`（別ファイル `lida_accessory_fit.py`） | 別々に作った飾りを置いた後、食い込みと浮きを測り、置き方を変えずに沿わせる時 | 方位ごとのすき間のJSON、合わせたコピーを加えた別名のblend |
+| [貫通の検査](penetration-check.md)の`check`／`advise`／`compare`（別ファイル `lida_penetration_check.py`） | 髪・リボン・布を体へ合わせた後、突き抜けた所を全部挙げ、所ごとの直し方を決める時。直した前後の比較 | 箇所と提案のJSON、印を付けた寄りの画像（新しいフォルダ）。入力は保存しない |
 
 ウェイト検査は変形に使う骨のグループを対象にし、単なるマスクを総和へ混ぜません。正規化はロックとマスクを保持し、未ロックの変形ウェイトの合計を調整します。未割当・負値・非有限値・ロック条件の矛盾は、勝手に補完骨へ割り当てず未解決として扱います。
 
@@ -133,6 +134,6 @@ FBX条件CLIは合成ヘッダ・容量境界・既存出力の保持など19テ
 
 このBlender用スクリプトは **GPL-3.0-or-later**。適用範囲はファイル冒頭と[同梱GPL本文](../scripts/LICENSE-GPL-3.0-or-later.txt)を確認します。文書・図解の条件とは分け、GPLコードへ独自の出典条件を上乗せしません。元の著作者表示と適用ライセンスを保持します。
 
-[飾り合わせ](accessory-fit.md)の `lida_accessory_fit.py` と任意パネル `lida_accessory_fit_panel.py` も同じ GPL-3.0-or-later です。パネルはそのセッションだけ登録するスクリプトで、導入や設定の保存は行いません。
+[飾り合わせ](accessory-fit.md)の `lida_accessory_fit.py` と任意パネル `lida_accessory_fit_panel.py` も同じ GPL-3.0-or-later です。パネルはそのセッションだけ登録するスクリプトで、導入や設定の保存は行いません。 [貫通の検査](penetration-check.md)の `lida_penetration_check.py` も同じ GPL-3.0-or-later です。
 
 モデル・画像・動画を制作するだけなら、その成果物へのクレジットは不要です。文書や指示を組み込む公開アプリ・新Skillsの出典は[利用区分](usage-and-attribution.md)を引き継ぎます。

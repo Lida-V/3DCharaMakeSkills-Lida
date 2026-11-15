@@ -16,6 +16,8 @@ python -m unittest discover -s tests
 
 `test_accessory_fit.py`は飾り合わせの計算部分の回帰テストです。解析的な楕円の筒を相手に、外形が実物を包むこと、軸方向と方位が変わらないこと、開いた弧の判定、押し出しだけ、塊ごとの移動、警告と断り、既存出力の保護を確かめます。numpyが必要で、無い環境では該当のテストを飛ばします。Blenderでの実行と描画の確認は[飾りを体・頭へ合わせる](../skills/lida-avatar-workflow/references/accessory-fit.md#確認済みの範囲)に記録しています。
 
+`test_penetration_check.py`は貫通の検査の計算部分の回帰テストです。立方体を通り抜ける帯を相手に、交わる線の長さ、箇所のまとめ、見えない所と別枠の扱い、直し方の提案の条件としきい値、前後の比較、既存出力の保護を確かめます。numpyが必要で、無い環境では該当のテストを飛ばします。Blenderでの実行と画像の確認は[貫通を数値で見つけて、直し方を決める](../skills/lida-avatar-workflow/references/penetration-check.md#確認済みの範囲)に記録しています。
+
 配布版のモデル処理は別途、Blender 5.2.1 LTSで合成fixtureの従来のAPI14項目・CLI19項目と、追加したrig-auditのAPI15項目・CLI9項目、合成FBX1件を確認しています。検査範囲と制限は[制作補助ツール](../skills/lida-avatar-workflow/references/model-tools.md#確認済みの範囲)へ。fixtureのblend・実制作モデルは同梱しません。
 
 この制作ワークスペースでは、環境変数 `LIDA_DISTRIBUTION_TEST_TEMP` を制作プロジェクトの `assets/validation/distribution_release20261015/test-temp` へ設定して実行する。未指定の環境では通常の一時領域を使う。各試験はその下の専用一時フォルダだけを整理する。試験用の条件文はfixtureであり、配布物の正式なLICENSEを生成・変更しない。

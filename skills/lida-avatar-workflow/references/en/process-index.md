@@ -34,7 +34,7 @@ In stages 3–7, separate [mechanical checks, image comparison, motion review, a
 
 Make small early export trials for mechanisms that may be lost. Blender appearance and reproduction in the destination need separate checks. For missing surfaces, incorrect connections, or insufficient parts in stages 3–5, use [repair-method selection and construction](mesh-repair-completion.md). After changing faces, restore UV, material, normal, weight, expression, and dependent support-surface correspondence. For silver, gems, and fittings in stage 6, use [material diagnosis before repainting](accessory-materials.md).
 
-In stage 5, when separately made crowns, armlets, wrist ornaments, or chokers must follow the head or body, use [fitting accessories](accessory-fit.md). A person decides the placement; gaps are measured against an outline enclosing the partner, and only the distance from the ring axis is corrected. Per-point projection and automatic placement solving broke shapes.
+In stage 5, when separately made crowns, armlets, wrist ornaments, or chokers must follow the head or body, use [fitting accessories](accessory-fit.md). A person decides the placement; gaps are measured against an outline enclosing the partner, and only the distance from the ring axis is corrected. Per-point projection and automatic placement solving broke shapes. Before looking by eye for hair, ribbons, or cloth passing through the body or accessories, list them with [find penetration by numbers and decide the repair](penetration-check.md). It counts only the crossing curves that can be seen from outside, suggests delete, cut, push out, or reroute per place, and compares before and after the repair.
 
 In stage 4, after neutral shape and joint topology, follow [upload FBX → Tripo VRM 1.0 skeleton → preservation comparison → rig adjustment](tripo-autorig.md). Do not unconditionally regenerate a good rig. Receiving an initial skeleton differs from finishing a VRM.
 
@@ -56,7 +56,7 @@ Final cloth finishing branches by destination. For final Blender images, finish 
 
 ## Where to use the bundled tools
 
-Use [model tools](model-tools.md) for upload-FBX format/size, stage-4 skeleton/humanoid mapping and named meshes, and topology/UV/weight/key checks in stages 3–5. Compare before/after changes or the stage-7 saved version item by item. Judge shapes, roots, and joints through images and motion. If only weight sums are wrong, use normalization limited to a copy. For eyes, follow the [sphere/iris/line-layer/gaze workflow](eye-modeling.md). Use [lida_accessory_fit.py](accessory-fit.md) to measure and fit accessory penetration and floating.
+Use [model tools](model-tools.md) for upload-FBX format/size, stage-4 skeleton/humanoid mapping and named meshes, and topology/UV/weight/key checks in stages 3–5. Compare before/after changes or the stage-7 saved version item by item. Judge shapes, roots, and joints through images and motion. If only weight sums are wrong, use normalization limited to a copy. For eyes, follow the [sphere/iris/line-layer/gaze workflow](eye-modeling.md). Use [lida_accessory_fit.py](accessory-fit.md) to measure and fit accessory penetration and floating. Use [lida_penetration_check.py](penetration-check.md) to list hair or cloth penetration and get repair suggestions.
 
 ## What to give the AI at each stage
 

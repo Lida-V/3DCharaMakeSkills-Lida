@@ -55,6 +55,7 @@
 - [工程索引](skills/lida-avatar-workflow/references/process-index.md)：今扱う部位の資料だけ選ぶ。
 - [アクセサリー・装飾の材質補正](skills/lida-avatar-workflow/references/accessory-materials.md)：画像・材質・形のどこを直すか判断し、銀の艶・宝石・細い輪郭を比較する。
 - [飾りを体・頭へ合わせる](skills/lida-avatar-workflow/references/accessory-fit.md)：別々に作った冠・腕輪・首飾りを、置き方を変えずに頭や体へ沿わせる。相手を包む外形に対するすき間を測り、輪の軸からの距離だけを直すツールと、崩れた方法の記録。
+- [貫通を数値で見つけて、直し方を決める](skills/lida-avatar-workflow/references/penetration-check.md)：髪・リボン・布が体や飾りを突き抜けた所を計算で全部挙げ、外から見える所だけを数える。所ごとに削除・切る・押し出す・通し直すの提案を出し、直した前後を比べるツール。
 - [メッシュの破綻修正と補完](skills/lida-avatar-workflow/references/mesh-repair-completion.md)：必要な開口を残し、面張り・境界接続・局所再構築・欠落部位の補完を図で選ぶ。
 - [使用先とショット間の見た目を揃える](skills/lida-avatar-workflow/references/cross-engine-look.md)：色管理から陰影・艶・輪郭・透過を分けて調整。口内の暗さと羽の暗い縁の診断例も収録。
 - [機械検査と見た目・動きの判定](skills/lida-avatar-workflow/references/mechanical-visual-review.md)：CLIで確認漏れを減らし、原画との画像比較・途中動作・保存/使用先を分けて検収する。

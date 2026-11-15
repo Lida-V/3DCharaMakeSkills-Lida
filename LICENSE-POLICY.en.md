@@ -6,7 +6,7 @@ The documents, original diagrams, instructions, and helper code without separate
 
 ## Blender production helper
 
-`skills/lida-avatar-workflow/scripts/lida_model_tools.py`, `lida_accessory_fit.py`, and `lida_accessory_fit_panel.py` are **GPL-3.0-or-later**. Retain the [applicable GPL text](skills/lida-avatar-workflow/scripts/LICENSE-GPL-3.0-or-later.txt) and file-header notices. This does not impose Lida Attribution License additions on that code. Distinguish use of models/images/video produced from redistribution of code itself. See also [Blender's official explanation for Python scripts](https://www.blender.org/about/license/).
+`skills/lida-avatar-workflow/scripts/lida_model_tools.py`, `lida_accessory_fit.py`, `lida_accessory_fit_panel.py`, and `lida_penetration_check.py` are **GPL-3.0-or-later**. Retain the [applicable GPL text](skills/lida-avatar-workflow/scripts/LICENSE-GPL-3.0-or-later.txt) and file-header notices. This does not impose Lida Attribution License additions on that code. Distinguish use of models/images/video produced from redistribution of code itself. See also [Blender's official explanation for Python scripts](https://www.blender.org/about/license/).
 
 **Commercial use is unrestricted by this package.** Model sales, commissions, commercial images/video, and incorporation into commercial apps/Skills are permitted. The conditions below apply equally to commercial/noncommercial use. External services such as Tripo and third-party materials have separate conditions.
 

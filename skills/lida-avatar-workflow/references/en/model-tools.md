@@ -16,6 +16,7 @@
 | `compare` | When before/after snapshots exist | Per-target, per-item equality/differences; also runs in ordinary Python |
 | `normalize-copy` | Only weight sums need correction and targets/preservation are established | Candidate copies, separate blend file, and inspection JSON |
 | `measure` / `fit` of [accessory fitting](accessory-fit.md) (separate file `lida_accessory_fit.py`) | After placing separately made accessories, to measure penetration and floating and follow the partner without changing the placement | Per-azimuth gap JSON; a separate blend with the fitted copy added |
+| `check` / `advise` / `compare` of the [penetration check](penetration-check.md) (separate file `lida_penetration_check.py`) | After placing hair, ribbons, or cloth on the body, to list every crossing and choose a repair per place; to compare before and after a repair | JSON of spots and suggestions; marked close views in a new folder. The input is never saved |
 
 Weight checks include groups belonging to deforming bones, not ordinary masks. Normalization preserves locks/masks and adjusts the sum of unlocked deform weights. Unassigned, negative, nonfinite, or contradictory locked weights remain unresolved; the tool does not invent a fallback bone assignment.
 
@@ -133,7 +134,7 @@ These are tests of the listed operations on synthetic models, not verification o
 
 This Blender script is **GPL-3.0-or-later**. Check its file header and the [bundled GPL text](../../scripts/LICENSE-GPL-3.0-or-later.txt). Keep this separate from document/diagram terms; do not impose this package's custom attribution conditions on GPL code. Retain original copyright notices and applicable license.
 
-`lida_accessory_fit.py` and the optional panel `lida_accessory_fit_panel.py` for [accessory fitting](accessory-fit.md) are also GPL-3.0-or-later. The panel registers for the current session only; it installs nothing and saves no settings.
+`lida_accessory_fit.py` and the optional panel `lida_accessory_fit_panel.py` for [accessory fitting](accessory-fit.md) are also GPL-3.0-or-later. The panel registers for the current session only; it installs nothing and saves no settings. `lida_penetration_check.py` for the [penetration check](penetration-check.md) is also GPL-3.0-or-later.
 
 Creating models/images/video alone does not require credits on the resulting work. For public apps or new Skills incorporating these documents/instructions, follow [usage and attribution](usage-and-attribution.md).
 
