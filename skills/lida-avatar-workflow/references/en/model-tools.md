@@ -123,7 +123,7 @@ Audits inspect base meshes and current saved data. They do not inspect self-inte
 
 ## Verified scope
 
-The initial 2026-10-15 implementation was checked in **Blender 5.2.1 LTS background execution**, using synthetic models: 14 API items, 19 CLI items, and 7 ordinary-Python regression tests. The 2026-10-19 extension checked 15 skeleton-audit API cases, 9 CLI cases, and rechecked the existing 19 CLI items in the same environment. Old Toolkit successes do not substitute for testing this implementation.
+It is checked in **Blender 5.2.1 LTS background execution** with API and CLI checks on synthetic models (`audit`, `snapshot`, `compare`, `normalize-copy`, `rig-audit`) and with ordinary-Python regression tests. Old Toolkit successes do not substitute for testing this implementation.
 
 Tests cover valid models, degenerate faces, nonfinite coordinates, out-of-range UVs, unchanged keys, unassigned/nonfinite weights, lock contradictions, and changed connectivity with equal vertex counts. They also cover lock/mask preservation on copies, source-file SHA preservation, separate candidate saving/reopening, and existing-output rejection.
 

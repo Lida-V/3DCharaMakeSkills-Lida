@@ -123,7 +123,7 @@ blender --background --factory-startup --disable-autoexec --python lida_model_to
 
 ## 確認済みの範囲
 
-2026-10-15の初版は、**Blender 5.2.1 LTSの背景実行**で合成モデルに対するAPI14項目・CLI19項目と、通常Pythonの回帰テスト7件を確認しました。2026-10-19の拡張では、骨監査のAPI15ケース・CLI9ケースと、既存CLI19項目を同環境で再確認しました。元のToolkitの過去の合格を新実装の検証に代用していません。
+**Blender 5.2.1 LTSの背景実行**で、合成モデルに対するAPI・CLIの検査（`audit`・`snapshot`・`compare`・`normalize-copy`・`rig-audit`）と、通常Pythonの回帰テストで確認しています。元のToolkitの過去の合格を、この実装の検証の代わりにしていません。
 
 正常なモデルに加え、退化面・非有限座標・範囲外UV・変化のないキー・未割当／非有限ウェイト・ロック矛盾、同じ頂点数でも異なる接続を試しています。コピーのロックとマスク保持、原本ファイルのSHA保持、別候補の保存と再読込、既存出力の拒否も確認しました。
 
