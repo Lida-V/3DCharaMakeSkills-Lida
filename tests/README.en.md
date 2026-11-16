@@ -18,6 +18,8 @@ python -m unittest discover -s tests
 
 `test_vrm_check.py`, `test_rigid_group_check.py`, `test_shape_key_sweep.py`, `test_evidence_manifest.py`, and `test_reference_check.py` cover the [five checks](../skills/lida-avatar-workflow/references/en/automated-checks.md). They build a small VRM and trigger each missing setting, compare one rigid piece with a split group on a two-bone wrist, check folds, collapse, stretch, partner crossings, and the approved baseline on a flat patch, confirm that media become stale after the model is saved again, and confirm that kept blends and scripts reading from a target are listed. The VRM check, media verification, and clean-up impact run without numpy.
 
+`test_hand_rig.py` covers the numeric core of the [hand rig](../skills/lida-avatar-workflow/references/en/hand-rig.md). On a synthetic hand with creases and knuckle bumps it checks the finger split by surface connectivity, left/right mirroring, PIP and DIP from creases, bend directions, the finger-chain weights, linear blend skinning, and protection of existing outputs. It needs numpy.
+
 Separate synthetic-fixture checks used Blender 5.2.1 LTS: the earlier helper API covered 14 cases and its CLI 19; the later rig-audit addition covered 15 API and 9 CLI cases, plus one synthetic FBX case. See [tool scope and limitations](../skills/lida-avatar-workflow/references/en/model-tools.md). Fixtures and production models are not distributed.
 
 To select a writable test location, set `LIDA_DISTRIBUTION_TEST_TEMP` to a dedicated directory. Otherwise the normal temporary directory is used. Each test cleans up only its own temporary folder. License text in test fixtures is not the pack's formal license.

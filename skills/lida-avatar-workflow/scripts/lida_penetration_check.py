@@ -101,11 +101,14 @@ def _plane_crossings(corners, signed):
     return points, found == 2
 
 
-def tri_tri_segments(points_a, triangles_a, points_b, triangles_b, pairs):
-    """Segments (n, 2, 3) where triangle pairs (index in a, index in b) really cross."""
+def tri_tri_segments(points_a, triangles_a, points_b, triangles_b, pairs, return_mask=False):
+    """Segments (n, 2, 3) where triangle pairs (index in a, index in b) really cross.
+
+    With return_mask, also return which of the given pairs crossed (the segments follow that order).
+    """
     pairs = np.asarray(pairs, np.int64).reshape(-1, 2)
     if not len(pairs):
-        return np.zeros((0, 2, 3))
+        return (np.zeros((0, 2, 3)), np.zeros(0, bool)) if return_mask else np.zeros((0, 2, 3))
     p = np.asarray(points_a, float)[np.asarray(triangles_a)[pairs[:, 0]]]
     q = np.asarray(points_b, float)[np.asarray(triangles_b)[pairs[:, 1]]]
     normal_p = np.cross(p[:, 1] - p[:, 0], p[:, 2] - p[:, 0])
@@ -124,7 +127,8 @@ def tri_tri_segments(points_a, triangles_a, points_b, triangles_b, pairs):
     low = np.maximum(along_p.min(1), along_q.min(1))
     high = np.minimum(along_p.max(1), along_q.max(1))
     ok &= high - low > 1e-10
-    return np.stack([origin + low[:, None] * line, origin + high[:, None] * line], axis=1)[ok]
+    segments = np.stack([origin + low[:, None] * line, origin + high[:, None] * line], axis=1)[ok]
+    return (segments, ok) if return_mask else segments
 
 
 def brute_pairs(points_a, triangles_a, points_b, triangles_b):
