@@ -186,15 +186,7 @@ The panel saves neither the blend file nor preferences; saving is the person's d
 
 ## Verified scope
 
-On 2026-11-15 it was run with **Blender 5.3.0 in background mode**, reading saved files of a separate new character production without modifying them. The input file SHA was identical before and after each run. The numbers are observations from that example, not targets for other models.
-
-| Accessory | Input | Result |
-| --- | --- | --- |
-| Tiara (front arc, axis tilted 15° back from up, lower 30% as band) | Just after a person set the position. 39% of points deeper than the tolerance, deepest 22 mm | 0% inside. Band minimum 0.4–0.7 mm, median 4.1–8.8 mm. Largest move 28 mm (31% of the band radius), with the stretch warning. In close renders from five directions the shape was nearly the same as the result of a hand-written dedicated script |
-| The same tiara as fitted by the dedicated script | `measure` only | Band minimum −4.2 to −0.2 mm, median 2.3–7.4 mm, 1.1% inside |
-| Wrist ornament (closed ring, axis from the partner) | As placed. Gap 1.1–4.8 mm | 0.9–3.4 mm. Largest move 3 mm |
-| A test copy of that wrist ornament, shrunk so it cut into the arm | 39% inside, deepest 5.6 mm | 0% inside, band 0.9 / 1.4 / 3.0 mm (minimum / median / maximum). Pearl rows and the flower shape checked in renders |
-| Armlet (the ring did not surround the arm; it lay on top of it) | — | The largest move would be 445% of the band radius; refused and reported as a placement problem |
+It was checked with **Blender 5.3.0 in background mode** on saved production files, read only: `measure`, `fit`, and refusal of an accessory that is placed wrongly. The input files do not change.
 
 In ordinary Python, 11 tests (`tests/test_accessory_fit.py` in the source repository) against an analytic elliptic cylinder check that the outline encloses the real surface, that axial position and azimuth do not change, open-arc detection, push-only, rigid pieces, warnings and refusal, and protection of existing outputs. The panel was checked in background mode for registration, measuring, adding the copy and storing the report. On-screen operation was not checked.
 

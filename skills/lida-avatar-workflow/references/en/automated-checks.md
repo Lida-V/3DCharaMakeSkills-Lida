@@ -168,9 +168,9 @@ While would_break or path_mentions is not 0, delete nothing and report the lines
 
 ## Verified scope
 
-- `lida_vrm_check.py`: read three really exported VRM 1.0 files (about 52–217 MB). 48 springs, 169 joints, 25 colliders, 11 groups, 77 MToon materials, and 205 images up to 2048 matched the production records. A version that still had 14 feather materials writing depth while blending raised that warning.
-- `lida_rigid_group_check.py`: Blender 5.3.0 in background, five groups of a model with 109 bones, read-only. Head ornaments strayed 0 mm, a choker containing a link that is meant to bend 11.7 mm, and a part containing ankle ornaments 5.7 mm, in line with the recorded weights.
-- `lida_shape_key_sweep.py`: the face of the same model (14 keys, 5,917 vertices) with eyeballs and teeth; 14 single keys and 4 combinations in about 9 seconds. Passing the same report as `--accept` gave no problems.
+- `lida_vrm_check.py`: read really exported VRM 1.0 files; the counts of springs, materials and images matched the production records, and a version that still had blended materials writing depth raised that warning.
+- `lida_rigid_group_check.py`: Blender 5.3.0 in background, ornament groups of a real model, read only; the results matched the recorded weights.
+- `lida_shape_key_sweep.py`: the face of the same model with eyeballs and teeth, single keys and combinations. Passing the same report as `--accept` gave no problems.
 - `lida_evidence_manifest.py` and `lida_reference_check.py`: recording, verifying, detecting an external image, and detecting script lines were run on a small self-made blend and image.
 - All five have ordinary-Python regression tests ([test notes](model-tools.md#verified-scope)).
 

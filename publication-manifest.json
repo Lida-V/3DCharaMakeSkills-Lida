@@ -451,7 +451,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/model-tools.md",
         "translation": "skills/lida-avatar-workflow/references/en/model-tools.md",
-        "source_sha256": "51d1762a69d422a9210db31785a9a188de115475e065172a3267e676c20e960d"
+        "source_sha256": "a719183811fd233f9bc6e8db1179d06301cc21d77b9e4e10a33c617c72c26a28"
       },
       {
         "source": "skills/lida-avatar-workflow/references/mouth-shapes.md",
@@ -531,7 +531,7 @@
       {
         "source": "tests/README.md",
         "translation": "tests/README.en.md",
-        "source_sha256": "863b1b7d408263529104f43489439f2d06fbe05752f477aa27f8537068a13d52"
+        "source_sha256": "20e23cd1a61f90603b48029b84ed0b02b8a9958119cf9eb4e46b1c58cf8e9a07"
       },
       {
         "source": "model-reference/china-wafuku/README.md",
@@ -561,17 +561,17 @@
       {
         "source": "skills/lida-avatar-workflow/references/accessory-fit.md",
         "translation": "skills/lida-avatar-workflow/references/en/accessory-fit.md",
-        "source_sha256": "9f859738535b864dd1976b8954838de4bb367f69d958d0285fafd24ab2ee178c"
+        "source_sha256": "f470d318322157c2fa585f5f0ea7977cfa45c34500f29b8666978ae1aa5bc351"
       },
       {
         "source": "skills/lida-avatar-workflow/references/penetration-check.md",
         "translation": "skills/lida-avatar-workflow/references/en/penetration-check.md",
-        "source_sha256": "9cebd6712bda0e41192cfe2a2183afe161f310721ef335ab2b8fbb06929cc449"
+        "source_sha256": "92f8dbfc4039183375f65f333d5cf10b07b3f64f7bb19c8e2adfa5d3a36396b0"
       },
       {
         "source": "skills/lida-avatar-workflow/references/automated-checks.md",
         "translation": "skills/lida-avatar-workflow/references/en/automated-checks.md",
-        "source_sha256": "1e402001c11af4f5f2c304335f0e97828b9a1ab481655c19dd5b93fe85a2629d"
+        "source_sha256": "718f14ab017b7e6ca648c54940e1007514ad74f63d1e1ac057a418ed12d47908"
       }
     ]
   },

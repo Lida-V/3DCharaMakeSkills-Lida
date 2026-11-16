@@ -165,9 +165,7 @@ Open the saved <version> read-only and examine penetration between hair <name> a
 
 ## Verified scope
 
-- Blender 5.3.0 in background, reading a copy of a saved file from another new character production (T-pose, no armature). `check` on two hair objects (about 9,000 vertices) against 3 closed and 15 thin partners took about 5 seconds, `advise` about 9 seconds. The input SHA256 was the same before and after.
-- `check`, with the head allowed, found 46 visible spots and about 2.5 m of visible curve. Close views confirmed that locks vanishing into the body, tips piercing fins, and flakes on the skin match the marks.
-- `advise` found 18 stretches in body and tail: reroute or cut 6, trim 6, pull tip 2, push 3, leave 1. Entry positions were confirmed in images.
+- `check` and `advise` were run with Blender 5.3.0 in background on a copy of a saved production file, read only. Close views confirmed that the marks and the suggested entry positions match the model. The input does not change.
 - Ordinary-Python tests cover crossing length, spot grouping, suggestion conditions, threshold changes, before/after comparison, and protection of existing outputs.
 
 Not verified: results of repairs made from the suggestions, other Blender versions, models with armature and pose, frames in motion, individual depth values, repair decisions for thin partners, and appearance at the destination. Example counts are not quality criteria.

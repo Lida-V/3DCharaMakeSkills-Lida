@@ -22,4 +22,4 @@ python -m unittest discover -s tests
 
 配布版のモデル処理は別途、Blender 5.2.1 LTSで合成fixtureの従来のAPI14項目・CLI19項目と、追加したrig-auditのAPI15項目・CLI9項目、合成FBX1件を確認しています。検査範囲と制限は[制作補助ツール](../skills/lida-avatar-workflow/references/model-tools.md#確認済みの範囲)へ。fixtureのblend・実制作モデルは同梱しません。
 
-この制作ワークスペースでは、環境変数 `LIDA_DISTRIBUTION_TEST_TEMP` を制作プロジェクトの `assets/validation/distribution_release20261015/test-temp` へ設定して実行する。未指定の環境では通常の一時領域を使う。各試験はその下の専用一時フォルダだけを整理する。試験用の条件文はfixtureであり、配布物の正式なLICENSEを生成・変更しない。
+書き込める試験場所を選ぶには、環境変数 `LIDA_DISTRIBUTION_TEST_TEMP` を専用のフォルダへ設定する。未指定の環境では通常の一時領域を使う。各試験はその下の専用一時フォルダだけを整理する。試験用の条件文はfixtureであり、配布物の正式なLICENSEを生成・変更しない。

@@ -127,7 +127,7 @@ The initial 2026-10-15 implementation was checked in **Blender 5.2.1 LTS backgro
 
 Tests cover valid models, degenerate faces, nonfinite coordinates, out-of-range UVs, unchanged keys, unassigned/nonfinite weights, lock contradictions, and changed connectivity with equal vertex counts. They also cover lock/mask preservation on copies, source-file SHA preservation, separate candidate saving/reopening, and existing-output rejection.
 
-The FBX-condition CLI has 19 tests for synthetic headers, size boundaries, existing-output preservation, and related behavior. Two link-creation tests could not run in the source test environment; 17 passed. Same-path and ordinary alias output rejection were checked. One Blender-generated synthetic FBX also passed header/size checks with unchanged source SHA. This does not verify complete FBX syntax or service acceptance.
+The FBX-condition CLI has 19 tests for synthetic headers, size boundaries, existing-output preservation, and related behavior. The two link-creation tests are skipped where links cannot be created. Same-path and ordinary alias output rejection were checked. One Blender-generated synthetic FBX also passed header/size checks with unchanged source SHA. This does not verify complete FBX syntax or service acceptance.
 
 These are tests of the listed operations on synthetic models, not verification of other Blender versions, GUI add-on installation, all real-model poses, modeling/art fidelity, or destination quality.
 
