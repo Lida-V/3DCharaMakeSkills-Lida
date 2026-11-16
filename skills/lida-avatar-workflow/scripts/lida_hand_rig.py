@@ -5,7 +5,8 @@
 Run in Blender with ``--background --factory-startup --python THIS.py -- COMMAND``.
 
 measure: --input MODEL.blend --mesh Body --side left (--rig Armature --bones MAP.json | --wrist X Y Z --toward X Y Z)
-         --report NEW.json [--render-dir NEW_FOLDER]
+         --report NEW.json [--render-dir NEW_FOLDER] [--head-meshes Head ...] [--body-meshes Body ...]
+         [--head-height-mm N] [--height-mm N]
 place:   --input MODEL.blend --mesh Body --rig Armature --bones MAP.json --side left|right|both
          --report NEW.json --output-blend NEW.blend [--keep-weights] [--thumb-roll auto|DEGREES] [--z-toward palm|back]
          [--rigid-followers Nails ...]
@@ -18,7 +19,10 @@ along the surface from the wrist), so a ray or a nearest point never picks up a 
 Each finger's joints are read from the mesh where it shows them (a palmar crease, a dorsal knuckle,
 a gathering of edge loops) inside a window around an anatomical prior; where the mesh is silent the
 prior is used and the report says so. The back of the hand follows from the side, the finger
-direction and the thumb, so no axis is guessed from names.
+direction and the thumb, so no axis is guessed from names. measure also reports the proportions: inside
+the hand (palm against hand length, palm length against width, thumb reach) and against the body (hand
+against forearm, head height and height, and the height in heads), next to rounded human values. A
+stylised design differs on purpose, so the warning bands are options.
 
 place writes the measured joints into the finger bones of a copy, rolls each bone so that bending it
 curls the finger toward the palm and, more and more along the finger, toward the wrist centre, and
@@ -77,6 +81,19 @@ DEFAULTS = {
     "cross_tolerance_mm": 1.0,  # crossing curves shorter than this are not warned about
     "spot_mm": 3.0,
     "follower_drift_mm": 1.0,   # a nail or other follower moving more than this against the skin under it is warned about
+    # proportion bands (measure): outside them a warning is given. Set them from the design when it is stylised.
+    "palm_share_min": 0.48,     # palm length / hand length (wrist to the middle-finger web / wrist to the middle fingertip)
+    "palm_share_max": 0.62,
+    "palm_aspect_max": 1.45,    # palm length / palm width
+    "thumb_reach_min": 1.0,     # thumb tip / palm length along the hand: under 1 the thumb ends before the finger webs
+    "hand_head_min": 0.5,       # hand length / head height (crown to chin)
+    "hand_head_max": 0.95,
+    "hand_forearm_min": 0.5,    # hand length / forearm length (elbow to wrist)
+    "hand_forearm_max": 0.9,
+}
+HUMAN_REFERENCE = {   # an adult human hand and body, rounded; a stylised design may differ on purpose
+    "palm_share": 0.57, "palm_length_per_width": 1.25, "palm_per_middle_finger": 1.3, "thumb_per_index": 0.67,
+    "thumb_reach": 1.15, "hand_per_head": 0.78, "hand_per_forearm": 0.73, "hand_per_height": 0.108, "heads": 7.5,
 }
 POSES = {   # degrees: fingers (proximal, middle, distal), thumb (metacarpal, proximal, distal); oppose turns the
             # thumb metacarpal about the hand's long axis toward the palm before it bends
@@ -805,6 +822,88 @@ def follower_drift(model, name, points, weights, near=None, k=4):
     return np.abs(after - before).max(1)
 
 
+def hand_proportions(hand):
+    """Lengths (mm) and ratios inside one hand, measured along the hand from the wrist point that was given."""
+    unit = hand["unit_mm"]
+    wrist, toward, lateral = hand["wrist"], hand["toward"], hand["lateral"]
+    fingers = hand["fingers"]
+
+    def along(point):
+        return float((np.asarray(point) - wrist) @ toward) * unit
+
+    palm_length = along(fingers["Middle"]["base"])
+    hand_length = along(fingers["Middle"]["joints"][3])
+    palm_points = hand["points"][hand["labels"] == 0]
+    s = (palm_points - wrist) @ toward * unit
+    across = (palm_points - wrist) @ lateral * unit
+    band = (s > 0.5 * palm_length) & (s < 0.9 * palm_length)
+    palm_width = float(across[band].max() - across[band].min()) if band.sum() > 2 else float("nan")
+    points = hand["points"]
+    s_all = (points - wrist) @ toward
+    off = points - wrist - np.outer(s_all, toward)
+    near = np.linalg.norm(off, axis=1) < 0.6 * hand["reach"]
+    side = (points - wrist) @ lateral
+    narrow_at, narrow_width = None, None
+    step = hand["reach"] / 24.0
+    for start in np.arange(-0.5 * hand["reach"], 0.3 * hand["reach"], step):
+        inside = near & (s_all >= start) & (s_all < start + step)
+        if inside.sum() < 6:
+            continue
+        width = float(side[inside].max() - side[inside].min())
+        if narrow_width is None or width < narrow_width:
+            narrow_at, narrow_width = float(start + step / 2), width
+    middle = fingers["Middle"]["visible"] * unit
+    result = {
+        "hand_length_mm": round(hand_length, 1), "palm_length_mm": round(palm_length, 1), "palm_width_mm": round(palm_width, 1),
+        "finger_visible_mm": {name: round(fingers[name]["visible"] * unit, 1) for name in FINGERS},
+        "palm_share": round(palm_length / hand_length, 3),
+        "palm_length_per_width": round(palm_length / palm_width, 3) if palm_width == palm_width else None,
+        "palm_per_middle_finger": round(palm_length / middle, 3),
+        "thumb_per_index": round(fingers["Thumb"]["visible"] / max(fingers["Index"]["visible"], 1e-12), 3),
+        "thumb_reach": round(along(fingers["Thumb"]["joints"][3]) / palm_length, 3),
+        "narrowest_wrist_section_mm": None if narrow_at is None else round(narrow_at * unit, 1),
+    }
+    return result
+
+
+def body_ratios(hand_length_mm, forearm_mm=None, upper_arm_mm=None, head_mm=None, height_mm=None):
+    """Hand length against the arm, the head and the height; None where a length was not given."""
+    def ratio(a, b):
+        return None if a is None or b is None or b <= 0 else round(a / b, 3)
+
+    return {"forearm_mm": forearm_mm, "upper_arm_mm": upper_arm_mm, "head_height_mm": head_mm, "height_mm": height_mm,
+            "hand_per_forearm": ratio(hand_length_mm, forearm_mm), "hand_per_upper_arm": ratio(hand_length_mm, upper_arm_mm),
+            "hand_per_head": ratio(hand_length_mm, head_mm), "hand_per_height": ratio(hand_length_mm, height_mm),
+            "heads": ratio(height_mm, head_mm)}
+
+
+def proportion_warnings(inside, body, options):
+    """Warnings where a ratio leaves its band. The bands are options: set them from the design for a stylised character."""
+    found = []
+    share = inside["palm_share"]
+    if share > options["palm_share_max"]:
+        found.append("the palm is %d%% of the hand length (human about 57%%, band up to %d%%): a long palm or short fingers; "
+                     "the thumb then ends short of the fingers" % (round(share * 100), round(options["palm_share_max"] * 100)))
+    elif share < options["palm_share_min"]:
+        found.append("the palm is %d%% of the hand length (human about 57%%, band from %d%%): a short palm or long fingers"
+                     % (round(share * 100), round(options["palm_share_min"] * 100)))
+    aspect = inside["palm_length_per_width"]
+    if aspect is not None and aspect > options["palm_aspect_max"]:
+        found.append("the palm is %.2f times as long as it is wide (human about 1.25): a long, narrow palm" % aspect)
+    if inside["thumb_reach"] < options["thumb_reach_min"]:
+        found.append("the thumb tip ends at %d%% of the palm length, before the finger webs (human about 115%%)" % round(inside["thumb_reach"] * 100))
+    for key, low, high, label in (("hand_per_head", "hand_head_min", "hand_head_max", "the head height"),
+                                  ("hand_per_forearm", "hand_forearm_min", "hand_forearm_max", "the forearm")):
+        value = body.get(key) if body else None
+        if value is None:
+            continue
+        if value < options[low]:
+            found.append("the hand is %.2f times %s (band from %.2f): a small hand for this body" % (value, label, options[low]))
+        elif value > options[high]:
+            found.append("the hand is %.2f times %s (band up to %.2f): a large hand for this body" % (value, label, options[high]))
+    return found
+
+
 def _penetration():
     path = Path(__file__).resolve().with_name("lida_penetration_check.py")
     spec = importlib.util.spec_from_file_location("lida_penetration_check_for_hand", path)
@@ -1215,6 +1314,53 @@ def wrist_from_rig(rig, names):
     return wrist, _unit(middle - wrist)
 
 
+def body_lengths(rig, mapping, side, head_meshes=(), body_meshes=()):
+    """Forearm and upper arm from the bones; head height and height from the named meshes (rest shape, world up = Z)."""
+    unit = _unit_mm(rig)
+    bones = rig.data.bones
+    notes = []
+
+    def head_of(role):
+        name = mapping.get(role) if mapping else None
+        return np.array(bones[name].head_local) if isinstance(name, str) and name in bones else None
+
+    hand, lower, upper = head_of(side + "Hand"), head_of(side + "LowerArm"), head_of(side + "UpperArm")
+    forearm = None if hand is None or lower is None else round(float(np.linalg.norm(hand - lower)) * unit, 1)
+    upper_arm = None if lower is None or upper is None else round(float(np.linalg.norm(lower - upper)) * unit, 1)
+    if forearm is None:
+        notes.append("forearm not measured: the bone map has no %sLowerArm" % side)
+
+    def heights(objects, bone_name=None):
+        low, high = None, None
+        for obj in objects:
+            mesh = obj.data
+            flat = np.empty(len(mesh.vertices) * 3)
+            mesh.vertices.foreach_get("co", flat)
+            world = np.array(obj.matrix_world)
+            z = flat.reshape(-1, 3) @ world[2, :3] + world[2, 3]
+            group = obj.vertex_groups.get(bone_name) if bone_name else None
+            if group is not None:
+                keep = np.zeros(len(z), bool)
+                for vertex in mesh.vertices:
+                    for element in vertex.groups:
+                        if element.group == group.index and element.weight >= 0.5:
+                            keep[vertex.index] = True
+                if keep.any():
+                    z = z[keep]
+            if len(z):
+                low = float(z.min()) if low is None else min(low, float(z.min()))
+                high = float(z.max()) if high is None else max(high, float(z.max()))
+        return None if low is None else round((high - low) * unit, 1)
+
+    head = heights(head_meshes, mapping.get("head") if mapping else None) if head_meshes else None
+    height = heights(body_meshes) if body_meshes else None
+    if head is None:
+        notes.append("head height not measured: name the bare head (no hair, no crown) with --head-meshes")
+    if height is None:
+        notes.append("height not measured: name the body meshes with --body-meshes (rest pose, standing along Z)")
+    return forearm, upper_arm, head, height, notes
+
+
 def bone_weights(obj, names, count):
     table = np.zeros((count, len(names)))
     slot = {group.index: names.index(group.name) for group in obj.vertex_groups if group.name in names}
@@ -1472,7 +1618,8 @@ def _hand_inputs(mesh, rig, mapping, side, wrist=None, toward=None, back=None, o
     return hand, names
 
 
-def command_measure(mesh, rig, mapping, sides, wrist, toward, back, options, render_dir):
+def command_measure(mesh, rig, mapping, sides, wrist, toward, back, options, render_dir, head_meshes=(), body_meshes=(),
+                    head_height_mm=None, height_mm=None):
     report = {"schema": REPORT_SCHEMA, "command": "measure", "mesh": mesh.name, "rig": rig.name if rig else None,
               "unit": "mm", "space": "armature" if rig else "world", "options": resolve_options(options), "hands": {}}
     warnings = []
@@ -1482,6 +1629,16 @@ def command_measure(mesh, rig, mapping, sides, wrist, toward, back, options, ren
         entry = {"back_of_hand": [round(float(x), 4) for x in hand["back"]], "back_method": hand["back_method"],
                  "region_vertices": int(hand["mask"].sum()), "palm_vertices": int((hand["labels"] == 0).sum()),
                  "fingers": joint_report(hand, current)}
+        inside = hand_proportions(hand)
+        forearm = upper_arm = head = height = None
+        notes = []
+        if rig is not None:
+            forearm, upper_arm, head, height, notes = body_lengths(rig, mapping, side, head_meshes, body_meshes)
+        head = head_height_mm if head_height_mm is not None else head
+        height = height_mm if height_mm is not None else height
+        body = body_ratios(inside["hand_length_mm"], forearm, upper_arm, head, height)
+        entry["proportions"] = {"hand": inside, "body": body, "human_reference": dict(HUMAN_REFERENCE), "notes": notes}
+        warnings += ["%s: %s" % (side, w) for w in proportion_warnings(inside, body, hand["options"])]
         if render_dir is not None:
             measured = {n: hand["fingers"][n]["joints"] for n in FINGERS}
             entry["images"] = render_views(rig, mesh, hand, names, render_dir / side, marks={"measured": measured, "current": current})
@@ -1664,6 +1821,10 @@ def _parser():
             sub.add_argument("--wrist", nargs=3, type=float, metavar=("X", "Y", "Z"), help="wrist point when there is no rig")
             sub.add_argument("--toward", nargs=3, type=float, metavar=("X", "Y", "Z"), help="direction from the wrist to the fingers")
             sub.add_argument("--back", nargs=3, type=float, metavar=("X", "Y", "Z"), help="back-of-hand direction, to override")
+            sub.add_argument("--head-meshes", nargs="+", default=[], metavar="MESH", help="the bare head (no hair), for the head height")
+            sub.add_argument("--body-meshes", nargs="+", default=[], metavar="MESH", help="the meshes that span the full height")
+            sub.add_argument("--head-height-mm", type=float, help="head height (crown to chin), to override")
+            sub.add_argument("--height-mm", type=float, help="height, to override")
         if command in ("measure", "check"):
             sub.add_argument("--render-dir", type=Path, help="new folder for close views")
         if command == "place":
@@ -1749,7 +1910,17 @@ def main(argv=None):
             for side in sides:
                 (render_dir / side).mkdir()
         if args.command == "measure":
-            report, warnings = command_measure(mesh, rig, mapping, sides, args.wrist, args.toward, args.back, options, render_dir)
+            def named(values):
+                found = []
+                for value in values:
+                    obj = scene_objects.get(value)
+                    if obj is None or obj.type != "MESH":
+                        raise ValueError("Mesh not found: " + value)
+                    found.append(obj)
+                return found
+
+            report, warnings = command_measure(mesh, rig, mapping, sides, args.wrist, args.toward, args.back, options, render_dir,
+                                               named(args.head_meshes), named(args.body_meshes), args.head_height_mm, args.height_mm)
         elif args.command == "place":
             report, warnings = command_place(mesh, rig, mapping, sides, options, args.keep_weights, args.thumb_roll, args.z_toward,
                                              follower_objects)

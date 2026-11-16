@@ -20,7 +20,7 @@ python -m unittest discover -s tests
 
 `test_vrm_check.py`・`test_rigid_group_check.py`・`test_shape_key_sweep.py`・`test_evidence_manifest.py`・`test_reference_check.py`は、[5つの検査](../skills/lida-avatar-workflow/references/automated-checks.md)の回帰テストです。小さなVRMを組み立てて設定の抜けを1つずつ当てる、手首の2本の骨で1つの塊と割れる組を比べる、平らな面のキーで折り返し・潰れ・伸び・相手との交わりと承認済みの基準を確かめる、保存し直した版で資料が古いと出ること、残すBlendとスクリプトが消す対象を読んでいる時に挙がることを確かめます。VRMの点検・資料の照合・整理の影響はnumpyなしで動きます。
 
-`test_hand_rig.py`は[手の関節の配置](../skills/lida-avatar-workflow/references/hand-rig.md)の計算部分の回帰テストです。しわと関節のふくらみを付けた合成の手で、表面のつながりによる指の分け方、左右の鏡写し、しわからのPIP・DIP、曲げる向き、指の鎖のウェイト、線形スキニング、親指の解き方、爪などの固い部品の骨の選び方とずれ、既存出力の保護を確かめます。numpyが要ります。
+`test_hand_rig.py`は[手の関節の配置](../skills/lida-avatar-workflow/references/hand-rig.md)の計算部分の回帰テストです。しわと関節のふくらみを付けた合成の手で、表面のつながりによる指の分け方、左右の鏡写し、しわからのPIP・DIP、曲げる向き、指の鎖のウェイト、線形スキニング、親指の解き方、手の比と警告の幅、爪などの固い部品の骨の選び方とずれ、既存出力の保護を確かめます。numpyが要ります。
 
 配布版のモデル処理は別途、Blender 5.2.1 LTSで合成fixtureの従来のAPI14項目・CLI19項目と、追加したrig-auditのAPI15項目・CLI9項目、合成FBX1件を確認しています。検査範囲と制限は[制作補助ツール](../skills/lida-avatar-workflow/references/model-tools.md#確認済みの範囲)へ。fixtureのblend・実制作モデルは同梱しません。
 

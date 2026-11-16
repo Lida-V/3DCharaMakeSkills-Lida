@@ -251,6 +251,26 @@ class HandRigCoreTests(unittest.TestCase):
         loose[:, names.index('IndexProximal')] = 1.0                 # a nail left on the wrong bone slides
         self.assertGreater(HAND.follower_drift(model, 'fist', nail, loose).max(), 0.002)
 
+    def test_proportions_inside_the_hand_and_against_the_body(self):
+        inside = HAND.hand_proportions(self.hand)
+        self.assertAlmostEqual(inside['hand_length_mm'], 181.0, delta=6.0)             # the middle fingertip of the design
+        self.assertTrue(0.5 < inside['palm_share'] < 0.66, inside['palm_share'])
+        self.assertAlmostEqual(inside['palm_share'], inside['palm_length_mm'] / inside['hand_length_mm'], places=2)
+        self.assertGreater(inside['palm_width_mm'], 50.0)
+        body = HAND.body_ratios(inside['hand_length_mm'], forearm_mm=250.0, head_mm=230.0, height_mm=1700.0)
+        self.assertAlmostEqual(body['heads'], 1700.0 / 230.0, places=2)
+        self.assertAlmostEqual(body['hand_per_forearm'], inside['hand_length_mm'] / 250.0, places=2)
+        self.assertIsNone(body['hand_per_upper_arm'])
+        options = HAND.resolve_options({})
+        calm = dict(inside, palm_share=0.57, palm_length_per_width=1.25, thumb_reach=1.15)
+        self.assertEqual(HAND.proportion_warnings(calm, body, options), [])
+        long_palm = dict(calm, palm_share=0.67, palm_length_per_width=1.6, thumb_reach=0.96)
+        found = HAND.proportion_warnings(long_palm, HAND.body_ratios(170.0, forearm_mm=170.0, head_mm=316.0), options)
+        self.assertEqual(len(found), 4)
+        self.assertIn('long palm', found[0])
+        relaxed = HAND.resolve_options({'palm_share_max': 0.7, 'palm_aspect_max': 2.0, 'thumb_reach_min': 0.9, 'hand_forearm_max': 1.1})
+        self.assertEqual(HAND.proportion_warnings(long_palm, HAND.body_ratios(170.0, forearm_mm=170.0, head_mm=316.0), relaxed), [])
+
     def test_too_few_fingers_and_bad_options_are_refused(self):
         with self.assertRaises(ValueError):
             HAND.resolve_options({'converge': -1})
