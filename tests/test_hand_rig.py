@@ -271,6 +271,30 @@ class HandRigCoreTests(unittest.TestCase):
         relaxed = HAND.resolve_options({'palm_share_max': 0.7, 'palm_aspect_max': 2.0, 'thumb_reach_min': 0.9, 'hand_forearm_max': 1.1})
         self.assertEqual(HAND.proportion_warnings(long_palm, HAND.body_ratios(170.0, forearm_mm=170.0, head_mm=316.0), relaxed), [])
 
+    def test_hand_size_table_by_head_count_can_be_shifted_replaced_and_bypassed(self):
+        human = HAND.table_expectation(HAND.PROPORTION_TABLE, 7.5, 0.15, head_mm=230.0)
+        self.assertAlmostEqual(human['expected_hand_per_head'], HAND.HUMAN_REFERENCE['hand_per_height'] * 7.5, delta=0.02)
+        self.assertAlmostEqual(human['expected_hand_mm'], human['expected_hand_per_head'] * 230.0, delta=0.1)
+        between = HAND.table_expectation(HAND.PROPORTION_TABLE, 5.5, 0.15)
+        self.assertTrue(0.42 < between['expected_hand_per_head'] < 0.46)
+        self.assertEqual(len(between['basis']), 2)                    # both neighbouring rows are named
+        self.assertTrue(HAND.table_expectation(HAND.PROPORTION_TABLE, 2.0, 0.15)['outside_table'])
+        mine = [{'heads': 5, 'hand_per_head': 0.5, 'basis': 'my design sheet'}, {'heads': 7, 'hand_per_head': 0.6}]
+        self.assertAlmostEqual(HAND.table_expectation(mine, 6.0, 0.1)['expected_hand_per_head'], 0.55, places=3)
+        self.assertEqual(HAND.read_proportion_table({'rows': mine})[1]['basis'], 'not stated')
+        for bad in ([], [{'heads': 5}], [{'heads': 5, 'hand_per_head': -1}], [{'heads': 5, 'hand_per_head': 0.4}] * 2):
+            with self.assertRaises(ValueError):
+                HAND.read_proportion_table(bad)
+        options = HAND.resolve_options({})
+        inside = dict(HAND.hand_proportions(self.hand), palm_share=0.57, palm_length_per_width=1.25, thumb_reach=1.15)
+        body = HAND.body_ratios(170.0, head_mm=316.0)                  # 0.54 of the head
+        tight = HAND.table_expectation(HAND.PROPORTION_TABLE, 5.3, 0.15, head_mm=316.0)
+        found = HAND.proportion_warnings(dict(inside, hand_length_mm=170.0), body, options, tight)
+        self.assertEqual(len(found), 1)
+        self.assertIn('rule of thumb', found[0])
+        loose = HAND.table_expectation(HAND.PROPORTION_TABLE, 5.3, 0.3, head_mm=316.0)
+        self.assertEqual(HAND.proportion_warnings(dict(inside, hand_length_mm=170.0), body, options, loose), [])
+
     def test_too_few_fingers_and_bad_options_are_refused(self):
         with self.assertRaises(ValueError):
             HAND.resolve_options({'converge': -1})

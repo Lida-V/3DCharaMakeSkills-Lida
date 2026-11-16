@@ -6,7 +6,7 @@ Run in Blender with ``--background --factory-startup --python THIS.py -- COMMAND
 
 measure: --input MODEL.blend --mesh Body --side left (--rig Armature --bones MAP.json | --wrist X Y Z --toward X Y Z)
          --report NEW.json [--render-dir NEW_FOLDER] [--head-meshes Head ...] [--body-meshes Body ...]
-         [--head-height-mm N] [--height-mm N]
+         [--head-height-mm N] [--height-mm N] [--heads N] [--proportion-table TABLE.json]
 place:   --input MODEL.blend --mesh Body --rig Armature --bones MAP.json --side left|right|both
          --report NEW.json --output-blend NEW.blend [--keep-weights] [--thumb-roll auto|DEGREES] [--z-toward palm|back]
          [--rigid-followers Nails ...]
@@ -22,7 +22,10 @@ prior is used and the report says so. The back of the hand follows from the side
 direction and the thumb, so no axis is guessed from names. measure also reports the proportions: inside
 the hand (palm against hand length, palm length against width, thumb reach) and against the body (hand
 against forearm, head height and height, and the height in heads), next to rounded human values. A
-stylised design differs on purpose, so the warning bands are options.
+stylised design differs on purpose, so the warning bands are options. The hand size against the head is
+judged by a table of hand length / head height by head count; the table is a starting guide whose rows
+state their basis, and it can be replaced (--proportion-table), shifted (--heads, --proportion-tolerance)
+or bypassed (--hand-head-min/--hand-head-max).
 
 place writes the measured joints into the finger bones of a copy, rolls each bone so that bending it
 curls the finger toward the palm and, more and more along the finger, toward the wrist centre, and
@@ -90,7 +93,20 @@ DEFAULTS = {
     "hand_head_max": 0.95,
     "hand_forearm_min": 0.5,    # hand length / forearm length (elbow to wrist)
     "hand_forearm_max": 0.9,
+    "proportion_tolerance": 0.15,   # the table's hand size is accepted within +/- this share
 }
+# Hand length / head height by head count: a starting guide, not a rule. "basis" says where a row comes from;
+# only the human rows and the measured rows rest on measurements. Replace it with --proportion-table, or
+# override single values with --heads, --hand-head-min and --hand-head-max.
+PROPORTION_TABLE = (
+    {"heads": 3.0, "hand_per_head": 0.30, "basis": "rule of thumb (not measured)"},
+    {"heads": 4.0, "hand_per_head": 0.36, "basis": "rule of thumb (not measured)"},
+    {"heads": 5.0, "hand_per_head": 0.42, "basis": "rule of thumb (not measured)"},
+    {"heads": 6.0, "hand_per_head": 0.46, "basis": "measured: one stylised design sheet and its model"},
+    {"heads": 7.0, "hand_per_head": 0.64, "basis": "measured hand / height on anime-style examples; head count assumed"},
+    {"heads": 7.5, "hand_per_head": 0.81, "basis": "adult human"},
+    {"heads": 8.0, "hand_per_head": 0.86, "basis": "adult human"},
+)
 HUMAN_REFERENCE = {   # an adult human hand and body, rounded; a stylised design may differ on purpose
     "palm_share": 0.57, "palm_length_per_width": 1.25, "palm_per_middle_finger": 1.3, "thumb_per_index": 0.67,
     "thumb_reach": 1.15, "hand_per_head": 0.78, "hand_per_forearm": 0.73, "hand_per_height": 0.108, "heads": 7.5,
@@ -877,7 +893,46 @@ def body_ratios(hand_length_mm, forearm_mm=None, upper_arm_mm=None, head_mm=None
             "heads": ratio(height_mm, head_mm)}
 
 
-def proportion_warnings(inside, body, options):
+def read_proportion_table(rows):
+    """Validate a table: a list of {"heads", "hand_per_head", optional "basis"}; returns it sorted by heads."""
+    if isinstance(rows, dict):
+        rows = rows.get("rows")
+    if not isinstance(rows, (list, tuple)) or len(rows) < 1:
+        raise ValueError("The proportion table needs a list of rows (or an object with 'rows')")
+    table = []
+    for row in rows:
+        try:
+            heads, value = float(row["heads"]), float(row["hand_per_head"])
+        except (KeyError, TypeError, ValueError):
+            raise ValueError("Each proportion table row needs numeric 'heads' and 'hand_per_head'")
+        if not (math.isfinite(heads) and math.isfinite(value) and heads > 0 and value > 0):
+            raise ValueError("Proportion table values must be positive")
+        table.append({"heads": heads, "hand_per_head": value, "basis": str(row.get("basis", "not stated"))})
+    table.sort(key=lambda r: r["heads"])
+    if len({r["heads"] for r in table}) != len(table):
+        raise ValueError("The proportion table repeats a head count")
+    return table
+
+
+def table_expectation(table, heads, tolerance, head_mm=None):
+    """Hand length / head height the table gives for a head count (straight lines between rows, flat past the ends)."""
+    table = read_proportion_table(list(table))
+    at = [r["heads"] for r in table]
+    values = [r["hand_per_head"] for r in table]
+    expected = float(np.interp(heads, at, values))
+    below = max([r for r in table if r["heads"] <= heads], key=lambda r: r["heads"], default=table[0])
+    above = min([r for r in table if r["heads"] >= heads], key=lambda r: r["heads"], default=table[-1])
+    result = {"heads_used": round(float(heads), 2), "expected_hand_per_head": round(expected, 3),
+              "band": [round(expected * (1 - tolerance), 3), round(expected * (1 + tolerance), 3)],
+              "basis": sorted({below["basis"], above["basis"]}),
+              "outside_table": bool(heads < at[0] or heads > at[-1])}
+    if head_mm:
+        result["expected_hand_mm"] = round(expected * head_mm, 1)
+        result["band_mm"] = [round(result["band"][0] * head_mm, 1), round(result["band"][1] * head_mm, 1)]
+    return result
+
+
+def proportion_warnings(inside, body, options, expectation=None):
     """Warnings where a ratio leaves its band. The bands are options: set them from the design for a stylised character."""
     found = []
     share = inside["palm_share"]
@@ -892,10 +947,19 @@ def proportion_warnings(inside, body, options):
         found.append("the palm is %.2f times as long as it is wide (human about 1.25): a long, narrow palm" % aspect)
     if inside["thumb_reach"] < options["thumb_reach_min"]:
         found.append("the thumb tip ends at %d%% of the palm length, before the finger webs (human about 115%%)" % round(inside["thumb_reach"] * 100))
+    measured = body.get("hand_per_head") if body else None
+    if expectation is not None and measured is not None:
+        low, high = expectation["band"]
+        if not low <= measured <= high:
+            text = "the hand is %.2f times the head height; for %.1f heads the table gives about %.2f (%.2f to %.2f)" % (
+                measured, expectation["heads_used"], expectation["expected_hand_per_head"], low, high)
+            if "expected_hand_mm" in expectation:
+                text += ", a hand of about %.0f mm instead of %.0f mm" % (expectation["expected_hand_mm"], inside["hand_length_mm"])
+            found.append(text + " [" + "; ".join(expectation["basis"]) + "]")
     for key, low, high, label in (("hand_per_head", "hand_head_min", "hand_head_max", "the head height"),
                                   ("hand_per_forearm", "hand_forearm_min", "hand_forearm_max", "the forearm")):
         value = body.get(key) if body else None
-        if value is None:
+        if value is None or (key == "hand_per_head" and expectation is not None):
             continue
         if value < options[low]:
             found.append("the hand is %.2f times %s (band from %.2f): a small hand for this body" % (value, label, options[low]))
@@ -1619,7 +1683,7 @@ def _hand_inputs(mesh, rig, mapping, side, wrist=None, toward=None, back=None, o
 
 
 def command_measure(mesh, rig, mapping, sides, wrist, toward, back, options, render_dir, head_meshes=(), body_meshes=(),
-                    head_height_mm=None, height_mm=None):
+                    head_height_mm=None, height_mm=None, heads=None, table=None, table_source="built-in"):
     report = {"schema": REPORT_SCHEMA, "command": "measure", "mesh": mesh.name, "rig": rig.name if rig else None,
               "unit": "mm", "space": "armature" if rig else "world", "options": resolve_options(options), "hands": {}}
     warnings = []
@@ -1638,7 +1702,21 @@ def command_measure(mesh, rig, mapping, sides, wrist, toward, back, options, ren
         height = height_mm if height_mm is not None else height
         body = body_ratios(inside["hand_length_mm"], forearm, upper_arm, head, height)
         entry["proportions"] = {"hand": inside, "body": body, "human_reference": dict(HUMAN_REFERENCE), "notes": notes}
-        warnings += ["%s: %s" % (side, w) for w in proportion_warnings(inside, body, hand["options"])]
+        expectation = None
+        explicit_band = any(key in (options or {}) for key in ("hand_head_min", "hand_head_max"))
+        heads_used = heads if heads is not None else body["heads"]
+        if heads_used is not None and not explicit_band:
+            expectation = table_expectation(table or PROPORTION_TABLE, heads_used, hand["options"]["proportion_tolerance"], head)
+            expectation["source"] = table_source
+            expectation["heads_from"] = "--heads" if heads is not None else "measured height / head height"
+            if expectation["outside_table"]:
+                notes.append("the head count lies outside the table; its nearest row was used")
+            entry["proportions"]["table"] = expectation
+        elif explicit_band:
+            notes.append("--hand-head-min/--hand-head-max were given, so the table was not used")
+        else:
+            notes.append("the table was not used: no head count (give --heads, or name --head-meshes and --body-meshes)")
+        warnings += ["%s: %s" % (side, w) for w in proportion_warnings(inside, body, hand["options"], expectation)]
         if render_dir is not None:
             measured = {n: hand["fingers"][n]["joints"] for n in FINGERS}
             entry["images"] = render_views(rig, mesh, hand, names, render_dir / side, marks={"measured": measured, "current": current})
@@ -1825,6 +1903,9 @@ def _parser():
             sub.add_argument("--body-meshes", nargs="+", default=[], metavar="MESH", help="the meshes that span the full height")
             sub.add_argument("--head-height-mm", type=float, help="head height (crown to chin), to override")
             sub.add_argument("--height-mm", type=float, help="height, to override")
+            sub.add_argument("--heads", type=float, help="the design's head count, to use instead of the measured one")
+            sub.add_argument("--proportion-table", type=Path,
+                             help="JSON rows of heads / hand_per_head (/ basis) to use instead of the built-in table")
         if command in ("measure", "check"):
             sub.add_argument("--render-dir", type=Path, help="new folder for close views")
         if command == "place":
@@ -1910,6 +1991,16 @@ def main(argv=None):
             for side in sides:
                 (render_dir / side).mkdir()
         if args.command == "measure":
+            table, table_source = None, "built-in"
+            if args.proportion_table is not None:
+                table_path = args.proportion_table.expanduser().resolve()
+                if not table_path.is_file():
+                    raise ValueError("Proportion table not found: " + table_path.name)
+                table = read_proportion_table(json.loads(table_path.read_text(encoding="utf-8-sig")))
+                table_source = table_path.name
+            if args.heads is not None and not (math.isfinite(args.heads) and args.heads > 0):
+                raise ValueError("--heads must be a positive number")
+
             def named(values):
                 found = []
                 for value in values:
@@ -1920,7 +2011,8 @@ def main(argv=None):
                 return found
 
             report, warnings = command_measure(mesh, rig, mapping, sides, args.wrist, args.toward, args.back, options, render_dir,
-                                               named(args.head_meshes), named(args.body_meshes), args.head_height_mm, args.height_mm)
+                                               named(args.head_meshes), named(args.body_meshes), args.head_height_mm, args.height_mm,
+                                               args.heads, table, table_source)
         elif args.command == "place":
             report, warnings = command_place(mesh, rig, mapping, sides, options, args.keep_weights, args.thumb_roll, args.z_toward,
                                              follower_objects)

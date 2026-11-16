@@ -58,6 +58,40 @@ Ratios inside the hand depend little on the character's head count, but hand siz
 - Head height and height come from the meshes you name. Without them they are not measured and `notes` says so. You can also pass numbers (`--head-height-mm`, `--height-mm`).
 - On a body without legs (a tail, for example) height and heads do not mean what they mean on a human. Rely on the head and forearm ratios.
 
+### The hand-size table by head count
+
+Hand size is compared with a table of hand length / head height by head count. The head count is the measured height / head height, or the design's value passed with `--heads`.
+
+| Heads | Hand / head height | Hand / height (the same value restated) | Basis |
+| --- | --- | --- | --- |
+| 3 | 0.30 | about 10% | rule of thumb (not measured) |
+| 4 | 0.36 | about 9% | rule of thumb (not measured) |
+| 5 | 0.42 | about 8.4% | rule of thumb (not measured) |
+| 6 | 0.46 | about 7.7% | measured: one stylised design sheet and its model |
+| 7 | 0.64 | about 9.1% | measured hand / height on anime-style examples; head count assumed |
+| 7.5 | 0.81 | about 10.8% | adult human |
+| 8 | 0.86 | about 10.8% | adult human |
+
+**The table is a starting guide, not a rule.** Only the lower four rows rest on measurements, and the stylised rows on one or a few examples. At the same head count, hand size changes with style (the large step between 6 and 7 heads comes from examples in different styles). Values between rows follow straight lines; past the ends the end row is used. The report's `basis` names the rows that were used.
+
+There are four ways to adapt it.
+
+| Goal | How |
+| --- | --- |
+| Judge by the design's head count (also when a tail or tall shoes change the height) | `--heads 6` |
+| Widen or narrow the accepted band (default ±15% of the table value) | `--proportion-tolerance 0.25` |
+| Use your own table | `--proportion-table table.json` (form below) |
+| Skip the table and set the band directly | `--hand-head-min 0.4 --hand-head-max 0.6` |
+
+```json
+[
+  {"heads": 5, "hand_per_head": 0.50, "basis": "my design sheet"},
+  {"heads": 7, "hand_per_head": 0.60, "basis": "my design sheet"}
+]
+```
+
+If you have measured the hand and head on the design sheet, a table made from those values is the most reliable. A one-row table works too (it gives that value at every head count). A hand outside the table needs no fix when the size is intended by the design.
+
 ### 4 Aim the bend slightly toward the wrist centre
 
 Each bone's roll is set so that bending curls the finger toward the palm and, more toward the fingertip, slightly toward the wrist centre (`--converge`). Too strong pushes the ring finger into the middle finger. The thumb bends across the palm, not into it. Its curl direction sits between "toward the palm" and "toward the little finger" (45°, plus `--thumb-roll` toward the little finger), and the roll is searched so the thumb reaches best in both the fist and the pinch.
@@ -121,7 +155,7 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 
 - `hands.<side>.fingers.<finger>.joints`: each joint's position (rig space), `method` (`mesh` from the shape, `prior` estimated, `tip` the fingertip, `estimated` the computed thumb base), `score` and `features` (crease, knuckle, loop strength), `from_web_mm` (distance from the finger web), and `current_bone_offset_mm` (offset from the current bone).
 - `back_of_hand`: the measured back-of-hand direction.
-- `proportions.hand`: lengths (mm) and ratios inside the hand. `proportions.body`: forearm, upper arm, head height, height, the hand against each, and heads. `human_reference`: human values for reference. `notes`: what was not measured.
+- `proportions.hand`: lengths (mm) and ratios inside the hand. `proportions.body`: forearm, upper arm, head height, height, the hand against each, and heads. `human_reference`: human values for reference. `table`: the head count used, the table value and band, the hand length that gives for this head height (mm), and the basis of the rows. `notes`: what was not measured and why the table was not used.
 - For `place`, `thumb_roll_deg` (the chosen thumb roll) and `flex_sign` (which rotation curls the finger). `--z-toward` chooses whether bone Z points to the palm or the back. `rigid_followers` lists the re-attached pieces and the count per bone.
 - A warning appears when the thumb's visible length is under 55% of the index finger's (roughly two thirds on a human hand). A thumb that cannot reach the fingers is a shape problem; joints and weights do not fix it.
 
@@ -156,6 +190,9 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 | `--hand-forearm-min`, `--hand-forearm-max` | 0.5, 0.9 | Hand / forearm outside this band is warned about |
 | `--head-meshes`, `--body-meshes` (measure) | none | Meshes used for the head height and the height |
 | `--head-height-mm`, `--height-mm` (measure) | none | Head height and height as numbers |
+| `--heads` (measure) | measured | The design's head count, used to read the table instead |
+| `--proportion-table` (measure) | built-in | A table of hand / head height by head count (JSON) |
+| `--proportion-tolerance` | 0.15 | Accepted share around the table value |
 | `--thumb-metacarpal` | 1.35 | Thumb metacarpal length, as a multiple of the proximal phalanx |
 | `--converge` | 0.3 | How strongly bent fingertips aim at the wrist centre (0–1) |
 | `--joint-band` | 1.0 | Half-width of the weight change at a joint, times the finger thickness. Narrow bands fold the knuckle |
@@ -190,7 +227,7 @@ Read the saved <version> without saving it and check the <side> hand with lida_h
 - In Blender 5.3.0 background runs, `measure`, `place`, and `check` were run read-only on a copy of a saved file from another production. PIP and DIP agreed with the hand-fitted bones within about 1 mm on most fingers. In the written copy, stretched edges in the fist and point poses fell below the hand-fitted version, and the thumb base no longer collapsed. The nails' slide in the fist went from about 6 mm to 0. A palm too long for the thumb to reach the finger webs was reported as ratio warnings. The input did not change.
 - Plain-Python tests on a synthetic hand check the finger split, left/right mirroring, PIP and DIP from creases, bend directions, the weight chains, linear blend skinning, the thumb solve, bone choice and slide of hard pieces, and protection of existing outputs.
 
-Not verified: on fingers whose joints barely show in the shape, such as the little finger, whether the estimate or the hand fit is right (look at the images); whether grips look natural; grips on a hand with a short thumb; a hand-size standard per head count (only human values and the bands you set are compared); pieces spanning several bones; other Blender versions; volume-preserving skinning; how it looks in the target application. Example numbers are not a quality standard.
+Not verified: on fingers whose joints barely show in the shape, such as the little finger, whether the estimate or the hand fit is right (look at the images); whether grips look natural; grips on a hand with a short thumb; how well the hand-size table holds (low head counts are unmeasured rules of thumb; stylised rows rest on few examples); pieces spanning several bones; other Blender versions; volume-preserving skinning; how it looks in the target application. Example numbers are not a quality standard.
 
 ## Terms of use
 
