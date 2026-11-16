@@ -206,9 +206,50 @@ class HandRigCoreTests(unittest.TestCase):
         names, weights = HAND.hand_weights(self.hand)
         joints = {n: self.hand['fingers'][n]['joints'] for n in HAND.FINGERS}
         model = HAND.HandModel(self.hand, joints, HAND.hinge_axes(self.hand), weights)
-        roll, rows = HAND.thumb_search(model, self.hand['options'], angles=(-20, 0, 20))
-        self.assertIn(roll, (-20.0, 0.0, 20.0))
-        self.assertEqual(len(rows), 3)
+        roll, rows = HAND.thumb_search(model, self.hand['options'], angles=(-20, 20))
+        self.assertIn(roll, (-20.0, 20.0))
+        self.assertEqual(len(rows), 2)
+
+    def test_thumb_is_solved_as_one_arc_and_stays_out_of_the_fingers(self):
+        names, weights = HAND.hand_weights(self.hand)
+        joints = {n: self.hand['fingers'][n]['joints'] for n in HAND.FINGERS}
+        model = HAND.HandModel(self.hand, joints, HAND.hinge_axes(self.hand), weights)
+        table = HAND.fit_thumb_poses(model, ['relax', 'fist', 'pinch'])
+        self.assertEqual(sorted(table), ['fist', 'pinch'])
+        for row in table.values():
+            self.assertLessEqual(row['crossing_mm'], 1.0)
+            self.assertLessEqual(row['oppose'], HAND.THUMB_OPPOSE)
+            if row['proximal'] > 0:                                   # fixed shares: the thumb folds as one arc
+                self.assertAlmostEqual(row['distal'] / row['proximal'], HAND.THUMB_CURL[2] / HAND.THUMB_CURL[1], places=2)
+        self.assertEqual(model.spec('fist')[0]['Thumb'], [table['fist'][k] for k in ('metacarpal', 'proximal', 'distal')])
+        tip_rest = HAND._thumb_tip(model, model.points)
+        tip_bent = HAND._thumb_tip(model, model.pose('fist', 1.0, thumb=HAND.thumb_from(1.0, 0.0)))
+        self.assertGreater((tip_bent - tip_rest)[1], 0, 'the thumb curls across the palm, toward the little finger')
+        self.assertLess((tip_bent - tip_rest)[2], 0, 'and toward the palm')
+
+    def test_rigid_followers_take_the_bone_under_them_and_skip_far_pieces(self):
+        names, weights = HAND.hand_weights(self.hand)
+        tip = np.array(FINGER_DESIGN['Index'][3])
+        nail = tip + np.array([[-0.010, -0.003, 0.007], [-0.002, -0.003, 0.007], [-0.002, 0.003, 0.007], [-0.010, 0.003, 0.007]])
+        far = nail + np.array([0.0, 1.0, 0.0])
+        points = np.concatenate([nail, far])
+        triangles = np.array([[0, 1, 2], [0, 2, 3], [4, 5, 6], [4, 6, 7]])
+        self.assertEqual(len(set(HAND.pieces(8, triangles))), 2)
+        label, chosen, near = HAND.rigid_follower_bones(points, triangles, self.hand, weights)
+        self.assertEqual(list(chosen.values()), [names.index('IndexDistal')])
+        joints = {n: self.hand['fingers'][n]['joints'] for n in HAND.FINGERS}
+        region = np.nonzero(self.hand['mask'])[0]
+        bed = np.unique(region[HAND.nearest_k(nail, self.points[region])[0]])
+        seated = weights.copy()
+        seated[bed] = 0.0
+        seated[bed, names.index('IndexDistal')] = 1.0
+        rigid = np.zeros((4, len(names)))
+        rigid[:, names.index('IndexDistal')] = 1.0
+        model = HAND.HandModel(self.hand, joints, HAND.hinge_axes(self.hand), seated)
+        self.assertLess(HAND.follower_drift(model, 'fist', nail, rigid).max(), 1e-9)
+        loose = np.zeros((4, len(names)))
+        loose[:, names.index('IndexProximal')] = 1.0                 # a nail left on the wrong bone slides
+        self.assertGreater(HAND.follower_drift(model, 'fist', nail, loose).max(), 0.002)
 
     def test_too_few_fingers_and_bad_options_are_refused(self):
         with self.assertRaises(ValueError):

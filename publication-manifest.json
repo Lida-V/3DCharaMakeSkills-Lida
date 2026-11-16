@@ -536,7 +536,7 @@
       {
         "source": "tests/README.md",
         "translation": "tests/README.en.md",
-        "source_sha256": "047d28cb555a89a77c8c5bdf93533e4947e05a57bdae82d9b18a72d6e123b463"
+        "source_sha256": "54027ab5abf2d97253b93b31b8226e2e4c8b833d9cc214a2873989faaee85eb7"
       },
       {
         "source": "model-reference/china-wafuku/README.md",
@@ -581,7 +581,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/hand-rig.md",
         "translation": "skills/lida-avatar-workflow/references/en/hand-rig.md",
-        "source_sha256": "358673278026fb091f90000145365ced105d1d8ceae5cb45d9ffb443e269e3bb"
+        "source_sha256": "6b444c9dd66ec5f1dd3059e172e28bc38fb6cc35eca42fad42f8c261c22c5a95"
       }
     ]
   },

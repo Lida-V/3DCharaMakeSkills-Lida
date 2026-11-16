@@ -8,8 +8,10 @@ measure: --input MODEL.blend --mesh Body --side left (--rig Armature --bones MAP
          --report NEW.json [--render-dir NEW_FOLDER]
 place:   --input MODEL.blend --mesh Body --rig Armature --bones MAP.json --side left|right|both
          --report NEW.json --output-blend NEW.blend [--keep-weights] [--thumb-roll auto|DEGREES] [--z-toward palm|back]
+         [--rigid-followers Nails ...]
 check:   --input MODEL.blend --mesh Body --rig Armature --bones MAP.json --side left|right|both
          --report NEW.json [--render-dir NEW_FOLDER] [--poses relax grip fist point pinch spread opposition]
+         [--followers Nails ...]
 
 measure splits the hand into five fingers by surface connectivity (a merge tree of the distance
 along the surface from the wrist), so a ray or a nearest point never picks up a neighbouring finger.
@@ -21,11 +23,13 @@ direction and the thumb, so no axis is guessed from names.
 place writes the measured joints into the finger bones of a copy, rolls each bone so that bending it
 curls the finger toward the palm and, more and more along the finger, toward the wrist centre, and
 (unless --keep-weights) replaces the hand weights by chains along each finger with smooth bands at
-the joints, faded into the old weights over the wrist. The thumb roll is searched so the pinch closes
-without the thumb crossing the other fingers.
+the joints, faded into the old weights over the wrist. The thumb bends across the palm (between "toward
+the palm" and "toward the little finger"); its roll is searched so that the thumb can both rest on the
+curled fingers in a fist and meet the index fingertip in a pinch without passing through a finger.
 
 check bends the fingers through standard grips in steps with linear blend skinning computed from the
-rest data, and counts crossing curves between fingers, folds inside a finger, fingertips entering
+rest data. The thumb angles of each grip are solved for this hand (tip on the curled fingers, tip to the
+index fingertip, ...) instead of using fixed numbers, and reported. It counts crossing curves between fingers, folds inside a finger, fingertips entering
 the palm and stretched edges. One pose is also evaluated in Blender to confirm the skinning matches.
 
 The numeric core needs numpy only. The input blend is never saved; place writes a new blend. Exit
@@ -72,6 +76,7 @@ DEFAULTS = {
     "stretch_mm": 3.0,          # ... and longer by more than this counts as stretched
     "cross_tolerance_mm": 1.0,  # crossing curves shorter than this are not warned about
     "spot_mm": 3.0,
+    "follower_drift_mm": 1.0,   # a nail or other follower moving more than this against the skin under it is warned about
 }
 POSES = {   # degrees: fingers (proximal, middle, distal), thumb (metacarpal, proximal, distal); oppose turns the
             # thumb metacarpal about the hand's long axis toward the palm before it bends
@@ -87,7 +92,7 @@ UNVERIFIED = [
     "whether the grips look right: fist shape, how far the thumb wraps, knuckle shape (render and look)",
     "the shape of the hand itself (a short thumb or thin fingers are not fixed by joints or weights)",
     "joints marked 'prior' in the report: the mesh showed no crease, knuckle or loop gathering there",
-    "nails, gloves, rings and other meshes that follow the finger bones (their weights are not recomputed)",
+    "gloves, rings and other soft or shared meshes on the finger bones (only --rigid-followers pieces are re-weighted)",
     "dual-quaternion or volume-preserving skinning, corrective shape keys and the destination application",
 ]
 
@@ -532,6 +537,10 @@ def measure_hand(points, triangles, wrist, toward, side, back=None, options=None
         for joint_name, (method, _score, _parts) in zip(JOINT_NAMES[name], methods):
             if method == "prior":
                 warnings.append("%s %s: no clear mesh feature; placed at the prior" % (name, joint_name.upper()))
+    thumb_share = fingers["Thumb"]["visible"] / max(fingers["Index"]["visible"], 1e-12)
+    if thumb_share < 0.55:
+        warnings.append("Thumb: its free length is %d%% of the index finger's (roughly two thirds on a human hand); "
+                        "it cannot reach across the fingers, which joints and weights do not fix" % round(thumb_share * 100))
     return {"points": points, "triangles": np.asarray(triangles, np.int64).reshape(-1, 3), "edges": edges,
             "neighbours": neighbours, "mask": mask, "along": along, "distance": distance, "labels": labels,
             "fingers": fingers, "back": back, "back_method": back_method, "lateral": lateral, "wrist": wrist,
@@ -565,12 +574,17 @@ def hinge_axes(hand, converge=None, thumb_roll=0.0):
         joints = fingers[name]["joints"]
         rows = []
         if name == "Thumb":
+            # the thumb bends across the palm, not into it: its curl direction lies between "toward the palm"
+            # and "toward the little finger" (45 degrees, plus thumb_roll toward the little finger)
             little = fingers["Little"]["joints"][0]
+            theta = math.radians(45.0 + thumb_roll)
             for k in range(3):
                 d = _unit(joints[k + 1] - joints[k])
-                target = _unit(_perp(palm, d) + 0.6 * _unit(_perp(little - joints[1], d)))
-                target = rotation(d, thumb_roll) @ target
-                rows.append(_unit(np.cross(d, _unit(_perp(target, d)))))
+                to_palm = _unit(_perp(palm, d))
+                across = _perp(_perp(little - joints[1], d), to_palm)
+                across = _unit(across) if np.linalg.norm(across) > 1e-9 else np.cross(d, to_palm)
+                target = to_palm * math.cos(theta) + across * math.sin(theta)
+                rows.append(_unit(np.cross(d, target)))
         else:
             length = float(np.linalg.norm(joints[3] - joints[0]))
             offset = float((joints[0] - wrist) @ side_axis)
@@ -693,17 +707,102 @@ def skin(points, weights, matrices):
     return np.einsum("nb,bni->ni", weights, moved) + rest_share[:, None] * points
 
 
-def pose_angles(pose, scale=1.0):
+def pose_angles(pose, scale=1.0, thumb=None):
+    """thumb = (metacarpal, proximal, distal, oppose) replaces the pose's own thumb values (see fit_thumb)."""
     spec = POSES[pose]
     angles = {}
     for name in FINGERS:
         base = spec.get(name, spec["thumb"] if name == "Thumb" else spec["fingers"])
         angles[name] = [scale * a for a in base]
+    if thumb is not None:
+        angles["Thumb"] = [scale * a for a in thumb[:3]]
     spread = None
     if spec.get("spread"):
         amount = scale * spec["spread"]
         spread = {"Thumb": amount * 1.5, "Index": amount, "Middle": 0.0, "Ring": -amount, "Little": -amount * 1.6}
-    return angles, spread, scale * spec.get("oppose", 0.0)
+    return angles, spread, scale * (spec.get("oppose", 0.0) if thumb is None else thumb[3])
+
+
+def pieces(count, triangles):
+    """Connected pieces of a mesh: a label per vertex (vertices in no triangle get their own label)."""
+    parent = np.arange(count)
+
+    def find(a):
+        while parent[a] != a:
+            parent[a] = parent[parent[a]]
+            a = parent[a]
+        return a
+
+    for a, b, c in np.asarray(triangles, np.int64).reshape(-1, 3):
+        ra, rb, rc = find(a), find(b), find(c)
+        parent[rb] = ra
+        parent[rc] = ra
+    roots = np.array([find(v) for v in range(count)])
+    return np.unique(roots, return_inverse=True)[1]
+
+
+def nearest_index(points, targets, chunk=2000):
+    """For every point, the index of the nearest target and the distance to it."""
+    points = np.asarray(points, float)
+    index = np.zeros(len(points), np.int64)
+    distance = np.zeros(len(points))
+    for start in range(0, len(points), chunk):
+        block = points[start:start + chunk]
+        d = np.linalg.norm(block[:, None, :] - targets[None, :, :], axis=2)
+        index[start:start + chunk] = d.argmin(1)
+        distance[start:start + chunk] = d.min(1)
+    return index, distance
+
+
+def nearest_k(points, targets, k=4, chunk=2000):
+    """For every point, the indices of its k nearest targets and the distances to them."""
+    points = np.asarray(points, float)
+    k = min(k, len(targets))
+    index = np.zeros((len(points), k), np.int64)
+    distance = np.zeros((len(points), k))
+    for start in range(0, len(points), chunk):
+        d = np.linalg.norm(points[start:start + chunk][:, None, :] - targets[None, :, :], axis=2)
+        ties = np.argpartition(d, k - 1, axis=1)[:, :k]
+        index[start:start + chunk] = ties
+        distance[start:start + chunk] = np.take_along_axis(d, ties, axis=1)
+    return index, distance
+
+
+def rigid_follower_bones(points, triangles, hand, weights, reach=3.0):
+    """Nails and the like: every connected piece near this hand follows one bone, the one the skin under it follows most.
+
+    Returns (piece label per vertex, {piece: column in bone_list()}, nearest hand vertex per vertex). Pieces
+    farther from the hand skin than reach times the thickest finger radius are left out (the other hand, toes).
+    """
+    region = np.nonzero(hand["mask"])[0]
+    label = pieces(len(points), triangles)
+    near, distance = nearest_index(points, hand["points"][region])
+    near = region[near]
+    limit = reach * max(hand["fingers"][n]["radius"] for n in FINGERS)
+    chosen = {}
+    for piece in np.unique(label):
+        members = np.nonzero(label == piece)[0]
+        if float(np.median(distance[members])) > limit:
+            continue
+        chosen[int(piece)] = int(weights[near[members]].sum(0).argmax())
+    return label, chosen, near
+
+
+def follower_drift(model, name, points, weights, near=None, k=4):
+    """How far follower vertices slide or lift against the skin under them in a pose (rest units).
+
+    Each vertex is tied to its k nearest skin vertices at rest; the drift is the largest change of those
+    distances, so a piece that turns with the skin under it reads 0.
+    """
+    del near
+    region = np.nonzero(model.hand["mask"])[0]
+    rest_skin = model.points[region]
+    matrices = model.matrices(name, 1.0)
+    moved = skin(points, weights, matrices)
+    skin_moved = skin(rest_skin, model.weights[region], matrices)
+    ties, before = nearest_k(points, rest_skin, k)
+    after = np.linalg.norm(moved[:, None, :] - skin_moved[ties], axis=2)
+    return np.abs(after - before).max(1)
 
 
 def _penetration():
@@ -800,13 +899,57 @@ class HandModel:
         edges = hand["edges"]
         self.edges = edges[mask[edges].all(1)]
         self.rest_length = np.linalg.norm(self.points[self.edges[:, 0]] - self.points[self.edges[:, 1]], axis=1)
+        self.thumb_pose = {}                       # pose name -> (metacarpal, proximal, distal, oppose) from fit_thumb
+        thumb_or_palm = (self.triangle_labels == 1)
+        self.thumb_triangles = self.triangles[thumb_or_palm]
+        self.finger_triangles = self.triangles[self.triangle_labels != 1]      # the other fingers and the palm
 
-    def pose(self, name, scale=1.0, thumb_axes=None):
+    def pose(self, name, scale=1.0, thumb_axes=None, thumb=None):
         axes = dict(self.axes)
         if thumb_axes is not None:
             axes["Thumb"] = thumb_axes
-        matrices = chain_matrices(self.hand, self.joints, axes, pose_angles(name, scale))
+        if thumb is None:
+            thumb = self.thumb_pose.get(name)
+        matrices = chain_matrices(self.hand, self.joints, axes, pose_angles(name, scale, thumb))
         return skin(self.points, self.weights, matrices)
+
+    def matrices(self, name, scale=1.0):
+        return chain_matrices(self.hand, self.joints, self.axes, pose_angles(name, scale, self.thumb_pose.get(name)))
+
+    def spec(self, name, scale=1.0):
+        return pose_angles(name, scale, self.thumb_pose.get(name))
+
+    def thumb_crossing(self, moved):
+        """Length of the curves where the thumb passes through the other fingers or the palm (rest-space units)."""
+        if not len(self.thumb_triangles) or not len(self.finger_triangles):
+            return 0.0
+        pen = _penetration()
+        boxes_a = moved[self.thumb_triangles]
+        boxes_b = moved[self.finger_triangles]
+        low_a, high_a = boxes_a.min(1), boxes_a.max(1)
+        low_b, high_b = boxes_b.min(1), boxes_b.max(1)
+        near = np.nonzero(((high_b >= low_a.min(0)) & (low_b <= high_a.max(0))).all(1))[0]
+        if not len(near):
+            return 0.0
+        overlap = ((low_a[:, None, :] <= high_b[None, near, :]) & (high_a[:, None, :] >= low_b[None, near, :])).all(2)
+        ia, ib = np.nonzero(overlap)
+        if not len(ia):
+            return 0.0
+        pairs = np.stack([ia, near[ib]], 1)
+        shared = (self.thumb_triangles[pairs[:, 0]][:, :, None] == self.finger_triangles[pairs[:, 1]][:, None, :]).any((1, 2))
+        pairs = pairs[~shared]
+        if not len(pairs):
+            return 0.0
+        segments = pen.tri_tri_segments(moved, self.thumb_triangles, moved, self.finger_triangles, pairs)
+        if not len(segments):
+            return 0.0
+        return float(np.linalg.norm(segments[:, 1] - segments[:, 0], axis=1).sum())
+
+    def segment_vertices(self, name, k):
+        """Vertices of one finger that mostly follow its k-th bone."""
+        column = 1 + 3 * FINGERS.index(name) + k
+        label = self.hand["labels"] == FINGERS.index(name) + 1
+        return np.nonzero(label & (self.weights[:, column] > 0.5))[0]
 
     def metrics(self, moved, options):
         unit = self.hand["unit_mm"]
@@ -822,23 +965,93 @@ class HandModel:
         return groups, int(stretched.sum()), found
 
 
-def thumb_search(model, options, angles=range(-45, 50, 5)):
-    """Roll the thumb bend axes about the thumb and keep the roll whose pinch closes nearest without crossing."""
+THUMB_GOALS = {"grip": ("wrap", "Index"), "fist": ("wrap", "Index"), "point": ("wrap", "Middle"),
+               "pinch": ("tip", "Index"), "opposition": ("tip", "Little")}
+THUMB_CURL = (15.0, 55.0, 65.0)      # metacarpal, proximal, distal at full curl: the thumb folds as one natural arc
+THUMB_OPPOSE = 70.0                  # most the metacarpal turns toward the palm
+
+
+def thumb_from(curl, oppose):
+    return (THUMB_CURL[0] * curl, THUMB_CURL[1] * curl, THUMB_CURL[2] * curl, oppose)
+
+
+def thumb_cost(model, name, thumb, thumb_axes=None):
+    """How far the thumb tip is from where the pose wants it (mm), plus a heavy charge for passing through
+    the fingers or the palm.
+
+    wrap: the tip rests on the outside of the curled finger's middle part. tip: the tip meets that fingertip.
+    """
     hand = model.hand
-    index_tip = model.joints["Index"][3]
+    unit = hand["unit_mm"]
+    kind, finger = THUMB_GOALS[name]
+    moved = model.pose(name, 1.0, thumb_axes=thumb_axes, thumb=thumb)
+    tip = _thumb_tip(model, moved)
+    if kind == "tip":
+        target = _finger_tip(model, moved, finger)
+        reach = hand["fingers"]["Thumb"]["radius"] + hand["fingers"][finger]["radius"]
+    else:
+        middle = model.segment_vertices(finger, 1)
+        if not len(middle):
+            middle = np.nonzero(hand["labels"] == FINGERS.index(finger) + 1)[0]
+        centre = moved[middle].mean(0)
+        palm_centre = model.points[hand["labels"] == 0].mean(0)
+        outward = _unit(centre - palm_centre)
+        reach = 0.0
+        target = centre + outward * (hand["fingers"][finger]["radius"] + hand["fingers"]["Thumb"]["radius"])
+    gap = max(0.0, float(np.linalg.norm(tip - target)) - reach) * unit
+    crossing = model.thumb_crossing(moved) * unit
+    return gap + 20.0 * crossing, gap, crossing
+
+
+def fit_thumb(model, name, thumb_axes=None):
+    """Thumb angles for one pose: (metacarpal, proximal, distal, oppose), gap mm, crossing mm.
+
+    Two numbers are searched, how far the thumb curls (all three joints together, in fixed shares) and how
+    far its base turns toward the palm, so the result always folds like a thumb.
+    """
+    best = None
+    for curl in np.linspace(0.0, 1.0, 9):
+        for oppose in np.linspace(0.0, THUMB_OPPOSE, 8):
+            cost, gap, cross = thumb_cost(model, name, thumb_from(curl, oppose), thumb_axes)
+            if best is None or cost < best[0] - 1e-9:
+                best = (cost, gap, cross, float(curl), float(oppose))
+    for step_curl, step_oppose in ((0.0625, 5.0), (0.03125, 2.5)):
+        _cost, _gap, _cross, curl0, oppose0 = best
+        for curl in (curl0 - step_curl, curl0, curl0 + step_curl):
+            for oppose in (oppose0 - step_oppose, oppose0, oppose0 + step_oppose):
+                if not (0.0 <= curl <= 1.0 and 0.0 <= oppose <= THUMB_OPPOSE):
+                    continue
+                cost, gap, cross = thumb_cost(model, name, thumb_from(curl, oppose), thumb_axes)
+                if cost < best[0] - 1e-9:
+                    best = (cost, gap, cross, float(curl), float(oppose))
+    _cost, gap, cross, curl, oppose = best
+    return tuple(round(a, 2) for a in thumb_from(curl, oppose)), round(gap, 2), round(cross, 2)
+
+
+def fit_thumb_poses(model, poses):
+    """Solve the thumb for every pose that has a goal; store it on the model and return a JSON-ready table."""
+    table = {}
+    for name in poses:
+        if name not in THUMB_GOALS:
+            continue
+        thumb, gap, cross = fit_thumb(model, name)
+        model.thumb_pose[name] = thumb
+        table[name] = {"metacarpal": thumb[0], "proximal": thumb[1], "distal": thumb[2], "oppose": thumb[3],
+                       "goal": "%s %s" % THUMB_GOALS[name], "gap_mm": gap, "crossing_mm": cross}
+    return table
+
+
+def thumb_search(model, options, angles=(-20.0, -10.0, 0.0, 10.0, 20.0)):
+    """Try thumb rolls; for each, solve the fist and the pinch, and keep the roll whose thumb reaches both best."""
+    del options
     rows = []
     for roll in angles:
-        axes = hinge_axes(hand, thumb_roll=float(roll))["Thumb"]
-        fist = model.pose("fist", 1.0, thumb_axes=axes)
-        groups, _stretched, _found = model.metrics(fist, options)
-        crossing = sum(g["curve_mm"] for k, g in groups.items() if k.startswith("Thumb-") or k.endswith("-Thumb"))
-        pinch = model.pose("pinch", 1.0, thumb_axes=axes)
-        thumb_tip = _thumb_tip(model, pinch)
-        index_tip_moved = _finger_tip(model, pinch, "Index")
-        gap = float(np.linalg.norm(thumb_tip - index_tip_moved)) * hand["unit_mm"]
-        rows.append({"roll_deg": float(roll), "fist_thumb_crossing_mm": round(crossing, 2), "pinch_gap_mm": round(gap, 2)})
-    best = min(rows, key=lambda r: (r["fist_thumb_crossing_mm"] > options["cross_tolerance_mm"], r["fist_thumb_crossing_mm"] + r["pinch_gap_mm"]))
-    del index_tip
+        axes = hinge_axes(model.hand, thumb_roll=float(roll))["Thumb"]
+        _fist, fist_gap, fist_cross = fit_thumb(model, "fist", thumb_axes=axes)
+        _pinch, pinch_gap, pinch_cross = fit_thumb(model, "pinch", thumb_axes=axes)
+        rows.append({"roll_deg": float(roll), "fist_gap_mm": fist_gap, "fist_thumb_crossing_mm": fist_cross,
+                     "pinch_gap_mm": pinch_gap, "pinch_thumb_crossing_mm": pinch_cross})
+    best = min(rows, key=lambda r: r["fist_gap_mm"] + r["pinch_gap_mm"] + 20.0 * (r["fist_thumb_crossing_mm"] + r["pinch_thumb_crossing_mm"]))
     return best["roll_deg"], rows
 
 
@@ -863,6 +1076,7 @@ def check_poses(model, poses, options):
     unit = model.hand["unit_mm"]
     rest_groups, _rest_stretch, _ = model.metrics(model.points, options)
     results, warnings, marks = [], [], {}
+    thumb_table = fit_thumb_poses(model, poses)
     for name in poses:
         worst = {}
         stretched_max = 0
@@ -886,6 +1100,11 @@ def check_poses(model, poses, options):
             index_mid = final[np.nonzero(model.hand["labels"] == 2)[0]].mean(0)
             reach["thumb_to_index_mm"] = round(float(np.linalg.norm(_thumb_tip(model, final) - index_mid)) * unit, 2)
         entry = {"pose": name, "angles": POSES[name], "crossings": worst, "stretched_edges_max": stretched_max, **reach}
+        if name in thumb_table:
+            entry["thumb"] = thumb_table[name]
+            if thumb_table[name]["gap_mm"] > 2.0 * model.hand["fingers"]["Thumb"]["radius"] * unit:
+                warnings.append("%s: the thumb stays %.0f mm short of its goal (%s); look at the thumb length and its base"
+                                % (name, thumb_table[name]["gap_mm"], thumb_table[name]["goal"]))
         results.append(entry)
         for key, value in worst.items():
             if value["kind"] in ("fingers", "fold") and value["curve_mm"] > options["cross_tolerance_mm"]:
@@ -1082,7 +1301,32 @@ def write_weights(obj, names, weights, region, along, fade):
     return changed
 
 
-def render_views(rig, mesh, hand, names, folder, poses=None, marks=None, size=640):
+def write_rigid_followers(followers, rig, hand, names, weights):
+    """Give every piece of the follower meshes near this hand one bone at weight 1 (other bone groups are cleared there)."""
+    space = np.linalg.inv(np.array(rig.matrix_world))
+    bone_names = {bone.name for bone in rig.data.bones}
+    report = {}
+    for obj in followers:
+        points, triangles = _mesh_data(obj, space)
+        label, chosen, _near = rigid_follower_bones(points, triangles, hand, weights)
+        groups = {group.name: group for group in obj.vertex_groups}
+        deform = [group for group in obj.vertex_groups if group.name in bone_names]
+        counts = {}
+        for piece, column in chosen.items():
+            bone = names[column]
+            members = [int(v) for v in np.nonzero(label == piece)[0]]
+            for group in deform:
+                group.remove(members)
+            if bone not in groups:
+                groups[bone] = obj.vertex_groups.new(name=bone)
+            groups[bone].add(members, 1.0, "REPLACE")
+            counts[bone] = counts.get(bone, 0) + 1
+        report[obj.name] = {"pieces_on_this_hand": len(chosen), "pieces_total": int(label.max()) + 1 if len(label) else 0,
+                            "pieces_per_bone": counts}
+    return report
+
+
+def render_views(rig, mesh, hand, names, folder, poses=None, marks=None, size=640, keep=()):
     """Close views of the hand: rest with joint markers, and every pose (posed in memory, never saved)."""
     import bmesh
     from mathutils import Matrix, Quaternion, Vector
@@ -1103,7 +1347,7 @@ def render_views(rig, mesh, hand, names, folder, poses=None, marks=None, size=64
     scene.camera = camera
     camera.data.type, camera.data.clip_start, camera.data.clip_end = "ORTHO", 0.001, 100.0
     for obj in scene.objects:                         # only the hand mesh (and the markers added below) is drawn
-        if obj.type in ("MESH", "CURVE", "SURFACE", "META", "FONT", "GPENCIL", "GREASEPENCIL", "VOLUME", "POINTCLOUD", "CURVES") and obj != mesh:
+        if obj.type in ("MESH", "CURVE", "SURFACE", "META", "FONT", "GPENCIL", "GREASEPENCIL", "VOLUME", "POINTCLOUD", "CURVES") and obj != mesh and obj not in keep:
             obj.hide_render = True
     for modifier in mesh.modifiers:                   # outline shells and the like hide the skin
         if modifier.type == "SOLIDIFY":
@@ -1116,7 +1360,8 @@ def render_views(rig, mesh, hand, names, folder, poses=None, marks=None, size=64
     back_w = to_world[:3, :3] @ hand["back"]
     side_w = to_world[:3, :3] @ hand["lateral"]
     toward_w = to_world[:3, :3] @ hand["toward"]
-    views = {"back": back_w, "palm": -back_w, "thumb": _unit(side_w + 0.35 * back_w), "tip": _unit(toward_w + 0.5 * back_w)}
+    views = {"back": back_w, "palm": -back_w, "thumb": _unit(side_w + 0.35 * back_w), "tip": _unit(toward_w + 0.5 * back_w),
+             "front": _unit(0.8 * side_w - 0.6 * back_w + 0.3 * toward_w)}     # from the thumb and palm side: the thumb in a fist
     images = {}
 
     def shot(name, direction):
@@ -1165,7 +1410,7 @@ def render_views(rig, mesh, hand, names, folder, poses=None, marks=None, size=64
                     bone.rotation_mode = "QUATERNION"
                     bone.rotation_quaternion = Matrix(local.tolist()).to_quaternion()
             bpy.context.view_layer.update()
-            for view in ("back", "palm", "thumb"):
+            for view in ("back", "palm", "thumb", "front"):
                 images["%s_%s" % (pose_name, view)] = shot("%s_%s.jpg" % (pose_name, view), views[view])
         for bone in bones:
             bone.rotation_quaternion = Quaternion()
@@ -1173,11 +1418,10 @@ def render_views(rig, mesh, hand, names, folder, poses=None, marks=None, size=64
     return images
 
 
-def blender_skin_difference(rig, mesh, names, hand, axes, pose):
+def blender_skin_difference(rig, mesh, names, hand, axes, spec):
     """Pose the armature in memory, evaluate the mesh in Blender and compare with the numpy skinning (mm)."""
     from mathutils import Matrix, Quaternion
     bpy = _bpy()
-    spec = pose_angles(pose, 1.0)
     bones = rig.pose.bones
     rest = rig.data.bones
     for slot, name in enumerate(FINGERS):
@@ -1246,7 +1490,7 @@ def command_measure(mesh, rig, mapping, sides, wrist, toward, back, options, ren
     return report, warnings
 
 
-def command_place(mesh, rig, mapping, sides, options, keep_weights, thumb_roll, z_toward):
+def command_place(mesh, rig, mapping, sides, options, keep_weights, thumb_roll, z_toward, rigid_followers=()):
     if rig is None:
         raise ValueError("place needs --rig and --bones")
     report = {"schema": REPORT_SCHEMA, "command": "place", "mesh": mesh.name, "rig": rig.name, "unit": "mm",
@@ -1272,19 +1516,37 @@ def command_place(mesh, rig, mapping, sides, options, keep_weights, thumb_roll, 
             entry["thumb_roll_search"] = roll_rows
         if not keep_weights:
             mapped = [names[weights_names.index(n)] for n in weights_names]
+            if rigid_followers:                      # the skin a hard piece sits on follows the same bone, so the piece stays seated
+                space = np.linalg.inv(np.array(rig.matrix_world))
+                for follower in rigid_followers:
+                    f_points, f_triangles = _mesh_data(follower, space)
+                    label, chosen, _near = rigid_follower_bones(f_points, f_triangles, hand, weights)
+                    region = np.nonzero(hand["mask"])[0]
+                    ties = region[nearest_k(f_points, hand["points"][region])[0]]
+                    for piece, column in chosen.items():
+                        bed = np.unique(ties[label == piece])
+                        weights[bed] = 0.0
+                        weights[bed, column] = 1.0
             entry["weighted_vertices"] = write_weights(mesh, mapped, weights, hand["mask"], hand["along"],
                                                        opt["fade_mm"] / hand["unit_mm"])
+            if rigid_followers:
+                entry["rigid_followers"] = write_rigid_followers(rigid_followers, rig, hand, mapped, weights)
+                for follower_name, row in entry["rigid_followers"].items():
+                    if not row["pieces_on_this_hand"]:
+                        warnings.append("%s: no piece of %s lies on this hand" % (side, follower_name))
+            done = {obj.name for obj in rigid_followers}
             followers = sorted({obj.name for obj in _bpy().context.scene.objects if obj.type == "MESH" and obj != mesh
-                                and any(group.name in names[1:] for group in obj.vertex_groups)})
+                                and obj.name not in done and any(group.name in names[1:] for group in obj.vertex_groups)})
             if followers:
-                warnings.append(side + ": other meshes weighted to these finger bones were not recomputed: " + ", ".join(followers))
+                warnings.append(side + ": other meshes weighted to these finger bones were not recomputed: " + ", ".join(followers)
+                                + " (nails and other hard pieces: --rigid-followers)")
             entry["other_meshes_on_finger_bones"] = followers
         report["hands"][side] = entry
         warnings += ["%s: %s" % (side, w) for w in hand["warnings"]]
     return report, warnings
 
 
-def command_check(mesh, rig, mapping, sides, options, poses, render_dir):
+def command_check(mesh, rig, mapping, sides, options, poses, render_dir, followers=()):
     if rig is None:
         raise ValueError("check needs --rig and --bones")
     report = {"schema": REPORT_SCHEMA, "command": "check", "mesh": mesh.name, "rig": rig.name, "unit": "mm",
@@ -1299,7 +1561,7 @@ def command_check(mesh, rig, mapping, sides, options, poses, render_dir):
         weights[~hand["mask"]] = 0.0
         model = HandModel(hand, joints, axes, weights)
         result, found_warnings = check_poses(model, poses, opt)[:2]
-        moved_blender = blender_skin_difference(rig, mesh, names, hand, axes, "fist")
+        moved_blender = blender_skin_difference(rig, mesh, names, hand, axes, model.spec("fist"))
         if moved_blender is not None:
             numpy_fist = model.pose("fist", 1.0)
             difference = float(np.abs(moved_blender[hand["mask"]] - numpy_fist[hand["mask"]]).max()) * hand["unit_mm"]
@@ -1309,9 +1571,32 @@ def command_check(mesh, rig, mapping, sides, options, poses, render_dir):
         else:
             result["blender_vs_numpy_fist_mm"] = None
         result["weights_in_hand"] = {"vertices_without_hand_weights": int((weights[hand["mask"]].sum(1) < 1e-6).sum())}
+        if followers:
+            space = np.linalg.inv(np.array(rig.matrix_world))
+            unit = hand["unit_mm"]
+            result["followers"] = {}
+            for obj in followers:
+                f_points, f_triangles = _mesh_data(obj, space)
+                label, chosen, near = rigid_follower_bones(f_points, f_triangles, hand, weights)
+                members = np.nonzero(np.isin(label, list(chosen)))[0]
+                row = {"pieces_on_this_hand": len(chosen), "drift_mm": {}}
+                if len(members):
+                    f_weights = bone_weights(obj, names, len(f_points))
+                    bones_per_piece = [int((f_weights[label == piece] > 1e-4).any(0).sum()) for piece in chosen]
+                    row["pieces_on_more_than_one_bone"] = int(sum(1 for n in bones_per_piece if n > 1))
+                    row["vertices_without_hand_weights"] = int((f_weights[members].sum(1) < 1e-6).sum())
+                    for pose in poses:
+                        drift = follower_drift(model, pose, f_points[members], f_weights[members], near[members])
+                        row["drift_mm"][pose] = round(float(drift.max()) * unit, 2)
+                    worst = max(row["drift_mm"].values()) if row["drift_mm"] else 0.0
+                    if worst > opt["follower_drift_mm"]:
+                        found_warnings.append("%s moves up to %.1f mm against the skin under it (rigid pieces: place --rigid-followers)" % (obj.name, worst))
+                else:
+                    found_warnings.append("no piece of %s lies on this hand" % obj.name)
+                result["followers"][obj.name] = row
         if render_dir is not None:
-            spec = {p: (axes, pose_angles(p, 1.0)) for p in poses}
-            result["images"] = render_views(rig, mesh, hand, names, render_dir / side, poses=spec)
+            spec = {p: (axes, model.spec(p)) for p in poses}
+            result["images"] = render_views(rig, mesh, hand, names, render_dir / side, poses=spec, keep=tuple(followers))
         report["hands"][side] = result
         warnings += ["%s: %s" % (side, w) for w in found_warnings + hand["warnings"]]
     return report, warnings
@@ -1386,8 +1671,12 @@ def _parser():
             sub.add_argument("--keep-weights", action="store_true")
             sub.add_argument("--thumb-roll", default="auto", help="auto, or degrees")
             sub.add_argument("--z-toward", choices=("palm", "back"), default="palm")
+            sub.add_argument("--rigid-followers", nargs="+", default=[], metavar="MESH",
+                             help="nails and other hard pieces: every connected piece follows the one bone under it")
         if command == "check":
             sub.add_argument("--poses", nargs="+", choices=tuple(POSES), default=list(POSES))
+            sub.add_argument("--followers", nargs="+", default=[], metavar="MESH",
+                             help="nails and other meshes on the finger bones: drawn, and their movement against the skin is measured")
     return parser
 
 
@@ -1445,6 +1734,12 @@ def main(argv=None):
             if mapping is None:
                 raise ValueError("--rig needs --bones")
         sides = ("left", "right") if args.side == "both" else (args.side,)
+        follower_objects = []
+        for follower_name in getattr(args, "rigid_followers", None) or getattr(args, "followers", None) or []:
+            follower = scene_objects.get(follower_name)
+            if follower is None or follower.type != "MESH" or follower == mesh:
+                raise ValueError("Follower must be another mesh in the scene: " + follower_name)
+            follower_objects.append(follower)
         if args.command == "measure" and args.wrist is not None and len(sides) > 1:
             raise ValueError("--wrist describes one hand; measure one --side at a time")
         if args.command == "measure" and rig is None and args.wrist is None:
@@ -1456,11 +1751,12 @@ def main(argv=None):
         if args.command == "measure":
             report, warnings = command_measure(mesh, rig, mapping, sides, args.wrist, args.toward, args.back, options, render_dir)
         elif args.command == "place":
-            report, warnings = command_place(mesh, rig, mapping, sides, options, args.keep_weights, args.thumb_roll, args.z_toward)
+            report, warnings = command_place(mesh, rig, mapping, sides, options, args.keep_weights, args.thumb_roll, args.z_toward,
+                                             follower_objects)
             _save_candidate(output)
             report["output"] = {"name": output.name, "sha256": _file_hash(output)}
         else:
-            report, warnings = command_check(mesh, rig, mapping, sides, options, args.poses, render_dir)
+            report, warnings = command_check(mesh, rig, mapping, sides, options, args.poses, render_dir, follower_objects)
         if _file_hash(source) != before_sha:
             raise RuntimeError("Input SHA changed during command")
         report["input"] = {"name": source.name, "sha256": before_sha, "unchanged_after_command": True}

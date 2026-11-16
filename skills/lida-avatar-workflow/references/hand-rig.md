@@ -16,7 +16,8 @@
 | 指の骨・ロール・ウェイトを形に合わせて置き直したい | `place` で写しに書き出す |
 | 握る・指さし・つまむで、指が交差しないか、折れないか確かめたい | `check` で曲げて数える。前後の版で比べる |
 | 親指が短い・指が細いなど、形そのものの問題 | [手を作る](hand-shape.md)で形を直してから使う。関節とウェイトでは直らない |
-| 爪・手袋・指輪のように指の骨についていく別のメッシュ | このツールはウェイトを作り直さない。[ウェイトと網目](mesh-weight.md)で合わせる |
+| 爪のように、指についていく固い部品 | `place --rigid-followers` で、部品ごとに真下の骨 1 本へ付け直す。`check --followers` でずれを測る |
+| 手袋・指輪など、やわらかい物や複数の骨にまたがる物 | このツールはウェイトを作り直さない。[ウェイトと網目](mesh-weight.md)で合わせる |
 
 ## 考え方
 
@@ -38,21 +39,30 @@
 
 ### 3　曲げる向きを、手首の中心へ少し寄せる
 
-各骨のロールを、曲げると指が手のひらへ巻き込み、指先ほど手首の中心へ少し寄るように決めます（`--converge`）。強すぎると薬指が中指へ入ります。親指は、手の長さの軸のまわりに手のひらへ向けてから曲げ、つまむ姿勢で人差し指に届き、握る姿勢で他の指を突き抜けないロールを探します。
+各骨のロールを、曲げると指が手のひらへ巻き込み、指先ほど手首の中心へ少し寄るように決めます（`--converge`）。強すぎると薬指が中指へ入ります。親指は手のひらへ向かってではなく、手のひらを横切る向きに曲がります。曲がる向きを「手のひら側」と「小指側」の間（45°、`--thumb-roll` で小指側へ足す）に置き、握る姿勢とつまむ姿勢の両方で親指がいちばん届くロールを探します。
 
 ### 4　ウェイトを指の鎖で作り直す
 
 `place` は（`--keep-weights` がなければ）手のウェイトを、指に沿った鎖として作り直します。関節では指の太さに合わせた幅でなめらかに切り替え（`--joint-band`）、手首の先では元のウェイトへなじませます（`--fade-mm`）。
 
-### 5　曲げて数える
+### 5　爪を指先の骨へ付け直す
 
-`check` は、くつろぎ・軽く握る・握る・指さし・つまむ・開く・親指を手のひらへ、の 7 姿勢を、途中の段階も含めて曲げます。曲げは休みの形とウェイトから計算した線形スキニングで、握る姿勢だけ Blender 自身の変形とも比べて、差を報告します。数えるもの：
+`--rigid-followers` に爪などのメッシュを指定すると、つながった 1 かたまり（爪 1 枚）ごとに、真下の肌がいちばん従っている骨 1 本へウェイト 1 で付け直します。爪の真下の肌も同じ骨にそろえるので、指を曲げても爪が肌の上をすべりません。この手から離れたかたまり（反対の手の爪など）は変えません。
+
+### 6　曲げて数える
+
+`check` は、くつろぎ・軽く握る・握る・指さし・つまむ・開く・親指を手のひらへ、の 7 姿勢を、途中の段階も含めて曲げます。曲げは休みの形とウェイトから計算した線形スキニングで、握る姿勢だけ Blender 自身の変形とも比べて、差を報告します。
+
+親指の角度は決まった数値を使わず、その手ごとに解きます。握る・軽く握る・指さしでは親指の先が曲げた指の外側に乗る所、つまむでは人差し指の先、親指を手のひらへでは小指の先を目標にし、「どれだけ丸めるか（3 つの関節を決まった割合で一緒に）」と「付け根をどれだけ手のひらへ向けるか」の 2 つだけを探します。指や手のひらを突き抜ける形は選びません。届かなかった距離は報告に出ます。
+
+数えるもの：
 
 - 指どうしの交わる線（休みにもあった分を引く）
 - 指の中の折れ（指が自分に食い込む）
 - 指先が手のひらに入る所（参考。握れば入るのが普通）
 - 休みの長さより伸びた辺
-- 親指から人差し指までの距離（つまむ・握る）
+- 親指から人差し指までの距離（つまむ・握る）と、親指が目標に届かなかった距離
+- `--followers` に指定した爪などが、真下の肌に対して動いた量
 
 ## 用意するもの
 
@@ -67,10 +77,10 @@
 1. 手の形がそろっていることを確かめる（形の直しが先。[手を作る](hand-shape.md)）。
 2. `measure` を実行し、関節ごとの `method`（`mesh`／`prior`）と、今の骨との差を読む。推定の関節は画像で位置を見る。
 3. 今の骨で `check` を実行し、前の状態を残す。
-4. `place` で写しに書き出す。親指のロールは `auto` で探す。
+4. `place` で写しに書き出す。親指のロールは `auto` で探す。爪があれば `--rigid-followers` に指定する。
 5. 書き出した写しで同じ `check` を実行し、交差・折れ・伸びた辺が減ったか、新しく出た所がないかを比べる。
 6. 画像を自分の目で見て、数値と合っているか、握った形が自然かを確かめる。
-7. 結果・画像・限界をユーザーへ示す。爪や手袋など、指についていく別のメッシュは別に合わせる。
+7. 結果・画像・限界をユーザーへ示す。手袋など、やわらかい別のメッシュは別に合わせる。親指が短いという警告が出たら、形の問題として伝える。
 
 ## 実行例
 
@@ -79,9 +89,9 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 
 blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_hand_rig.py -- check --input model.blend --mesh Body --rig Armature --bones humanoid.json --side left --report check_before.json --render-dir check_before_views
 
-blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_hand_rig.py -- place --input model.blend --mesh Body --rig Armature --bones humanoid.json --side both --report place.json --output-blend model_hands.blend
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_hand_rig.py -- place --input model.blend --mesh Body --rig Armature --bones humanoid.json --side both --report place.json --output-blend model_hands.blend --rigid-followers Nails
 
-blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_hand_rig.py -- check --input model_hands.blend --mesh Body --rig Armature --bones humanoid.json --side left --report check_after.json --render-dir check_after_views
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_hand_rig.py -- check --input model_hands.blend --mesh Body --rig Armature --bones humanoid.json --side left --report check_after.json --render-dir check_after_views --followers Nails
 ```
 
 ## 報告の読み方
@@ -90,14 +100,16 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 
 - `hands.<左右>.fingers.<指>.joints`：関節ごとの位置（骨組みの座標）、`method`（`mesh` は形から、`prior` は推定、`tip` は指先、`estimated` は親指の付け根の計算値）、`score` と `features`（しわ・ふくらみ・輪の強さ）、`from_web_mm`（指の股からの距離）、`current_bone_offset_mm`（今の骨との差）。
 - `back_of_hand`：測った手の甲の向き。
-- `place` では、`thumb_roll_deg`（選んだ親指のロール）と `flex_sign`（どちらへ回すと指が曲がるか）。`--z-toward` で骨の Z を手のひらへ向けるか甲へ向けるかを選ぶ。
+- `place` では、`thumb_roll_deg`（選んだ親指のロール）と `flex_sign`（どちらへ回すと指が曲がるか）。`--z-toward` で骨の Z を手のひらへ向けるか甲へ向けるかを選ぶ。`rigid_followers` に、付け直したかたまりの数と骨ごとの内訳。
+- 親指の見える長さが人差し指の 55% 未満だと警告が出ます（人の手ではおよそ 3 分の 2）。握っても指に届かない原因は形で、関節とウェイトでは直りません。
 
 ### check
 
-- `poses`：姿勢ごとの `crossings`（組ごとの交わる線の長さ・箇所の数・いちばん長かった段階 `at`・種類 `kind`）、`stretched_edges_max`、`thumb_to_index_mm` または `thumb_to_index_tip_mm`。
+- `poses`：姿勢ごとの `crossings`（組ごとの交わる線の長さ・箇所の数・いちばん長かった段階 `at`・種類 `kind`）、`stretched_edges_max`、`thumb_to_index_mm` または `thumb_to_index_tip_mm`、`thumb`（解いた親指の角度・目標・届かなかった距離 `gap_mm`・突き抜け `crossing_mm`）。
 - `kind` は `fingers`（指どうし）、`fold`（指の中の折れ）、`palm`（指先が手のひらに入る。警告にしない）。
 - `blender_vs_numpy_fist_mm`：握る姿勢での Blender の変形との差。0.5mm を超えると警告。ほかのモディファイア・シェイプキー・体積保持があると数値の読み方に注意。
 - `weights_in_hand.vertices_without_hand_weights`：手の範囲で骨のウェイトがない頂点の数。
+- `followers.<名前>`：この手にあるかたまりの数、2 本以上の骨にまたがるかたまりの数、姿勢ごとの `drift_mm`（真下の肌に対して動いた量）。1mm を超えると警告。
 
 ### 終了コード
 
@@ -125,7 +137,10 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 | `--cross-tolerance-mm` | 1 | これより短い交わる線は警告しない |
 | `--poses`（check） | 7 姿勢 | 調べる姿勢を選ぶ |
 | `--keep-weights`（place） | なし | 骨の位置とロールだけを直し、ウェイトは変えない |
-| `--thumb-roll`（place） | auto | 親指のロール。数値で角度を指定もできる |
+| `--thumb-roll`（place） | auto | 親指の曲がる向き。数値は、手のひら側と小指側の真ん中（45°）から小指側へ足す角度 |
+| `--rigid-followers`（place） | なし | 爪などの固い部品のメッシュ。かたまりごとに真下の骨 1 本へ付け直す |
+| `--followers`（check） | なし | 爪などのメッシュ。画像に描き、肌に対するずれを測る |
+| `--follower-drift-mm` | 1 | ずれがこれを超えると警告 |
 
 既定の値は作例で、どのモデルにも合う値ではありません。
 
@@ -137,15 +152,15 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 - まず measure と、今の骨での check。次に place で <新しい blend> へ書き出し、同じ check で前後を比べてください。
 - 報告と画像は <新しいフォルダ> へ。入力は保存しないでください。
 - 結果は、推定になった関節、交差・折れ・伸びた辺の前後、画像を見て数値と合わなかった所、限界を分けて報告してください。
-- 爪 <名前> などのウェイトは別に合わせます。勝手に変えないでください。
+- 爪 <名前> は --rigid-followers で付け直し、check の --followers でずれを確かめてください。ほかのメッシュのウェイトは変えないでください。
 ```
 
 ## 確認済みの範囲
 
-- Blender 5.3.0 の背景実行で、別の制作の保存済みファイルの写しを読むだけで `measure`・`place`・`check` を実行した。PIP と DIP は、手で合わせた骨と多くの指で 1mm 前後で一致した。書き出した写しでは、握る・指さしの伸びた辺が手で合わせた版より減り、親指の付け根のつぶれもなくなった。入力は変わらない。
-- 通常 Python のテストで、合成の手を使って、指の分け方、左右の鏡写し、しわからの PIP・DIP、曲げる向き、ウェイトの鎖、線形スキニング、既存出力の保護を確かめている。
+- Blender 5.3.0 の背景実行で、別の制作の保存済みファイルの写しを読むだけで `measure`・`place`・`check` を実行した。PIP と DIP は、手で合わせた骨と多くの指で 1mm 前後で一致した。書き出した写しでは、握る・指さしの伸びた辺が手で合わせた版より減り、親指の付け根のつぶれもなくなった。爪は握る姿勢でのずれが約 6mm から 0 になった。入力は変わらない。
+- 通常 Python のテストで、合成の手を使って、指の分け方、左右の鏡写し、しわからの PIP・DIP、曲げる向き、ウェイトの鎖、線形スキニング、親指の解き方、固い部品の骨の選び方とずれ、既存出力の保護を確かめている。
 
-未確認：小指のように形に関節が出にくい指で推定と手作業のどちらが正しいか（画像で見る）、握った形の自然さ、ほかの Blender 版、体積保持のスキニング、使用先での見え方。作例の数を品質の基準にしません。
+未確認：小指のように形に関節が出にくい指で推定と手作業のどちらが正しいか（画像で見る）、握った形の自然さ、親指が短い手での握り方、複数の骨にまたがる部品、ほかの Blender 版、体積保持のスキニング、使用先での見え方。作例の数を品質の基準にしません。
 
 ## 利用条件
 
