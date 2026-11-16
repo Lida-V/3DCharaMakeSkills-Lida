@@ -23,6 +23,7 @@ Shape contact is covered elsewhere: [fitting accessories](accessory-fit.md) and 
 - Name saved files as input. Tools that use Blender open them in a separate background process and do not save.
 - JSON reports are written only to new paths. The command stops if the path exists.
 - Exit codes: 0 = nothing found, 2 = findings or warnings, 1 = input or execution error.
+- Usage errors such as a missing argument also stop with 2 and write no JSON. Tell them apart by the `status` of the JSON written in this run.
 - The report's `unverified` lists what the tool did not check. Copy it into the completion report.
 - The AI reads the result, looks for the cause, and compares any repair with the user's instructions. A tool's 0 is not a basis for calling the work complete.
 
@@ -49,6 +50,7 @@ python lida_vrm_check.py check --input model.vrm --report vrm_check.json
 - `springs`, `materials`, `meshes`, and `images` hold counts. Placing them beside the previous version's report shows unintended changes.
 - For VRM 0.x, only materials, gravity, hit radius, and images are checked.
 - When gaze is driven by bones, empty lookUp and similar expressions are normal and raise no warning.
+- The look-at origin is written in the head bone's own space. It is turned into model space with the rotations of the head bone and its parents before judging whether it lies behind or below (`look_at.offset_in_model_space` in the report). With exports that keep bone rotations, a negative z in the file can be correct.
 
 Not checked: appearance and sway at the destination, the content of shapes, weights, and morphs, and whether collider sizes suit the body.
 
@@ -96,6 +98,8 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 - **Use an approved version as the baseline.** Intended folds, such as overlapping lids of a closed eye, also appear in the counts. Pass the report of a version whose look was approved as `--accept`; only values worse than that become problems. The first time, check every item in images and keep the approved report as the baseline.
 - A partner that has keys of the same names moves with the same values (teeth, shadow layers).
 - `driven_keys` lists keys moved by drivers.
+- A key that moves nothing is reported as `the key moves nothing`, and stays reported with `--accept`. Read the report to decide about keys left empty on purpose.
+- Thresholds are options: `--steps` (20), `--fold-from-degrees` / `--fold-degrees` (120 / 150), `--collapse-ratio` (0.05), `--stretch-limit` (3.0), `--min-edge-mm` (1.0), `--moved-mm` (0.01), `--spot-mm` (3.0), `--fold-limit`, `--collapse-limit` and `--spot-limit` (0 each). `--keys` limits the keys examined. These are values of the worked example, not quality criteria.
 
 Not checked: the look of expressions, a slit left by a closed eye, drivers and slider limits, and modifiers after the keys (subdivision) and normals. The tool does not change key values in the file.
 

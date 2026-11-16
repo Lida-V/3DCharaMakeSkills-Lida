@@ -561,17 +561,17 @@
       {
         "source": "skills/lida-avatar-workflow/references/accessory-fit.md",
         "translation": "skills/lida-avatar-workflow/references/en/accessory-fit.md",
-        "source_sha256": "2aa0cfac7ad4978c73ce5169f075df1eff70497c84a1f16484cf05110d911eed"
+        "source_sha256": "9f859738535b864dd1976b8954838de4bb367f69d958d0285fafd24ab2ee178c"
       },
       {
         "source": "skills/lida-avatar-workflow/references/penetration-check.md",
         "translation": "skills/lida-avatar-workflow/references/en/penetration-check.md",
-        "source_sha256": "a8dc44126a66ddd2fb918fd57656dcc7163a49bbf2feb698726257cc7ee5b352"
+        "source_sha256": "9cebd6712bda0e41192cfe2a2183afe161f310721ef335ab2b8fbb06929cc449"
       },
       {
         "source": "skills/lida-avatar-workflow/references/automated-checks.md",
         "translation": "skills/lida-avatar-workflow/references/en/automated-checks.md",
-        "source_sha256": "7cf080147a1a6e4e98c94f45cee672bcb882082c75a17852ac58726b31726010"
+        "source_sha256": "1e402001c11af4f5f2c304335f0e97828b9a1ab481655c19dd5b93fe85a2629d"
       }
     ]
   },

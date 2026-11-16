@@ -130,6 +130,8 @@ Inside Blender, `check(parts, solid, thin, allow, options)` and `advise(parts, s
 | 2 | Findings or warnings. Read the report and decide |
 | 1 | Input, output, or execution error. The JSON report holds the reason |
 
+Usage errors such as a missing argument also stop with 2 and write no JSON. Tell them apart by the `status` of the JSON written in this run.
+
 ## Main options
 
 | Option | Default | Effect |
@@ -142,6 +144,10 @@ Inside Blender, `check(parts, solid, thin, allow, options)` and `advise(parts, s
 | `--levels` | 2 | Face splits in `advise` (each multiplies faces by 4; the model is not changed) |
 | `--frame` | saved frame | Frame to evaluate, for baked sway or poses |
 | `--top` | 24 | Number of close views |
+| `--visible-spot-mm` | 1 | A spot with more visible curve than this counts as a visible spot |
+| `--reach-mm` (`advise`) | 80 | Points farther than this from a partner get a coarse vote |
+| `--match-mm` (`compare`) | 20 | Spots closer than this before and after are the same spot |
+| `--grow-mm` (`compare`) | 5 | Visible curve grown by more than this is `worse`; shrunk by more is `better` |
 
 The evaluated shape is used, with modifiers and pose applied. Objects shown in render count as occluders even when hidden in the viewport.
 

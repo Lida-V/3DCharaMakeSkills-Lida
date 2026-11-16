@@ -122,6 +122,8 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 | `--grid-theta` / `--grid-height` | 180 / 64 | 外形の格子の細かさ |
 | `--inside-tolerance-mm` | 0.5 | これより深く入った点を「入った点」と数える |
 | `--stretch-warning` / `--stretch-limit` | 0.15 / 0.5 | 最大の移動 ÷ 帯の半径。前者で警告、後者で候補を作らない |
+| `--sectors` | 72 | 帯の動きを解く方位の分割数（12 以上）。細かくすると方位ごとの差に細かく従う |
+| `--copy-name`（`fit`） | 元の名前 + `_fit` | 合わせたコピーの名前 |
 
 長さは mm で渡します。シーンの単位の設定から換算します。既定値は作例の条件で、全モデルの品質条件ではありません。
 

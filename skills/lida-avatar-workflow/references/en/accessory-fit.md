@@ -122,6 +122,8 @@ The candidate blend contains both the source accessory and the fitted copy (defa
 | `--grid-theta` / `--grid-height` | 180 / 64 | Resolution of the outline grid |
 | `--inside-tolerance-mm` | 0.5 | Points deeper than this count as inside |
 | `--stretch-warning` / `--stretch-limit` | 0.15 / 0.5 | Largest move ÷ band radius. The first warns; beyond the second no candidate is made |
+| `--sectors` | 72 | Number of azimuth sectors the band move is solved in (at least 12). More sectors follow finer differences between azimuths |
+| `--copy-name` (`fit`) | source name + `_fit` | Name of the fitted copy |
 
 Lengths are given in mm and converted with the scene unit setting. Defaults are the conditions of the worked example, not quality requirements for every model.
 
