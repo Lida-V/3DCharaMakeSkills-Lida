@@ -142,6 +142,23 @@ class VrmCheck(unittest.TestCase):
                 extra = ['group_unused'] if code == 'spring_group' else []    # the real group is then unused too
                 self.assertEqual(codes(document, self.image), sorted(extra + [code]))
 
+    def test_look_at_offset_is_judged_in_model_space(self):
+        # Exporters that keep bone rest rotations turn the head's own space: a forward offset then has a negative z.
+        head = VRM.REQUIRED_BONES.index('head')
+        turned = self.variant()
+        turned['nodes'][head]['rotation'] = [0.0, 1.0, 0.0, 0.0]            # half a turn about Y
+        turned['extensions']['VRMC_vrm']['lookAt']['offsetFromHeadBone'] = [0.0, 0.06, -0.07]
+        self.assertEqual(codes(turned, self.image), [])
+        report = VRM.check_document(turned, self.image)
+        self.assertEqual(report['look_at']['offset_in_model_space'], [0.0, 0.06, 0.07])
+        turned['extensions']['VRMC_vrm']['lookAt']['offsetFromHeadBone'] = [0.0, 0.06, 0.07]
+        self.assertEqual(codes(turned, self.image), ['lookat_axis'])
+        parented = self.variant()                                             # the turn sits on a parent, as a matrix
+        parented['nodes'][0]['children'] = [head]
+        parented['nodes'][0]['matrix'] = [-2.0, 0, 0, 0, 0, 2.0, 0, 0, 0, 0, -2.0, 0, 0, 1, 0, 1]
+        parented['extensions']['VRMC_vrm']['lookAt']['offsetFromHeadBone'] = [0.0, 0.06, -0.07]
+        self.assertEqual(codes(parented, self.image), [])
+
     def test_image_size_format_and_options(self):
         big = png(4096, 4096)
         self.assertEqual(codes(self.good, big), ['image_large'])

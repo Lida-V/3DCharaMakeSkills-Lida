@@ -303,6 +303,39 @@ def _check_vrm0(legacy, document, expect, found):
     return {"materials": {"count": len(shaders), "mtoon": len(shaders) - len(plain), "not_mtoon": plain}, "springs": {"bone_groups": len(groups)}}
 
 
+def _node_rotation(node):
+    """Rotation part of a glTF node as three rows (scale removed)."""
+    if "matrix" in node:
+        flat = [float(v) for v in node["matrix"]]
+        columns = []
+        for start in (0, 4, 8):
+            column = flat[start:start + 3]
+            length = math.sqrt(sum(v * v for v in column)) or 1.0
+            columns.append([v / length for v in column])
+        return [[columns[c][r] for c in range(3)] for r in range(3)]
+    x, y, z, w = [float(v) for v in node.get("rotation", (0.0, 0.0, 0.0, 1.0))]
+    length = math.sqrt(x * x + y * y + z * z + w * w) or 1.0
+    x, y, z, w = x / length, y / length, z / length, w / length
+    return [[1 - 2 * (y * y + z * z), 2 * (x * y - z * w), 2 * (x * z + y * w)],
+            [2 * (x * y + z * w), 1 - 2 * (x * x + z * z), 2 * (y * z - x * w)],
+            [2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x * x + y * y)]]
+
+
+def _to_model_space(nodes, index, vector):
+    """Turn a vector given in a node's own space into model space (rotations of the node and its parents)."""
+    vector = [float(v) for v in vector]
+    if not isinstance(index, int) or not 0 <= index < len(nodes):
+        return vector
+    parent = {child: i for i, node in enumerate(nodes) for child in node.get("children", [])}
+    seen = set()
+    while index is not None and index not in seen:
+        seen.add(index)
+        rows = _node_rotation(nodes[index])
+        vector = [sum(rows[r][c] * vector[c] for c in range(3)) for r in range(3)]
+        index = parent.get(index)
+    return vector
+
+
 def check_document(document, binary=b"", options=None):
     """Check a parsed glTF/VRM document; returns the report body (no file access)."""
     opt = {"max_texture": 2048, "expect_mtoon": "all", "expect_expressions": list(EXPECTED_EXPRESSIONS), "allow_extensions": []}
@@ -336,9 +369,14 @@ def check_document(document, binary=b"", options=None):
                              "range_maps": sorted(k for k in look if k.startswith("rangeMap"))}
         if offset is None:
             found.add("warning", "lookat_missing", "No look-at offset; the first-person and gaze origin fall back to the head bone")
-        elif offset[2] < 0 or offset[1] < 0:
-            found.add("warning", "lookat_axis", "Look-at offset %s lies behind or below the head bone; check the axes "
-                      "(VRM is Y up and the model faces +Z)" % [round(float(v), 4) for v in offset])
+        else:
+            # The offset is in the head bone's own space; exporters that keep bone rest rotations turn that space.
+            head = ((vrm.get("humanoid") or {}).get("humanBones") or {}).get("head", {}).get("node")
+            placed = [round(v, 4) for v in _to_model_space(document.get("nodes", []), head, offset)]
+            report["look_at"]["offset_in_model_space"] = placed
+            if placed[2] < 0 or placed[1] < 0:
+                found.add("warning", "lookat_axis", "Look-at offset %s (%s in model space) lies behind or below the head bone; "
+                          "check the axes (VRM is Y up and the model faces +Z)" % ([round(float(v), 4) for v in offset], placed))
         first = (vrm.get("firstPerson") or {}).get("meshAnnotations") or []
         counts = {}
         for item in first:
@@ -397,7 +435,17 @@ def _parser():
     return parser
 
 
+def _safe_console():
+    """Names the console cannot encode are escaped instead of failing after the report is written."""
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(errors="backslashreplace")
+        except (AttributeError, ValueError, OSError):
+            pass
+
+
 def main(argv=None):
+    _safe_console()
     if argv is None:
         argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
     args = _parser().parse_args(argv)
