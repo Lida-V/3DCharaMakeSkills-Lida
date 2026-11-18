@@ -54,11 +54,15 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 | 網目・関節・スキンウェイト | [メッシュと重み](references/mesh-weight.md)、膝の具体例なら[線の配置](references/knee-edge-placement.md) |
 | 形・陰影・追従の原因診断 | [具体的な調整方法](references/adjustment-methods.md) |
 | アクセサリーの反射・宝石・装飾線、画像か材質かの判断 | [装飾の材質補正](references/accessory-materials.md) |
+| 冠・腕輪・首飾りなどを頭や体へ沿わせる、食い込みと浮きの測定 | [飾りを体・頭へ合わせる](references/accessory-fit.md) |
+| 髪・リボン・布が体や飾りを突き抜けた所の一覧、削除・切る・押し出す・通し直すの判定 | [貫通を数値で見つけて、直し方を決める](references/penetration-check.md) |
+| 手の形を直した後の、指の関節・ロール・ウェイトの置き直しと、握る姿勢の交差・折れの検査、前後の数値比較、骨の対応表の作成 | [手の関節・ロール・ウェイトを、形から測って置く](references/hand-rig.md) |
+| 書き出した VRM の設定、固い飾りの割れ、表情キーの途中と組み合わせ、確認画像と保存版の対応、整理前の参照 | [見落としやすい所をスクリプトで確かめる](references/automated-checks.md) |
 | 欠け・誤接続・面張り・境界接続・欠落部位の補完 | [メッシュ修復と補完](references/mesh-repair-completion.md) |
 | エンジン間・ショット間の外観差、口内の暗さ、羽の暗い縁 | [使用先ごとの外観調整](references/cross-engine-look.md) |
 | 機械検査を通っても見た目・動作が不自然、確認範囲と採否 | [機械・画像・動作の判定](references/mechanical-visual-review.md) |
 | 網目・UV・ウェイト・キーの実行検査、保存版の差分比較 | [自作制作補助ツール](references/model-tools.md) |
-| 眼球・虹彩・白目・視線 | [眼球の制作](references/eye-modeling.md) |
+| 眼球・虹彩・白目・視線、生成のままの平らな目の作り直し、表情で変わる瞳・揺れるハイライト | [眼球の制作](references/eye-modeling.md) |
 | 目・口・表情 | [表情の調整](references/expression-adjustment.md)、[口型](references/mouth-shapes.md) |
 | 表情の参考が未生成・通常顔から必要パターンを作る | [表情シートと個別画像の生成](references/expression-sheets.md) |
 | 通常の瞬きと笑った閉じ目、左右ウインク | [ウインクの閉じ方](references/wink-closure.md) |
@@ -83,7 +87,7 @@ Lida制作の試行錯誤から、再利用できる判断と具体的な指示�
 
 Blenderが使える制作では[同梱ツール](references/model-tools.md)を確認し、粗い3Dの受領後・網目/UV/ウェイト/キーの修正前後に`audit`、固定項目の照合に`snapshot`と`compare`を使う。毎回同じ検査コードを生成し直す前に同梱機能を選ぶ。
 
-対象メッシュ・リグ・入力版・出力先を明示し、初回は別セッションで診断する。総和の修正が必要な場合だけ`normalize-copy`を使い、原本を保持する。骨の受領/変更後は`rig-audit`で明示リグ・人型対応・指定メッシュを検査し、FBX送信前は`lida_file_check.py`で形式と実容量を調べる。JSONの未検査範囲を読み、[同じ保存版の画像・動作確認](references/mechanical-visual-review.md)へ進む。CLIの0や数値改善だけで造形・変形・使用先を合格にせず、不自然な見た目なら未達として再診断する。実行できない時は未実施と記録する。スキルの読込みだけでモデル処理や環境変更を始めない。
+対象メッシュ・リグ・入力版・出力先を明示し、初回は別セッションで診断する。総和の修正が必要な場合だけ`normalize-copy`を使い、原本を保持する。骨の受領/変更後は`rig-audit`で明示リグ・人型対応・指定メッシュを検査し、FBX送信前は`lida_file_check.py`で形式と実容量を調べる。JSONの未検査範囲を読み、[同じ保存版の画像・動作確認](references/mechanical-visual-review.md)へ進む。CLIの0や数値改善だけで造形・変形・使用先を合格にせず、不自然な見た目なら未達として再診断する。実行できない時は未実施と記録する。スキルの読込みだけでモデル処理や環境変更を始めない。 別々に作った飾りを置いた後は、[飾り合わせのツール](references/accessory-fit.md)の`measure`で食い込みと浮きを測り、置き方を変えずに`fit`で候補を作る。置き方が合わない時はツールで無理に合わせず、人が置き直す。 髪や布を体へ合わせた後は、目で探す前に[貫通の検査](references/penetration-check.md)の`check`で見える箇所を挙げ、`advise`で所ごとの直し方の提案を出し、直した後に`compare`で前後を比べる。提案は大きさだけの判定なので、通し直しと見せ場の房はユーザーが決める。 書き出し・ウェイト・表情キー・確認資料・整理の各段では[5つの検査](references/automated-checks.md)を使う：VRMを書き出すたびに`lida_vrm_check.py`、固い飾りのウェイトの後に`lida_rigid_group_check.py`、キーを作った後に`lida_shape_key_sweep.py`（承認済みの報告を基準にする）、確認用の画像・動画を作った時と見せる前に`lida_evidence_manifest.py`、途中ファイルを消す・動かす前に`lida_reference_check.py`。どれも入力を変えず、削除もしない。 手の形を直した後は、[手の関節の配置](references/hand-rig.md)の`measure`で関節を測り、`place`で写しへ関節・ロール・ウェイトを置き、`check`で握る姿勢の交差・折れ・伸びを前後で比べる。推定と出た関節と握った形は画像で確かめる。
 
 ## メッシュと動きを対応させる
 

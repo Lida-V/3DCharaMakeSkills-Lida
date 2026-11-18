@@ -11,9 +11,11 @@
 | 入力素材・三面図 | 同じ基準から素材を分け、複数角度と基準絵を両方渡す | [入力素材](input-materials.md)、[三面図](multiangle-threeview.md) | [PNG](../assets/input-alignment-flow.png) / [SVG](../assets/input-alignment-flow.svg) |
 | 局所補正の境目 | 移動量と戻す幅を別々に決める。修正マスクとスキンウェイトは別 | [調整方法](adjustment-methods.md) | [PNG](../assets/local-mask-transition.png) / [SVG](../assets/local-mask-transition.svg) |
 | 装飾の白飛び・曇り・細部の潰れ | M1割当/画像設定/UV・M2材質値/共有先・M3形/法線を分け、共有材質への波及と保持を確認 | [装飾の材質補正](accessory-materials.md) | [PNG](../assets/material-repair-selection.png) / [SVG](../assets/material-repair-selection.svg) |
+| 飾りの食い込み・浮き | F1相手を包む外形で測る・F2輪の座標で半径だけ動かす・F3帯は目標のすき間へ、上は入った所だけ外へ・F4崩れた方法と判定の表。置き方は人が決める | [飾りを体・頭へ合わせる](accessory-fit.md) | [PNG](../assets/accessory-ring-fit.png) / [SVG](../assets/accessory-ring-fit.svg) |
 | 穴・誤接続・部位の欠落 | 意図した開口は保持。K1向き/表示・K2面張り・K3境界接続・K4再構築を選ぶ | [修復と補完](mesh-repair-completion.md) | [PNG](../assets/mesh-repair-selection.png) / [SVG](../assets/mesh-repair-selection.svg) |
 | 境界から面を作り直す | P1局所パッチ・P2対応点の接続・P3局所再構築。固定境界・新規面・推定を区別 | [修復の具体手順](mesh-repair-completion.md) | [PNG](../assets/mesh-boundary-repair.png) / [SVG](../assets/mesh-boundary-repair.svg) |
 | 眼球の構成と視線 | 球面・虹彩/瞳孔・白目・任意の反射面と固定する線の層を分ける | [眼球の制作](eye-modeling.md) | [PNG](../assets/eye-structure-flow.png) / [SVG](../assets/eye-structure-flow.svg) |
+| 板の目の作り直し・瞳の演技 | E1生成のままの目の断面と外す面の選び方・E2 4つの層と付け先・E3表情で縮む虹彩・E4感情で揺れるハイライト | [眼球の制作](eye-modeling.md) | [PNG](../assets/eye-layer-stack.png) / [SVG](../assets/eye-layer-stack.svg) |
 | 口・表情キー | 共通の顔で対象部位だけ動かす。顎・輪郭・対象外を固定する | [口型](mouth-shapes.md) | [PNG](../assets/face-key-locality.png) / [SVG](../assets/face-key-locality.svg) |
 | 口線と実際の開口・口角の接続 | 描画線と上下の開口境界、口角の支点と表裏を分けて照合。通常顔・顎・口外の保持も確認する自作模式図 | [最新制作の実践知見](recent-production-lessons.md) | [PNG](../assets/mouth-seam-opening.png) / [SVG](../assets/mouth-seam-opening.svg) |
 | 開口時の口縁ガタつき・口角ジワ・2段裏袋 | 補助点漏れ・口角の局所圧縮・1階膜補間の折れと、全縁点のガウス畳み込み曲線・薄板スプライン補間・2段裏袋の浅角度退避を比較する自作模式図 | [口型](mouth-shapes.md)、[表情の調整](expression-adjustment.md)、[最新制作の実践知見](recent-production-lessons.md) | [PNG](../assets/mouth-rim-smoothing.png) / [SVG](../assets/mouth-rim-smoothing.svg) |

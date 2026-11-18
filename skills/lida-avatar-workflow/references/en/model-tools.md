@@ -15,6 +15,10 @@
 | `snapshot` | Before correction, after saving/reopening, around part integration | Itemized hashes of base coordinates, connectivity, UVs, deformation weights, key coordinates/deltas, material slots/face assignments, and source-file SHA |
 | `compare` | When before/after snapshots exist | Per-target, per-item equality/differences; also runs in ordinary Python |
 | `normalize-copy` | Only weight sums need correction and targets/preservation are established | Candidate copies, separate blend file, and inspection JSON |
+| `measure` / `fit` of [accessory fitting](accessory-fit.md) (separate file `lida_accessory_fit.py`) | After placing separately made accessories, to measure penetration and floating and follow the partner without changing the placement | Per-azimuth gap JSON; a separate blend with the fitted copy added |
+| `check` / `advise` / `compare` of the [penetration check](penetration-check.md) (separate file `lida_penetration_check.py`) | After placing hair, ribbons, or cloth on the body, to list every crossing and choose a repair per place; to compare before and after a repair | JSON of spots and suggestions; marked close views in a new folder. The input is never saved |
+| The [five checks](automated-checks.md): `lida_vrm_check.py`, `lida_rigid_group_check.py`, `lida_shape_key_sweep.py`, `lida_evidence_manifest.py`, `lida_reference_check.py` | After a VRM export, after weighting hard ornaments, after making shape keys, when review media are made and before showing them, and before deleting or moving work files | JSON with warnings. Inputs are not changed. The VRM check, media verification, and clean-up impact run in ordinary Python |
+| `measure` / `place` / `check` / `compare` / `bones` / `run` of the [hand rig](hand-rig.md) (separate file `lida_hand_rig.py`) | After fixing the hand shape, to re-place joints, rolls, and weights to match it, check them in grips, and compare before and after by numbers. `bones` writes the humanoid map from the rig; `run` does everything at once (no image by default) | JSON with how each joint was found and its offset from the current bone, and crossings, folds, and stretch per pose. `place` writes a new blend; the input is not saved |
 
 Weight checks include groups belonging to deforming bones, not ordinary masks. Normalization preserves locks/masks and adjusts the sum of unlocked deform weights. Unassigned, negative, nonfinite, or contradictory locked weights remain unresolved; the tool does not invent a fallback bone assignment.
 
@@ -120,17 +124,19 @@ Audits inspect base meshes and current saved data. They do not inspect self-inte
 
 ## Verified scope
 
-The initial 2026-10-15 implementation was checked in **Blender 5.2.1 LTS background execution**, using synthetic models: 14 API items, 19 CLI items, and 7 ordinary-Python regression tests. The 2026-10-19 extension checked 15 skeleton-audit API cases, 9 CLI cases, and rechecked the existing 19 CLI items in the same environment. Old Toolkit successes do not substitute for testing this implementation.
+It is checked in **Blender 5.2.1 LTS background execution** with API and CLI checks on synthetic models (`audit`, `snapshot`, `compare`, `normalize-copy`, `rig-audit`) and with ordinary-Python regression tests. Old Toolkit successes do not substitute for testing this implementation.
 
 Tests cover valid models, degenerate faces, nonfinite coordinates, out-of-range UVs, unchanged keys, unassigned/nonfinite weights, lock contradictions, and changed connectivity with equal vertex counts. They also cover lock/mask preservation on copies, source-file SHA preservation, separate candidate saving/reopening, and existing-output rejection.
 
-The FBX-condition CLI has 19 tests for synthetic headers, size boundaries, existing-output preservation, and related behavior. Two link-creation tests could not run in the source test environment; 17 passed. Same-path and ordinary alias output rejection were checked. One Blender-generated synthetic FBX also passed header/size checks with unchanged source SHA. This does not verify complete FBX syntax or service acceptance.
+The FBX-condition CLI has 19 tests for synthetic headers, size boundaries, existing-output preservation, and related behavior. The two link-creation tests are skipped where links cannot be created. Same-path and ordinary alias output rejection were checked. One Blender-generated synthetic FBX also passed header/size checks with unchanged source SHA. This does not verify complete FBX syntax or service acceptance.
 
 These are tests of the listed operations on synthetic models, not verification of other Blender versions, GUI add-on installation, all real-model poses, modeling/art fidelity, or destination quality.
 
 ## License and installation scope
 
 This Blender script is **GPL-3.0-or-later**. Check its file header and the [bundled GPL text](../../scripts/LICENSE-GPL-3.0-or-later.txt). Keep this separate from document/diagram terms; do not impose this package's custom attribution conditions on GPL code. Retain original copyright notices and applicable license.
+
+`lida_accessory_fit.py` and the optional panel `lida_accessory_fit_panel.py` for [accessory fitting](accessory-fit.md) are also GPL-3.0-or-later. The panel registers for the current session only; it installs nothing and saves no settings. `lida_penetration_check.py` for the [penetration check](penetration-check.md) is also GPL-3.0-or-later. So are `lida_vrm_check.py`, `lida_rigid_group_check.py`, `lida_shape_key_sweep.py`, `lida_evidence_manifest.py`, `lida_reference_check.py` of the [five checks](automated-checks.md). `lida_hand_rig.py` for the [hand rig](hand-rig.md) is also GPL-3.0-or-later.
 
 Creating models/images/video alone does not require credits on the resulting work. For public apps or new Skills incorporating these documents/instructions, follow [usage and attribution](usage-and-attribution.md).
 

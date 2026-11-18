@@ -720,7 +720,17 @@ def _parser():
     return parser
 
 
+def _safe_console():
+    """Names the console cannot encode are escaped instead of failing after the report is written."""
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(errors="backslashreplace")
+        except (AttributeError, ValueError, OSError):
+            pass
+
+
 def main(argv=None):
+    _safe_console()
     if argv is None:
         argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
     args = _parser().parse_args(argv)

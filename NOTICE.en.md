@@ -7,7 +7,7 @@ The original [NOTICE](NOTICE.md) and [LICENSE](LICENSE) remain included. This En
 - Source: https://github.com/Lida-V/3DCharaMakeSkills-Lida
 - Terms: bundled LICENSE, Lida Attribution License 1.0
 
-Exception: the portable skill's `scripts/lida_model_tools.py` is GPL-3.0-or-later. Lida adapted reusable procedures from the production Lida Avatar Toolkit for distribution. Retain the GPL text in `scripts/LICENSE-GPL-3.0-or-later.txt`; do not impose the documentation license's extra conditions on that GPL code. File-specific licensing takes precedence.
+Exception: the portable skill's `scripts/lida_model_tools.py` is GPL-3.0-or-later. Lida adapted reusable procedures from the production Lida Avatar Toolkit for distribution. `scripts/lida_accessory_fit.py`, `scripts/lida_accessory_fit_panel.py`, `scripts/lida_penetration_check.py`, `scripts/lida_vrm_check.py`, `scripts/lida_rigid_group_check.py`, `scripts/lida_shape_key_sweep.py`, `scripts/lida_evidence_manifest.py`, `scripts/lida_reference_check.py` and `scripts/lida_hand_rig.py` in the same folder are also GPL-3.0-or-later (author: Lida). Retain the GPL text in `scripts/LICENSE-GPL-3.0-or-later.txt`; do not impose the documentation license's extra conditions on that GPL code. File-specific licensing takes precedence.
 
 No output credit is required merely for creating a model, image, or video using the workflow.
 

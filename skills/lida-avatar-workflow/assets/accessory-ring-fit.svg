@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2210" viewBox="0 0 2000 2210" role="img" aria-labelledby="title desc">
+<title id="title">飾りを体・頭へ合わせる：外形で測り、軸からの距離だけ動かす</title><desc id="desc">F1で相手を包むなめらかな外形で距離を測ること、F2で輪の座標と半径だけの移動、F3で帯を目標のすき間へ寄せ帯より上は入った所だけ外へ出すこと、F4で崩れた方法と判定の表を示す自作模式図。量・本数・すき間の値を固定の推奨値としない。</desc>
+<rect x="0" y="0" width="2000" height="2210" rx="0" fill="#f3f6fa"/>
+<text x="48" y="76" font-family="Meiryo,sans-serif" font-size="44" font-weight="700" fill="#20384e">飾りを体・頭へ合わせる：外形で測り、軸からの距離だけ動かす</text>
+<text x="50" y="126" font-family="Meiryo,sans-serif" font-size="27" font-weight="400" fill="#20384e">自作模式図｜実モデルの成功画像ではありません。形・本数・量は説明例です。</text>
+<rect x="40" y="160" width="940" height="900" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="185" width="79" height="47" rx="9" fill="white" stroke="#357da5" stroke-width="2"/>
+<text x="77" y="218" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#357da5">F1</text>
+<text x="160" y="218" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#357da5">距離は、相手を包むなめらかな外形で測る</text>
+<path d="M 510.0 435.0 L 517.2 433.3 L 524.9 426.4 L 533.7 414.0 L 543.5 401.9 L 552.8 397.3 L 560.3 403.5 L 565.6 417.0 L 570.1 430.4 L 575.5 438.4 L 582.3 441.3 L 589.4 443.5 L 596.4 445.9 L 603.3 448.7 L 610.1 451.7 L 616.8 455.0 L 623.4 458.5 L 629.8 462.4 L 636.1 466.5 L 642.2 470.8 L 648.1 475.4 L 654.6 479.4 L 664.7 479.8 L 679.1 476.7 L 694.0 474.3 L 703.7 477.5 L 704.9 487.7 L 699.8 502.1 L 694.0 515.9 L 692.4 526.0 L 695.0 533.2 L 698.3 539.9 L 701.3 546.7 L 704.1 553.6 L 706.5 560.6 L 708.7 567.7 L 710.6 574.8 L 712.2 582.0 L 713.5 589.3 L 714.5 596.5 L 715.3 603.8 L 716.8 610.9 L 723.6 617.5 L 736.0 624.2 L 748.2 631.7 L 753.0 640.0 L 746.8 648.3 L 733.2 655.6 L 719.5 662.0 L 711.4 668.3 L 708.5 675.0 L 706.5 681.8 L 704.4 688.5 L 702.0 695.0 L 699.4 701.5 L 696.6 707.9 L 693.6 714.2 L 690.5 720.4 L 687.2 726.4 L 683.7 732.3 L 680.0 738.2 L 677.2 744.5 L 678.7 753.8 L 684.4 766.7 L 689.7 780.4 L 688.6 789.9 L 679.2 792.4 L 664.7 789.4 L 650.8 785.8 L 641.3 785.8 L 635.4 789.5 L 630.2 793.9 L 624.9 798.2 L 619.4 802.3 L 613.9 806.2 L 608.2 810.0 L 602.3 813.7 L 596.4 817.2 L 590.4 820.5 L 584.2 823.6 L 577.9 826.6 L 571.9 830.4 L 567.2 839.4 L 563.3 853.9 L 558.6 868.5 L 551.6 875.9 L 542.7 872.6 L 533.3 861.8 L 524.7 850.8 L 517.2 845.3 L 510.0 845.0 L 502.8 845.6 L 495.6 845.9 L 488.4 845.9 L 481.1 845.7 L 473.8 845.3 L 466.5 844.5 L 459.3 843.5 L 452.0 842.2 L 444.8 840.6 L 437.7 838.7 L 430.2 837.6 L 420.5 841.1 L 407.9 849.4 L 394.5 857.2 L 384.2 857.9 L 379.3 849.2 L 378.9 834.3 L 379.4 819.8 L 377.1 810.1 L 371.9 804.6 L 366.2 799.7 L 360.7 794.7 L 355.3 789.3 L 350.3 783.8 L 345.4 778.1 L 340.8 772.2 L 336.5 766.1 L 332.4 759.8 L 328.5 753.4 L 325.0 746.8 L 320.7 740.7 L 311.7 736.7 L 297.6 734.6 L 283.2 731.6 L 275.6 725.3 L 278.4 715.3 L 288.5 703.5 L 299.0 692.6 L 304.4 683.7 L 304.7 676.2 L 304.3 668.9 L 304.1 661.6 L 304.1 654.4 L 304.4 647.2 L 305.0 640.0 L 305.8 632.9 L 306.9 625.8 L 308.2 618.8 L 309.7 611.9 L 311.5 605.0 L 312.4 598.0 L 308.2 589.7 L 298.7 579.4 L 289.5 568.4 L 287.7 559.1 L 296.1 553.6 L 311.1 551.5 L 325.9 550.2 L 335.3 547.1 L 340.0 541.8 L 343.8 536.1 L 347.7 530.6 L 351.8 525.1 L 356.1 519.8 L 360.5 514.6 L 365.0 509.5 L 369.7 504.5 L 374.5 499.7 L 379.5 495.0 L 384.6 490.5 L 389.1 485.2 L 390.6 475.6 L 389.3 461.1 L 388.8 446.1 L 392.8 437.1 L 402.3 437.5 L 414.8 444.7 L 426.5 452.5 L 435.4 455.3 L 442.1 453.4 L 448.5 450.6 L 455.0 448.0 L 461.5 445.6 L 468.2 443.5 L 475.0 441.5 L 481.9 439.7 L 488.8 438.2 L 495.8 436.9 L 502.9 435.8 L 510.0 435.0 Z" fill="#eef2f6" stroke="#8a9aa8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 510.0 388.0 L 518.8 387.7 L 527.6 387.8 L 536.5 388.1 L 545.3 388.8 L 554.1 389.8 L 562.9 391.1 L 571.6 392.8 L 580.3 394.7 L 589.0 397.0 L 597.5 399.6 L 606.0 402.5 L 614.3 405.7 L 622.5 409.3 L 630.6 413.1 L 638.6 417.3 L 646.4 421.7 L 654.0 426.5 L 661.5 431.5 L 668.7 436.8 L 675.8 442.4 L 682.6 448.3 L 689.2 454.4 L 695.6 460.8 L 701.7 467.4 L 707.6 474.2 L 713.2 481.3 L 718.5 488.5 L 723.5 496.0 L 728.3 503.6 L 732.7 511.4 L 736.9 519.4 L 740.7 527.5 L 744.3 535.7 L 747.5 544.0 L 750.4 552.5 L 753.0 561.0 L 755.3 569.7 L 757.2 578.4 L 758.9 587.1 L 760.2 595.9 L 761.2 604.7 L 761.9 613.5 L 762.2 622.4 L 762.3 631.2 L 762.0 640.0 L 761.4 648.8 L 760.6 657.5 L 759.4 666.2 L 757.9 674.8 L 756.2 683.4 L 754.1 691.9 L 751.8 700.3 L 749.2 708.6 L 746.3 716.8 L 743.2 724.9 L 739.8 732.8 L 736.1 740.7 L 732.2 748.4 L 728.1 756.0 L 723.7 763.4 L 719.1 770.7 L 714.3 777.8 L 709.3 784.8 L 704.0 791.6 L 698.5 798.2 L 692.8 804.6 L 687.0 810.9 L 680.9 817.0 L 674.6 822.8 L 668.2 828.5 L 661.6 834.0 L 654.8 839.3 L 647.8 844.3 L 640.7 849.1 L 633.4 853.7 L 626.0 858.1 L 618.4 862.2 L 610.7 866.1 L 602.8 869.8 L 594.9 873.2 L 586.8 876.3 L 578.6 879.2 L 570.3 881.8 L 561.9 884.1 L 553.4 886.2 L 544.8 887.9 L 536.2 889.4 L 527.5 890.6 L 518.8 891.4 L 510.0 892.0 L 501.2 892.3 L 492.4 892.2 L 483.5 891.9 L 474.7 891.2 L 465.9 890.2 L 457.1 888.9 L 448.4 887.2 L 439.7 885.3 L 431.0 883.0 L 422.5 880.4 L 414.0 877.5 L 405.7 874.3 L 397.5 870.7 L 389.4 866.9 L 381.4 862.7 L 373.6 858.3 L 366.0 853.5 L 358.5 848.5 L 351.3 843.2 L 344.2 837.6 L 337.4 831.7 L 330.8 825.6 L 324.4 819.2 L 318.3 812.6 L 312.4 805.8 L 306.8 798.7 L 301.5 791.5 L 296.5 784.0 L 291.7 776.4 L 287.3 768.6 L 283.1 760.6 L 279.3 752.5 L 275.7 744.3 L 272.5 736.0 L 269.6 727.5 L 267.0 719.0 L 264.7 710.3 L 262.8 701.6 L 261.1 692.9 L 259.8 684.1 L 258.8 675.3 L 258.1 666.5 L 257.8 657.6 L 257.7 648.8 L 258.0 640.0 L 258.6 631.2 L 259.4 622.5 L 260.6 613.8 L 262.1 605.2 L 263.8 596.6 L 265.9 588.1 L 268.2 579.7 L 270.8 571.4 L 273.7 563.2 L 276.8 555.1 L 280.2 547.2 L 283.9 539.3 L 287.8 531.6 L 291.9 524.0 L 296.3 516.6 L 300.9 509.3 L 305.7 502.2 L 310.7 495.2 L 316.0 488.4 L 321.5 481.8 L 327.2 475.4 L 333.0 469.1 L 339.1 463.0 L 345.4 457.2 L 351.8 451.5 L 358.4 446.0 L 365.2 440.7 L 372.2 435.7 L 379.3 430.9 L 386.6 426.3 L 394.0 421.9 L 401.6 417.8 L 409.3 413.9 L 417.2 410.2 L 425.1 406.8 L 433.2 403.7 L 441.4 400.8 L 449.7 398.2 L 458.1 395.9 L 466.6 393.8 L 475.2 392.1 L 483.8 390.6 L 492.5 389.4 L 501.2 388.6 L 510.0 388.0 Z" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 646.8 264.1 L 599.6 393.9" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 597.9 378.0 L 599.6 393.9 L 611.0 382.8" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 767.1 333.6 L 679.6 437.8" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 683.6 422.3 L 679.6 437.8 L 694.2 431.3" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 856.4 440.0 L 737.9 508.4" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 746.9 495.2 L 737.9 508.4 L 753.9 507.2" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 203.6 382.9 L 395.1 543.6" fill="none" stroke="#c0392b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<circle cx="395.1" cy="543.6" r="9" fill="#c0392b"/>
+<text x="80" y="275" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#c0392b">赤破線：房の間を抜けた光線。生の面で測ると</text>
+<text x="80" y="309" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#c0392b">食い込みを見落とす</text>
+<text x="745" y="800" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#357da5">青：外から軸へ</text>
+<text x="745" y="834" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#357da5">最初の当たり</text>
+<circle cx="510" cy="640" r="8" fill="#20384e"/>
+<text x="526" y="650" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">軸</text>
+<text x="80" y="950" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">灰＝相手（髪の房など）　緑＝外形 R(方位, 高さ)</text>
+<text x="80" y="988" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">隣の最大まで広げてからならす。実物より内へ入れない</text>
+<text x="80" y="1026" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">すき間 ＝（点の半径 − 外形の半径）を面の傾きで直した値</text>
+<rect x="1020" y="160" width="940" height="900" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1045" y="185" width="79" height="47" rx="9" fill="white" stroke="#168370" stroke-width="2"/>
+<text x="1057" y="218" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#168370">F2</text>
+<text x="1140" y="218" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#168370">輪の座標：動かすのは軸からの距離だけ</text>
+<path d="M 1320 890 L 1320 390" fill="none" stroke="#20384e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 8"/>
+<path d="M 1320 420 L 1320 380" fill="none" stroke="#20384e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1327.0 394.4 L 1320 380 L 1313.0 394.4" fill="none" stroke="#20384e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1195" y="364" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#20384e">軸（人が決めた向き）</text>
+<path d="M 1320.0 719.0 L 1550.0 720.0 L 1549.7 723.7 L 1548.7 727.3 L 1547.2 731.0 L 1545.0 734.6 L 1542.2 738.1 L 1538.7 741.6 L 1534.7 745.1 L 1530.1 748.5 L 1524.9 751.8 L 1519.2 755.0 L 1512.9 758.1 L 1506.1 761.1 L 1498.7 764.1 L 1490.9 766.8 L 1482.6 769.5 L 1473.9 772.0 L 1464.7 774.4 L 1455.2 776.6 L 1445.3 778.7 L 1435.0 780.6 L 1424.4 782.4 L 1413.5 783.9 L 1402.4 785.4 L 1391.1 786.6 L 1379.5 787.6 L 1367.8 788.5 L 1356.0 789.1 L 1344.0 789.6 L 1332.0 789.9 L 1320.0 790.0 L 1308.0 789.9 L 1296.0 789.6 L 1284.0 789.1 L 1272.2 788.5 L 1260.5 787.6 L 1248.9 786.6 L 1237.6 785.4 L 1226.5 783.9 L 1215.6 782.4 L 1205.0 780.6 L 1194.7 778.7 L 1184.8 776.6 L 1175.3 774.4 L 1166.1 772.0 L 1157.4 769.5 L 1149.1 766.8 L 1141.3 764.1 L 1133.9 761.1 L 1127.1 758.1 L 1120.8 755.0 L 1115.1 751.8 L 1109.9 748.5 L 1105.3 745.1 L 1101.3 741.6 L 1097.8 738.1 L 1095.0 734.6 L 1092.8 731.0 L 1091.3 727.3 L 1090.3 723.7 L 1090.0 720.0 L 1090.3 716.3 L 1091.3 712.7 L 1092.8 709.0 L 1095.0 705.4 L 1097.8 701.9 L 1101.3 698.4 L 1105.3 694.9 L 1109.9 691.5 L 1115.1 688.2 L 1120.8 685.0 L 1127.1 681.9 L 1133.9 678.9 L 1141.3 675.9 L 1149.1 673.2 L 1157.4 670.5 L 1166.1 668.0 L 1175.3 665.6 L 1184.8 663.4 L 1194.7 661.3 L 1205.0 659.4 L 1215.6 657.6 L 1226.5 656.1 L 1237.6 654.6 L 1248.9 653.4 L 1260.5 652.4 L 1272.2 651.5 L 1284.0 650.9 L 1296.0 650.4 L 1308.0 650.1 L 1320.0 650.0 L 1332.0 650.1 L 1344.0 650.4 L 1356.0 650.9 L 1367.8 651.5 L 1379.5 652.4 L 1391.1 653.4 L 1402.4 654.6 L 1413.5 656.1 L 1424.4 657.6 L 1435.0 659.4 L 1445.3 661.3 L 1455.2 663.4 L 1464.7 665.6 L 1473.9 668.0 L 1482.6 670.5 L 1490.9 673.2 L 1498.7 675.9 L 1506.1 678.9 L 1512.9 681.9 L 1519.2 685.0 L 1524.9 688.2 L 1530.1 691.5 L 1534.7 694.9 L 1538.7 698.4 L 1542.2 701.9 L 1545.0 705.4 L 1547.2 709.0 L 1548.7 712.7 L 1549.7 716.3 L 1550.0 720.0" fill="none" stroke="#168370" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1320 720 L 1490.2 763.0" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1474.5 766.2 L 1490.2 763.0 L 1477.9 752.7" fill="none" stroke="#357da5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1390" y="740" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#357da5">半径 r</text>
+<path d="M 1496.2 765.0 L 1496.2 575.0" fill="none" stroke="#d98200" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1496.2" cy="575.0" r="9" fill="#d98200"/>
+<text x="1510.1902219173649" y="644.9951326780578" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#d98200">高さ h（動かさない）</text>
+<path d="M 1500.2 575.0 L 1606.2 593.0" fill="none" stroke="#c0392b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1590.8 597.4 L 1606.2 593.0 L 1593.2 583.7" fill="none" stroke="#c0392b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1436.1902219173649" y="549.9951326780578" font-family="Meiryo,sans-serif" font-size="24" font-weight="700" fill="#c0392b">動かす向き</text>
+<text x="1105" y="838" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#168370">方位 θ（0°＝正面）</text>
+<text x="1670" y="310" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">固定する物</text>
+<text x="1670" y="350" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">位置・向き・大きさ</text>
+<text x="1670" y="386" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">（人が置いた状態）</text>
+<text x="1670" y="422" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">方位 θ と高さ h</text>
+<text x="1670" y="458" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">＝アーチの形</text>
+<text x="1670" y="730" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#c0392b">変える物</text>
+<text x="1670" y="770" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#c0392b">半径 r だけ</text>
+<text x="1670" y="806" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#c0392b">量は方位の</text>
+<text x="1670" y="842" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#c0392b">なめらかな関数</text>
+<text x="1060" y="950" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">軸は、明示のベクトル／相手の長い向き（腕・首・腰）／</text>
+<text x="1060" y="988" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">飾りの薄い向きから選び、報告に出た軸を必ず確かめる</text>
+<text x="1060" y="1026" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">置き方が合わない時は動かす量が大きくなる → 置き直す</text>
+<rect x="40" y="1090" width="940" height="880" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="65" y="1115" width="79" height="47" rx="9" fill="white" stroke="#d98200" stroke-width="2"/>
+<text x="77" y="1148" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#d98200">F3</text>
+<text x="160" y="1148" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#d98200">帯は目標のすき間へ、上は入った所だけ外へ</text>
+<path d="M 150 1790 L 210 1620 L 300 1460 L 430 1340 L 570 1270 L 570 1790 Z" fill="#eef2f6" stroke="#eef2f6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 1790 L 210 1620 L 300 1460 L 430 1340 L 570 1270" fill="none" stroke="#168370" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="350" y="1730" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#8a9aa8">相手の中</text>
+<text x="450" y="1245" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#168370">外形</text>
+<path d="M 200 1770 L 235 1680" fill="none" stroke="#8a9aa8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 8"/>
+<path d="M 235 1680 L 350 1490 L 480 1350" fill="none" stroke="#8a9aa8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 8"/>
+<path d="M 120 1770 L 162 1680" fill="none" stroke="#357da5" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 162 1680 L 250 1490 L 375 1335" fill="none" stroke="#357da5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 205 1728 L 156 1728" fill="none" stroke="#c0392b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170.4 1721.0 L 156 1728 L 170.4 1735.0" fill="none" stroke="#c0392b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 340 1500 L 262 1500" fill="none" stroke="#c0392b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 276.4 1493.0 L 262 1500 L 276.4 1507.0" fill="none" stroke="#c0392b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="600" y="1740" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#357da5">帯（内側の接する線）</text>
+<text x="600" y="1776" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">すき間を目標値へ。内へも外へも</text>
+<text x="600" y="1810" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">動かす（押し出しだけも選べる）</text>
+<text x="600" y="1420" font-family="Meiryo,sans-serif" font-size="25" font-weight="700" fill="#d98200">帯より上</text>
+<text x="600" y="1456" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">外形へ入った所だけ外へ</text>
+<text x="600" y="1490" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">中へは寄せない</text>
+<text x="600" y="1590" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">灰破線＝直す前</text>
+<text x="600" y="1624" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#20384e">青＝直した後</text>
+<text x="80" y="1880" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">同じ方位の点は同じ量だけ動く → 真珠・とげの形が保たれる</text>
+<text x="80" y="1918" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">小さい塊は、塊ごと動かす指定もできる</text>
+<rect x="1020" y="1090" width="940" height="880" rx="18" fill="white" stroke="#d6e0eb" stroke-width="2"/>
+<rect x="1045" y="1115" width="79" height="47" rx="9" fill="white" stroke="#c0392b" stroke-width="2"/>
+<text x="1057" y="1148" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#c0392b">F4</text>
+<text x="1140" y="1148" font-family="Meiryo,sans-serif" font-size="31" font-weight="700" fill="#c0392b">崩れた方法と、判定の表</text>
+<text x="1060" y="1220" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#c0392b">×</text>
+<text x="1100" y="1220" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">点ごと・列ごとに別々の量で寄せる</text>
+<text x="1100" y="1254" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#c0392b">→ 形がゆがむ・アーチが崩れる</text>
+<text x="1060" y="1298" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#c0392b">×</text>
+<text x="1100" y="1298" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">点ごとに最も近い面へ投影する</text>
+<text x="1100" y="1332" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#c0392b">→ とげが飛ぶ・面がつぶれる</text>
+<text x="1060" y="1376" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#c0392b">×</text>
+<text x="1100" y="1376" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">置き方（傾き・倍率）を自動で解く</text>
+<text x="1100" y="1410" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#c0392b">→ 寝る・下限へ張り付く</text>
+<text x="1060" y="1454" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#c0392b">×</text>
+<text x="1100" y="1454" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">左右・前後・高さの倍率を別々に解く</text>
+<text x="1100" y="1488" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#c0392b">→ つぶれる</text>
+<text x="1060" y="1532" font-family="Meiryo,sans-serif" font-size="30" font-weight="700" fill="#c0392b">×</text>
+<text x="1100" y="1532" font-family="Meiryo,sans-serif" font-size="26" font-weight="700" fill="#20384e">長さを保って曲げる</text>
+<text x="1100" y="1566" font-family="Meiryo,sans-serif" font-size="24" font-weight="400" fill="#c0392b">→ 軸がずれていると中央がつぶれる</text>
+<text x="1060" y="1635" font-family="Meiryo,sans-serif" font-size="27" font-weight="700" fill="#20384e">判定（描画は最後の確認）</text>
+<rect x="1060" y="1655" width="860" height="150" rx="8" fill="#f7fafc" stroke="#d6e0eb" stroke-width="2"/>
+<text x="1080" y="1697" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">方位 30° ごと：帯のすき間の 最小／中央／最大</text>
+<text x="1080" y="1737" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">入った点の割合と最深、動かした量（最大・帯の範囲）</text>
+<text x="1080" y="1777" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">外形と実物の差、当たらなかった光線・裏から当たった光線</text>
+<text x="1060" y="1880" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">最大の移動 ÷ 帯の半径が大きい時は警告。さらに大きい時は</text>
+<text x="1060" y="1918" font-family="Meiryo,sans-serif" font-size="26" font-weight="400" fill="#20384e">候補を作らず、置き直しか作り直しを勧める</text>
+<text x="48" y="2010" font-family="Meiryo,sans-serif" font-size="25" font-weight="400" fill="#20384e">凡例：緑＝外形・保持する形　青＝測る光線・直した後　橙＝高さ・帯より上　赤＝動かす向き・失敗　灰＝相手・直す前</text>
+<rect x="0" y="2040" width="2000" height="170" rx="0" fill="#eaf1f7" stroke="#eaf1f7" stroke-width="2"/>
+<path d="M 32 2048 L 1968 2048" fill="none" stroke="#bacad8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="32" y="2105" font-family="Meiryo,sans-serif" font-size="41" font-weight="700" fill="#20384e">© 2026 Lida · 3DCharaMakeSkills-Lida</text>
+<text x="32" y="2161" font-family="Meiryo,sans-serif" font-size="39" font-weight="400" fill="#355770">https://github.com/Lida-V/3DCharaMakeSkills-Lida</text>
+</svg>

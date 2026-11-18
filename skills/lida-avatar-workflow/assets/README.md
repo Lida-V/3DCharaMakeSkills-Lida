@@ -14,7 +14,7 @@
 
 モデル本体の再配布・改変による販売は禁止です。[モデル専用条件](model-reference/china-wafuku/MODEL-TERMS.md)を適用し、下記の自作図版やGPLコードの条件とは分けます。モデルを含む一式ZIPを利用者が再配布することはできません。
 
-GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒に導入する場合は[公式完成配布ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.12.0/3DCharaMakeSkills-Lida-1.12.0.zip)を使ってください。
+GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒に導入する場合は[公式完成配布ZIP](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.13.0/3DCharaMakeSkills-Lida-1.13.0.zip)を使ってください。
 
 ## 出所と役割
 
@@ -22,6 +22,7 @@ GitHubのCode / Source code ZIPは保守用ソースです。モデルも一緒�
 - `input-alignment-flow`（自作模式図）：同じ基準から段階別素材と三面図を用意する。段階別生成は次回の予防案。
 - `local-mask-transition`（自作模式図）：移動量と戻す幅の違い。修正マスクとスキンウェイトは別。
 - `eye-structure-flow`（自作模式図）：球面・虹彩/瞳孔・白目・任意の薄い反射面、眼球と一緒に回さない線の層。
+- `eye-layer-stack`（自作模式図）：生成のままの板の目の断面と外す面の選び方、眼球・ガラスの球体・上まぶたの影・ハイライトの4つの層と付け先、表情で縮む虹彩、感情で揺れるハイライト。寸法・倍率・揺れ方は説明例。
 - `face-key-locality`（自作模式図）：対象部位だけの表情キーと、顎・輪郭・対象外の固定。
 - `mouth-seam-opening`（自作模式図）：通常顔に描いた口線と開口時の上下のメッシュ境界、口角の支点、表側と裏の折り返しを区別。実際の修正完了例ではない。
 - `mouth-rim-smoothing`（自作模式図）：開口時の補助ベベル点取り残し・口角の局所圧縮・1階膜補間のテント折れと、全縁点のガウス畳み込み曲線＋薄板スプライン重調和補間、および肌色折り返し＋暗色奥壁の2段裏袋の浅角度ドーム退避を比較。実モデルの実測図ではない。

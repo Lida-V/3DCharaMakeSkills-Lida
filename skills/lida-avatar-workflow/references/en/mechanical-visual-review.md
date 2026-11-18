@@ -4,6 +4,8 @@
 
 **The CLI helps prevent missed checks. Mechanical success alone does not make modeling or motion complete.** Inspect agreement with the art, natural deformation, and reproduction after saving/in the destination separately.
 
+Check exported VRM settings, split hard ornaments, shape keys between values and in combination, review media against the saved version, and references before clean-up mechanically first with the five tools in [check by script what is easy to miss](automated-checks.md); then review images and motion of the same saved version.
+
 ## Define review scope first
 
 In the [production plan](production-plan.md) and [stage goals](quality-goals.md), record input version, changing parts, preserved features, normal viewing distance, required views/motions, destination, review material, and remaining work outside this stage. Carry forward established conditions without repeated approval for routine checks.
