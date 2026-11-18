@@ -307,13 +307,187 @@ class HandRigCoreTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             HAND.measure_hand(self.points[keep], index[tris], np.zeros(3), np.array([1.0, 0, 0]), 'left')
 
+    @staticmethod
+    def _check_report(crossing, stretched, gap, drift, warnings, poses=('fist', 'pinch')):
+        rows = [{'pose': pose, 'crossings': {'Index-Middle': {'curve_mm': crossing, 'spots': 1, 'at': 1.0, 'kind': 'fingers'}},
+                 'stretched_edges_max': stretched, 'thumb': {'gap_mm': gap, 'crossing_mm': 0.0}} for pose in poses]
+        hand = {'poses': rows, 'weights_in_hand': {'vertices_without_hand_weights': 0},
+                'followers': {'Nails': {'drift_mm': {pose: drift for pose in poses}, 'pieces_on_more_than_one_bone': 0}}}
+        return {'schema': HAND.REPORT_SCHEMA, 'command': 'check', 'mesh': 'Body', 'options': HAND.resolve_options(),
+                'hands': {'left': hand}, 'warnings': list(warnings), 'input': {'name': 'm.blend', 'sha256': 'x'}}
+
+    def test_compare_lists_what_got_worse_better_and_new_without_blender(self):
+        old = self._check_report(4.0, 12, 6.0, 5.5, ['left: fist: Index-Middle crosses 4.0 mm (1 spots) at 100%'])
+        new = self._check_report(0.2, 30, 6.2, 0.0, ['left: fist: 30 edges stretch past 1.5x and 3 mm'])
+        result = HAND.compare_reports(old, new)
+        worse = {(row['pose'], row['metric']) for row in result['worse']}
+        better = {(row['pose'], row['metric']) for row in result['better']}
+        self.assertEqual(worse, {('fist', 'stretched edges'), ('pinch', 'stretched edges')})
+        self.assertIn(('fist', 'crossing Index-Middle'), better)
+        self.assertIn(('pinch', 'drift of Nails'), better)
+        self.assertNotIn(('fist', 'thumb gap'), worse | better)              # 0.2 mm is inside the tolerance
+        self.assertEqual(result['new_warnings'], ['left: fist: 30 edges stretch past 1.5x and 3 mm'])
+        self.assertEqual(len(result['resolved_warnings']), 1)
+        self.assertEqual(result['summary']['findings'], 2)
+        self.assertEqual(HAND.compare_reports(old, old)['summary']['findings'], 0)
+        loose = HAND.compare_reports(old, new, {'count': 20})
+        self.assertEqual(loose['worse'], [])
+        with self.assertRaises(ValueError):
+            HAND.compare_reports(old, dict(new, command='measure'))
+        with self.assertRaises(ValueError):
+            HAND.compare_reports(old, new, {'mm': -1})
+        more = self._check_report(0.2, 30, 6.2, 0.0, [], poses=('fist', 'pinch', 'grip'))
+        skipped = {row['pose'] for row in HAND.compare_reports(old, more)['not_compared']}
+        self.assertEqual(skipped, {'grip'})
+
+    def test_measure_reports_compare_as_changes_and_new_warnings(self):
+        def report(palm_share, warnings):
+            hand = {'proportions': {'hand': {'palm_share': palm_share, 'hand_length_mm': 170.0, 'finger_visible_mm': {'Index': 55.0}},
+                                    'body': {'hand_per_head': 0.53, 'heads': None}},
+                    'fingers': {'Index': {'visible_length_mm': 55.0, 'radius_mm': 7.0, 'joints': [{'joint': 'pip', 'from_web_mm': 12.0}]}}}
+            return {'schema': HAND.REPORT_SCHEMA, 'command': 'measure', 'mesh': 'Body', 'hands': {'left': hand}, 'warnings': warnings}
+        result = HAND.compare_reports(report(0.668, ['left: palm_share 0.668 is above 0.62']), report(0.58, []))
+        self.assertEqual([(row['group'], row['value']) for row in result['changed']], [('hand', 'palm_share')])
+        self.assertAlmostEqual(result['changed'][0]['delta'], -0.088, places=3)
+        self.assertEqual(result['summary']['findings'], 0)
+        self.assertEqual(len(result['resolved_warnings']), 1)
+        back = HAND.compare_reports(report(0.58, []), report(0.668, ['left: palm_share 0.668 is above 0.62']))
+        self.assertEqual(back['summary']['findings'], 1)
+
+    def test_accept_keeps_only_what_got_worse_or_is_new(self):
+        approved = self._check_report(4.0, 12, 6.0, 0.0, ['left: fist: Index-Middle crosses 4.0 mm (1 spots) at 100%',
+                                                         'left: fist: 12 edges stretch past 1.5x and 3 mm'])
+        same = self._check_report(4.3, 12, 6.0, 0.0, ['left: fist: Index-Middle crosses 4.3 mm (1 spots) at 100%',
+                                                     'left: fist: 12 edges stretch past 1.5x and 3 mm'])
+        kept, block = HAND.apply_accepted(same, same['warnings'], approved)
+        self.assertEqual(kept, [])
+        self.assertEqual(block['accepted_warnings'], 2)
+        self.assertEqual(len(block['warnings_without_accept']), 2)
+        worse = self._check_report(9.0, 12, 6.0, 2.5, ['left: fist: Index-Middle crosses 9.0 mm (1 spots) at 100%',
+                                                      'left: Nails moves up to 2.5 mm against the skin under it'])
+        kept, block = HAND.apply_accepted(worse, worse['warnings'], approved)
+        self.assertTrue(any('crossing Index-Middle rose from 4 to 9 mm' in line for line in kept))
+        self.assertTrue(any('drift of Nails' in line for line in kept))
+        self.assertTrue(any(line.endswith('(new against the accepted report)') for line in kept))
+        filtered = dict(same, warnings=[], accept=block)                      # a filtered report still works as a baseline
+        self.assertEqual(len(HAND._raw_warnings(filtered)), 2)
+        with self.assertRaises(ValueError):
+            HAND.apply_accepted(same, [], dict(approved, mesh='Other'))
+
+    @staticmethod
+    def _rig_rows(hand, arm, finger, thumb=None, extra=()):
+        """A left arm and hand as bone rows; `finger(name, k)` and `thumb(k)` give the bone names (k = 0, 1, 2)."""
+        rows = [{'name': 'Root', 'parent': None, 'head': (0, 0, 0)}, {'name': 'Head', 'parent': 'Root', 'head': (0, 0, 1.5)},
+                {'name': arm[0], 'parent': 'Root', 'head': (0.2, 0, 1.4)}, {'name': arm[1], 'parent': arm[0], 'head': (0.45, 0, 1.4)},
+                {'name': hand, 'parent': arm[1], 'head': (0.7, 0, 1.4)}]
+        across = {'Thumb': -0.03, 'Index': -0.02, 'Middle': 0.0, 'Ring': 0.015, 'Little': 0.03}
+        for name in HAND.FINGERS:
+            parent = hand
+            for k in range(3):
+                bone = (thumb or (lambda k: finger('Thumb', k)))(k) if name == 'Thumb' else finger(name, k)
+                if name == 'Thumb':
+                    head = (0.72 + 0.02 * k, across[name] - 0.02 * k, 1.4)
+                else:
+                    head = (0.78 + 0.03 * k, across[name], 1.4)
+                rows.append({'name': bone, 'parent': parent, 'head': head})
+                parent = bone
+        return rows + list(extra)
+
+    def test_bone_map_is_read_from_names_and_the_hierarchy(self):
+        words = ('Proximal', 'Intermediate', 'Distal')
+        cases = {
+            'vrm': self._rig_rows('LeftHand', ('LeftUpperArm', 'LeftLowerArm'), lambda n, k: 'Left' + n + words[k],
+                                  lambda k: 'LeftThumb' + ('Metacarpal', 'Proximal', 'Distal')[k]),
+            'bip': self._rig_rows('J_Bip_L_Hand', ('J_Bip_L_UpperArm', 'J_Bip_L_LowerArm'), lambda n, k: 'J_Bip_L_%s%d' % (n, k + 1),
+                                    extra=[{'name': 'J_Bip_L_Index3_end', 'parent': 'J_Bip_L_Index3', 'head': (0.87, -0.02, 1.4)}]),
+            'blender': self._rig_rows('hand.L', ('upper_arm.L', 'forearm.L'),
+                                      lambda n, k: '%s.%02d.L' % ('f_' + n.lower() if n != 'Thumb' else 'thumb', k + 1)),
+            'mixamo': self._rig_rows('mixamorig:LeftHand', ('mixamorig:LeftArm', 'mixamorig:LeftForeArm'),
+                                     lambda n, k: 'mixamorig:LeftHand%s%d' % ('Pinky' if n == 'Little' else n, k + 1)),
+            'engine': self._rig_rows('hand_l', ('upperarm_l', 'lowerarm_l'), lambda n, k: '%s_%02d_l' % ('pinky' if n == 'Little' else n.lower(), k + 1),
+                                     extra=[{'name': 'ring_l', 'parent': 'Root', 'head': (0, 0, 1)}]),
+        }
+        for label, rows in cases.items():
+            with self.subTest(label):
+                result = HAND.guess_bone_map(rows, sides=('left',))
+                self.assertEqual(result['missing'], [])
+                bones = result['human_bones']
+                names = [row['name'] for row in rows]
+                self.assertEqual(bones['leftHand'], names[4])
+                self.assertEqual(bones['leftUpperArm'], names[2])
+                self.assertEqual(bones['leftLowerArm'], names[3])
+                self.assertEqual(bones['head'], 'Head')
+                self.assertEqual([bones['leftThumb' + s] for s in ('Metacarpal', 'Proximal', 'Distal')], names[5:8])
+                self.assertEqual([bones['leftLittle' + s] for s in words], names[17:20])
+                self.assertEqual(set(result['methods'][role] for role in bones if 'Index' in role), {'name'})
+        self.assertEqual(HAND.bone_words('J_Bip_L_Index1'), ['j', 'bip', 'l', 'index', '1'])
+        self.assertEqual(HAND.bone_words('mixamorig:LeftHandIndex1'), ['mixamorig', 'left', 'hand', 'index', '1'])
+
+    def test_bone_map_uses_declared_roles_first_orders_unnamed_chains_and_reports_gaps(self):
+        plain = self._rig_rows('hand.L', ('upper_arm.L', 'forearm.L'), lambda n, k: 'Bone_%s_%d' % ('TIMRL'[HAND.FINGERS.index(n)], k))
+        result = HAND.guess_bone_map(plain, sides=('left',))
+        self.assertEqual(result['missing'], [])
+        self.assertEqual(result['human_bones']['leftThumbMetacarpal'], 'Bone_T_0')
+        self.assertEqual(result['human_bones']['leftIndexProximal'], 'Bone_I_0')
+        self.assertEqual(result['human_bones']['leftLittleDistal'], 'Bone_L_2')
+        self.assertEqual(result['methods']['leftRingProximal'], 'position under the hand')
+        self.assertTrue(any('Check the map' in note for note in result['notes']))
+        declared = {'leftHand': 'hand.L', 'leftIndexProximal': 'Bone_M_0', 'leftIndexIntermediate': 'Bone_M_1',
+                    'leftIndexDistal': 'Bone_M_2', 'head': 'NotInTheRig'}
+        chosen = HAND.guess_bone_map(plain, declared, sides=('left',))
+        self.assertEqual(chosen['human_bones']['leftIndexProximal'], 'Bone_M_0')
+        self.assertEqual(chosen['methods']['leftIndexProximal'], 'declared')
+        self.assertEqual(chosen['human_bones']['head'], 'Head')
+        self.assertTrue(any('several roles' in note for note in chosen['notes']))
+        short = [row for row in plain if not row['name'].startswith('Bone_L')]
+        missing = HAND.guess_bone_map(short, sides=('left', 'right'))['missing']
+        self.assertIn('leftIndexProximal', missing)
+        self.assertIn('rightHand', missing)
+
+    def test_before_and_after_pictures_are_labelled_inside_the_image(self):
+        before = np.zeros((60, 200, 4), np.float32)
+        after = np.full((60, 200, 4), 0.5, np.float32)
+        sheet = HAND.pair_image(before, after)
+        self.assertEqual(sheet.shape, (60, 200 + 8 + 200, 4))
+        self.assertTrue((sheet[:, 200:208, :3] == 1.0).all())
+        self.assertTrue((sheet[8:44, 8:156, :3] == 1.0).any())                # BEFORE written on the left half
+        self.assertTrue((sheet[8:44, 216:340, :3] == 1.0).any())              # AFTER written on the right half
+        self.assertTrue((sheet[50:, :200, :3] == 0.0).all() and (sheet[50:, 208:, :3] == 0.5).all())
+        self.assertTrue((before == 0.0).all())                               # the inputs are not written to
+        with self.assertRaises(ValueError):
+            HAND.pair_image(before, after[:30])
+
+    def test_run_draws_nothing_unless_asked_and_compare_runs_without_blender(self):
+        args = HAND._parser().parse_args(['run', '--input', 'm.blend', '--mesh', 'Body', '--rig', 'Armature', '--side', 'both', '--out-dir', 'o'])
+        self.assertEqual(args.views, 'none')
+        self.assertIsNone(args.bones)
+        flagged = HAND._flagged_poses({'options': HAND.resolve_options(), 'hands': {'left': {}, 'right': {}}},
+                                      ['left: fist: Index-Middle crosses 4.0 mm (1 spots) at 100%', 'left: fist: 9 edges stretch'],
+                                      ('left', 'right'), ['fist', 'pinch'])
+        self.assertEqual(flagged, {'left': ['fist'], 'right': []})
+        TEST_TEMP.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as folder:
+            env = dict(os.environ, PYTHONIOENCODING='utf-8')
+            old, new, out = (Path(folder) / name for name in ('old.json', 'new.json', 'c.json'))
+            old.write_text(json.dumps(self._check_report(1.0, 0, 3.0, 0.0, [])), encoding='utf-8')
+            new.write_text(json.dumps(self._check_report(6.0, 0, 3.0, 0.0, ['left: fist: Index-Middle crosses 6.0 mm'])), encoding='utf-8')
+            ran = subprocess.run([sys.executable, str(SCRIPT), 'compare', '--before', str(old), '--after', str(new), '--report', str(out)],
+                                 capture_output=True, text=True, env=env)
+            self.assertEqual(ran.returncode, 2, ran.stderr)
+            written = json.loads(out.read_text(encoding='utf-8'))
+            self.assertEqual(written['schema'], HAND.COMPARE_SCHEMA)
+            self.assertEqual(written['summary']['worse'], 2)
+            same = subprocess.run([sys.executable, str(SCRIPT), 'compare', '--before', str(old), '--after', str(old),
+                                   '--report', str(Path(folder) / 'same.json')], capture_output=True, text=True, env=env)
+            self.assertEqual(same.returncode, 0, same.stderr)
+
     def test_import_help_and_errors_need_no_blender_or_extra_files(self):
         TEST_TEMP.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=TEST_TEMP) as folder:
             env = dict(os.environ, PYTHONIOENCODING='utf-8')
             shown = subprocess.run([sys.executable, str(SCRIPT), '--help'], capture_output=True, text=True, env=env)
             self.assertEqual(shown.returncode, 0)
-            for command in ('measure', 'place', 'check'):
+            for command in ('measure', 'place', 'check', 'compare', 'bones', 'run'):
                 self.assertIn(command, shown.stdout)
             blend = Path(folder) / 'model.blend'
             blend.write_bytes(b'BLENDER-v300')

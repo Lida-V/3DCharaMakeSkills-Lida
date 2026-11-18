@@ -53,7 +53,7 @@ For directions, change regions, or connections, select only needed figures from 
 | Accessory reflections, gems, decorative lines; image versus material cause | [Accessory material correction](references/en/accessory-materials.md) |
 | Fitting crowns, armlets, chokers and similar to the head or body; measuring penetration and floating | [Fitting accessories](references/en/accessory-fit.md) |
 | Listing where hair, ribbons, or cloth pass through the body or accessories; choosing delete, cut, push out, or reroute | [Find penetration by numbers and decide the repair](references/en/penetration-check.md) |
-| Re-placing finger joints, rolls, and weights after the hand shape changed; checking grips for crossing and folding fingers | [Hand joints, rolls, and weights from the shape](references/en/hand-rig.md) |
+| Re-placing finger joints, rolls, and weights after the hand shape changed; checking grips for crossing and folding fingers; comparing before and after by numbers; writing the bone map | [Hand joints, rolls, and weights from the shape](references/en/hand-rig.md) |
 | Settings of an exported VRM, split hard ornaments, shape keys between values and in combination, review media matched to the saved version, references before clean-up | [Check by script what is easy to miss](references/en/automated-checks.md) |
 | Missing/incorrect faces, filling, boundary connection, missing-part completion | [Mesh repair/completion](references/en/mesh-repair-completion.md) |
 | Appearance between engines/shots, dark mouth interior, dark feather edges | [Destination appearance adjustment](references/en/cross-engine-look.md) |

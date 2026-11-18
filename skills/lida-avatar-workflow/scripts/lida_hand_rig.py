@@ -12,7 +12,11 @@ place:   --input MODEL.blend --mesh Body --rig Armature --bones MAP.json --side 
          [--rigid-followers Nails ...]
 check:   --input MODEL.blend --mesh Body --rig Armature --bones MAP.json --side left|right|both
          --report NEW.json [--render-dir NEW_FOLDER] [--poses relax grip fist point pinch spread opposition]
-         [--followers Nails ...]
+         [--followers Nails ...] [--accept APPROVED_CHECK.json]
+compare: --before OLD.json --after NEW.json --report NEW.json      (two measure or two check reports; no Blender)
+bones:   --input MODEL.blend --rig Armature --report NEW.json --output-map NEW_MAP.json
+run:     --input MODEL.blend --mesh Body --rig Armature --side left|right|both --out-dir NEW_FOLDER
+         [--bones MAP.json] [--rigid-followers Nails ...] [--accept APPROVED_CHECK.json] [--views none|findings|all]
 
 measure splits the hand into five fingers by surface connectivity (a merge tree of the distance
 along the surface from the wrist), so a ray or a nearest point never picks up a neighbouring finger.
@@ -39,8 +43,16 @@ rest data. The thumb angles of each grip are solved for this hand (tip on the cu
 index fingertip, ...) instead of using fixed numbers, and reported. It counts crossing curves between fingers, folds inside a finger, fingertips entering
 the palm and stretched edges. One pose is also evaluated in Blender to confirm the skinning matches.
 
-The numeric core needs numpy only. The input blend is never saved; place writes a new blend. Exit
-codes: 0 nothing to report; 2 findings, warnings or a usage error; 1 invalid input or execution error.
+compare reads two reports and lists what got worse, better or changed, from the numbers alone. check
+--accept reads a check against the report of an approved model, so that only values worse than the
+approved ones (and new kinds of warning) are reported. bones writes the role -> bone name map from what
+the rig carries: roles stored by a VRM add-on first, then bone names and the hierarchy. run does bones
+(when no map is given), measure, check, place, check again and compare in one process and one new
+folder. Nothing is rendered unless asked: --views findings draws only the poses that still have a
+warning, before and after side by side; --views all draws every pose.
+
+The numeric core needs numpy only. The input blend is never saved; place and run write a new blend.
+Exit codes: 0 nothing to report; 2 findings, warnings or a usage error; 1 invalid input or execution error.
 """
 
 import argparse
@@ -51,6 +63,7 @@ import json
 import math
 import os
 from pathlib import Path
+import re
 import shutil
 import sys
 import tempfile
@@ -120,6 +133,21 @@ POSES = {   # degrees: fingers (proximal, middle, distal), thumb (metacarpal, pr
     "pinch": {"fingers": (20, 30, 15), "thumb": (15, 25, 30), "oppose": 45, "Index": (35, 45, 30)},
     "spread": {"fingers": (0, 0, 0), "thumb": (0, 0, 0), "spread": 12.0},
     "opposition": {"fingers": (20, 30, 15), "thumb": (25, 30, 30), "oppose": 70},
+}
+COMPARE_SCHEMA = "lida.hand-rig.compare.v1"
+COMPARE_TOLERANCE = {"mm": 0.5, "count": 0.0, "ratio": 0.01}   # a value must move more than this to count
+BONE_MAP_SCHEMA = "lida.model-tools.humanoid-map.v1"            # the map format rig-audit reads
+BONE_FINGER_WORDS = {"thumb": "Thumb", "index": "Index", "middle": "Middle", "ring": "Ring", "little": "Little",
+                     "pinky": "Little", "pinkie": "Little"}
+BONE_SKIP_WORDS = ("tip", "end", "nub", "leaf", "ik", "pole", "target", "ctrl", "control", "helper", "org", "mch")
+LABEL_GLYPHS = {   # 5 x 7 capitals, enough for BEFORE / AFTER
+    "A": (".###.", "#...#", "#...#", "#####", "#...#", "#...#", "#...#"),
+    "B": ("####.", "#...#", "#...#", "####.", "#...#", "#...#", "####."),
+    "E": ("#####", "#....", "#....", "####.", "#....", "#....", "#####"),
+    "F": ("#####", "#....", "#....", "####.", "#....", "#....", "#...."),
+    "O": (".###.", "#...#", "#...#", "#...#", "#...#", "#...#", ".###."),
+    "R": ("####.", "#...#", "#...#", "####.", "#.#..", "#..#.", "#...#"),
+    "T": ("#####", "..#..", "..#..", "..#..", "..#..", "..#..", "..#.."),
 }
 UNVERIFIED = [
     "whether the grips look right: fist shape, how far the thumb wraps, knuckle shape (render and look)",
@@ -1301,6 +1329,322 @@ def joint_report(hand, current=None):
     return rows
 
 
+# ---------------------------------------------------------------- comparing reports (plain Python)
+
+def _loose(text):
+    """A warning with its numbers blanked, so the same kind of finding matches across two runs."""
+    return re.sub(r"[-+]?\d+(?:\.\d+)?", "#", str(text))
+
+
+def _raw_warnings(report):
+    """The warnings of a report as they were before --accept filtered them."""
+    block = report.get("accept")
+    if isinstance(block, dict) and isinstance(block.get("warnings_without_accept"), list):
+        return list(block["warnings_without_accept"])
+    return list(report.get("warnings") or [])
+
+
+def check_metrics(report):
+    """{(side, pose, metric): (value, unit)} of a check report. Every value is 'lower is better'."""
+    rows = {}
+    for side, hand in (report.get("hands") or {}).items():
+        for entry in hand.get("poses") or []:
+            pose = entry.get("pose")
+            for key, value in (entry.get("crossings") or {}).items():
+                rows[(side, pose, "crossing " + key)] = (float(value.get("curve_mm", 0.0)), "mm")
+            rows[(side, pose, "stretched edges")] = (float(entry.get("stretched_edges_max", 0)), "count")
+            thumb = entry.get("thumb") or {}
+            if "gap_mm" in thumb:
+                rows[(side, pose, "thumb gap")] = (float(thumb["gap_mm"]), "mm")
+            if "crossing_mm" in thumb:
+                rows[(side, pose, "thumb crossing")] = (float(thumb["crossing_mm"]), "mm")
+        for name, row in (hand.get("followers") or {}).items():
+            for pose, value in (row.get("drift_mm") or {}).items():
+                rows[(side, pose, "drift of " + name)] = (float(value), "mm")
+            for field in ("pieces_on_more_than_one_bone", "vertices_without_hand_weights"):
+                if field in row:
+                    rows[(side, "-", "%s: %s" % (name, field.replace("_", " ")))] = (float(row[field]), "count")
+        count = (hand.get("weights_in_hand") or {}).get("vertices_without_hand_weights")
+        if count is not None:
+            rows[(side, "-", "vertices without hand weights")] = (float(count), "count")
+    return rows
+
+
+def measure_values(report):
+    """{(side, group, name): value} of a measure report: lengths and ratios, with no better or worse."""
+    rows = {}
+
+    def number(value):
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+
+    for side, hand in (report.get("hands") or {}).items():
+        proportions = hand.get("proportions") or {}
+        for group in ("hand", "body"):
+            for key, value in (proportions.get(group) or {}).items():
+                if number(value):
+                    rows[(side, group, key)] = float(value)
+                elif isinstance(value, dict):
+                    for inner, inner_value in value.items():
+                        if number(inner_value):
+                            rows[(side, group, "%s %s" % (key, inner))] = float(inner_value)
+        for finger, data in (hand.get("fingers") or {}).items():
+            for key in ("visible_length_mm", "radius_mm"):
+                if number(data.get(key)):
+                    rows[(side, finger, key)] = float(data[key])
+            for joint in data.get("joints") or []:
+                for key in ("from_web_mm", "current_bone_offset_mm"):
+                    if number(joint.get(key)):
+                        rows[(side, finger, "%s %s" % (joint.get("joint"), key))] = float(joint[key])
+    return rows
+
+
+def compare_reports(before, after, tolerance=None):
+    """Two measure reports or two check reports, value by value. No rendering and no Blender.
+
+    check: every metric is 'lower is better'; a value that rose by more than the tolerance is 'worse'.
+    measure: lengths and ratios are listed as 'changed'; a warning that is new in `after` is the finding.
+    """
+    tol = dict(COMPARE_TOLERANCE)
+    for key, value in (tolerance or {}).items():
+        if key not in tol:
+            raise ValueError("Unknown tolerance: " + str(key))
+        if value is not None:
+            if not isinstance(value, (int, float)) or isinstance(value, bool) or not math.isfinite(value) or value < 0:
+                raise ValueError("tolerance %s must be a finite non-negative number" % key)
+            tol[key] = float(value)
+    command = after.get("command") if isinstance(after, dict) else None
+    if (not isinstance(before, dict) or before.get("schema") != REPORT_SCHEMA or after.get("schema") != REPORT_SCHEMA
+            or before.get("command") != command or command not in ("measure", "check")):
+        raise ValueError("compare needs two measure reports or two check reports of this tool")
+    worse, better, changed, skipped = [], [], [], []
+    if command == "check":
+        old, new = check_metrics(before), check_metrics(after)
+        old_poses, new_poses = {key[:2] for key in old}, {key[:2] for key in new}
+        for key in sorted(set(old) | set(new)):
+            side, pose, name = key
+            if key[:2] not in old_poses or key[:2] not in new_poses:
+                skipped.append({"side": side, "pose": pose, "metric": name,
+                                "reason": "only in the %s report" % ("after" if key[:2] in new_poses else "before")})
+                continue
+            unit = (new.get(key) or old.get(key))[1]
+            a, b = old.get(key, (0.0, unit))[0], new.get(key, (0.0, unit))[0]
+            row = {"side": side, "pose": pose, "metric": name, "before": a, "after": b, "delta": round(b - a, 3), "unit": unit}
+            if b - a > tol[unit] + 1e-9:
+                worse.append(row)
+            elif a - b > tol[unit] + 1e-9:
+                better.append(row)
+    else:
+        old, new = measure_values(before), measure_values(after)
+        for key in sorted(set(old) | set(new)):
+            side, group, name = key
+            if key not in old or key not in new:
+                skipped.append({"side": side, "group": group, "value": name,
+                                "reason": "only in the %s report" % ("after" if key in new else "before")})
+                continue
+            a, b = old[key], new[key]
+            limit = tol["mm"] if name.endswith("_mm") else tol["ratio"]
+            if abs(b - a) > limit + 1e-9:
+                changed.append({"side": side, "group": group, "value": name, "before": a, "after": b, "delta": round(b - a, 4)})
+    old_warnings, new_warnings = _raw_warnings(before), _raw_warnings(after)
+    old_kinds, new_kinds = {_loose(w) for w in old_warnings}, {_loose(w) for w in new_warnings}
+    added = [w for w in new_warnings if _loose(w) not in old_kinds]
+    resolved = [w for w in old_warnings if _loose(w) not in new_kinds]
+    findings = len(worse) if command == "check" else len(added)
+    return {"schema": COMPARE_SCHEMA, "command": "compare", "compared": command, "tolerance": tol,
+            "before": {"input": before.get("input"), "mesh": before.get("mesh")},
+            "after": {"input": after.get("input"), "mesh": after.get("mesh")},
+            "worse": worse, "better": better, "changed": changed, "not_compared": skipped,
+            "new_warnings": added, "resolved_warnings": resolved,
+            "summary": {"worse": len(worse), "better": len(better), "changed": len(changed), "not_compared": len(skipped),
+                        "new_warnings": len(added), "resolved_warnings": len(resolved), "findings": findings}}
+
+
+def apply_accepted(report, warnings, accepted, tolerance=None):
+    """Read a check against an approved check report: only what is worse, or a new kind of warning, stays.
+
+    Returns (warnings to report, block for report["accept"]). The unfiltered warnings are kept in the block.
+    """
+    if not isinstance(accepted, dict) or accepted.get("command") != "check" or accepted.get("mesh") != report.get("mesh"):
+        raise ValueError("--accept must be a check report of the same mesh")
+    difference = compare_reports(accepted, dict(report, warnings=list(warnings)), tolerance)
+    kept = ["%s: %s: %s rose from %g to %g %s against the accepted report"
+            % (row["side"], row["pose"], row["metric"], row["before"], row["after"], row["unit"]) for row in difference["worse"]]
+    uncovered = {(row["side"], row["pose"]) for row in difference["not_compared"]}
+    for warning in difference["new_warnings"]:
+        parts = warning.split(": ")
+        kept.append(warning + ((" (not in the accepted report)") if tuple(parts[:2]) in uncovered else " (new against the accepted report)"))
+    block = {"accepted_input": accepted.get("input"), "tolerance": difference["tolerance"], "worse": difference["worse"],
+             "better": difference["better"], "not_compared": difference["not_compared"],
+             "warnings_without_accept": list(warnings), "accepted_warnings": len(warnings) - len(difference["new_warnings"])}
+    return kept, block
+
+
+# ---------------------------------------------------------------- bone map from the rig (plain Python)
+
+def bone_words(name):
+    """Lower-case words and numbers of a bone name: 'J_Bip_L_Index1' -> ['j', 'bip', 'l', 'index', '1']."""
+    text = re.sub(r"([a-z])([A-Z])", r"\1 \2", str(name))
+    text = re.sub(r"([A-Za-z])(\d)", r"\1 \2", text)
+    text = re.sub(r"(\d)([A-Za-z])", r"\1 \2", text)
+    return [word for word in re.split(r"[^A-Za-z0-9]+", text.lower()) if word]
+
+
+def _bone_side(words):
+    left = "left" in words or "l" in words
+    right = "right" in words or "r" in words
+    return "left" if left and not right else "right" if right and not left else None
+
+
+def guess_bone_map(bones, declared=None, sides=("left", "right")):
+    """Role -> bone name for the hands, arms and head, from data the rig already carries.
+
+    bones: [{"name", "parent", "head": (x, y, z)}] in rest pose. declared: roles stored by a VRM add-on, used first.
+    Fingers are found by name (thumb / index / middle / ring / little or pinky, with a left / right mark) and
+    ordered by depth in the hierarchy, so numbered and worded names both work. The hand is the bone the finger
+    chains meet in. Where finger names say nothing, five chains under a named hand are ordered by position.
+    Returns {"human_bones", "methods", "missing", "notes"}; `missing` lists the hand roles that were not found.
+    """
+    index = {bone["name"]: bone for bone in bones}
+    children = {}
+    for bone in bones:
+        children.setdefault(bone.get("parent"), []).append(bone["name"])
+
+    def ancestors(name):
+        chain = []
+        parent = index[name].get("parent")
+        while parent in index:
+            chain.append(parent)
+            parent = index[parent].get("parent")
+        return chain
+
+    depth = {name: len(ancestors(name)) for name in index}
+    words = {name: bone_words(name) for name in index}
+    found, methods, notes = {}, {}, []
+    for role, name in (declared or {}).items():
+        if isinstance(name, str) and name in index:
+            found[role], methods[role] = name, "declared"
+    helper = set(BONE_SKIP_WORDS)
+    for side in sides:
+        chains = {}
+        for finger in FINGERS:
+            roles = [side + finger + segment for segment in SEGMENTS[finger]]
+            if all(role in found for role in roles):
+                chains[finger] = [found[role] for role in roles]
+                continue
+            group = [name for name in index if _bone_side(words[name]) == side and not helper & set(words[name])
+                     and BONE_FINGER_WORDS.get(next((w for w in words[name] if w in BONE_FINGER_WORDS), None)) == finger]
+            if finger != "Thumb":
+                group = [name for name in group if "metacarpal" not in words[name]]
+            if any("def" in words[name] for name in group):         # a control rig: keep the deforming copies
+                group = [name for name in group if "def" in words[name]]
+            group.sort(key=lambda name: (depth[name], name))
+            for root in group:                                      # the shallowest bone with two more of the group below it
+                below = [name for name in group if root in ancestors(name)]
+                if len(below) >= 2:
+                    group = [root] + below
+                    break
+            group = group[:3]
+            if len(group) == 3 and all(group[k] in ancestors(group[k + 1]) for k in range(2)):
+                chains[finger] = group
+                for role, name in zip(roles, group):
+                    found.setdefault(role, name)
+                    methods.setdefault(role, "name")
+        hand_role = side + "Hand"
+        if hand_role not in found:
+            parents = [index[chain[0]].get("parent") for chain in chains.values() if index[chain[0]].get("parent") in index]
+            named = [name for name in index if _bone_side(words[name]) == side and not helper & set(words[name])
+                     and ("hand" in words[name] or "wrist" in words[name]) and not set(words[name]) & set(BONE_FINGER_WORDS)]
+            named.sort(key=lambda name: (depth[name], name))
+            if len(parents) >= 2:
+                lines = [[parent] + ancestors(parent) for parent in parents]
+                shared = [name for name in lines[0] if all(name in line for line in lines[1:])]
+                if shared:
+                    found[hand_role], methods[hand_role] = shared[0], "where the finger chains meet"
+            if hand_role not in found and named:
+                found[hand_role], methods[hand_role] = named[0], "name"
+        if hand_role in found and len(chains) < 5:                # no usable finger names: order the chains by position
+            hand_name = found[hand_role]
+            loose = []
+            for child in children.get(hand_name, []):
+                chain = [child]
+                while len(children.get(chain[-1], [])) == 1:
+                    chain.append(children[chain[-1]][0])
+                if len(chain) >= 3 and not helper & set(words[child]):
+                    loose.append(chain)
+            if len(loose) == 5:
+                points = lambda chain: (np.array(index[chain[0]]["head"], float), np.array(index[chain[2]]["head"], float))
+                directions = [_unit(points(chain)[1] - points(chain)[0]) for chain in loose]
+                mean = _unit(np.sum(directions, axis=0))
+                thumb = int(np.argmin([float(d @ mean) for d in directions]))
+                origin = points(loose[thumb])[0]
+                rest = sorted((k for k in range(5) if k != thumb),
+                              key=lambda k: float(np.linalg.norm(_perp(points(loose[k])[0] - origin, mean))))
+                for finger, k in zip(FINGERS, [thumb] + rest):
+                    if finger in chains:
+                        continue
+                    chains[finger] = loose[k][:3]
+                    for role, name in zip([side + finger + segment for segment in SEGMENTS[finger]], loose[k][:3]):
+                        found[role], methods[role] = name, "position under the hand"
+                notes.append("%s: finger names were not recognised; five chains under %s were ordered from the thumb by position. "
+                             "Check the map before using it." % (side, hand_name))
+        if hand_role in found:
+            line = [name for name in ancestors(found[hand_role]) if not {"twist", "roll"} & set(words[name])]
+
+            def arm(test):
+                return next((name for name in line if test(set(words[name]))), None)
+
+            lower = arm(lambda w: "lowerarm" in w or "forearm" in w or "elbow" in w or ({"lower", "fore"} & w and "arm" in w))
+            upper = arm(lambda w: "upperarm" in w or ("upper" in w and "arm" in w)
+                        or ("arm" in w and not {"lower", "fore", "forearm", "lowerarm"} & w))
+            how = "name"
+            if lower is None or upper is None or lower == upper:
+                lower, upper, how = (line + [None, None])[0], (line + [None, None])[1], "hierarchy above the hand"
+            for role, name in ((side + "LowerArm", lower), (side + "UpperArm", upper)):
+                if name is not None and role not in found:
+                    found[role], methods[role] = name, how
+    if "head" not in found:
+        heads = [name for name in index if "head" in words[name] and not helper & set(words[name]) and _bone_side(words[name]) is None]
+        heads.sort(key=lambda name: (len(words[name]), depth[name], name))
+        if heads:
+            found["head"], methods["head"] = heads[0], "name"
+    used = {}
+    for role, name in found.items():
+        used.setdefault(name, []).append(role)
+    for name, roles in sorted(used.items()):
+        if len(roles) > 1:
+            notes.append("one bone is used for several roles: %s <- %s" % (name, ", ".join(sorted(roles))))
+    missing = [role for side in sides for role in side_roles(side) if role not in found]
+    return {"human_bones": dict(sorted(found.items())), "methods": dict(sorted(methods.items())), "missing": missing, "notes": notes}
+
+
+# ---------------------------------------------------------------- before / after picture (numpy only)
+
+def stamp_label(pixels, text, left=8, top=8, scale=4):
+    """Write BEFORE / AFTER style capitals into an image array (rows from the top, RGBA 0..1) on a dark tab."""
+    text = "".join(ch for ch in str(text).upper() if ch in LABEL_GLYPHS)
+    width = len(text) * 6 * scale + scale
+    height = 9 * scale
+    pixels[top:top + height, left:left + width, :3] = 0.08
+    for slot, ch in enumerate(text):
+        for row, line in enumerate(LABEL_GLYPHS[ch]):
+            for column, mark in enumerate(line):
+                if mark == "#":
+                    y, x = top + (row + 1) * scale, left + (slot * 6 + column + 1) * scale
+                    pixels[y:y + scale, x:x + scale, :3] = 1.0
+    return pixels
+
+
+def pair_image(before, after, labels=("BEFORE", "AFTER"), gap=8):
+    """Two images of the same height side by side (before on the left), each with its label inside the picture."""
+    before, after = np.array(before, dtype=np.float32), np.array(after, dtype=np.float32)
+    if before.ndim != 3 or after.ndim != 3 or before.shape[0] != after.shape[0] or before.shape[2] != 4 or after.shape[2] != 4:
+        raise ValueError("pair_image needs two RGBA images of the same height")
+    spacer = np.ones((before.shape[0], gap, 4), np.float32)
+    stamp_label(before, labels[0])
+    stamp_label(after, labels[1])
+    return np.concatenate([before, spacer, after], axis=1)
+
+
 # ---------------------------------------------------------------- Blender
 
 def _bpy():
@@ -1341,6 +1685,56 @@ def read_bone_map(path):
     if not isinstance(bones, dict):
         raise ValueError("The bone map needs a 'human_bones' object (role -> bone name), as for rig-audit")
     return bones
+
+
+def rig_bone_rows(rig):
+    return [{"name": bone.name, "parent": bone.parent.name if bone.parent else None,
+             "head": [float(x) for x in bone.head_local], "tail": [float(x) for x in bone.tail_local]} for bone in rig.data.bones]
+
+
+def declared_human_bones(rig):
+    """Roles a VRM add-on stored on the armature (VRM 1.0 humanoid), read as plain data; {} when there are none."""
+    def child(node, key):
+        if node is None:
+            return None
+        value = getattr(node, key, None)
+        if value is None:
+            try:
+                value = node[key]
+            except (KeyError, TypeError, IndexError, AttributeError):
+                value = None
+        return value
+
+    def stored(owner):                                     # with the add-on not loaded, its data is still in the file
+        node = child(owner, "vrm_addon_extension")
+        if node is None and hasattr(owner, "bl_system_properties_get"):
+            try:
+                node = child(owner.bl_system_properties_get(), "vrm_addon_extension")
+            except (TypeError, RuntimeError):
+                node = None
+        return node
+
+    node = stored(rig.data)
+    for key in ("vrm1", "humanoid", "human_bones"):
+        node = child(node, key)
+    found = {}
+    if node is None:
+        return found
+    by_uuid = {}
+    for bone in rig.data.bones:                            # newer add-on versions point at a bone by its stored id
+        uuid = child(stored(bone), "uuid")
+        if isinstance(uuid, str) and uuid:
+            by_uuid[uuid] = bone.name
+    roles = ["head"] + [role for side in ("left", "right") for role in side_roles(side) + [side + "LowerArm", side + "UpperArm"]]
+    for role in roles:
+        snake = re.sub(r"([A-Z])", lambda m: "_" + m.group(1).lower(), role)
+        entry = child(child(node, snake), "node")
+        name = child(entry, "bone_name")
+        if not (isinstance(name, str) and name):
+            name = by_uuid.get(child(entry, "bone_uuid"))
+        if isinstance(name, str) and name in rig.data.bones:
+            found[role] = name
+    return found
 
 
 def side_roles(side):
@@ -1682,6 +2076,37 @@ def _hand_inputs(mesh, rig, mapping, side, wrist=None, toward=None, back=None, o
     return hand, names
 
 
+def _pose_model(mesh, rig, mapping, side, options):
+    """The hand as it is rigged now: measured hand, bone names, bend axes, weights and the posing model."""
+    hand, names = _hand_inputs(mesh, rig, mapping, side, options=options)
+    joints = current_joints(rig, names)
+    axes = rig_axes(rig, names, hand)
+    weights = bone_weights(mesh, names, len(hand["points"]))
+    weights[~hand["mask"]] = 0.0
+    return hand, names, axes, weights, HandModel(hand, joints, axes, weights)
+
+
+def _pair_sheet(before_path, after_path, out_path):
+    """BEFORE | AFTER in one JPEG, composed from two rendered files with Blender's image API."""
+    bpy = _bpy()
+    arrays = []
+    for path in (before_path, after_path):
+        image = bpy.data.images.load(str(path))
+        width, height = image.size
+        flat = np.empty(width * height * 4, dtype=np.float32)
+        image.pixels.foreach_get(flat)
+        arrays.append(flat.reshape(height, width, 4)[::-1])
+        bpy.data.images.remove(image)
+    sheet = np.ascontiguousarray(pair_image(arrays[0], arrays[1])[::-1], dtype=np.float32)
+    height, width = sheet.shape[:2]
+    image = bpy.data.images.new("lida_hand_pair", width, height, alpha=False)
+    image.pixels.foreach_set(sheet.ravel())
+    image.filepath_raw = str(out_path)
+    image.file_format = "JPEG"
+    image.save()
+    bpy.data.images.remove(image)
+
+
 def command_measure(mesh, rig, mapping, sides, wrist, toward, back, options, render_dir, head_meshes=(), body_meshes=(),
                     head_height_mm=None, height_mm=None, heads=None, table=None, table_source="built-in"):
     report = {"schema": REPORT_SCHEMA, "command": "measure", "mesh": mesh.name, "rig": rig.name if rig else None,
@@ -1788,13 +2213,8 @@ def command_check(mesh, rig, mapping, sides, options, poses, render_dir, followe
               "options": resolve_options(options), "poses": list(poses), "hands": {}}
     warnings = []
     for side in sides:
-        hand, names = _hand_inputs(mesh, rig, mapping, side, options=options)
+        hand, names, axes, weights, model = _pose_model(mesh, rig, mapping, side, options)
         opt = hand["options"]
-        joints = current_joints(rig, names)
-        axes = rig_axes(rig, names, hand)
-        weights = bone_weights(mesh, names, len(hand["points"]))
-        weights[~hand["mask"]] = 0.0
-        model = HandModel(hand, joints, axes, weights)
         result, found_warnings = check_poses(model, poses, opt)[:2]
         moved_blender = blender_skin_difference(rig, mesh, names, hand, axes, model.spec("fist"))
         if moved_blender is not None:
@@ -1884,21 +2304,25 @@ def _save_candidate(path):
 def _parser():
     parser = argparse.ArgumentParser(prog="lida_hand_rig.py", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     commands = parser.add_subparsers(dest="command", required=True)
-    for command in ("measure", "place", "check"):
+    for command in ("measure", "place", "check", "run"):
         sub = commands.add_parser(command)
         sub.add_argument("--input", required=True, type=Path)
         sub.add_argument("--mesh", required=True, help="the mesh that holds the hand skin (often the body)")
         sub.add_argument("--rig", required=command != "measure")
-        sub.add_argument("--bones", type=Path, required=command != "measure",
-                         help="role -> bone name map (VRM 1.0 roles, the rig-audit format)")
+        sub.add_argument("--bones", type=Path, required=command in ("place", "check"),
+                         help="role -> bone name map (VRM 1.0 roles, the rig-audit format); run reads the rig when it is omitted")
         sub.add_argument("--side", required=True, choices=("left", "right", "both"))
-        sub.add_argument("--report", required=True, type=Path)
+        if command == "run":
+            sub.add_argument("--out-dir", required=True, type=Path, help="new folder for every report, the candidate and any views")
+        else:
+            sub.add_argument("--report", required=True, type=Path)
         for key in DEFAULTS:
             sub.add_argument("--" + key.replace("_", "-"), type=int if key in ("steps", "smooth") else float)
         if command == "measure":
             sub.add_argument("--wrist", nargs=3, type=float, metavar=("X", "Y", "Z"), help="wrist point when there is no rig")
             sub.add_argument("--toward", nargs=3, type=float, metavar=("X", "Y", "Z"), help="direction from the wrist to the fingers")
             sub.add_argument("--back", nargs=3, type=float, metavar=("X", "Y", "Z"), help="back-of-hand direction, to override")
+        if command in ("measure", "run"):
             sub.add_argument("--head-meshes", nargs="+", default=[], metavar="MESH", help="the bare head (no hair), for the head height")
             sub.add_argument("--body-meshes", nargs="+", default=[], metavar="MESH", help="the meshes that span the full height")
             sub.add_argument("--head-height-mm", type=float, help="head height (crown to chin), to override")
@@ -1910,15 +2334,37 @@ def _parser():
             sub.add_argument("--render-dir", type=Path, help="new folder for close views")
         if command == "place":
             sub.add_argument("--output-blend", required=True, type=Path)
+        if command in ("place", "run"):
             sub.add_argument("--keep-weights", action="store_true")
             sub.add_argument("--thumb-roll", default="auto", help="auto, or degrees")
             sub.add_argument("--z-toward", choices=("palm", "back"), default="palm")
             sub.add_argument("--rigid-followers", nargs="+", default=[], metavar="MESH",
                              help="nails and other hard pieces: every connected piece follows the one bone under it")
-        if command == "check":
+        if command in ("check", "run"):
             sub.add_argument("--poses", nargs="+", choices=tuple(POSES), default=list(POSES))
+            sub.add_argument("--accept", type=Path,
+                             help="a check report of an approved model: only values worse than it, and new kinds of warning, are reported")
+            sub.add_argument("--accept-tolerance-mm", type=float, help="a length may rise this much against --accept (default 0.5)")
+            sub.add_argument("--accept-tolerance-count", type=float, help="a count may rise this much against --accept (default 0)")
+        if command == "check":
             sub.add_argument("--followers", nargs="+", default=[], metavar="MESH",
                              help="nails and other meshes on the finger bones: drawn, and their movement against the skin is measured")
+        if command == "run":
+            sub.add_argument("--views", choices=("none", "findings", "all"), default="none",
+                             help="none: numbers only (default). findings: draw only the poses that still have a warning. all: every pose")
+    sub = commands.add_parser("compare")
+    sub.add_argument("--before", required=True, type=Path, help="a measure or check report")
+    sub.add_argument("--after", required=True, type=Path, help="a report of the same command, made later")
+    sub.add_argument("--report", required=True, type=Path)
+    sub.add_argument("--tolerance-mm", type=float, help="a length must change more than this to count (default 0.5)")
+    sub.add_argument("--tolerance-count", type=float, help="a count must change more than this to count (default 0)")
+    sub.add_argument("--tolerance-ratio", type=float, help="a ratio must change more than this to be listed (default 0.01)")
+    sub = commands.add_parser("bones")
+    sub.add_argument("--input", required=True, type=Path)
+    sub.add_argument("--rig", required=True)
+    sub.add_argument("--side", choices=("left", "right", "both"), default="both")
+    sub.add_argument("--report", required=True, type=Path)
+    sub.add_argument("--output-map", required=True, type=Path, help="new JSON file for the role -> bone name map")
     return parser
 
 
@@ -1931,6 +2377,276 @@ def _safe_console():
             pass
 
 
+def _read_report(path, what):
+    path = Path(path).expanduser().resolve()
+    if not path.is_file():
+        raise ValueError(what + " not found: " + path.name)
+    data = json.loads(path.read_text(encoding="utf-8-sig"))
+    if not isinstance(data, dict):
+        raise ValueError(what + " must be a JSON report of this tool")
+    return data
+
+
+def _source_blend(path):
+    source = Path(path).expanduser().resolve()
+    if not source.is_file() or source.suffix.lower() != ".blend":
+        raise ValueError("Input must be an existing .blend file")
+    return source
+
+
+def _open_blend(source):
+    bpy = _bpy()
+    if not bpy.app.background:
+        raise ValueError("Run the CLI in a separate Blender background process")
+    bpy.ops.wm.open_mainfile(filepath=str(source), load_ui=False, use_scripts=False)
+    return bpy.context.scene.objects
+
+
+def _named_meshes(scene_objects, values, exclude=None, what="Mesh"):
+    found = []
+    for value in values or []:
+        obj = scene_objects.get(value)
+        if obj is None or obj.type != "MESH" or obj == exclude:
+            raise ValueError("%s not found among the scene's meshes: %s" % (what, value))
+        found.append(obj)
+    return found
+
+
+def _read_table(path, heads):
+    table, table_source = None, "built-in"
+    if path is not None:
+        table_path = path.expanduser().resolve()
+        if not table_path.is_file():
+            raise ValueError("Proportion table not found: " + table_path.name)
+        table = read_proportion_table(json.loads(table_path.read_text(encoding="utf-8-sig")))
+        table_source = table_path.name
+    if heads is not None and not (math.isfinite(heads) and heads > 0):
+        raise ValueError("--heads must be a positive number")
+    return table, table_source
+
+
+def _close_report(report, warnings, source_info):
+    report["input"] = source_info
+    report["warnings"] = list(warnings)
+    report["unverified"] = list(UNVERIFIED)
+    report["status"] = "completed_with_findings" if warnings else "completed"
+    return report
+
+
+def _fail(command, report_path, error):
+    report = {"schema": REPORT_SCHEMA, "command": command, "status": "error",
+              "error_type": type(error).__name__, "message": str(error)}
+    if report_path is not None and not report_path.exists():
+        try:
+            _write_report(report_path, report)
+        except OSError:
+            pass
+    print(json.dumps(report, ensure_ascii=False), file=sys.stderr)
+    return 1
+
+
+def _main_compare(args):
+    report_path = None
+    try:
+        report_path = _new_output(args.report)
+        tolerance = {"mm": args.tolerance_mm, "count": args.tolerance_count, "ratio": args.tolerance_ratio}
+        report = compare_reports(_read_report(args.before, "--before"), _read_report(args.after, "--after"), tolerance)
+        findings = report["summary"]["findings"]
+        report["status"] = "completed_with_findings" if findings else "completed"
+        code = 2 if findings else 0
+        _write_report(report_path, report)
+        print(json.dumps({"command": "compare", "status": report["status"], "summary": report["summary"],
+                          "report": report_path.name, "exit_code": code}, ensure_ascii=False))
+        return code
+    except Exception as error:
+        return _fail("compare", report_path, error)
+
+
+def _main_bones(args):
+    report_path = None
+    try:
+        report_path = _new_output(args.report)
+        map_path = _new_output(args.output_map)
+        source = _source_blend(args.input)
+        if len({source, report_path, map_path}) != 3:
+            raise ValueError("Input, report and map must be three different paths")
+        before_sha = _file_hash(source)
+        scene_objects = _open_blend(source)
+        rig = scene_objects.get(args.rig)
+        if rig is None or rig.type != "ARMATURE":
+            raise ValueError("Rig not found: " + args.rig)
+        sides = ("left", "right") if args.side == "both" else (args.side,)
+        guess = guess_bone_map(rig_bone_rows(rig), declared_human_bones(rig), sides)
+        _write_report(map_path, {"schema": BONE_MAP_SCHEMA, "spec_version": "1.0", "human_bones": guess["human_bones"]})
+        if _file_hash(source) != before_sha:
+            raise RuntimeError("Input SHA changed during command")
+        warnings = ["no bone found for " + role for role in guess["missing"]] + guess["notes"]
+        report = {"schema": REPORT_SCHEMA, "command": "bones", "rig": rig.name, "bones_in_rig": len(rig.data.bones),
+                  "human_bones": guess["human_bones"], "methods": guess["methods"], "missing": guess["missing"],
+                  "output": {"name": map_path.name, "sha256": _file_hash(map_path)}}
+        _close_report(report, warnings, {"name": source.name, "sha256": before_sha, "unchanged_after_command": True})
+        report["unverified"] = ["whether each bone is the intended one: read `methods`, and look at any role found by position or hierarchy"]
+        code = 2 if warnings else 0
+        _write_report(report_path, report)
+        print(json.dumps({"command": "bones", "status": report["status"], "roles": len(guess["human_bones"]),
+                          "missing": len(guess["missing"]), "report": report_path.name, "exit_code": code}, ensure_ascii=False))
+        return code
+    except Exception as error:
+        return _fail("bones", report_path, error)
+
+
+def _flagged_poses(report, warnings, sides, poses):
+    """{side: [pose, ...]} of the poses a warning names, for drawing only what still needs a look."""
+    flagged = {side: [] for side in sides}
+    for warning in warnings:
+        parts = str(warning).split(": ")
+        if len(parts) >= 2 and parts[0] in flagged and parts[1] in poses and parts[1] not in flagged[parts[0]]:
+            flagged[parts[0]].append(parts[1])
+    for side in sides:
+        limit = report["options"]["follower_drift_mm"]
+        for row in ((report["hands"].get(side) or {}).get("followers") or {}).values():
+            for pose, value in (row.get("drift_mm") or {}).items():
+                if value > limit and pose not in flagged[side]:
+                    flagged[side].append(pose)
+        if any(str(w).startswith(side + ": ") for w in warnings) and not flagged[side] and "fist" in poses:
+            flagged[side].append("fist")
+    return flagged
+
+
+def _main_run(args):
+    """bones (when no map is given) -> measure -> check -> place -> check again -> compare, in one process."""
+    report_path = None
+    try:
+        out_dir = _new_output(args.out_dir)
+        source = _source_blend(args.input)
+        if args.thumb_roll != "auto":
+            float(args.thumb_roll)
+        options = {key: getattr(args, key) for key in DEFAULTS if getattr(args, key, None) is not None}
+        resolve_options(options)
+        accepted = _read_report(args.accept, "--accept") if args.accept is not None else None
+        tolerance = {"mm": args.accept_tolerance_mm, "count": args.accept_tolerance_count}
+        table, table_source = _read_table(args.proportion_table, args.heads)
+        given_map = read_bone_map(args.bones) if args.bones is not None else None
+        before_sha = _file_hash(source)
+        sides = ("left", "right") if args.side == "both" else (args.side,)
+        _bpy()
+        out_dir.mkdir()
+        report_path = out_dir / "run.json"
+        source_info = {"name": source.name, "sha256": before_sha, "unchanged_after_command": True}
+        files, steps = {}, {}
+
+        def load():
+            scene_objects = _open_blend(source)
+            mesh = scene_objects.get(args.mesh)
+            if mesh is None:
+                raise ValueError("Mesh not found: " + args.mesh)
+            rig = scene_objects.get(args.rig)
+            if rig is None or rig.type != "ARMATURE":
+                raise ValueError("Rig not found: " + args.rig)
+            followers = _named_meshes(scene_objects, args.rigid_followers, mesh, "Follower")
+            return scene_objects, mesh, rig, followers
+
+        def emit(name, report):
+            _write_report(out_dir / name, report)
+            files[name] = _file_hash(out_dir / name)
+
+        scene_objects, mesh, rig, followers = load()
+        if given_map is not None:
+            mapping = given_map
+            steps["bones"] = {"source": args.bones.name}
+        else:
+            guess = guess_bone_map(rig_bone_rows(rig), declared_human_bones(rig), sides)
+            emit("bones.json", {"schema": BONE_MAP_SCHEMA, "spec_version": "1.0", "human_bones": guess["human_bones"]})
+            steps["bones"] = {"source": "read from the rig", "methods": guess["methods"], "notes": guess["notes"], "missing": guess["missing"]}
+            if guess["missing"]:
+                raise ValueError("The rig does not show these hand bones; write a map and pass --bones: " + ", ".join(guess["missing"]))
+            mapping = guess["human_bones"]
+        warnings = ["bones: " + note for note in steps["bones"].get("notes", [])]
+
+        measure, found = command_measure(mesh, rig, mapping, sides, None, None, None, options, None,
+                                         _named_meshes(scene_objects, args.head_meshes), _named_meshes(scene_objects, args.body_meshes),
+                                         args.head_height_mm, args.height_mm, args.heads, table, table_source)
+        emit("measure.json", _close_report(measure, found, source_info))
+        steps["measure"] = {"report": "measure.json", "warnings": len(found)}
+        warnings += ["measure: " + w for w in found]
+
+        before = None
+        try:
+            before, found = command_check(mesh, rig, mapping, sides, options, args.poses, None, followers)
+            emit("check_before.json", _close_report(before, found, source_info))
+            steps["check_before"] = {"report": "check_before.json", "warnings": len(found)}
+        except ValueError as error:
+            steps["check_before"] = {"skipped": str(error)}
+
+        output = out_dir / (source.stem + "_hands.blend")
+        placed, found = command_place(mesh, rig, mapping, sides, options, args.keep_weights, args.thumb_roll, args.z_toward, followers)
+        _save_candidate(output)
+        placed["output"] = {"name": output.name, "sha256": _file_hash(output)}
+        files[output.name] = placed["output"]["sha256"]
+        emit("place.json", _close_report(placed, found, source_info))
+        steps["place"] = {"report": "place.json", "output": output.name, "warnings": len(found)}
+        warnings += ["place: " + w for w in found]
+
+        after, found = command_check(mesh, rig, mapping, sides, options, args.poses, None, followers)
+        after_info = {"name": output.name, "sha256": placed["output"]["sha256"], "state": "checked in memory right after place; saved as this file"}
+        if accepted is not None:
+            found, after["accept"] = apply_accepted(after, found, accepted, tolerance)
+        emit("check_after.json", _close_report(after, found, after_info))
+        steps["check_after"] = {"report": "check_after.json", "warnings": len(found), "read_against_accept": accepted is not None}
+        warnings += ["check: " + w for w in found]
+        if before is not None:
+            difference = compare_reports(before, after)
+            difference["status"] = "completed_with_findings" if difference["summary"]["findings"] else "completed"
+            emit("compare.json", difference)
+            steps["compare"] = dict(difference["summary"], report="compare.json")
+            warnings += ["compare: %s: %s: %s rose from %g to %g %s" % (r["side"], r["pose"], r["metric"], r["before"], r["after"], r["unit"])
+                         for r in difference["worse"]]
+
+        views = {"mode": args.views, "images": 0}
+        wanted = {side: list(args.poses) for side in sides} if args.views == "all" else \
+            _flagged_poses(after, found, sides, args.poses) if args.views == "findings" else {}
+        if any(wanted.values()):
+            folder = out_dir / "views"
+            folder.mkdir()
+            names = {}
+            for state in ("after", "before"):             # after is in memory; before opens the input again (nothing is saved)
+                if state == "before":
+                    scene_objects, mesh, rig, followers = load()
+                (folder / state).mkdir()
+                for side, poses in wanted.items():
+                    if not poses:
+                        continue
+                    (folder / state / side).mkdir()
+                    hand, bone_names, axes, _weights, model = _pose_model(mesh, rig, mapping, side, options)
+                    fit_thumb_poses(model, poses)
+                    spec = {pose: (axes, model.spec(pose)) for pose in poses}
+                    names[(state, side)] = render_views(rig, mesh, hand, bone_names, folder / state / side, poses=spec, keep=tuple(followers))
+            (folder / "pairs").mkdir()
+            for side in wanted:
+                shared = sorted(set(names.get(("before", side), {}).values()) & set(names.get(("after", side), {}).values()))
+                if shared:
+                    (folder / "pairs" / side).mkdir()
+                for name in shared:
+                    _pair_sheet(folder / "before" / side / name, folder / "after" / side / name, folder / "pairs" / side / name)
+                    views["images"] += 1
+            views.update({"folder": "views", "poses": wanted, "pairs": "views/pairs/<side>/<pose>_<view>.jpg, BEFORE on the left"})
+        elif args.views == "findings":
+            views["note"] = "no pose has a warning, so nothing was drawn"
+
+        if _file_hash(source) != before_sha:
+            raise RuntimeError("Input SHA changed during command")
+        report = {"schema": REPORT_SCHEMA, "command": "run", "mesh": args.mesh, "rig": args.rig, "sides": list(sides),
+                  "steps": steps, "files": files, "views": views}
+        _close_report(report, warnings, source_info)
+        code = 2 if warnings else 0
+        _write_report(report_path, report)
+        print(json.dumps({"command": "run", "status": report["status"], "warnings": len(warnings), "folder": out_dir.name,
+                          "candidate": output.name, "views": views["images"], "exit_code": code}, ensure_ascii=False))
+        return code
+    except Exception as error:
+        return _fail("run", report_path, error)
+
+
 def main(argv=None):
     _safe_console()
     if argv is None:
@@ -1939,12 +2655,16 @@ def main(argv=None):
             return 2
         argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
     args = _parser().parse_args(argv)
+    if args.command == "compare":
+        return _main_compare(args)
+    if args.command == "bones":
+        return _main_bones(args)
+    if args.command == "run":
+        return _main_run(args)
     report_path = None
     try:
         report_path = _new_output(args.report)
-        source = args.input.expanduser().resolve()
-        if not source.is_file() or source.suffix.lower() != ".blend":
-            raise ValueError("Input must be an existing .blend file")
+        source = _source_blend(args.input)
         if source == report_path:
             raise ValueError("Report must differ from input")
         output = render_dir = None
@@ -1959,12 +2679,9 @@ def main(argv=None):
         options = {key: getattr(args, key) for key in DEFAULTS if getattr(args, key, None) is not None}
         resolve_options(options)
         mapping = read_bone_map(args.bones) if args.bones is not None else None
+        accepted = _read_report(args.accept, "--accept") if getattr(args, "accept", None) is not None else None
         before_sha = _file_hash(source)
-        bpy = _bpy()
-        if not bpy.app.background:
-            raise ValueError("Run the CLI in a separate Blender background process")
-        bpy.ops.wm.open_mainfile(filepath=str(source), load_ui=False, use_scripts=False)
-        scene_objects = bpy.context.scene.objects
+        scene_objects = _open_blend(source)
         mesh = scene_objects.get(args.mesh)
         if mesh is None:
             raise ValueError("Mesh not found: " + args.mesh)
@@ -1974,14 +2691,10 @@ def main(argv=None):
             if rig is None:
                 raise ValueError("Rig not found: " + args.rig)
             if mapping is None:
-                raise ValueError("--rig needs --bones")
+                raise ValueError("--rig needs --bones (the bones command writes a map from the rig)")
         sides = ("left", "right") if args.side == "both" else (args.side,)
-        follower_objects = []
-        for follower_name in getattr(args, "rigid_followers", None) or getattr(args, "followers", None) or []:
-            follower = scene_objects.get(follower_name)
-            if follower is None or follower.type != "MESH" or follower == mesh:
-                raise ValueError("Follower must be another mesh in the scene: " + follower_name)
-            follower_objects.append(follower)
+        follower_objects = _named_meshes(scene_objects, getattr(args, "rigid_followers", None) or getattr(args, "followers", None),
+                                         mesh, "Follower")
         if args.command == "measure" and args.wrist is not None and len(sides) > 1:
             raise ValueError("--wrist describes one hand; measure one --side at a time")
         if args.command == "measure" and rig is None and args.wrist is None:
@@ -1991,28 +2704,10 @@ def main(argv=None):
             for side in sides:
                 (render_dir / side).mkdir()
         if args.command == "measure":
-            table, table_source = None, "built-in"
-            if args.proportion_table is not None:
-                table_path = args.proportion_table.expanduser().resolve()
-                if not table_path.is_file():
-                    raise ValueError("Proportion table not found: " + table_path.name)
-                table = read_proportion_table(json.loads(table_path.read_text(encoding="utf-8-sig")))
-                table_source = table_path.name
-            if args.heads is not None and not (math.isfinite(args.heads) and args.heads > 0):
-                raise ValueError("--heads must be a positive number")
-
-            def named(values):
-                found = []
-                for value in values:
-                    obj = scene_objects.get(value)
-                    if obj is None or obj.type != "MESH":
-                        raise ValueError("Mesh not found: " + value)
-                    found.append(obj)
-                return found
-
+            table, table_source = _read_table(args.proportion_table, args.heads)
             report, warnings = command_measure(mesh, rig, mapping, sides, args.wrist, args.toward, args.back, options, render_dir,
-                                               named(args.head_meshes), named(args.body_meshes), args.head_height_mm, args.height_mm,
-                                               args.heads, table, table_source)
+                                               _named_meshes(scene_objects, args.head_meshes), _named_meshes(scene_objects, args.body_meshes),
+                                               args.head_height_mm, args.height_mm, args.heads, table, table_source)
         elif args.command == "place":
             report, warnings = command_place(mesh, rig, mapping, sides, options, args.keep_weights, args.thumb_roll, args.z_toward,
                                              follower_objects)
@@ -2020,27 +2715,19 @@ def main(argv=None):
             report["output"] = {"name": output.name, "sha256": _file_hash(output)}
         else:
             report, warnings = command_check(mesh, rig, mapping, sides, options, args.poses, render_dir, follower_objects)
+            if accepted is not None:
+                warnings, report["accept"] = apply_accepted(report, warnings, accepted,
+                                                            {"mm": args.accept_tolerance_mm, "count": args.accept_tolerance_count})
         if _file_hash(source) != before_sha:
             raise RuntimeError("Input SHA changed during command")
-        report["input"] = {"name": source.name, "sha256": before_sha, "unchanged_after_command": True}
-        report["warnings"] = warnings
-        report["unverified"] = list(UNVERIFIED)
-        report["status"] = "completed_with_findings" if warnings else "completed"
+        _close_report(report, warnings, {"name": source.name, "sha256": before_sha, "unchanged_after_command": True})
         code = 2 if warnings else 0
         _write_report(report_path, report)
         print(json.dumps({"command": args.command, "status": report["status"], "warnings": len(warnings),
                           "report": report_path.name, "exit_code": code}, ensure_ascii=False))
         return code
     except Exception as error:
-        report = {"schema": REPORT_SCHEMA, "command": args.command, "status": "error",
-                  "error_type": type(error).__name__, "message": str(error)}
-        if report_path is not None and not report_path.exists():
-            try:
-                _write_report(report_path, report)
-            except OSError:
-                pass
-        print(json.dumps(report, ensure_ascii=False), file=sys.stderr)
-        return 1
+        return _fail(args.command, report_path, error)
 
 
 if __name__ == "__main__":

@@ -360,7 +360,7 @@
       {
         "source": "skills/lida-avatar-workflow/SKILL.md",
         "translation": "skills/lida-avatar-workflow/SKILL.en.md",
-        "source_sha256": "dd060ecf5cb2e803fc9ac2d639013234c781eab0bb85f47cc87a121971e3d496"
+        "source_sha256": "fed6b85fc0692a1201187c819aa66a67343412099fcd5667e17fb546cd0b1268"
       },
       {
         "source": "skills/lida-avatar-workflow/assets/README.md",
@@ -460,7 +460,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/model-tools.md",
         "translation": "skills/lida-avatar-workflow/references/en/model-tools.md",
-        "source_sha256": "c90508f89b16bfa9d5aabf9ba22522ef229c5e7108aa03e1ddc0ec5975bb274a"
+        "source_sha256": "3c937497ad3186cf1b1bd75cba76a90c15da7e975fc95428bc747ed29f6496f8"
       },
       {
         "source": "skills/lida-avatar-workflow/references/mouth-shapes.md",
@@ -540,7 +540,7 @@
       {
         "source": "tests/README.md",
         "translation": "tests/README.en.md",
-        "source_sha256": "f142520fbf6cddd131f653366171a5e028ddda61d818f248b75a65121970badb"
+        "source_sha256": "7f3ad1d727da94bb3180dbed15ac66028f51085fb77e92434d736e1ff4f916f7"
       },
       {
         "source": "model-reference/china-wafuku/README.md",
@@ -585,7 +585,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/hand-rig.md",
         "translation": "skills/lida-avatar-workflow/references/en/hand-rig.md",
-        "source_sha256": "a58f85cec0ff9b61bf3d756fa8502b61f8696e8006e970dfb6b5e472eab5dca3"
+        "source_sha256": "d1e958a7ff60d53b6c0acec6c626cce6a77c27cb47eb4062cf23a8db0455a989"
       }
     ]
   },

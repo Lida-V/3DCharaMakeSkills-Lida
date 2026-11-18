@@ -18,7 +18,7 @@
 | [飾り合わせ](accessory-fit.md)の`measure`／`fit`（別ファイル `lida_accessory_fit.py`） | 別々に作った飾りを置いた後、食い込みと浮きを測り、置き方を変えずに沿わせる時 | 方位ごとのすき間のJSON、合わせたコピーを加えた別名のblend |
 | [貫通の検査](penetration-check.md)の`check`／`advise`／`compare`（別ファイル `lida_penetration_check.py`） | 髪・リボン・布を体へ合わせた後、突き抜けた所を全部挙げ、所ごとの直し方を決める時。直した前後の比較 | 箇所と提案のJSON、印を付けた寄りの画像（新しいフォルダ）。入力は保存しない |
 | [5つの検査](automated-checks.md)：`lida_vrm_check.py`・`lida_rigid_group_check.py`・`lida_shape_key_sweep.py`・`lida_evidence_manifest.py`・`lida_reference_check.py` | VRMを書き出した後、固い飾りのウェイトの後、表情キーを作った後、確認用の画像・動画を作った時と見せる前、途中ファイルを消す・動かす前 | 警告つきのJSON。入力は変えない。VRMの点検・資料の照合・整理の影響は通常のPythonだけで動く |
-| [手の関節の配置](hand-rig.md)の`measure`／`place`／`check`（別ファイル `lida_hand_rig.py`） | 手の形を直した後、関節・ロール・ウェイトを形に合わせて置き直し、握る姿勢で確かめる時 | 関節ごとの測り方と今の骨との差、姿勢ごとの交差・折れ・伸びたJSON。`place`は新しいblendへ書き、入力は保存しない |
+| [手の関節の配置](hand-rig.md)の`measure`／`place`／`check`／`compare`／`bones`／`run`（別ファイル `lida_hand_rig.py`） | 手の形を直した後、関節・ロール・ウェイトを形に合わせて置き直し、握る姿勢で確かめ、前後を数値で比べる時。`bones`は骨組みから人型の対応表を作り、`run`は一度に実行する（画像は既定で作らない） | 関節ごとの測り方と今の骨との差、姿勢ごとの交差・折れ・伸びたJSON。`place`は新しいblendへ書き、入力は保存しない |
 
 ウェイト検査は変形に使う骨のグループを対象にし、単なるマスクを総和へ混ぜません。正規化はロックとマスクを保持し、未ロックの変形ウェイトの合計を調整します。未割当・負値・非有限値・ロック条件の矛盾は、勝手に補完骨へ割り当てず未解決として扱います。
 

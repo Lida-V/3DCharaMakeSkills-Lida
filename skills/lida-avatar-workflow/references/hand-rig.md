@@ -4,9 +4,9 @@
 
 [工程索引](process-index.md) · [同梱ツール](model-tools.md) · [手を作る](hand-shape.md)
 
-**手の形を直したり作り直したりした後に、指の関節の位置、曲げる向き（ロール）、指ごとのウェイトを、毎回手作業で合わせ直さずに済ませる方法です。** 同梱の [lida_hand_rig.py](../scripts/lida_hand_rig.py) が手のメッシュを測って関節を置き、握る姿勢で曲げて、指どうしの交差・指の中の折れ・伸びた辺を数えます。人が見るのは、報告で「推定」と出た関節と、曲げた画像です。
+**手の形を直したり作り直したりした後に、指の関節の位置、曲げる向き（ロール）、指ごとのウェイトを、毎回手作業で合わせ直さずに済ませる方法です。** 同梱の [lida_hand_rig.py](../scripts/lida_hand_rig.py) が手のメッシュを測って関節を置き、握る姿勢で曲げて、指どうしの交差・指の中の折れ・伸びた辺を数えます。前後は数値で比べ、画像は必要な時だけ描きます。人が見るのは、報告で「推定」と出た関節と、警告が残った姿勢の画像です。
 
-入力の blend は読むだけで、保存しません。`place` は新しい blend に書き出します。
+入力の blend は読むだけで、保存しません。`place` と `run` は新しい blend に書き出します。
 
 ## 使う場面と、使わない場面
 
@@ -16,6 +16,10 @@
 | 手の形を直した。今の骨が新しい形に合っているか知りたい | `measure` で関節を測り、今の骨との差を見る |
 | 指の骨・ロール・ウェイトを形に合わせて置き直したい | `place` で写しに書き出す |
 | 握る・指さし・つまむで、指が交差しないか、折れないか確かめたい | `check` で曲げて数える。前後の版で比べる |
+| 直す前と後、または前の版と今の版で、良くなったか悪くなったかを知りたい | `compare` で 2 つの報告を比べる。描画なし |
+| 承認済みの版より悪くなった所だけを知りたい | `check --accept` に、承認済みの版の `check` の報告を渡す |
+| 骨の対応表（JSON）が無い | `bones` で骨組みから作る |
+| 測る・置く・確かめる・比べるを一度に行いたい | `run`。画像は既定で作らない |
 | 親指が短い・指が細いなど、形そのものの問題 | [手を作る](hand-shape.md)で形を直してから使う。関節とウェイトでは直らない |
 | 爪のように、指についていく固い部品 | `place --rigid-followers` で、部品ごとに真下の骨 1 本へ付け直す。`check --followers` でずれを測る |
 | 手袋・指輪など、やわらかい物や複数の骨にまたがる物 | このツールはウェイトを作り直さない。[ウェイトと網目](mesh-weight.md)で合わせる |
@@ -119,22 +123,59 @@
 - 親指から人差し指までの距離（つまむ・握る）と、親指が目標に届かなかった距離
 - `--followers` に指定した爪などが、真下の肌に対して動いた量
 
+### 8　前後を数値で比べる
+
+`compare` は、2 つの `measure` の報告、または 2 つの `check` の報告を読み、値ごとに比べます。Blender も描画も使いません。
+
+- `check` どうし：交わる線・伸びた辺・親指が届かなかった距離・爪のずれは、どれも小さいほど良い値です。許す幅（既定は長さ 0.5mm・数 0）を超えて増えた値を `worse`、減った値を `better` に並べます。
+- `measure` どうし：長さと比に良し悪しは付けず、変わった値を `changed` に並べます。新しく出た警告だけを問題として数えます。
+- 片方の報告にしかない手や姿勢は `not_compared` に出ます。
+
+承認済みのモデルでも、生の警告は残ります（握れば指先は手のひらに入り、辺は伸びます）。見た目を了承した版の `check` の報告を `check --accept` に渡すと、その報告より悪くなった値と、新しい種類の警告だけが残ります。元の警告は `accept.warnings_without_accept` に全部残ります。基準にする報告は、画像で見て了承した版から作ります。
+
+### 9　骨の対応表を、骨組みから作る
+
+`bones` は、骨組みが持っている情報から対応表（`--bones` に渡す JSON）を書き出します。読む順番：
+
+1. VRM アドオンが骨組みに保存した人型の割り当て。アドオンを読み込まない背景実行でも、ファイルに残っていれば読みます。
+2. 骨の名前。thumb・index・middle・ring・little（pinky）と、左右の印（Left・L など）を読みます。番号の名前でも言葉の名前でも、親子の深さの順に 3 本を選びます。
+3. 手の骨は、指の鎖が集まる骨。腕は名前で探し、無ければ手の親をたどります。
+4. 指の名前が読めない時は、名前の付いた手の骨の下にある 5 本の鎖を、位置で親指から順に並べます。この時は注意が出ます。対応表を確かめてから使います。
+
+報告の `methods` に、役割ごとの決め方が出ます。出力は `rig-audit` が読む形と同じです。
+
+### 10　一度に実行する
+
+`run` は、対応表（`--bones` が無い時）→ `measure` → 今の骨での `check` → `place` → 置き直した後の `check` → `compare` を、1 回の起動で行い、新しいフォルダ 1 つへ書き出します。
+
+画像は、既定では作りません（`--views none`）。数値で通れば、描画は要りません。
+
+| `--views` | 描く物 |
+| --- | --- |
+| `none`（既定） | 描かない |
+| `findings` | 置き直した後に警告が残った手と姿勢だけ。前と後を左右に並べる（左が前。画像の中に BEFORE・AFTER の札）。警告が無ければ 1 枚も描かない |
+| `all` | 全部の姿勢。前と後を左右に並べる |
+
+描画は簡易表示（Workbench、640px）です。画像が要るのは、選んでもらう時、最初の 1 回の見た目の了承、数値は通ったのに形がおかしい時です。
+
 ## 用意するもの
 
 - 保存済みの blend（読むだけ）。開いている制作ファイルは直接使わず、保存した版か写しを指定する。
 - 手の肌を持つメッシュの名前（`--mesh`。体と一体のことが多い）。
-- 骨組みの名前（`--rig`）と、人型の骨の対応表（`--bones`）。[同梱ツール](model-tools.md)の `rig-audit` と同じ形の JSON で、`human_bones` に VRM の役割名（`leftHand`・`leftIndexProximal` など）と骨の名前を対応させる。骨がない時の `measure` は `--wrist` と `--toward` で手首と指の向きを与える。
-- 新しい報告の JSON と、`place` なら新しい blend、画像が要るなら新しいフォルダ。どれも既にあると止まる。
+- 骨組みの名前（`--rig`）と、人型の骨の対応表（`--bones`）。[同梱ツール](model-tools.md)の `rig-audit` と同じ形の JSON で、`human_bones` に VRM の役割名（`leftHand`・`leftIndexProximal` など）と骨の名前を対応させる。対応表が無ければ `bones` で作る（`run` は `--bones` を省くと骨組みから作る）。骨がない時の `measure` は `--wrist` と `--toward` で手首と指の向きを与える。
+- 新しい報告の JSON と、`place` なら新しい blend、画像が要るなら新しいフォルダ。`run` は新しいフォルダ 1 つ。どれも既にあると止まる。
 - Blender（背景実行）。計算部分は通常の Python と numpy だけで動く。
 
 ## AI が行う順序
+
+1〜5 は `run` で一度に実行できます。対応表が無ければ `bones` で作り（`run` は自動）、報告の `methods` を読みます。
 
 1. 手の形がそろっていることを確かめる（形の直しが先。[手を作る](hand-shape.md)）。
 2. `measure` を実行し、まず `proportions` と形の警告を読む。手のひらが長い・親指が届かないなどが出たら、関節を置く前にユーザーへ伝える（形を直すと関節も置き直しになる）。次に関節ごとの `method`（`mesh`／`prior`）と、今の骨との差を読む。推定の関節は画像で位置を見る。
 3. 今の骨で `check` を実行し、前の状態を残す。
 4. `place` で写しに書き出す。親指のロールは `auto` で探す。爪があれば `--rigid-followers` に指定する。
-5. 書き出した写しで同じ `check` を実行し、交差・折れ・伸びた辺が減ったか、新しく出た所がないかを比べる。
-6. 画像を自分の目で見て、数値と合っているか、握った形が自然かを確かめる。
+5. 書き出した写しで同じ `check` を実行し、`compare` で前後を比べる。`worse` に出た所は、置き直した後の方が悪い所。
+6. 画像は、警告が残った姿勢・ユーザーに選んでもらう時・最初の見た目の了承の時に描く。描いた画像は自分の目で見て、数値と合っているか、握った形が自然かを確かめる。
 7. 結果・画像・限界をユーザーへ示す。手袋など、やわらかい別のメッシュは別に合わせる。親指が短いという警告が出たら、形の問題として伝える。
 
 ## 実行例
@@ -148,6 +189,20 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 
 blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_hand_rig.py -- check --input model_hands.blend --mesh Body --rig Armature --bones humanoid.json --side left --report check_after.json --render-dir check_after_views --followers Nails
 ```
+
+対応表を作る、一度に実行する、前後を比べる、承認済みの版を基準にする：
+
+```sh
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_hand_rig.py -- bones --input model.blend --rig Armature --report bones_report.json --output-map humanoid.json
+
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_hand_rig.py -- run --input model.blend --mesh Body --rig Armature --side both --out-dir hands_run --rigid-followers Nails --views findings
+
+python lida_hand_rig.py compare --before check_before.json --after check_after.json --report compare.json
+
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_hand_rig.py -- check --input model_next.blend --mesh Body --rig Armature --bones humanoid.json --side both --followers Nails --accept check_approved.json --report check_next.json
+```
+
+`compare` は Blender を使わないので、通常の Python（numpy が要ります）で実行できます。
 
 ## 報告の読み方
 
@@ -166,6 +221,13 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 - `blender_vs_numpy_fist_mm`：握る姿勢での Blender の変形との差。0.5mm を超えると警告。ほかのモディファイア・シェイプキー・体積保持があると数値の読み方に注意。
 - `weights_in_hand.vertices_without_hand_weights`：手の範囲で骨のウェイトがない頂点の数。
 - `followers.<名前>`：この手にあるかたまりの数、2 本以上の骨にまたがるかたまりの数、姿勢ごとの `drift_mm`（真下の肌に対して動いた量）。1mm を超えると警告。
+
+### compare・accept・bones・run
+
+- `compare`：`worse`・`better`（`check` どうし）、`changed`（`measure` どうし）、`not_compared`、`new_warnings`・`resolved_warnings`、件数の `summary`。`summary.findings` が 0 でなければ終了コード 2。
+- `check --accept`：`warnings` は、基準より悪くなった値と新しい種類の警告だけ。`accept` に、悪くなった値・良くなった値・比べられなかった項目・元の警告（`warnings_without_accept`）・使った許す幅。
+- `bones`：`human_bones`（役割 → 骨の名前）、`methods`（役割ごとの決め方：`declared`＝保存済みの割り当て、`name`＝名前、`where the finger chains meet`＝指の鎖が集まる骨、`hierarchy above the hand`＝手の親をたどった、`position under the hand`＝位置で並べた）、`missing`（見つからなかった手の役割）。`missing` があれば終了コード 2。
+- `run`：フォルダの中に `bones.json`（作った時）・`measure.json`・`check_before.json`・`place.json`・`<入力の名前>_hands.blend`・`check_after.json`・`compare.json`・`run.json`。`run.json` の `steps` に各段の警告の数、`files` に各ファイルのハッシュ、`views` に描いた枚数、`warnings` に全部の段の警告（頭に段の名前）。画像は `views/before`・`views/after`・`views/pairs`。
 
 ### 終了コード
 
@@ -207,6 +269,12 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 | `--rigid-followers`（place） | なし | 爪などの固い部品のメッシュ。かたまりごとに真下の骨 1 本へ付け直す |
 | `--followers`（check） | なし | 爪などのメッシュ。画像に描き、肌に対するずれを測る |
 | `--follower-drift-mm` | 1 | ずれがこれを超えると警告 |
+| `--accept`（check・run） | なし | 承認済みの版の `check` の報告。これより悪くなった値と、新しい種類の警告だけを残す |
+| `--accept-tolerance-mm`・`--accept-tolerance-count`（check・run） | 0.5・0 | `--accept` で、長さ・数がこれ以内の増え方なら悪化と数えない |
+| `--tolerance-mm`・`--tolerance-count`・`--tolerance-ratio`（compare） | 0.5・0・0.01 | これを超えて変わった値だけを並べる |
+| `--output-map`（bones） | 必須 | 作った対応表の新しい JSON |
+| `--out-dir`（run） | 必須 | 報告・候補・画像を入れる新しいフォルダ |
+| `--views`（run） | none | 画像を描くか。`none`・`findings`・`all` |
 
 既定の値は作例で、どのモデルにも合う値ではありません。
 
@@ -222,12 +290,23 @@ blender --background --factory-startup --disable-autoexec --python-exit-code 1 -
 - 爪 <名前> は --rigid-followers で付け直し、check の --followers でずれを確かめてください。ほかのメッシュのウェイトは変えないでください。
 ```
 
+一度に実行する時の例：
+
+```text
+保存済みの <版> を読むだけで、両手を lida_hand_rig.py の run で置き直してください。
+- メッシュ <名前>、骨組み <名前>。対応表は骨組みから作り、methods に name・declared 以外が出たら知らせてください。
+- 爪 <名前> は --rigid-followers に指定してください。出力は <新しいフォルダ> へ。
+- 画像は --views findings（警告が残った姿勢だけ）にしてください。
+- compare.json の worse と、置き直した後に残った警告を報告してください。置き直した後の方が悪い所があれば、候補を使う前に知らせてください。
+```
+
 ## 確認済みの範囲
 
 - Blender 5.3.0 の背景実行で、別の制作の保存済みファイルの写しを読むだけで `measure`・`place`・`check` を実行した。PIP と DIP は、手で合わせた骨と多くの指で 1mm 前後で一致した。書き出した写しでは、握る・指さしの伸びた辺が手で合わせた版より減り、親指の付け根のつぶれもなくなった。爪は握る姿勢でのずれが約 6mm から 0 になった。手のひらが長く親指が指の股に届かない形を、比の警告として出せた。入力は変わらない。
-- 通常 Python のテストで、合成の手を使って、指の分け方、左右の鏡写し、しわからの PIP・DIP、曲げる向き、ウェイトの鎖、線形スキニング、親指の解き方、固い部品の骨の選び方とずれ、既存出力の保護を確かめている。
+- 同じ写しで `bones`・`run`・`compare`・`check --accept` を実行した。骨組みに保存された人型の割り当てを、アドオンを読み込まない背景実行で読めた。名前だけからも同じ対応表になった。`run`（両手、画像なし）は約 1 分。`run` の中の置き直した後の `check` と、保存した候補を別に `check` した結果は、`compare` で差 0 件。`--views findings` で、警告が残った姿勢だけの前後の画像ができた。
+- 通常 Python のテストで、合成の手を使って、指の分け方、左右の鏡写し、しわからの PIP・DIP、曲げる向き、ウェイトの鎖、線形スキニング、親指の解き方、固い部品の骨の選び方とずれ、報告の比較と承認済みの版を基準にした読み方、名前・親子・位置からの対応表（5 通りの名前の付け方）、前後の画像の合成、既存出力の保護を確かめている。
 
-未確認：小指のように形に関節が出にくい指で推定と手作業のどちらが正しいか（画像で見る）、握った形の自然さ、親指が短い手での握り方、頭身ごとの手の大きさの表の妥当性（低い頭身の行は測っていない目安、様式化した行は作例が少ない）、複数の骨にまたがる部品、ほかの Blender 版、体積保持のスキニング、使用先での見え方。作例の数を品質の基準にしません。
+未確認：小指のように形に関節が出にくい指で推定と手作業のどちらが正しいか（画像で見る）、握った形の自然さ、親指が短い手での握り方、頭身ごとの手の大きさの表の妥当性（低い頭身の行は測っていない目安、様式化した行は作例が少ない）、複数の骨にまたがる部品、日本語の骨の名前や制御用の骨が多いリグでの対応表、実際の制作での `--accept` の運用、ほかの Blender 版、体積保持のスキニング、使用先での見え方。作例の数を品質の基準にしません。
 
 ## 利用条件
 
