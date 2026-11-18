@@ -2,11 +2,65 @@
 
 日本語 · [English](README.en.md)
 
-画像から3Dキャラクターを作るときの、素材・調整方法・AIへの指示をまとめた **日本語・英語対応の配布用1.13.0** です。初心者向けに「素材→順番→具体調整→つまずき」を整理し、28枚の図解と実モデルの表示例を収録しています。英語版はREADME・スキル入口・参照全章と依頼文に対応し、図内の日本語ラベルは英語の凡例と説明を併用します。
+画像から3Dキャラクターを作るための、AIエージェント用スキルです（日本語・英語、配布用1.13.0）。素材の用意、3D生成、形・顔・手・髪・衣装・翼の修正、骨とウェイト、表情、材質、VRMの出力までを、AIへ頼む文と図つきでまとめています。
 
-## 実際の制作例
+**Tripoなどの3Dモデル生成サービスでベースを作り、Blenderなどで仕上げる制作手順です。商用利用も可能です。**
 
-リダの3DモデルをBlenderで描画した画像です。生成したベースから、顔・髪・衣装・装飾・翼の形状、表情、ウェイト、材質を調整して仕上げた作例です。
+## 収録内容
+
+| 収録物 | 数 | 内容 |
+| --- | --- | --- |
+| スキル | 1 | `lida-avatar-workflow`。入口の [SKILL.md](skills/lida-avatar-workflow/SKILL.md) から、今の工程に要る章だけを読む |
+| 工程の章 | 39 | 下の表のとおり。全章が日本語と英語 |
+| 図解 | 30組 | 自作の模式図（PNG・SVG）。[図解索引](skills/lida-avatar-workflow/references/diagram-index.md) |
+| ツール | 12本 | Blenderの背景実行で使う、測定・検査・合わせ込みのスクリプト |
+| 参照モデル | 1体 | 完成したVRM 1.0。公式ZIPに同梱（専用条件） |
+
+### 工程ごとの章
+
+| 分野 | 分かること | 章 |
+| --- | --- | --- |
+| 計画と進め方 | 品質の提案、工程の順番、各工程の終了条件 | [制作計画](skills/lida-avatar-workflow/references/production-plan.md)・[品質とゴール](skills/lida-avatar-workflow/references/quality-goals.md)・[工程索引](skills/lida-avatar-workflow/references/process-index.md) |
+| 素材を用意する | 基準画像、三面図、表情シート | [入力素材](skills/lida-avatar-workflow/references/input-materials.md)・[三面図](skills/lida-avatar-workflow/references/multiangle-threeview.md)・[表情シート](skills/lida-avatar-workflow/references/expression-sheets.md) |
+| 生成と最初の骨 | 生成結果の受け取り、150MB以内のFBX、Tripoのオートリグ | [オートリグ](skills/lida-avatar-workflow/references/tripo-autorig.md)・[生成からの実践フィードバック](skills/lida-avatar-workflow/references/generation-feedback.md) |
+| 形を直す | 何をどれだけ動かすか、破れ・欠けの修復、見えない部分の補完 | [調整方法](skills/lida-avatar-workflow/references/adjustment-methods.md)・[修復と補完](skills/lida-avatar-workflow/references/mesh-repair-completion.md)・[スカートと隠れる部分](skills/lida-avatar-workflow/references/skirt-hidden-modeling.md) |
+| 顔・目・表情 | 眼球と視線、平らな目の作り直し、口型、表情キー、ウインク | [眼球](skills/lida-avatar-workflow/references/eye-modeling.md)・[口型](skills/lida-avatar-workflow/references/mouth-shapes.md)・[表情の調整](skills/lida-avatar-workflow/references/expression-adjustment.md)・[ウインク](skills/lida-avatar-workflow/references/wink-closure.md) |
+| 手 | 掌と指の形、関節・ロール・ウェイトの置き直し、握りの検査 | [手を作る](skills/lida-avatar-workflow/references/hand-shape.md)・[手の関節を形から置く](skills/lida-avatar-workflow/references/hand-rig.md) |
+| 髪 | 毛束の形、根元と毛先、質感と艶、揺れ | [髪を作る](skills/lida-avatar-workflow/references/hair-workflow.md)・[二次揺れ](skills/lida-avatar-workflow/references/secondary-motion.md) |
+| 衣装・飾り | 冠や腕輪を体へ合わせる、銀や宝石の材質、髪や布の貫通 | [飾りを合わせる](skills/lida-avatar-workflow/references/accessory-fit.md)・[装飾の材質](skills/lida-avatar-workflow/references/accessory-materials.md)・[貫通の検査](skills/lida-avatar-workflow/references/penetration-check.md) |
+| 翼 | 支持体、羽の列、根元、開閉としなり、羽の名称 | [翼を作る](skills/lida-avatar-workflow/references/wing-workflow.md)・[羽の配置と用語](skills/lida-avatar-workflow/references/wing-feather-terms.md) |
+| 関節とウェイト | 曲がる所の網目とウェイト、膝の線 | [メッシュとウェイト](skills/lida-avatar-workflow/references/mesh-weight.md)・[膝の線](skills/lida-avatar-workflow/references/knee-edge-placement.md) |
+| 見た目と出力 | 使用先で変わる色・影・輪郭、2つのシェーダーの使い分け | [使用先の見た目](skills/lida-avatar-workflow/references/cross-engine-look.md)・[シェーダー](skills/lida-avatar-workflow/references/shader-setup.md) |
+| 検査と確認 | スクリプトでの検査、数値と見た目の分け方 | [見落としやすい所の検査](skills/lida-avatar-workflow/references/automated-checks.md)・[機械検査と見た目](skills/lida-avatar-workflow/references/mechanical-visual-review.md)・[同梱ツール](skills/lida-avatar-workflow/references/model-tools.md) |
+| AIへの頼み方 | 初回の指示、画像つきの依頼、試行錯誤の残し方 | [AIへの指示](skills/lida-avatar-workflow/references/ai-instructions.md)・[画像つきの依頼](skills/lida-avatar-workflow/references/visual-handoff.md)・[試行錯誤](skills/lida-avatar-workflow/references/trial-and-error.md) |
+| 実例と索引 | 最近の制作で分かったこと、図の一覧、参照モデルの見方 | [最近の制作の知見](skills/lida-avatar-workflow/references/recent-production-lessons.md)・[図解索引](skills/lida-avatar-workflow/references/diagram-index.md)・[参照モデル](skills/lida-avatar-workflow/references/model-reference.md)・[あとがき](skills/lida-avatar-workflow/references/lida-design.md) |
+| 利用条件 | 成果物・公開物・再配布での出典の扱い | [利用区分と出典](skills/lida-avatar-workflow/references/usage-and-attribution.md) |
+
+### 同梱ツール
+
+どれもBlenderの背景実行（または通常のPython）で動かし、入力のファイルを保存しません。結果はJSONで出ます。
+
+| ツール | 働き | 説明 |
+| --- | --- | --- |
+| `lida_model_tools.py` | 網目・UV・ウェイト・キーの検査、修正前後の比較、写しへのウェイト正規化、骨と人型の対応の検査 | [同梱ツール](skills/lida-avatar-workflow/references/model-tools.md) |
+| `lida_file_check.py` | 送るFBXの形式と容量の確認 | [同梱ツール](skills/lida-avatar-workflow/references/model-tools.md) |
+| `lida_hand_rig.py` | 手の比の測定、指の関節・ロール・ウェイトの置き直し、握りの検査、前後の比較、骨の対応表の作成、一括実行 | [手の関節を形から置く](skills/lida-avatar-workflow/references/hand-rig.md) |
+| `lida_accessory_fit.py`・`lida_accessory_fit_panel.py` | 冠・腕輪・首飾りと体のすき間の測定、形を保った合わせ込み（パネルは任意） | [飾りを合わせる](skills/lida-avatar-workflow/references/accessory-fit.md) |
+| `lida_penetration_check.py` | 髪・布の貫通を全部挙げる、直し方の提案、前後の比較 | [貫通の検査](skills/lida-avatar-workflow/references/penetration-check.md) |
+| `lida_vrm_check.py` | 書き出したVRMの設定の抜け（材質・揺れ・視線・表情・画像） | [見落としやすい所の検査](skills/lida-avatar-workflow/references/automated-checks.md) |
+| `lida_rigid_group_check.py` | 宝石と台のような固い飾りが、曲げても割れないか | 同上 |
+| `lida_shape_key_sweep.py` | 表情キーの途中の値と組み合わせでの崩れ | 同上 |
+| `lida_evidence_manifest.py` | 確認用の画像・動画が、どの保存版から作られたか | 同上 |
+| `lida_reference_check.py` | 途中ファイルを整理する前に、まだ読まれている物を挙げる | 同上 |
+| `ensure_attribution.py` | 公開するアプリやSkillsへ出典を書く | [利用区分と出典](skills/lida-avatar-workflow/references/usage-and-attribution.md) |
+
+機械検査が通っても、画像や動作で不自然なら未達として扱います。眼球・翼などの形を自動で作るツールではありません。
+
+## 制作例
+
+このスキルの手順で作ったモデルを、Blenderで描画した画像です。生成したベースから、形・表情・ウェイト・材質を調整しています。
+
+### リダ
 
 | 全身・衣装・翼 | 顔・髪・装飾 |
 | --- | --- |
@@ -16,25 +70,21 @@
 
 **[18秒動画：多様な動作・表情・手指・翼・髪揺れを見る](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.11.0/lida-motion-showcase-attributed.mp4)** — 全身・バストアップ・右手アップ（トゥーン／掌側粘土）の同期4画面で、片手ウェーブ挨拶・4指順送りウェーブ・握り拳・ピース＆ウインク・指差し・親指の対向つまみ・お花ポーズ＆お辞儀・手首屈伸と袖口追従を確認。音声なし。
 
-表示はBlender 5.2.1 LTS／EEVEEと制作モデル内のトゥーン材質です。[画像・動画の内容と表示条件](media/README.md)を確認できます。
+### 人魚（制作途中）
 
-図解と紹介画像・動画には、画像だけで共有された時も出所を確認できるよう、余白へLida名と配布元URLを表示しています。本文やモデルの見える範囲は遮っていません。利用条件は従来どおりです。
+| 全身・尾・ひれ・長い髪 | 顔・眼球・飾り |
+| --- | --- |
+| ![人魚の実モデルの全身。貝殻と真珠の飾り、うろこの尾、透けるひれ、長い巻き髪を確認できるBlender描画](media/mermaid-full-body.jpg) | ![人魚の実モデルの顔の寄り。作り直した眼球とハイライト、前髪、耳のひれ、真珠の飾りを確認できるBlender描画](media/mermaid-face.jpg) |
 
-**Tripoなどの3Dモデル生成サービスの利用を前提とした制作手順です。商用利用も可能です。**
+飾りを体へ合わせる・髪の貫通の検査・手の関節の置き直し・平らな目の作り直しの章とツールは、この制作の記録から足しました。
 
-## Skillsに含まれる完成参照モデル
+### 九尾の狐（制作途中）
 
-**[参照モデルを含むSkills一式をダウンロード](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.13.0/3DCharaMakeSkills-Lida-1.13.0.zip)** — 公式の完成ZIPに、制作例「チャイナ和服新キャラ r35」のVRM 1.0を収録しています。展開後のスキルフォルダを丸ごと導入すると、参照モデルも一緒に配置されます。別ダウンロードは不要です。
+![九尾の狐の実モデルのポーズ。狐の耳、長い髪、ファーと着物、尾を確認できるBlender描画](media/kyubi-concept-pose.jpg)
 
-このモデルはSkillsの制作参照資料です。顔・手指・関節・袖・材質・表情・揺れの関係を実物で学べます。[何を見るか・AIへの依頼例](skills/lida-avatar-workflow/references/model-reference.md)から必要な部位だけを参照してください。
+表示はBlender／EEVEEと制作モデル内のトゥーン材質です。制作途中の版も含みます。[画像・動画の内容と表示条件](media/README.md)を確認できます。
 
-**モデル本体の再配布・改変による販売は禁止です。モデルを含む一式ZIPも利用者が再配布しないでください。** [モデル専用条件](model-reference/china-wafuku/MODEL-TERMS.md)を適用します。文書・図解・コードの個別条件は維持し、モデルを除いた資料・コードは各LICENSEに従って再配布できます。参照して独自に作った別モデルの販売は禁止しません。VRM三角面は元の編集用網目ではなく、Unity/UEの外観・動作は保証しません。
-
-## 制作の前提
-
-基準となるイラストを用意し、Tripoなどのサービスでベースモデルや口型・表情の参考モデルを生成してから、Blenderなどで形状・メッシュ・骨・スキンウェイト・表情を調整します。新規の動く人型では、通常形と関節の網目を整え、**150MB以内のFBX → TripoのVRM 1.0オートリグ → 骨・ウェイトの調整**を挟みます。骨格の導入と完成VRMの出力は別工程です。既存の良いリグは再利用します。
-
-実制作には、利用する3D生成サービス、モデリングソフト、必要な画像素材を別途用意してください。本パックにサービスやソフト本体は同梱しません。別の生成サービスを使う場合も、必要な角度・同一性・出力形式がそろうかを確認します。既存モデルの修正だけなら、改めて生成する必要はありません。
+図解と紹介画像・動画には、画像だけで共有された時も出所を確認できるよう、余白へLida名と配布元URLを表示しています。本文やモデルの見える範囲は遮っていません。配布するのは紹介画像と制作ノウハウで、これらのモデルデータやキャラクターデザインの利用許可は含みません。
 
 ## 入手して使う
 
@@ -48,37 +98,25 @@
 
 ## 最初に読む
 
-- [新規制作からの追加フィードバック](skills/lida-avatar-workflow/references/generation-feedback.md)：自動生成の手・親指の軸・口内・顎の調整、FBX表示と埋込画像、リグ/揺れもの往復の失敗を次の初回指示へ反映する。
-- [最新制作の実践知見](skills/lida-avatar-workflow/references/recent-production-lessons.md)：口角の開き、UV・材質境界、骨・ウェイト、揺れと保存/出力のつまずきを、症状から調整・確認までたどる。
 - [最初の制作計画](skills/lida-avatar-workflow/references/production-plan.md)：必要な5項目の診断・補正を計画し、材質の変更範囲、工程順と保留理由を整理する。
 - [品質と工程ゴール](skills/lida-avatar-workflow/references/quality-goals.md)：初回の完成像と各工程の終了条件。
 - [工程索引](skills/lida-avatar-workflow/references/process-index.md)：今扱う部位の資料だけ選ぶ。
-- [アクセサリー・装飾の材質補正](skills/lida-avatar-workflow/references/accessory-materials.md)：画像・材質・形のどこを直すか判断し、銀の艶・宝石・細い輪郭を比較する。
-- [飾りを体・頭へ合わせる](skills/lida-avatar-workflow/references/accessory-fit.md)：別々に作った冠・腕輪・首飾りを、置き方を変えずに頭や体へ沿わせる。相手を包む外形に対するすき間を測り、輪の軸からの距離だけを直すツールと、崩れた方法の記録。
-- [貫通を数値で見つけて、直し方を決める](skills/lida-avatar-workflow/references/penetration-check.md)：髪・リボン・布が体や飾りを突き抜けた所を計算で全部挙げ、外から見える所だけを数える。所ごとに削除・切る・押し出す・通し直すの提案を出し、直した前後を比べるツール。
-- [見落としやすい所をスクリプトで確かめる](skills/lida-avatar-workflow/references/automated-checks.md)：書き出したVRMの設定の抜け、曲げると割れる固い飾り、途中の値や組み合わせで崩れる表情キー、古い版の確認画像の取り違え、整理で切れる参照を、5つのツールで確かめる。
-- [メッシュの破綻修正と補完](skills/lida-avatar-workflow/references/mesh-repair-completion.md)：必要な開口を残し、面張り・境界接続・局所再構築・欠落部位の補完を図で選ぶ。
-- [使用先とショット間の見た目を揃える](skills/lida-avatar-workflow/references/cross-engine-look.md)：色管理から陰影・艶・輪郭・透過を分けて調整。口内の暗さと羽の暗い縁の診断例も収録。
-- [機械検査と見た目・動きの判定](skills/lida-avatar-workflow/references/mechanical-visual-review.md)：CLIで確認漏れを減らし、原画との画像比較・途中動作・保存/使用先を分けて検収する。
-- [自作の制作補助ツール](skills/lida-avatar-workflow/references/model-tools.md)：骨構成・人型への割当、網目・UV・ウェイト・キー、修正前後の比較、コピー限定のウェイト正規化と送信FBXの条件確認。
-- [Tripoで初期骨格を導入する](skills/lida-avatar-workflow/references/tripo-autorig.md)：150MB以内のFBXを用意し、VRM 1.0オートリグから保持照合・リグとウェイトの調整へ進む。
-- [眼球を作る工程](skills/lida-avatar-workflow/references/eye-modeling.md)：球面・虹彩・白目・線の層・視線・瞬き・出力まで。生成のままの平らな目を層へ作り直す手順と、表情で変わる瞳・揺れるハイライトも。
-- [ウインクの閉じ方](skills/lida-avatar-workflow/references/wink-closure.md)：通常の瞬きと笑った閉じ目を分け、目だけの差分・左右・影の層・途中動作を確認する。
-- [表情シートを生成する](skills/lida-avatar-workflow/references/expression-sheets.md)：同じ通常顔から必要な口型・目・感情の一覧と単体画像を作り、個別3D参考と局所キーへつなぐ。
-- [手を作り、動かして確認する工程](skills/lida-avatar-workflow/references/hand-shape.md)：掌と指の形、関節と網目、親指・指間のウェイト、爪、短縮で繰り返した修正を図で確認。
-- [髪を作る工程](skills/lida-avatar-workflow/references/hair-workflow.md)：髪だけの資料、毛束の形と断面、根元・毛先・生え際、質感と艶、揺れ・干渉・出力まで。
-- [翼を作る工程](skills/lida-avatar-workflow/references/wing-workflow.md)：資料・支持体・羽列・根元・ウェイト・開閉としなり・保存まで。工程ごとのゴールとAI依頼文付き。
-- [翼全体の羽の配置と用語](skills/lida-avatar-workflow/references/wing-feather-terms.md)：初列・次列・三列風切、雨覆、小翼羽、肩羽を上下面の図と番号で対応。
-- [図解索引](skills/lida-avatar-workflow/references/diagram-index.md)：素材、網目、表情、手、髪、衣装、翼、統合を画像で確認。
-- [画像付きの依頼](skills/lida-avatar-workflow/references/visual-handoff.md)：変更部と固定部、比較・採否をAIへ渡す。
 
 作例の寸法・本数は他モデルの既定値にしません。確認範囲と既知制限も読み、外観の好みは[短いあとがき](skills/lida-avatar-workflow/references/lida-design.md)へ分けます。
 
-## 自作ツールとSkillsを組にして使う
+## 制作の前提
 
-Blenderで実行する制作補助スクリプトを同梱しています。AIは各工程で必要な検査を実行し、JSONと同条件画像から修正・保持結果を判断します。骨と人型対応の`rig-audit`、FBXの形式・容量確認も収録します。機械検査が通っても、画像・動作で不自然なら未達として扱います。ウェイト正規化は新規の候補コピーへ限定します。
+基準となるイラストを用意し、Tripoなどのサービスでベースモデルや口型・表情の参考モデルを生成してから、Blenderなどで形状・メッシュ・骨・スキンウェイト・表情を調整します。新規の動く人型では、通常形と関節の網目を整え、**150MB以内のFBX → TripoのVRM 1.0オートリグ → 骨・ウェイトの調整**を挟みます。骨格の導入と完成VRMの出力は別工程です。既存の良いリグは再利用します。
 
-[できること・実行方法・確認済みの範囲](skills/lida-avatar-workflow/references/model-tools.md)を参照してください。制作時の常駐アドオン全機能や操作パネル、眼球・翼の自動造形まで一式で導入するものではありません。
+実制作には、利用する3D生成サービス、モデリングソフト、必要な画像素材を別途用意してください。本パックにサービスやソフト本体は同梱しません。別の生成サービスを使う場合も、必要な角度・同一性・出力形式がそろうかを確認します。既存モデルの修正だけなら、改めて生成する必要はありません。
+
+## Skillsに含まれる完成参照モデル
+
+**[参照モデルを含むSkills一式をダウンロード](https://github.com/Lida-V/3DCharaMakeSkills-Lida/releases/download/v1.13.0/3DCharaMakeSkills-Lida-1.13.0.zip)** — 公式の完成ZIPに、制作例「チャイナ和服新キャラ r35」のVRM 1.0を収録しています。展開後のスキルフォルダを丸ごと導入すると、参照モデルも一緒に配置されます。別ダウンロードは不要です。
+
+このモデルはSkillsの制作参照資料です。顔・手指・関節・袖・材質・表情・揺れの関係を実物で学べます。[何を見るか・AIへの依頼例](skills/lida-avatar-workflow/references/model-reference.md)から必要な部位だけを参照してください。
+
+**モデル本体の再配布・改変による販売は禁止です。モデルを含む一式ZIPも利用者が再配布しないでください。** [モデル専用条件](model-reference/china-wafuku/MODEL-TERMS.md)を適用します。文書・図解・コードの個別条件は維持し、モデルを除いた資料・コードは各LICENSEに従って再配布できます。参照して独自に作った別モデルの販売は禁止しません。VRM三角面は元の編集用網目ではなく、Unity/UEの外観・動作は保証しません。
 
 ## 参考図解
 
@@ -104,9 +142,18 @@ Blenderで実行する制作補助スクリプトを同梱しています。AI�
 
 ## シェーダーは必要な場合だけ取得
 
-トゥーン表現は公開リポジトリ [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon) で別配布しています。[Release 0.2.1からBlender・Unity・UEの導入用ZIPを選ぶ](https://github.com/Lida-V/LidaAngelToon/releases/tag/v0.2.1)ことができます。Skillsでモデルを作るための必須依存ではありません。
+シェーダーは2つを別のリポジトリで配布しています。どちらも、Skillsでモデルを作るための必須依存ではありません。
+
+| シェーダー | 表現 | 対応 |
+| --- | --- | --- |
+| [LidaAngelToon](https://github.com/Lida-V/LidaAngelToon) | やわらかい2段の影のトゥーン。肌・顔・髪・布・金属・宝石などのプリセット | Blender・Unity・UE |
+| [LidaAuroraToon](https://github.com/Lida-V/LidaAuroraToon) | 真珠層の虹色、流れるオーロラの光、薄い所ほど透ける表現、髪の輪郭の光。上の人魚と九尾の狐の画像はこの材質 | Blender（EEVEE）だけ |
+
+LidaAngelToon は公開リポジトリで別配布しています。[Release 0.2.1からBlender・Unity・UEの導入用ZIPを選ぶ](https://github.com/Lida-V/LidaAngelToon/releases/tag/v0.2.1)ことができます。Skillsでモデルを作るための必須依存ではありません。
 
 確認済み環境はBlender 5.2.1 LTS／EEVEE、Unity 6000.6.0f1／URP 17.6、UE 5.8（Windows）です。シェーダーREADMEではリダ実モデルの3環境の表示例を確認できます。Blenderの制作基準材質と配布アドオンの違い、UEの落ち影などの制限、VRM自動変換が含まれないことは[取得・導入・対応範囲](skills/lida-avatar-workflow/references/shader-setup.md)を参照し、各ファイルのLICENSEも確認してください。
+
+LidaAuroraToon は Blender 5.3／EEVEE で確認しています。Cycles・VRM・Unity・UE には対応していません。VRMへ出すと材質はMToonになり、この見え方は持って行けません。使い方と入力の一覧は[シェーダーのREADME](https://github.com/Lida-V/LidaAuroraToon)にあります。
 
 ## 同梱範囲
 

@@ -214,7 +214,10 @@
     "skills/lida-avatar-workflow/scripts/lida_hand_rig.py",
     "tests/test_hand_rig.py",
     "skills/lida-avatar-workflow/assets/eye-layer-stack.png",
-    "skills/lida-avatar-workflow/assets/eye-layer-stack.svg"
+    "skills/lida-avatar-workflow/assets/eye-layer-stack.svg",
+    "media/kyubi-concept-pose.jpg",
+    "media/mermaid-full-body.jpg",
+    "media/mermaid-face.jpg"
   ],
   "asset_sha256": {
     "skills/lida-avatar-workflow/assets/actual-knee-bend.png": "bab57a7ad833fadea8c9154e9cd6ed4692d911e8c70a9c66d24feac4538ef5e4",
@@ -278,7 +281,10 @@
     "skills/lida-avatar-workflow/assets/accessory-ring-fit.png": "8919938fbc72e2781ccc5e7072ad3a9e7459ff460302bc7858e1bbf6b056f66f",
     "skills/lida-avatar-workflow/assets/accessory-ring-fit.svg": "6ad298d3f92206bcf6b3b7836645cc0ae2dc0100be5408296efbbcd4d20544ac",
     "skills/lida-avatar-workflow/assets/eye-layer-stack.png": "b4b948f421c0ddd0b8ec90b35e2b17fb092cf0c7dd365b54958ebd27566213b2",
-    "skills/lida-avatar-workflow/assets/eye-layer-stack.svg": "e9624b6ebdf4d2dfc5c524b66d73ff7dd7f3b3f0766213f1ea60b52e75d0177e"
+    "skills/lida-avatar-workflow/assets/eye-layer-stack.svg": "e9624b6ebdf4d2dfc5c524b66d73ff7dd7f3b3f0766213f1ea60b52e75d0177e",
+    "media/kyubi-concept-pose.jpg": "b1fca8f6f2af2a55227a8f7bf13f9d03c2449bac9f481f150d67d092e70a06e1",
+    "media/mermaid-full-body.jpg": "0fdfeaaefe47f3a8fd76d8eac9bdffaf389e63079c9818b969883ba92f818d6a",
+    "media/mermaid-face.jpg": "e8e4f4a04fcd185b1ed7c93d8864c66d5ef530bfa00025b6f1c5b88527c8db44"
   },
   "shader_repository": "https://github.com/Lida-V/LidaAngelToon",
   "code_licenses": {
@@ -298,7 +304,8 @@
     "repository": "https://github.com/Lida-V/3DCharaMakeSkills-Lida",
     "diagram_pairs": 30,
     "preview_pngs": 2,
-    "placement": "Added footer margin; explanatory content and original model-preview pixel area retained."
+    "placement": "Added footer margin; explanatory content and original model-preview pixel area retained.",
+    "preview_jpgs": 3
   },
   "language_support": {
     "primary": "ja",
@@ -330,7 +337,7 @@
       {
         "source": "README.md",
         "translation": "README.en.md",
-        "source_sha256": "a30e28643b6c389b240c551d6190f8e80a24b87d175bce2a9abbcb96dda50531"
+        "source_sha256": "65720d3080366a5fb62deacc8ca70e7d10401ac78f8b0868bfd4930f5103ad0a"
       },
       {
         "source": "UPDATING.md",
@@ -340,7 +347,7 @@
       {
         "source": "media/README.md",
         "translation": "media/README.en.md",
-        "source_sha256": "bb0df483afbc06892e9f56b8708100d2bd9400f3ff5ba7734fc7c390d62f82f7"
+        "source_sha256": "667962aa5c6b66b08c4159f2519f18d301cca3e230c984278aaa206b215ab2c1"
       },
       {
         "source": "scripts/README.md",
@@ -495,7 +502,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/shader-setup.md",
         "translation": "skills/lida-avatar-workflow/references/en/shader-setup.md",
-        "source_sha256": "002a0585602159dfc084ff3162ec9fc2bb31ee6e527b71a1822b68dddbf621f2"
+        "source_sha256": "3b0e3fbc47a587b7347d006f593140ad7f5a6349b03668acb1ea04c4588d6867"
       },
       {
         "source": "skills/lida-avatar-workflow/references/skirt-hidden-modeling.md",

@@ -34,6 +34,16 @@ Check the main light, outlines, and colors on primitives first. Then assign mate
 
 For differences, use [appearance adjustment by destination](cross-engine-look.md). Check image import and color management, base color and shadow, hair highlights, then outlines and transparency. Separate shared-source corrections from engine-specific behavior.
 
+## Pearl and aurora looks: LidaAuroraToon
+
+[LidaAuroraToon](https://github.com/Lida-V/LidaAuroraToon) is a separate shader for Blender (EEVEE). On top of LidaAngelToon's soft two-step shading it adds nacre iridescence, aurora light that flows or waves like a curtain, translucency that grows where the surface is thin, and a glow on the outlines of hair locks. It has presets for shells, scales, fins, pearls, gems, and hair, and master sliders for strength, speed, and color.
+
+- Its checked scope is rendering in Blender 5.3 / EEVEE. It does not support Cycles, VRM, Unity, or UE.
+- An exported VRM uses MToon, and this look does not carry over. Restore the original materials on the export copy and build the destination look with [cross-engine look](cross-engine-look.md).
+- The light bloom is a compositing effect; in another engine, rebuild it with that engine's bloom.
+- Where a part's original material already has a transparency image, check the range of its values before stacking a preset's opacity on top (it becomes transparent twice).
+- See the shader's README for usage, the list of inputs, and its LICENSE. No rights to the character images are granted.
+
 ## Updates and attribution
 
 Record the version, presets, and your material changes, and update a recoverable copy. Check primitives → model comparisons under matching conditions → save and reopen. Do not reuse an old-version video as verification of a new version.
