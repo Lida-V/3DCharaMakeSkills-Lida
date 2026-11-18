@@ -25,6 +25,7 @@ All figures are original instructional schematics except the two historical knee
 | `input-alignment-flow` | Stage-specific references and three-view sheets from one baseline; staged generation is a next-time preventive proposal |
 | `local-mask-transition` | Displacement versus return width; an edit mask is separate from skin weights |
 | `eye-structure-flow` | Eye surface, iris/pupil, sclera, optional reflection layer, and lines that must not rotate with the eyeball |
+| `eye-layer-stack` | Section of a generated plate eye and how to select the faces to remove; the four layers (eyeball, glass sphere, upper-lid shadow, highlights) and what each is attached to; iris shrinking with expression; highlights trembling with emotion. Dimensions, factors, and tremble patterns are illustrative |
 | `face-key-locality` | Local expression keys with jaw, outline, and unrelated regions fixed |
 | `mouth-seam-opening` | Painted neutral mouth line, actual upper/lower opening edges, corner pivots, and front/interior fold; original schematic, not proof of a completed repair |
 | `mouth-rim-smoothing` | Full-rim plus auxiliary-bevel Gaussian-convolved curves and thin-plate spline skin fairing versus sawtooth rims, corner-pinch compression, and membrane tent creases, plus a shallow-angle two-stage inner mouth pocket; original schematic, not an actual-model plot |

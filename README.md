@@ -62,7 +62,7 @@
 - [機械検査と見た目・動きの判定](skills/lida-avatar-workflow/references/mechanical-visual-review.md)：CLIで確認漏れを減らし、原画との画像比較・途中動作・保存/使用先を分けて検収する。
 - [自作の制作補助ツール](skills/lida-avatar-workflow/references/model-tools.md)：骨構成・人型への割当、網目・UV・ウェイト・キー、修正前後の比較、コピー限定のウェイト正規化と送信FBXの条件確認。
 - [Tripoで初期骨格を導入する](skills/lida-avatar-workflow/references/tripo-autorig.md)：150MB以内のFBXを用意し、VRM 1.0オートリグから保持照合・リグとウェイトの調整へ進む。
-- [眼球を作る工程](skills/lida-avatar-workflow/references/eye-modeling.md)：球面・虹彩・白目・線の層・視線・瞬き・出力まで。
+- [眼球を作る工程](skills/lida-avatar-workflow/references/eye-modeling.md)：球面・虹彩・白目・線の層・視線・瞬き・出力まで。生成のままの平らな目を層へ作り直す手順と、表情で変わる瞳・揺れるハイライトも。
 - [ウインクの閉じ方](skills/lida-avatar-workflow/references/wink-closure.md)：通常の瞬きと笑った閉じ目を分け、目だけの差分・左右・影の層・途中動作を確認する。
 - [表情シートを生成する](skills/lida-avatar-workflow/references/expression-sheets.md)：同じ通常顔から必要な口型・目・感情の一覧と単体画像を作り、個別3D参考と局所キーへつなぐ。
 - [手を作り、動かして確認する工程](skills/lida-avatar-workflow/references/hand-shape.md)：掌と指の形、関節と網目、親指・指間のウェイト、爪、短縮で繰り返した修正を図で確認。

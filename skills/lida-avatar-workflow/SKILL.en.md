@@ -59,7 +59,7 @@ For directions, change regions, or connections, select only needed figures from 
 | Appearance between engines/shots, dark mouth interior, dark feather edges | [Destination appearance adjustment](references/en/cross-engine-look.md) |
 | Unnatural appearance/movement despite mechanical success; scope and selection | [Mechanical/image/motion assessment](references/en/mechanical-visual-review.md) |
 | Executable topology/UV/weight/key checks; saved-version comparison | [Model tools](references/en/model-tools.md) |
-| Eyeballs, iris, sclera, gaze | [Eye modeling](references/en/eye-modeling.md) |
+| Eyeballs, iris, sclera, gaze; rebuilding generated flat-plate eyes; iris size by expression and trembling highlights | [Eye modeling](references/en/eye-modeling.md) |
 | Eyes, mouth, expressions | [Expression adjustment](references/en/expression-adjustment.md), [mouth shapes](references/en/mouth-shapes.md) |
 | Missing expression references; required patterns from neutral face | [Expression sheets/individual images](references/en/expression-sheets.md) |
 | Ordinary blink versus smiling closed eyes, left/right winks | [Wink closure](references/en/wink-closure.md) |
