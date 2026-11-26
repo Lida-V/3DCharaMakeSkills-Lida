@@ -30,6 +30,24 @@ Give fixed regions zero influence from secondary-motion bones and make them foll
 
 Hair and wings have different roles, as do long flight feathers and the smaller feathers covering them. Separate the moving extent, return strength, and damping; change one at a time and compare. Bone counts, angles, gravity, and radii have no universal correct values. Derive them from shape and movement.
 
+When comparing values, put three things into numbers for each kind of chain.
+
+- **Drift at rest.** Simulate a few dozen frames without moving and see how far the chain tip moves, to check that gravity or colliders do not collapse the shape (in Lida's example a twin tail's tip first dropped 25 mm; a stiffer setting with less gravity brought it to 6 mm).
+- **Whether it sways.** The lag of the chain tip behind where it would be if fixed rigidly to the parent bone of the chain root. The raw distance moved includes the parent's motion, so it is not the amount of sway.
+- **After stopping.** The per-frame motion in the last frame and the remaining lag. Read the remainder next to the drift at rest and how far colliders push the chain.
+
+When a check rotates bones, confirm the direction (raised forward or backward) in a side view before writing the result. Do not decide "forward" from the sign of an angle alone.
+
+`check` of `lida_spring_check.py` counts these three (it needs the VRM Add-on).
+
+```sh
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_spring_check.py -- check --input model.blend --rig Armature --report springs.json --render-dir springs-views
+```
+
+- Test motion (30 fps, in memory only): frames 1-30 still; 30-60 both arms down 60° while the hips sway ±25° and the head ±30°; 60-75 the left leg raised 45° forward; 75-110 held. Humanoid bones come from the VRM humanoid assignment, and the model is assumed to face −Y. `leg_raise_direction` says whether the leg really went forward, and anything else is a warning.
+- The report gives `drift_at_rest_mm`, `lag_max_mm`, `last_frame_motion_mm`, `lag_end_mm` and more per spring. Drift at rest above 10 mm, more than 1 mm of motion in the last frame, or a value that is not finite is a warning.
+- `--values` with `{"kind": {"name prefix": [stiffness, gravity, drag, hit_radius]}}` replaces those springs' values in memory for a trial. The input is never saved. If the VRM Add-on module has another name, give it with `--vrm-addon`.
+
 ## Difficulties and verification scope
 
 “Bones exist,” “settings persist in the saved file,” “a script can rebuild the setup,” “a baked Action contains keyed motion,” and “it actually moves in the destination” are separate checks. Do not describe a temporary scripted setup as present in the saved original.

@@ -178,6 +178,8 @@ Steps 1–5 can be run at once with `run`. If there is no map, write one with `b
 6. Draw images for poses that still have a warning, when the user must choose, and for the first approval of the look. Look at the drawn images yourself: do they agree with the numbers, and does the grip look natural?
 7. Show the results, images, and limits to the user. Fit gloves and other soft meshes separately. If the short-thumb warning appears, report it as a shape problem.
 
+If the root estimates from `place` differ by a few millimetres between the hands and the mesh is mirror-symmetric, you can decide the joints on one hand and mirror them to the other. Then do not assume the mirror plane is x = 0: find it from the left-right centre of the two hands' points. A generated model can sit slightly off centre (about 1 mm in Lida's example), and mirroring at x = 0 doubles that error. Before mirroring, mirror one hand's points and measure the distance to the nearest point of the other hand to confirm the two sides match.
+
 ## Examples
 
 ```sh

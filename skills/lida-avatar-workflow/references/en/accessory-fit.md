@@ -79,6 +79,8 @@ The numeric part uses numpy, which Blender bundles. No API key, external service
 5. Read the `after` table and `move`. Check the reason for every warning.
 6. Show the source and the candidate one at a time, render close views from the front, side, three-quarter and top, and check the shape. Report numbers, renders and unverified items separately.
 
+If the partner was a stand-in (temporary hair, another character's hair), measure again once the real one exists. In Lida's example the real hair was 5–8 mm thicker on both sides of the crown and 16–20 mm thicker at the sides than the stand-in, and head gear placed on the stand-in ran into it. For pieces that move with a gimmick (opening, turning), include "does not cross the partner in the moved pose" in the placement conditions and measure both the normal and the moved poses.
+
 ## Examples
 
 Replace paths and names with your own. Arguments after `--` belong to this tool.

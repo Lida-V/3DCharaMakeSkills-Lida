@@ -121,6 +121,17 @@ class RigidGroupCore(unittest.TestCase):
             self.assertEqual(call(base + [str(work / 'new.json')], work).returncode, 1)   # no Blender here: an error report
             self.assertEqual(json.loads((work / 'new.json').read_text(encoding='utf-8'))['status'], 'error')
             self.assertEqual(blend.read_bytes(), b'BLENDER')
+            # arguments read from a Windows program's output keep the CR of the line end
+            crlf = [sys.executable, '-B', str(SCRIPT), 'check', '--input', str(blend), '--rig', 'Rig\r', '--group\r', 'A\r', 'B',
+                    '--report', str(work / 'crlf.json')]
+            result = call(crlf, work)
+            self.assertEqual(result.returncode, 1)                                  # parsed; stops only for lack of Blender
+            self.assertNotIn('required', result.stderr)
+            self.assertEqual(json.loads((work / 'crlf.json').read_text(encoding='utf-8'))['status'], 'error')
+
+    @unittest.skipIf(RIG is None, 'numpy is not installed')
+    def test_clean_argv_drops_only_the_line_end(self):
+        self.assertEqual(RIG._clean_argv(['--group\r', 'Gem\r\n', 'Set ting', 'a\rb']), ['--group', 'Gem', 'Set ting', 'a\rb'])
 
 
 class RigidGroupPackaging(unittest.TestCase):

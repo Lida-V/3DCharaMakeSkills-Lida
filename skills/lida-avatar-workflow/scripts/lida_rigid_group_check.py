@@ -252,11 +252,20 @@ def _safe_console():
             pass
 
 
+def _clean_argv(argv):
+    """Drop a trailing CR/LF from each argument.
+
+    Names read from the output of a Windows program into a shell array keep the CR of the line end,
+    so '--group' arrives as '--group\\r' and the parser reports it as missing.
+    """
+    return [text.rstrip("\r\n") if isinstance(text, str) else text for text in argv]
+
+
 def main(argv=None):
     _safe_console()
     if argv is None:
         argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
-    args = _parser().parse_args(argv)
+    args = _parser().parse_args(_clean_argv(argv))
     report_path = None
     try:
         report_path = _new_output(args.report)

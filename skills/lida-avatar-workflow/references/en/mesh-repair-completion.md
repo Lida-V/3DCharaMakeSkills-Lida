@@ -37,6 +37,8 @@ The shared Japanese diagram explains repair choice. It is not a successful actua
 
 Waist openings, hems, cuffs, slits, designed mouth/eye openings, thin-cloth edges, and hair-card edges are not defects merely because they are boundaries. Do not weld intentional overlaps between separate parts or locks of hair.
 
+When one part is assembled from many small pieces, finish welding (merging coincident vertices) per piece, and do not weld the whole part after combining. Vertices of touching pieces get merged too, leaving edges shared by three or more faces (they appear as branch edges in `audit`). Also, a quad containing three collinear vertices becomes a zero-area triangle when split, and shows as a degenerate face. If the destination triangulates the mesh, split into triangles first and remove the zero-area faces.
+
 UV seams, material boundaries, and hard-normal boundaries differ from geometric holes. Export may split vertices: if positions/deformation agree and the seam stays shut, point count alone does not establish a hole.
 
 ## 2. Establish a healthy boundary in neutral

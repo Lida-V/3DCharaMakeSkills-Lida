@@ -29,6 +29,12 @@ If too large, investigate in this order, **on a copy only**:
 
 Do not uniformly coarsen face/fingers/joints merely for size. Record upload FBX name/version/actual size and all omissions or reductions.
 
+### Exporting from a version with a toon shader or deforming modifiers
+
+- **Give each part one material.** Tripo uses only the first image of a part. A toon-shader material lists the base-colour image next to matcaps and other images, and the destination can take the wrong one as the base colour. In the export copy, give each part a plain material that reads its one base-colour image, and stop if the base colour does not resolve to one image.
+- **Write parts with shape-bending modifiers in their evaluated shape.** Confirm the vertex count and order match the original (the received weights are mapped back by vertex index). Leave out modifiers such as an outline shell when evaluating.
+- **If the face count drops on reading the file back, look at the source mesh.** Faces sharing the same vertices and zero-area faces can be dropped on FBX import. With vertex count and order kept, the weight mapping is unaffected, but record why the count dropped.
+
 ## From auto-rigging to adjustment
 
 1. **Inspect the FBX.** Re-import it and compare scale, orientation, neutral shape, and included parts. Remove old rigs/animation only on the upload copy when necessary, recording removals.
