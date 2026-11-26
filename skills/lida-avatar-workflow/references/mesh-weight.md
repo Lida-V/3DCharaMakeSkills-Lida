@@ -101,6 +101,18 @@
 
 リダの作例では、130°での距離の比（下位5%）が膝0.56→0.86、肘0.48→0.87になり、幅は膝±6.5cm・肘±8cmを採った（±4.5cm・±6cmでは膝の裏にくぼみ）。値は体格と網目による作例の値です。使用先がノードのコンストレイントを再生しない場合は、補助の骨は親の回転だけで動くので、使用先での動きを別に確かめてください。
 
+### 道具で行う（`lida_joint_check.py`）
+
+```sh
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_joint_check.py -- check --input model.blend --rig Armature --mesh Body --joint Shin.L@x Forearm.L@z --angles 90 130 -130 --report joints-before.json --render-dir joints-before-views
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_joint_check.py -- helpers --input model.blend --rig Armature --mesh Body --joint Shin.L:65 Shin.R:65 Forearm.L:80 Forearm.R:80 --report helpers.json --output-blend model-helpers.blend
+```
+
+- `check` は、名前を挙げた下の骨（膝はすね、肘は前腕）を、関節の中心を通る軸のまわりに各角度だけ回し、Blender が変形した形（コンストレイント・モディファイアを含む）で測ります。軸の `x`・`y`・`z` は骨組みの空間の軸で、Tポーズなら膝は `x`、肘は `z` が目安です。骨のロールがそろっていると分かっている時だけ `local-x` などを使います。生成のリグはロールがそろっていないことがあり、ローカルの軸では膝が横へ曲がりました。報告の `tail_motion`（下の骨の先の動き）と画像で、曲がった向きを確かめてから読みます。
+- 報告：`distance_ratio_low`（関節の中心までの距離の比の下位5%）、`distance_ratio_min`、`edges_out`（1.6倍超・0.5倍未満の辺の数）、`worst_edges`（その辺の基準姿勢の位置と、両端の重みの大きい骨）。比が0.7未満、または伸びた辺があると警告にします。
+- `helpers` は、骨 `<下の骨>_Helper`（`--suffix`で変更）とCopy Rotationを足し、関節の輪の重みを移した写しを `--output-blend` へ書きます。`骨名:幅mm` で関節ごとの幅を指定します。同じ名前の骨が既にある時、メッシュに骨組みへのArmatureモディファイアが無い時は断ります。写しを `check` で測り、元と比べます。
+- 終了コードは 0＝見つからない、2＝警告・使い方の誤り、1＝入力・実行の誤り。入力は保存しません。
+
 ## 近接する肌・衣装・固い装飾の追従を分ける
 
 肌に近い襟などは、肌と衣装の重みの切替位置・量を対応する面で比較します。どちらの総和も1、影響骨数も上限内でも、肌が大きく動き衣装が半分しか動かなければ貫通します。[襟の具体的な診断と調整](adjustment-methods.md#薄い襟の貫通は肌との相対追従を比べる)を参照してください。

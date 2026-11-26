@@ -38,6 +38,16 @@ When comparing values, put three things into numbers for each kind of chain.
 
 When a check rotates bones, confirm the direction (raised forward or backward) in a side view before writing the result. Do not decide "forward" from the sign of an angle alone.
 
+`check` of `lida_spring_check.py` counts these three (it needs the VRM Add-on).
+
+```sh
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_spring_check.py -- check --input model.blend --rig Armature --report springs.json --render-dir springs-views
+```
+
+- Test motion (30 fps, in memory only): frames 1-30 still; 30-60 both arms down 60° while the hips sway ±25° and the head ±30°; 60-75 the left leg raised 45° forward; 75-110 held. Humanoid bones come from the VRM humanoid assignment, and the model is assumed to face −Y. `leg_raise_direction` says whether the leg really went forward, and anything else is a warning.
+- The report gives `drift_at_rest_mm`, `lag_max_mm`, `last_frame_motion_mm`, `lag_end_mm` and more per spring. Drift at rest above 10 mm, more than 1 mm of motion in the last frame, or a value that is not finite is a warning.
+- `--values` with `{"kind": {"name prefix": [stiffness, gravity, drag, hit_radius]}}` replaces those springs' values in memory for a trial. The input is never saved. If the VRM Add-on module has another name, give it with `--vrm-addon`.
+
 ## Difficulties and verification scope
 
 “Bones exist,” “settings persist in the saved file,” “a script can rebuild the setup,” “a baked Action contains keyed motion,” and “it actually moves in the destination” are separate checks. Do not describe a temporary scripted setup as present in the saved original.

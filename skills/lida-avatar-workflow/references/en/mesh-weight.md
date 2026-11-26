@@ -101,6 +101,18 @@ Blending vertices by weight proportions (linear skinning) thins the inside of a 
 
 In Lida's example the ratio at 130° (5th percentile) went from 0.56 to 0.86 at the knee and from 0.48 to 0.87 at the elbow, with bands of ±6.5 cm (knee) and ±8 cm (elbow); ±4.5 cm and ±6 cm left a dent behind the knee. These are example values for one body and mesh. If the destination does not play node constraints, the helper only follows its parent, so check the motion in the destination separately.
 
+### With the tool (`lida_joint_check.py`)
+
+```sh
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_joint_check.py -- check --input model.blend --rig Armature --mesh Body --joint Shin.L@x Forearm.L@z --angles 90 130 -130 --report joints-before.json --render-dir joints-before-views
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_joint_check.py -- helpers --input model.blend --rig Armature --mesh Body --joint Shin.L:65 Shin.R:65 Forearm.L:80 Forearm.R:80 --report helpers.json --output-blend model-helpers.blend
+```
+
+- `check` turns each named lower bone (the shin for a knee, the forearm for an elbow) by each angle about an axis through the joint centre, and measures the shape as Blender deforms it (constraints and modifiers included). `x`, `y`, and `z` are axes of the rig space; for a T pose, knees bend about `x` and elbows about `z`. Use `local-x` and the like only when the bone rolls are known to be clean; generated rigs can have uneven rolls, and a local axis bent a knee sideways. Confirm the bend direction from `tail_motion` (how the lower bone's tail moved) and the images before reading the numbers.
+- Report: `distance_ratio_low` (5th percentile of the distance-to-centre ratio), `distance_ratio_min`, `edges_out` (edges past 1.6x or below 0.5x), and `worst_edges` (their rest positions and the strongest bones at both ends). A ratio below 0.7 or any stretched edge is a warning.
+- `helpers` adds the bone `<lower bone>_Helper` (change with `--suffix`) with a Copy Rotation, hands the joint ring weights over, and writes the copy to `--output-blend`. `Bone:width_mm` sets the band per joint. It refuses when a bone of that name exists or a mesh has no Armature modifier pointing to the rig. Measure the copy with `check` and compare it with the original.
+- Exit codes: 0 nothing found, 2 warnings or a usage error, 1 an input or execution error. The input is never saved.
+
 ## Separate following of nearby skin, clothes, and rigid ornaments
 
 For close-fitting collars, compare weight-transition position/amount on corresponding skin/clothing faces. Both can sum to 1 and meet influence limits yet penetrate when skin moves fully and the clothing only half as much. See [collar diagnosis and adjustment](adjustment-methods.md#for-thin-collar-penetration-compare-motion-relative-to-the-skin).

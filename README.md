@@ -45,6 +45,8 @@
 | `lida_model_tools.py` | 網目・UV・ウェイト・キーの検査、修正前後の比較、写しへのウェイト正規化、骨と人型の対応の検査 | [同梱ツール](skills/lida-avatar-workflow/references/model-tools.md) |
 | `lida_file_check.py` | 送るFBXの形式と容量の確認 | [同梱ツール](skills/lida-avatar-workflow/references/model-tools.md) |
 | `lida_hand_rig.py` | 手の比の測定、指の関節・ロール・ウェイトの置き直し、握りの検査、前後の比較、骨の対応表の作成、一括実行 | [手の関節を形から置く](skills/lida-avatar-workflow/references/hand-rig.md) |
+| `lida_joint_check.py` | 肘・膝などを曲げたつぶれと伸びた辺の検査、半分回る補助の骨を足した写しの作成 | [曲がるメッシュと重み](skills/lida-avatar-workflow/references/mesh-weight.md) |
+| `lida_spring_check.py` | VRMの揺れを試しの動きで計算し、基準姿勢のずれ・親からの遅れ・止めた後を鎖ごとに数える | [二次揺れ](skills/lida-avatar-workflow/references/secondary-motion.md) |
 | `lida_accessory_fit.py`・`lida_accessory_fit_panel.py` | 冠・腕輪・首飾りと体のすき間の測定、形を保った合わせ込み（パネルは任意） | [飾りを合わせる](skills/lida-avatar-workflow/references/accessory-fit.md) |
 | `lida_penetration_check.py` | 髪・布の貫通を全部挙げる、直し方の提案、前後の比較 | [貫通の検査](skills/lida-avatar-workflow/references/penetration-check.md) |
 | `lida_vrm_check.py` | 書き出したVRMの設定の抜け（材質・揺れ・視線・表情・画像） | [見落としやすい所の検査](skills/lida-avatar-workflow/references/automated-checks.md) |

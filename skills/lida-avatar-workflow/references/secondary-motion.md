@@ -38,6 +38,16 @@
 
 確認の動きで骨を回す時は、回転の向き（前へ上げるのか後ろか）を横からの図で確かめてから結果を書きます。角度の符号だけで「前」と決めない。
 
+この3つは `lida_spring_check.py` の `check` で数えられます（VRM Add-onが要る）。
+
+```sh
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python lida_spring_check.py -- check --input model.blend --rig Armature --report springs.json --render-dir springs-views
+```
+
+- 試しの動き（30fps・計算の中だけ）：1〜30コマ止める、30〜60コマ両腕を60°下げて腰±25°・頭±30°を左右へ振る、60〜75コマ左脚を前へ45°上げる、75〜110コマ止める。人型の骨はVRMの人型の割り当てから読み、モデルは−Yを向いている前提です。脚が本当に前へ上がったかを `leg_raise_direction` に書き、違えば警告にします。
+- 報告は揺れ物ごとに `drift_at_rest_mm`・`lag_max_mm`・`last_frame_motion_mm`・`lag_end_mm` など。基準姿勢のずれが10mmを超える、最後のコマでまだ1mm以上動く、値が有限でない時は警告にします。
+- `--values` に `{"kind": {"名前の頭": [硬さ, 重力, 抵抗, 当たりの半径]}}` を渡すと、その揺れ物の値を計算の中だけで置き換えて試せます。入力は保存しません。VRM Add-onのモジュール名が違う時は `--vrm-addon` で指定します。
+
 ## つまずきと確認範囲
 
 「骨がある」「設定が永続保存された」「スクリプトで構築できる」「動きをキー化したベイクActionがある」「使用先で実際に動く」は別の確認です。一時的にスクリプトで作った設定を、保存原本に入っていると説明しないでください。

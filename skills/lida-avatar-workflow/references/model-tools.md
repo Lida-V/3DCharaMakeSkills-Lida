@@ -19,6 +19,8 @@
 | [貫通の検査](penetration-check.md)の`check`／`advise`／`compare`（別ファイル `lida_penetration_check.py`） | 髪・リボン・布を体へ合わせた後、突き抜けた所を全部挙げ、所ごとの直し方を決める時。直した前後の比較 | 箇所と提案のJSON、印を付けた寄りの画像（新しいフォルダ）。入力は保存しない |
 | [5つの検査](automated-checks.md)：`lida_vrm_check.py`・`lida_rigid_group_check.py`・`lida_shape_key_sweep.py`・`lida_evidence_manifest.py`・`lida_reference_check.py` | VRMを書き出した後、固い飾りのウェイトの後、表情キーを作った後、確認用の画像・動画を作った時と見せる前、途中ファイルを消す・動かす前 | 警告つきのJSON。入力は変えない。VRMの点検・資料の照合・整理の影響は通常のPythonだけで動く |
 | [手の関節の配置](hand-rig.md)の`measure`／`place`／`check`／`compare`／`bones`／`run`（別ファイル `lida_hand_rig.py`） | 手の形を直した後、関節・ロール・ウェイトを形に合わせて置き直し、握る姿勢で確かめ、前後を数値で比べる時。`bones`は骨組みから人型の対応表を作り、`run`は一度に実行する（画像は既定で作らない） | 関節ごとの測り方と今の骨との差、姿勢ごとの交差・折れ・伸びたJSON。`place`は新しいblendへ書き、入力は保存しない |
+| [肘・膝の補助の骨](mesh-weight.md#肘膝の深い曲げは半分だけ回る補助の骨で受ける)の`check`／`helpers`（別ファイル `lida_joint_check.py`） | 肘・膝などを曲げたつぶれと伸びた辺を数える時。つぶれが残る関節に、下の骨の回転を半分受ける補助の骨を足した写しを作る時 | 関節・角度ごとの距離の比、伸びた辺の場所と重み、横と内側の画像（新しいフォルダ）のJSON。`helpers`は新しいblendへ書き、入力は保存しない |
+| [二次揺れ](secondary-motion.md)の`check`（別ファイル `lida_spring_check.py`） | VRMの揺れの値を決める時・変えた時。基準姿勢のずれ、親からの遅れ、止めた後を鎖ごとに数える（VRM Add-onが要る） | 鎖ごとの値、脚を上げた向き、指定のコマの画像のJSON。値の試しは計算の中だけで、入力は保存しない |
 
 ウェイト検査は変形に使う骨のグループを対象にし、単なるマスクを総和へ混ぜません。正規化はロックとマスクを保持し、未ロックの変形ウェイトの合計を調整します。未割当・負値・非有限値・ロック条件の矛盾は、勝手に補完骨へ割り当てず未解決として扱います。
 
@@ -143,6 +145,6 @@ FBX条件CLIは合成ヘッダ・容量境界・既存出力の保持など19テ
 
 このBlender用スクリプトは **GPL-3.0-or-later**。適用範囲はファイル冒頭と[同梱GPL本文](../scripts/LICENSE-GPL-3.0-or-later.txt)を確認します。文書・図解の条件とは分け、GPLコードへ独自の出典条件を上乗せしません。元の著作者表示と適用ライセンスを保持します。
 
-[飾り合わせ](accessory-fit.md)の `lida_accessory_fit.py` と任意パネル `lida_accessory_fit_panel.py` も同じ GPL-3.0-or-later です。パネルはそのセッションだけ登録するスクリプトで、導入や設定の保存は行いません。 [貫通の検査](penetration-check.md)の `lida_penetration_check.py` も同じ GPL-3.0-or-later です。 [5つの検査](automated-checks.md)の `lida_vrm_check.py`・`lida_rigid_group_check.py`・`lida_shape_key_sweep.py`・`lida_evidence_manifest.py`・`lida_reference_check.py` も同じです。 [手の関節の配置](hand-rig.md)の `lida_hand_rig.py` も同じ GPL-3.0-or-later です。
+[飾り合わせ](accessory-fit.md)の `lida_accessory_fit.py` と任意パネル `lida_accessory_fit_panel.py` も同じ GPL-3.0-or-later です。パネルはそのセッションだけ登録するスクリプトで、導入や設定の保存は行いません。 [貫通の検査](penetration-check.md)の `lida_penetration_check.py` も同じ GPL-3.0-or-later です。 [5つの検査](automated-checks.md)の `lida_vrm_check.py`・`lida_rigid_group_check.py`・`lida_shape_key_sweep.py`・`lida_evidence_manifest.py`・`lida_reference_check.py` も同じです。 [手の関節の配置](hand-rig.md)の `lida_hand_rig.py` も同じ GPL-3.0-or-later です。 [肘・膝の補助の骨](mesh-weight.md)の `lida_joint_check.py` と[二次揺れ](secondary-motion.md)の `lida_spring_check.py` も同じ GPL-3.0-or-later です。
 
 モデル・画像・動画を制作するだけなら、その成果物へのクレジットは不要です。文書や指示を組み込む公開アプリ・新Skillsの出典は[利用区分](usage-and-attribution.md)を引き継ぎます。
