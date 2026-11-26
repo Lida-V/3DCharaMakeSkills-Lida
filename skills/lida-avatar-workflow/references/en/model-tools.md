@@ -58,6 +58,13 @@ python lida_model_tools.py compare --left before.json --right after.json --repor
 
 Do not point JSON outputs at existing files. Check `--help` for actual usage. This is not a procedure for repeatedly registering the same script in a UI with an open model.
 
+All bundled CLIs (this tool and the hand, accessory-fit, penetration, rigid-group, and shape-key CLIs) refuse existing outputs. Points that trip people up:
+
+- **A failed run still leaves an error JSON at the report path.** For example, starting snapshot with plain Python writes a "needs Blender" error report there, and the next run in Blender is refused as an existing output. Before running again, delete the previous report (error reports included) or use a new name. Read `status` before using a report so that an old result or an error report is not mistaken for the new one.
+- **Started from Blender, the exit code can look like 0.** Add `--python-exit-code 1` and also read the JSON printed on standard error.
+- Point the image output (`--render-dir`) at a new folder too; it stops if the folder already exists.
+- `lida_rigid_group_check.py` strips a trailing line end (CR/LF) from its arguments. Names read from a Windows program's output into a shell array kept the CR after `--group`, which stopped the tool with "--group is missing". When passing such names to other CLIs, convert the line ends to LF first.
+
 Use `audit --max-influences N` to match the destination's influence-count conditions. Default 4 is a reporting/comparison baseline, not a universal quality requirement. Exit code 0 means processing completed; 1 means input/execution error; 2 means snapshot differences or unresolved normalization. Read JSON to decide whether differences were intended; do not automatically repeat repairs from the exit code alone.
 
 Usage errors such as missing/unknown arguments also return 2 and stop before generating JSON. Distinguish them using newly generated JSON and its `status`; do not read an older JSON as this run's result.

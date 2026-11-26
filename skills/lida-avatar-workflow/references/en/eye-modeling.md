@@ -118,6 +118,9 @@ The shared Japanese diagram is an original schematic, not a real mesh or finishe
 - **Upper-lid shadow**: once the shadow that used to sit under the lid was gone, an iris of the same size looked brighter overall and felt taller. Attach the shadow to the head so it stays under the lid when gaze moves (section 4).
 - A clean white sclera can make an existing inward offset of the iris more noticeable. Check with the measurements in section 5.
 
+- **On a toon face**: give the eyeball (L1) the eye setting of the face's toon material. Make L2–L4 flat colours that light does not shade (transparent and emission mixed by the vertex-colour alpha), blended as semi-transparent layers (BLENDED), with shadow casting off. L2 nearly transparent, L4 white, L3 toward the face's shadow colour.
+- **When the upper-lid shadow does not show**: if the lash band hangs below the lid edge, the darkest part of the shadow hides behind it. Rendering the shadow material in opaque red for a moment shows the visible range at once. Extend the band further down from the edge so that the visible part carries the depth.
+
 ## 8. Change iris size with expressions
 
 Use this when the performance calls for the iris to shrink in surprise and widen slightly in joy or sorrow. Whether to add it depends on the character and use.

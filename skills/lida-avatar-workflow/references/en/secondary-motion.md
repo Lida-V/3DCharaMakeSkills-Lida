@@ -30,6 +30,14 @@ Give fixed regions zero influence from secondary-motion bones and make them foll
 
 Hair and wings have different roles, as do long flight feathers and the smaller feathers covering them. Separate the moving extent, return strength, and damping; change one at a time and compare. Bone counts, angles, gravity, and radii have no universal correct values. Derive them from shape and movement.
 
+When comparing values, put three things into numbers for each kind of chain.
+
+- **Drift at rest.** Simulate a few dozen frames without moving and see how far the chain tip moves, to check that gravity or colliders do not collapse the shape (in Lida's example a twin tail's tip first dropped 25 mm; a stiffer setting with less gravity brought it to 6 mm).
+- **Whether it sways.** The lag of the chain tip behind where it would be if fixed rigidly to the parent bone of the chain root. The raw distance moved includes the parent's motion, so it is not the amount of sway.
+- **After stopping.** The per-frame motion in the last frame and the remaining lag. Read the remainder next to the drift at rest and how far colliders push the chain.
+
+When a check rotates bones, confirm the direction (raised forward or backward) in a side view before writing the result. Do not decide "forward" from the sign of an angle alone.
+
 ## Difficulties and verification scope
 
 “Bones exist,” “settings persist in the saved file,” “a script can rebuild the setup,” “a baked Action contains keyed motion,” and “it actually moves in the destination” are separate checks. Do not describe a temporary scripted setup as present in the saved original.

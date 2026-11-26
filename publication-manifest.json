@@ -417,7 +417,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/eye-modeling.md",
         "translation": "skills/lida-avatar-workflow/references/en/eye-modeling.md",
-        "source_sha256": "5958140032ad0e4e4f505bce31ced853260d97bb094850efb23adbaed4d062a4"
+        "source_sha256": "21e2c594555e95b7cc4c45191a8e1132b3e2e229cad357ef2deeb32aca8f4de7"
       },
       {
         "source": "skills/lida-avatar-workflow/references/generation-feedback.md",
@@ -427,7 +427,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/hair-workflow.md",
         "translation": "skills/lida-avatar-workflow/references/en/hair-workflow.md",
-        "source_sha256": "17b97a425a06ff3395385c7d4e48a5460a056d67160a8840e2c27f86ba458074"
+        "source_sha256": "ea3c6de49f0c3ff48e14152be95ef9a01979f48d73ed5a71ecbcfce47facb0ee"
       },
       {
         "source": "skills/lida-avatar-workflow/references/hand-shape.md",
@@ -452,22 +452,22 @@
       {
         "source": "skills/lida-avatar-workflow/references/mechanical-visual-review.md",
         "translation": "skills/lida-avatar-workflow/references/en/mechanical-visual-review.md",
-        "source_sha256": "a23b4b5a9acf581c360f5b5467dd13241d289c94f09986ca4fd1c17bb0f6a8bf"
+        "source_sha256": "0c5ee11aef4919b8694500a46a4ed777750c20ef53c86d5fd7c578a28cb60864"
       },
       {
         "source": "skills/lida-avatar-workflow/references/mesh-repair-completion.md",
         "translation": "skills/lida-avatar-workflow/references/en/mesh-repair-completion.md",
-        "source_sha256": "fc64bf892a584b6e8420786b124f2bd94d73a161f2f7220cdc05503b9872a674"
+        "source_sha256": "2e53cd338eb48bf6b3356760d344e5ce5071827b41ca01712cefb8bbb45f18cd"
       },
       {
         "source": "skills/lida-avatar-workflow/references/mesh-weight.md",
         "translation": "skills/lida-avatar-workflow/references/en/mesh-weight.md",
-        "source_sha256": "c248ecb3fc9b4c8d1687759bcbab73f1d33f9332e1414c9be9453e17acc0f548"
+        "source_sha256": "ce597d14bb3f9be4886b94400c5c769a1b634248950446bcdfe4737db6e3b734"
       },
       {
         "source": "skills/lida-avatar-workflow/references/model-tools.md",
         "translation": "skills/lida-avatar-workflow/references/en/model-tools.md",
-        "source_sha256": "3c937497ad3186cf1b1bd75cba76a90c15da7e975fc95428bc747ed29f6496f8"
+        "source_sha256": "fc624027642a63739a56a4d8023d88071ff22399225a5e286529eb2d2ee19681"
       },
       {
         "source": "skills/lida-avatar-workflow/references/mouth-shapes.md",
@@ -497,7 +497,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/secondary-motion.md",
         "translation": "skills/lida-avatar-workflow/references/en/secondary-motion.md",
-        "source_sha256": "c6e6e779e1c1ee5a7d4b3a9f6b516c8bd71af901dbcbcd5043e5cffeb05871c2"
+        "source_sha256": "a1b94f1504b654c4ce2b95561fbcbf2b7c7f00077cc28114aeb3b09cb655adca"
       },
       {
         "source": "skills/lida-avatar-workflow/references/shader-setup.md",
@@ -517,7 +517,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/tripo-autorig.md",
         "translation": "skills/lida-avatar-workflow/references/en/tripo-autorig.md",
-        "source_sha256": "cbd56d46ec3c332198c143d76b6460dd130db70289b48acaa01d74f8cff1e6b9"
+        "source_sha256": "f6987639ed98ba36e1cff278babccff85bdc5cd51034f4abb8adc37349a69b0c"
       },
       {
         "source": "skills/lida-avatar-workflow/references/usage-and-attribution.md",
@@ -577,7 +577,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/accessory-fit.md",
         "translation": "skills/lida-avatar-workflow/references/en/accessory-fit.md",
-        "source_sha256": "f470d318322157c2fa585f5f0ea7977cfa45c34500f29b8666978ae1aa5bc351"
+        "source_sha256": "6b82fa7baddd5f1c0112c3d547335d71c4104bf310ff03b28f21ea46e94a56e6"
       },
       {
         "source": "skills/lida-avatar-workflow/references/penetration-check.md",
@@ -592,7 +592,7 @@
       {
         "source": "skills/lida-avatar-workflow/references/hand-rig.md",
         "translation": "skills/lida-avatar-workflow/references/en/hand-rig.md",
-        "source_sha256": "d1e958a7ff60d53b6c0acec6c626cce6a77c27cb47eb4062cf23a8db0455a989"
+        "source_sha256": "a031af762bc086475128629490e9f8bad326a87374c03200aa6d5413a6db9891"
       }
     ]
   },

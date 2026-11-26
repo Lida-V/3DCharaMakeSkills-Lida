@@ -42,6 +42,15 @@ Separate design roles such as bangs, face-framing strands, crown, braids, and ba
 
 Preserve good existing shapes. Subdivision and painted detail cannot repair a base whose front, side, and back lengths disagree.
 
+### Moving hair generated with another head onto a different head
+
+When hair was generated as part of a head-with-hair model and must sit on a different head, such as a shared common head, decide where the original head goes before reshaping the hair.
+
+1. **Align by the drawn facial landmarks.** In the front view, make both outer eye corners (the outer end of the upper-lid line) coincide, and take the ratio of the corner spacing as the scale. In the side view, match the nose tip front to back. A least-squares fit between skin surfaces, or an average of 3D points such as iris-coloured vertices or the front of the eyeball, can leave the drawn eyes several millimetres off even when the residual is small.
+2. **Confirm the alignment in renders before measuring anything else.** Render front and side views in the same frame, overlay the target head's outline and eye openings, and mark the eye corners and nose tip. Do not use fit measurements taken while the landmarks are misaligned.
+3. **Measure after the landmarks match.** Chin height, ear position, how much and how deep the target skull pokes outside the original head (hair), and the distance from the skull to the outer hair surface (whether the hair floats). Anime faces do not push the chin forward, so the "front-most point" picks up the nose or lips. Follow the midline front profile downward and take the point just before the outline turns back under the jaw as the chin.
+4. **A single uniform scale does not fix everything.** Skull size and ear position relative to the face differ between characters; scaling to match the chin or skull shifts the relation between the eyes and the bangs. For the offsets that remain after landmark alignment (for example ears front to back), either patch locally with an inner hair layer and a smoothed hairline, or build a shape key that changes the head proportions.
+
 ## 2. Refine strand flow, cross-sections, and roots
 
 **Goal: Be able to explain each strand's flow from root to tip, its width and thickness, and its overlap with neighbors.**
@@ -95,6 +104,7 @@ Disable shape depressions and protrusions, normals, outlines, images, and AO one
 - **Do not break continuous color at part boundaries.** For continuous gradients or highlights, use a shared reference or correspondence across boundaries. Independent height references for each part can create rectangular color steps.
 - **Separate the whitest highlight core from the fading edges.** Concentrating white at the lower edge and adding a dark line below it can look like a thick drip of paint. Place the white core inside the highlight and compare the upper edge, lower edge, and fine tips as they fade back to strand color. Match the target and check that highlights remain visible at normal distance.
 - **Keep UVs and images paired.** Check root-to-tip flow, reversals, and steps at seams with a grid and actual materials. Before baking an added inner layer into an existing image, check for overlapping UVs. Where needed, follow [adjustment methods](adjustment-methods.md) to separate the added hair's materials, UVs, and bake targets.
+- **Make the texture of reshaped hair with the generation service's re-texturing.** In Lida's production, the texture after the hair shape was settled came from the re-texturing step of Tripo or a similar service, and hand-painted images were not used as final. When sending hair whose UVs follow the strands, do not use a setting that rebuilds the UVs, and before use confirm by island count and layout that the returned UVs match the ones sent.
 
 Lida's fine lines and highlights went through repeated revisions; a version that also softened the lower edge back into strand color was selected. The silver-white, pale lilac, and highlight preferences are recorded separately in [Lida's design notes](lida-design.md), not imposed on every hairstyle. Recheck at final resolution; downscaling does not automatically preserve fine lines or highlights.
 
@@ -138,6 +148,7 @@ Distinguish working settings, saved settings, settings rebuilt by script, baked 
 | More bones left the upper section looking like a board | Align the knot with where movement begins and test the weight transition from the fixed region on a few strands. |
 | Painted lines repeated mesh divisions and highlights looked like drips | Compare strand volume, fine lines, gradients, and highlights separately; separate the white core from the fading upper and lower edges. |
 | Skin-color changes were used to hide a real gap | Separate intended skin, scalp color, and missing hair volume in side and oblique views; add volume and hairline coverage only where needed. |
+| Hair from another head was moved at a skin-surface fit, and the drawn eyes stayed misaligned | Match the outer eye corners in front view and the nose tip in side view, confirm the match in renders, then measure the remaining fit. |
 | Avoiding contact damaged the hairstyle or another motion | Identify strand, chain, collision partner, and time. Adjust locally and compare the neutral shape and other required movements again. |
 
 These are observed production failures and improvements. Do not turn a passing intermediate-candidate check into a claim of first-attempt adoption. Consolidate later conditions into the next request. If two consecutive candidates addressing the same cause do not improve practical appearance, return to the structure of connections, cross-sections, fixed regions, and collision setup.

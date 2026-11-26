@@ -32,6 +32,8 @@ Correct bone names/counts do not resolve a bulging shoulder during arm raise, lo
 3. **For moving use, inspect individual neutral → intermediate → required maximum → return.** Check abrupt deformation/switches between endpoints. Add required combinations: arm plus torso for shoulders, gripping including thumb plus wrist for hands, knee bending plus leg direction for knees, for example. Choose actual-use combinations. In multi-view videos and keyframe sheets, include **clay (Cavity) views of folding inner surfaces (such as the palm)** alongside actual materials, and run intersection checks across **all interpolated frames**, not only held key poses.
 4. **Inspect dependencies and reopening.** Display corresponding clothes, nails, ornaments, shadow layers, and similar parts. Restore parts hidden for diagnosis. Inspect after reopening and in required destinations. Record issue time/view/part.
 
+When a render does not look like the saved model, check what was rendered before adjusting values. A check script once turned every object visible, so a hidden backup in the saved version (a removed original part) showed in front, and no change to the material values altered the look. List the objects that entered the render, and make check scripts keep the saved visibility.
+
 Verification images come from the actual saved model. Generated images and schematics are targets/explanations, not replacement evidence for corrections. Use [visual handoff](visual-handoff.md) for image/version correspondence and [trial and error](trial-and-error.md) for cause isolation/re-diagnosis.
 
 ## Record selection and remaining work
